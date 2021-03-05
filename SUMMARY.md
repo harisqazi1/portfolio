@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [ReadMe](README.md)
 * [Tools for CTFs](tools-for-ctfs.md)
 * [Security+ Study Guide](security+-study-guide.md)
 
