@@ -28,7 +28,7 @@
 ## Rubber Ducky Scripts
 
 * [Digispark ATtiny85 Rubber Ducky](rubber-ducky-scripts/attiny85/README.md)
-  * [MacOS\_Scripts](rubber-ducky-scripts/attiny85/untitled/README.md)
+  * [MacOS Scripts](rubber-ducky-scripts/attiny85/untitled/README.md)
     * [Wi-Fi Name](rubber-ducky-scripts/attiny85/untitled/wi-fi-name.md)
     * [Website Pop-up](rubber-ducky-scripts/attiny85/untitled/website-pop-up.md)
 
