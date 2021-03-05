@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [ReadMe](README.md)
 * [Tools for CTFs](tools-for-ctfs.md)
 * [Security+ Study Guide](security+-study-guide.md)
 
@@ -28,7 +28,7 @@
 ## Rubber Ducky Scripts
 
 * [Digispark ATtiny85 Rubber Ducky](rubber-ducky-scripts/attiny85/README.md)
-  * [MacOS\_Scripts](rubber-ducky-scripts/attiny85/untitled/README.md)
+  * [MacOS Scripts](rubber-ducky-scripts/attiny85/untitled/README.md)
     * [Wi-Fi Name](rubber-ducky-scripts/attiny85/untitled/wi-fi-name.md)
     * [Website Pop-up](rubber-ducky-scripts/attiny85/untitled/website-pop-up.md)
 
