@@ -21,5 +21,23 @@ Sub Auto_Open()
 End Sub
 ```
 
+### Print Desktop Name
+
+We can use the Visual Basic code to display the name of the Desktop to the screen when macros are enabled.
+
+```cpp
+Sub Workbook_Open()
+    Set Excel_Shell = CreateObject("WScript.Shell")
+    Set Excel_Shell_Exec = Excel_Shell.Exec("whoami")
+    MsgBox (Excel_Shell_Exec.StdOut.ReadAll)
+End Sub
+```
+
+We have to copy this code under Microsoft Excel Objects in order to get it to work.
+
+![On the right top we can see where the code will be edited](../.gitbook/assets/screenshot-2021-03-06-150627.png)
+
+After this you can save and exit the Excel file. When you open it again, there should be a popup with the Desktop name.
+
 
 
