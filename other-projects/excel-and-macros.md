@@ -42,7 +42,7 @@ After this you can save and exit the Excel file. When you open it again, there s
 
 ### System Information Exfiltration
 
-This code is meant for Windows systems \(tested on Windows 10\), and sends the output of the "systeminfo" command on Windows to an external website, where you can read it by entering your own webhook link.
+This code is meant for Windows systems \(tested on Windows 10\), and sends the output of the "systeminfo" command on Windows to an external website, where you can read it by entering your own webhook link. The client will notice the Command Prompt pop up for this code.
 
 ```csharp
 Sub Workbook_Open()

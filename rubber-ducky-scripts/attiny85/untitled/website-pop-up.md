@@ -21,7 +21,7 @@ void loop() {
     DigiKeyboard.print("Terminal"); //Opens the Terminal
     DigiKeyboard.sendKeyStroke(KEY_ENTER); 
     DigiKeyboard.delay(500);
-    DigiKeyboard.print("open https://harisqazi1.gitbook.io/blog/"); //Enter your own website here
+    DigiKeyboard.print("open https://harisqazi.gitbook.io/blog/"); //Enter your own website here
     DigiKeyboard.sendKeyStroke(KEY_ENTER);
     hack = false; //Changes the boolean to false
   }
