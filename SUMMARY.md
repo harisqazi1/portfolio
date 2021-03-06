@@ -23,6 +23,7 @@
 ## Other Projects
 
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
+* [Excel and Macros](other-projects/excel-and-macros.md)
 * [Coding an SDR program](other-projects/coding-an-sdr-program.md)
 
 ## Rubber Ducky Scripts
