@@ -15,9 +15,7 @@ We can create a popup message that will appear when somebody enables the macros 
 ```cpp
 'Code gotten from https://analysistabs.com/excel-vba/run-macro-automatically-opening-workbook/'
 Sub Auto_Open()
-
     Msgbox "Popup Message Here"
-
 End Sub
 ```
 
