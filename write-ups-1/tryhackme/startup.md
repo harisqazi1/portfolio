@@ -58,7 +58,9 @@ Now, I have to find a way to get to root. I did need some help here again. I the
 echo "Done!"
 ```
 
-I will then have to run netcat on my machine, that way I am ready for the netcat connection. Running "nc -vlnp 1234" will allow my machine to be open to a connection through netcat.
+I will then have to run netcat on my machine, that way I am ready for the netcat connection. Running "nc -vlnp 1234" will allow my machine to be open to a connection through netcat. After a couple minutes, I then got a connection to the root user.
 
+![root access](../../.gitbook/assets/screenshot-2021-03-07-171544.png)
 
+I then had root and also the final flag needed to finish the room.
 
