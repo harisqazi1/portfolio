@@ -30,7 +30,7 @@ I did get lost a bit here. I knew we had to upload a file to the ftp directory. 
 
 ![netcat shell](../../.gitbook/assets/image%20%2810%29.png)
 
-Using netcat, we can send and recieve information. Here we are able to send linux commands. I found the recipe file and it was in the root directory of the system.
+Using netcat, we can send and receive information. Here we are able to send linux commands. I found the recipe file and it was in the root directory of the system.
 
 ![output of recipe.txt](../../.gitbook/assets/screenshot-2021-03-07-162434.png)
 
