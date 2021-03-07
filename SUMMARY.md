@@ -6,6 +6,8 @@
 
 ## Write-ups <a id="write-ups-1"></a>
 
+* [TryHackMe](write-ups-1/tryhackme/README.md)
+  * [Mr Robot CTF](write-ups-1/tryhackme/mr-robot-ctf.md)
 * [HackThisSite](write-ups-1/untitled/README.md)
   * [Basic Missions - Basic 1](write-ups-1/untitled/basic-missions-basic-1.md)
   * [Basic Missions - Basic 2](write-ups-1/untitled/basic-missions-basic-2.md)
