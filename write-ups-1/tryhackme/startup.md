@@ -22,5 +22,9 @@ These files look interesting, so I will download them. I following [this website
 wget -r ftp://anonymous:@10.10.201.52
 ```
 
-I then had 3 items in my local directory: an image, a text file, and a directory called "ftp". I now have to find any useful information from these files. 
+I then had 3 items in my local directory: an image, a text file, and a directory called "ftp". I now have to find any useful information from these files. I noticed that in the text file, called "notice.txt, there is a name being used:
+
+> Whoever is leaving these damn Among Us memes in this share, it IS NOT FUNNY. People downloading documents from our website will think we are a joke! Now I dont know who it is, but Maya is looking pretty sus.
+
+Here the name Maya could be pointing us to a way inside the system, where the username is Maya or maya.
 
