@@ -15,6 +15,6 @@ Based on the hint \#1 given by TryHackMe, which was "Robots". This gave me a hin
 There are 2 files that are here: one is dictionary \(or a wordlist\), and the other one is one of the answers for the CTF. The dictionary will come handy later in the CTF. The second hint is "White coloured font", which makes me think I have to look more closely at a html file, in order to find where the white colored text is. 
 
 {% hint style="info" %}
-### Under Maintanence
+### Under Maintenance
 {% endhint %}
 

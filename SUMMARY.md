@@ -7,6 +7,7 @@
 ## Write-ups <a id="write-ups-1"></a>
 
 * [TryHackMe](write-ups-1/tryhackme/README.md)
+  * [Startup](write-ups-1/tryhackme/startup.md)
   * [tomghost](write-ups-1/tryhackme/tomghost.md)
   * [Mr Robot CTF](write-ups-1/tryhackme/mr-robot-ctf.md)
 * [HackThisSite](write-ups-1/untitled/README.md)
@@ -20,16 +21,16 @@
   * [Forensics 101](write-ups-1/ctflearn/forensics-101.md)
   * [Binwalk](write-ups-1/ctflearn/binwalk.md)
 
+## Data Exfiltration
+
+* [Excel and Macros](data-exfiltration/excel-and-macros.md)
+* [Digispark ATtiny85 Rubber Ducky](data-exfiltration/attiny85/README.md)
+  * [MacOS Scripts](data-exfiltration/attiny85/untitled/README.md)
+    * [Wi-Fi Name](data-exfiltration/attiny85/untitled/wi-fi-name.md)
+    * [Website Pop-up](data-exfiltration/attiny85/untitled/website-pop-up.md)
+
 ## Other Projects
 
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
-* [Excel and Macros](other-projects/excel-and-macros.md)
 * [Coding an SDR program](other-projects/coding-an-sdr-program.md)
-
-## Rubber Ducky Scripts
-
-* [Digispark ATtiny85 Rubber Ducky](rubber-ducky-scripts/attiny85/README.md)
-  * [MacOS Scripts](rubber-ducky-scripts/attiny85/untitled/README.md)
-    * [Wi-Fi Name](rubber-ducky-scripts/attiny85/untitled/wi-fi-name.md)
-    * [Website Pop-up](rubber-ducky-scripts/attiny85/untitled/website-pop-up.md)
 
