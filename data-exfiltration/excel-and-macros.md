@@ -40,7 +40,7 @@ After this you can save and exit the Excel file. When you open it again, there s
 
 ### System Information Exfiltration
 
-This code is meant for Windows systems \(tested on Windows 10\), and sends the output of the "systeminfo" command on Windows to an external website, where you can read it by entering your own webhook link. The client will notice the Command Prompt pop up for this code.
+This code is meant for Windows systems \(tested on Windows 10\), and sends the output of the "systeminfo" command on Windows to an external website, where you can read it by entering your own web-hook link. The client will notice the Command Prompt pop up for this code.
 
 ```csharp
 Sub Workbook_Open()
@@ -74,7 +74,7 @@ End Sub
 
 ```
 
-In line 6, we can see the canary token being used. Once we access the token, it then sends the information to the email or webhook we have used initially. Our output should look like this:
+In line 6, we can see the canary token being used. Once we access the token, it then sends the information to the email or web-hook we have used initially. Our output should look like this:
 
 ```csharp
 {
@@ -90,4 +90,8 @@ In line 6, we can see the canary token being used. Once we access the token, it 
   "time": "2021-03-07 20:25:36 (UTC)"
 }
 ```
+
+### Powershell - Running Processes
+
+Similar to how we were using Command Prompt previously, we can now use Powershell. This allows us to have access to more data. 
 
