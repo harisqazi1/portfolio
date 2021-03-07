@@ -91,7 +91,3 @@ In line 6, we can see the canary token being used. Once we access the token, it 
 }
 ```
 
-### Powershell - Running Processes
-
-Similar to how we were using Command Prompt previously, we can now use Powershell. This allows us to have access to more data. 
-
