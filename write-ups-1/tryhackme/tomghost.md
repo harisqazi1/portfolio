@@ -42,7 +42,7 @@ We now know that they are using the Apache version Tomcat 9.0.30. I will try to 
 
 At this point, I am thinking that "Ghostcat" might be my way in. I then used searchsploit in order to see what exploits are currently on my ParrotOS relating to this:
 
-![searchsploit output](../../.gitbook/assets/image%20%286%29.png)
+![searchsploit output](../../.gitbook/assets/image%20%288%29.png)
 
 I will then copy this file to my local directory so I can use it for the exploit:
 
@@ -95,5 +95,42 @@ Getting resource at ajp13://10.10.151.10:8009/asdf
 
 After this, I saved the username and password. I had to see where the username and password would fit into. Turns out, it works for SSH:
 
-![](../../.gitbook/assets/image%20%281%29.png)
+![The home directory for the user](../../.gitbook/assets/image%20%281%29.png)
+
+There were 2 files in this directory: credential.pgp and tryhackme.asc. Neither of them looked as interesting as I thought they would. Looking around, I found a folder of a different user, and in their directory, I found the user.txt file. 
+
+![The other user&apos;s file](../../.gitbook/assets/screenshot-2021-03-06-230615.png)
+
+I realized that to switch my user access, to merlin \(or even to root\), I had to do something with the files in the skyfuck directory. I downloaded them using scp:
+
+![Scp command](../../.gitbook/assets/screenshot-2021-03-06-231338.png)
+
+I did run into run more trouble here as well. While trying to import the tryhackme.asc by gpg, it was asking me for a password, which I did not have. I had to refer back to the [previous website ](https://cyber-99.co.uk/thm-tomghost)to see how else I can attack this problem. Based on the website, my next step was to use John the ripper to crack the asc file. Prior to doing that, I did have to change into a format that is readable by John. Here is where programs in /opt/john/ come into play. They convert files from one type into a john crackable format. We will use "gpg2john.py". 
+
+![gpg2john command](../../.gitbook/assets/image%20%287%29.png)
+
+Running john on it let me to a password:
+
+![john output](../../.gitbook/assets/screenshot-2021-03-06-233030.png)
+
+I then used the commands on [this website](https://superuser.com/questions/46461/decrypt-pgp-file-using-asc-key) in order to decrypt the files using the password from the john command. 
+
+![](../../.gitbook/assets/screenshot-2021-03-06-233420.png)
+
+From there, I got into merlin's account using that password. I ran "sudo -l" to see what commands the user merlin is able to do.
+
+![sudo -l output](../../.gitbook/assets/image%20%286%29.png)
+
+We can see that merlin is able to the "zip" command. I have not used this command before, so i will have to do research into how we can root using this. I went to the [GTFObins website](https://gtfobins.github.io/gtfobins/zip/#sudo) to see how I am able to get root on this machine. I ran the following commands:
+
+```markup
+TF=$(mktemp -u)
+sudo zip $TF /etc/hosts -T -TT 'sh #'
+```
+
+After this, I had a root shell. I was then able to read the contents of /root/root.txt.
+
+![](../../.gitbook/assets/screenshot-2021-03-06-234126.png)
+
+I had now gotten the password and had completed the room. Overall, it was a great room. I did get lost a couple of times, but I think that's part of the learning process.
 
