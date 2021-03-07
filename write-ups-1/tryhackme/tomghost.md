@@ -38,15 +38,15 @@ We can see that there are 4 main ports available. Since there is no port 80 \(re
 
 We now know that they are using the Apache version Tomcat 9.0.30. I will try to use msfconsole \(Metasploit\) in order to find out if there is a vulnerability against this. Searching on exploit-db.com led me to this:
 
-![exploit-db results for Tomcat](../../.gitbook/assets/image%20%284%29.png)
+![exploit-db results for Tomcat](../../.gitbook/assets/image%20%285%29.png)
 
 At this point, I am thinking that "Ghostcat" might be my way in. I then used searchsploit in order to see what exploits are currently on my ParrotOS relating to this:
 
-![searchsploit output](../../.gitbook/assets/image%20%285%29.png)
+![searchsploit output](../../.gitbook/assets/image%20%286%29.png)
 
 I will then copy this file to my local directory so I can use it for the exploit:
 
-![Copying to local directory](../../.gitbook/assets/image%20%281%29.png)
+![Copying to local directory](../../.gitbook/assets/image%20%282%29.png)
 
 I did get lost here because I did find the right exploit, but it was not working for some reason. I did have to search online at this part, and came upon this [website](https://cyber-99.co.uk/thm-tomghost), and I saw they were using a command similar to mine with only one change: they were using the "python2.7" command instead of the regular "python" command. I entered the following:
 
@@ -86,12 +86,14 @@ Getting resource at ajp13://10.10.151.10:8009/asdf
   <display-name>Welcome to Tomcat</display-name>
   <description>
      Welcome to GhostCat
-	username:password <!----I took out the username and password----->
+	skyfuck:password <!----I took out the password----->
   </description>
 
 </web-app>
 
 ```
 
-After this, I saved the username and password. I had to see where the username and password would fit into. 
+After this, I saved the username and password. I had to see where the username and password would fit into. Turns out, it works for SSH:
+
+![](../../.gitbook/assets/image%20%281%29.png)
 
