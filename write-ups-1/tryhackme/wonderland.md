@@ -45,5 +45,9 @@ I can see a directory called /a. In the directory, I did not see anything specia
 
 ![](../../.gitbook/assets/image%20%2812%29.png)
 
+My guess is that, it could be the word rabbit, bit a "/" between each letter. That worked! I ended up at a page called IP\_address/r/a/b/b/i/t. Looking at the source code for the website, I did see the a hint:
 
+![](../../.gitbook/assets/screenshot-2021-03-09-162320.png)
+
+I added this hint to my notes. This could be a way in through ssh.
 

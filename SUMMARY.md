@@ -6,6 +6,7 @@
 
 ## Write-ups <a id="write-ups-1"></a>
 
+* [Penetration Test Resources](write-ups-1/penetration-test-resources.md)
 * [TryHackMe](write-ups-1/tryhackme/README.md)
   * [Wonderland](write-ups-1/tryhackme/wonderland.md)
   * [Startup](write-ups-1/tryhackme/startup.md)
