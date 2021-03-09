@@ -77,3 +77,7 @@ sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
 
 After this, I was the rabbit user on the machine. I now had to find a way to get higher. In the rabbit user's home directory, there is an executable called "teaParty". At this point, I have read the write up for it, and realized that there was way more work to be done. I will try to continue this later.
 
+{% hint style="warning" %}
+**Under maintenance**
+{% endhint %}
+
