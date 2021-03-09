@@ -6,6 +6,8 @@
   * [Obsidian](https://obsidian.md/)
   * Cherry Tree
   * Sublime
+* Network Scanning
+  * nmap
 * Directory Discovery
   * gobuster
   * Dirbuster
