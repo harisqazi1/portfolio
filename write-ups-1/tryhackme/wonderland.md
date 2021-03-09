@@ -13,11 +13,37 @@ I will first run an nmap scan on the IP address, in order to find what is on the
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-I can see that port 80 \(most common for HTTP\) is being used. I then ran dirb on the website. This can be done by the following command:
+I can see that port 80 \(most common for HTTP\) is being used. I then ran gobuster on the website. This can be done by the following command:
 
 ```c
-dirb http://10.10.213.33 SecLists/Discovery/Web-Content/directory-list-2.3-small.txt
+gobuster dir -u http://10.10.213.33 -t 10 -w SecLists/Discovery/Web-Content/directory-list-2.3-small.txt
 ```
 
-The word list that I am using is from [Github](https://github.com/danielmiessler/SecLists). You can clone it to your own system, and then use it. It has a lot of lists, so you can choose which one you think is a good idea.
+> -u = IP or URL to the website
+>
+> -t = threads to run at once
+>
+> -w = location of the wordlist
+
+The word list that I am using is from [Github](https://github.com/danielmiessler/SecLists). You can clone it to your own system, and then use it. It has a lot of lists, so you can choose which one you think is a good idea. I got a couple results from the gobuster command:
+
+```c
+gobuster dir -u http://10.10.213.33 -q -t 10 -w SecLists/Discovery/Web-Content/directory-list-2.3-small.txt 
+/img (Status: 301)
+/r (Status: 301)
+```
+
+I checked out /img, and it did not have anything that interesting. I then checked out /r. 
+
+![](../../.gitbook/assets/image%20%2813%29.png)
+
+In this file, it tells us to keep going. So I will run gobuster on it again, to see where I can go from here. this time, I will add "/r" at the end of my IP address. I did get another result:
+
+![gobuster output](../../.gitbook/assets/image%20%2814%29.png)
+
+I can see a directory called /a. In the directory, I did not see anything special other than the main page of it:
+
+![](../../.gitbook/assets/image%20%2812%29.png)
+
+
 
