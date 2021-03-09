@@ -35,19 +35,45 @@ gobuster dir -u http://10.10.213.33 -q -t 10 -w SecLists/Discovery/Web-Content/d
 
 I checked out /img, and it did not have anything that interesting. I then checked out /r. 
 
-![](../../.gitbook/assets/image%20%2813%29.png)
+![](../../.gitbook/assets/image%20%2815%29.png)
 
 In this file, it tells us to keep going. So I will run gobuster on it again, to see where I can go from here. this time, I will add "/r" at the end of my IP address. I did get another result:
 
-![gobuster output](../../.gitbook/assets/image%20%2814%29.png)
+![gobuster output](../../.gitbook/assets/image%20%2816%29.png)
 
 I can see a directory called /a. In the directory, I did not see anything special other than the main page of it:
 
-![](../../.gitbook/assets/image%20%2812%29.png)
+![](../../.gitbook/assets/image%20%2814%29.png)
 
 My guess is that, it could be the word rabbit, bit a "/" between each letter. That worked! I ended up at a page called IP\_address/r/a/b/b/i/t. Looking at the source code for the website, I did see the a hint:
 
 ![](../../.gitbook/assets/screenshot-2021-03-09-162320.png)
 
-I added this hint to my notes. This could be a way in through ssh.
+I added this hint to my notes. This could be a way in through ssh. Fortunately, it worked and I got into the machine using the hint from above.
+
+![](../../.gitbook/assets/image%20%2812%29.png)
+
+I now have to find the user.txt file, as the room suggests I look for. I did find other users in the machine:
+
+![](../../.gitbook/assets/image%20%2813%29.png)
+
+At this point, I am trying to find anything that I can to help me find the user.txt. I found out by running "sudo -l" that alice only has one sudo command:
+
+```c
+User alice may run the following commands on wonderland:
+    (rabbit) /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
+```
+
+I realized that I might have to find a way to read another file using this. I did get lost at this point. When the hint did not make sense to me, I found [this website](https://0x00jeff.github.io/tryhackme-wonderland-writeup/) that guided me into the right direction. I realized that this meant that the user.txt flag was in the root directory.
+
+![](../../.gitbook/assets/screenshot-2021-03-09-165204.png)
+
+I had found the user.txt file. Now I had to find a way to upgrade my user privilege. Using the previous website as a reference, I then would have to use the rabbit user on the machine, as well as make a file called "random" that the python script would call. I then typed the following commands, which I found on [this website](https://0x00jeff.github.io/tryhackme-wonderland-writeup/) \(same as before\): 
+
+```c
+echo 'import pty;pty.spawn("/bin/bash")' > random.py
+sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py 
+```
+
+After this, I was the rabbit user on the machine. I now had to find a way to get higher. In the rabbit user's home directory, there is an executable called "teaParty". At this point, I have read the write up for it, and realized that there was way more work to be done. I will try to continue this later.
 

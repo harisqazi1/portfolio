@@ -11,7 +11,6 @@
   * [Wonderland](write-ups-1/tryhackme/wonderland.md)
   * [Startup](write-ups-1/tryhackme/startup.md)
   * [tomghost](write-ups-1/tryhackme/tomghost.md)
-  * [Mr Robot CTF](write-ups-1/tryhackme/mr-robot-ctf.md)
 * [HackThisSite](write-ups-1/untitled/README.md)
   * [Basic Missions - Basic 1](write-ups-1/untitled/basic-missions-basic-1.md)
   * [Basic Missions - Basic 2](write-ups-1/untitled/basic-missions-basic-2.md)
