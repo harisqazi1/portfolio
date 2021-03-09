@@ -7,6 +7,7 @@
 ## Write-ups <a id="write-ups-1"></a>
 
 * [TryHackMe](write-ups-1/tryhackme/README.md)
+  * [Wonderland](write-ups-1/tryhackme/wonderland.md)
   * [Startup](write-ups-1/tryhackme/startup.md)
   * [tomghost](write-ups-1/tryhackme/tomghost.md)
   * [Mr Robot CTF](write-ups-1/tryhackme/mr-robot-ctf.md)
