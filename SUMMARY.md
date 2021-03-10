@@ -6,10 +6,12 @@
 
 ## Write-ups <a id="write-ups-1"></a>
 
+* [Penetration Test Resources](write-ups-1/penetration-test-resources.md)
 * [TryHackMe](write-ups-1/tryhackme/README.md)
+  * [Anonymous](write-ups-1/tryhackme/anonymous.md)
+  * [Wonderland](write-ups-1/tryhackme/wonderland.md)
   * [Startup](write-ups-1/tryhackme/startup.md)
   * [tomghost](write-ups-1/tryhackme/tomghost.md)
-  * [Mr Robot CTF](write-ups-1/tryhackme/mr-robot-ctf.md)
 * [HackThisSite](write-ups-1/untitled/README.md)
   * [Basic Missions - Basic 1](write-ups-1/untitled/basic-missions-basic-1.md)
   * [Basic Missions - Basic 2](write-ups-1/untitled/basic-missions-basic-2.md)
