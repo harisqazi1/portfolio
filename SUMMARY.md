@@ -8,6 +8,7 @@
 
 * [Penetration Test Resources](write-ups-1/penetration-test-resources.md)
 * [TryHackMe](write-ups-1/tryhackme/README.md)
+  * [Anonymous](write-ups-1/tryhackme/anonymous.md)
   * [Wonderland](write-ups-1/tryhackme/wonderland.md)
   * [Startup](write-ups-1/tryhackme/startup.md)
   * [tomghost](write-ups-1/tryhackme/tomghost.md)
