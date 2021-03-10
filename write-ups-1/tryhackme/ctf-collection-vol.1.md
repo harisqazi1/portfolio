@@ -10,5 +10,9 @@ The question asks us to decode a code: VEhNe2p1NTdfZDNjMGQzXzdoM19iNDUzfQ==. The
 echo "VEhNe2p1NTdfZDNjMGQzXzdoM19iNDUzfQ==" | base64 -d
 ```
 
-This decodes the 
+This decodes the string in the quotes using base64 encoding. After the command, I got the flag:
+
+![](../../.gitbook/assets/screenshot-2021-03-10-170140.png)
+
+
 
