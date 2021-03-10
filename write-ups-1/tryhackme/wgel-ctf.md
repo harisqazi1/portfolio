@@ -48,7 +48,7 @@ After this, I had to find the user.txt \(or user\_file.txt\) file. I found the f
 
 ![](../../.gitbook/assets/screenshot-2021-03-10-153301.png)
 
-Now that I had found the user flag, I had to find a way to escalate priveleges. I ran the "sudo -l" command, which told me the commands I am able to run with sudo.
+Now that I had found the user flag, I had to find a way to escalate privileges. I ran the "sudo -l" command, which told me the commands I am able to run with sudo.
 
 ```c
 jessie@CorpOne:~/Documents$ sudo -l
@@ -61,5 +61,13 @@ User jessie may run the following commands on CorpOne:
     (root) NOPASSWD: /usr/bin/wget
 ```
 
-It can be seen that I can run "wget" as root. I have to find a way to use that to get the root.txt. I did get lost at this point. I referred back to the [previous write-up](https://github.com/DiracSpace/Penetration-Testing-Walkthoughs/tree/main/WgelCTF) in order to find out the correct command to get to root. I realized that I had to use wget to push something from the machine, and then have netcat open on my machine, in 
+It can be seen that I can run "wget" as root. I have to find a way to use that to get the root.txt. I did get lost at this point. I referred back to the [previous write-up](https://github.com/DiracSpace/Penetration-Testing-Walkthoughs/tree/main/WgelCTF) in order to find out the correct command to get to root. I realized that I had to use wget to push something from the machine, and then have netcat open on my machine, in order to receive the information. 
+
+![](../../.gitbook/assets/pasted-image-20210310153708.png)
+
+I then waited on my host to wait for the response.
+
+![](../../.gitbook/assets/screenshot-2021-03-10-153730.png)
+
+I then got the password in plaintext. 
 
