@@ -1,5 +1,7 @@
 # Wgel CTF
 
+### This is my write-up for the room located at: [https://tryhackme.com/room/wgelctf](https://tryhackme.com/room/wgelctf)
+
 I had to find out what ports were open on the machine. I ran nmap in order to find out what is going:
 
 ```c
