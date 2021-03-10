@@ -37,5 +37,5 @@ There are 4 ports open here, so I will have to find a way to get in using these 
 	-rw-r--r--    1 1000     1000           68 May 12  2020 to_do.txt
 ```
 
-
+I downloaded all of these files to my own computer using the "mget \*" command. I then used the [same write-up](https://m0ndzon3.blogspot.com/2020/06/tryhackme-write-up-anonymous.html) as previously to find out my next step. My next step was to overwrite the clean.sh file, and then fill it in with a reverse bash tcp connection. This can be found at [this github](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#bash-tcp). After this is done, we can then
 
