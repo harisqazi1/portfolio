@@ -4,12 +4,14 @@
 
 * Note Taking:
   * [Obsidian](https://obsidian.md/)
-  * Cherry Tree
-  * Sublime
+  * echo "note here" &gt;&gt; filename
 * Network Scanning
   * nmap
 * Directory Discovery
   * gobuster
   * Dirbuster
   * dirb
+* Exploit Search
+  * searchsploit
+  * [exploitdb](https://www.exploit-db.com/)
 
