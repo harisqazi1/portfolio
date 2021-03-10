@@ -69,5 +69,5 @@ I then waited on my host to wait for the response.
 
 ![](../../.gitbook/assets/screenshot-2021-03-10-153730.png)
 
-I then got the password in plaintext. 
+I then got the password in plaintext. This was the last piece I needed for this room. I did learn a couple interesting things from this room. Although I knew that the http protocol has get and post requests, I did not picture that I would ever export information using the post command on the machine. In addition, I did realize that sometimes I have to look more closely at apache websites. I did not go deep enough as I should have. This is something I hope to improve on in the future.
 
