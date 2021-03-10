@@ -40,5 +40,11 @@ I believe that I needed a username alonside this id\_rsa file in order to get ss
 
 ![](../../.gitbook/assets/screenshot-2021-03-10-152922.png)
 
-Here we can see that the name Jessie is being used. I assumed that if we lowercased the first letter, and made it "jessie", that would be the ssh username. Before connecting to the ssh port, I had modified the id\_rsa file \(after I downloaded it\)
+Here we can see that the name Jessie is being used. I assumed that if we lowercased the first letter, and made it "jessie", that would be the ssh username. Before connecting to the ssh port, I had modified the idrsa file \(after I downloaded it\). In order to do this, I ran "chmod 600 idrsa". This allowed only root have access to edit and read the file. This is also how ssh is able to use the file. This let me into the server
+
+![](../../.gitbook/assets/pasted-image-20210310153146.png)
+
+After this, I had to find the user.txt \(or user\_file.txt\) file. I found the file in the Documents directory:
+
+![](../../.gitbook/assets/screenshot-2021-03-10-153301.png)
 
