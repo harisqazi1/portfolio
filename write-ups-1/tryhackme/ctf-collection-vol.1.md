@@ -22,5 +22,20 @@ For this problem, it wants us to find a flag using its metadata. For this, I use
 
 ### Task 4: Mon, are we going to be okay?
 
+For this one I had to look at the hint in order to figure out a way to crack the file. The hint pointed out that I should use the steganography tool known as "steghide. The command I used for this was:
+
+```text
+steghide --extract -sf Extinction.jpg
+```
+
+ I did not use a password for this, and it output the password in a new file for me:
+
+```text
+cat Final_message.txt 
+It going to be over soon. Sleep my child.
+
+THM{------------------------}
+```
+
 
 
