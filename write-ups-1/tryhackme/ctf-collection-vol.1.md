@@ -41,7 +41,51 @@ THM{------------------------}
 
 This problem mentions the word "Magick" in the title. This makes me think that I might need to run image. After 5 minutes of looking online to find the answer, I had to take a look at the hint. The hint told me that the flag could be hidden on the page somewhere. I then found he flag on the page:
 
+![](../../.gitbook/assets/image%20%2819%29.png)
+
+### Task 6: QRrrrr
+
+For this problem, all a person has to do is to is scan the QR code on the picture you download. When you scan the QR code it shows you the flag on your phone \(or the device you use for the scan\).
+
+### Task 7: Reverse it or read it?
+
+For this problem, we are downloading a ELF file. This is a program that is an executable. My first thought was using ltrace \(a linux command to see a bit more of the backend of the executable\). When that did not work, I then ran "strings" on the file such as:
+
+```c
+strings hello.hello | grep THM
+```
+
+This gave the output:
+
+![](../../.gitbook/assets/image%20%2821%29.png)
+
+### Task 8: Another decoding stuff
+
+We are asked to decode a string: 3agrSy1CewF9v8ukcSkPSYm3oKUoByUpKG4L. I looked at the hint for this one and noticed that it is in base58. I ran the following command:
+
+```c
+echo "3agrSy1CewF9v8ukcSkPSYm3oKUoByUpKG4L" | base58 -d
+```
+
+This got me the flag:
+
+![](../../.gitbook/assets/image%20%2820%29.png)
+
+### Task 9: Left or right
+
+Reading about this, I realize that this might be some sort of shift. The text did mention ROT 13, so I played around with ROT and then got a ROT number to work for me:
+
+![](../../.gitbook/assets/image%20%2822%29.png)
+
+The website I used for this was [CyberChef](https://gchq.github.io/CyberChef/). 
+
+### Task 10: Make a comment
+
+I needed a hint to know what a foothold can be into solving this puzzle. It did not help me as much as I hoped. I found [this write-up](https://shafdo.github.io/pages/blog/ctf/ctf_collection_Vol_1/), which pointed me in the right direction. I then found the flag:
+
 ![](../../.gitbook/assets/image%20%2818%29.png)
+
+### Task 11: Can you fix it?
 
 
 
