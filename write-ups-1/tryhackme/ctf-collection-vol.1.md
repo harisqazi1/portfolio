@@ -16,5 +16,11 @@ This decodes the string in the quotes using base64 encoding. After the command, 
 
 ### Task 3: Meta Meta
 
+For this problem, it wants us to find a flag using its metadata. For this, I used a metadata reading tool on ParrotOS and Kali Linux called "exiftool". Running that command on the file that the problem presented led me to this:
+
+![](../../.gitbook/assets/image%20%2817%29.png)
+
+### Task 4: Mon, are we going to be okay?
+
 
 
