@@ -37,5 +37,11 @@ It going to be over soon. Sleep my child.
 THM{------------------------}
 ```
 
+### Task 5: Erm......Magick
+
+This problem mentions the word "Magick" in the title. This makes me think that I might need to run image. After 5 minutes of looking online to find the answer, I had to take a look at the hint. The hint told me that the flag could be hidden on the page somewhere. I then found he flag on the page:
+
+![](../../.gitbook/assets/image%20%2818%29.png)
+
 
 
