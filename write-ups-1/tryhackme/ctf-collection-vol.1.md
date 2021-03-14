@@ -87,5 +87,5 @@ I needed a hint to know what a foothold can be into solving this puzzle. It did 
 
 ### Task 11: Can you fix it?
 
-
+For this problem, it states "
 
