@@ -73,7 +73,7 @@ This got me the flag:
 
 I later found out that you could find this using ghidra as well. There is a function called "skip", and in the function we can see the print function having the flag in it:
 
-![](../../.gitbook/assets/image%20%2834%29.png)
+![](../../.gitbook/assets/image%20%2836%29.png)
 
 ### Task 9: Left or right
 
@@ -111,7 +111,7 @@ This looks like a encoding/decoding question. I looked at the hint and it told m
 
 ![](../../.gitbook/assets/image%20%2823%29.png)
 
-### Task 14
+### Task 14: An exclusive!
 
 For this problem, I believe I have to XOR two strings together. I put the strings on a website and got an answer:
 
@@ -119,9 +119,9 @@ For this problem, I believe I have to XOR two strings together. I put the string
 
 I did get the result in reverse, so using an online string reverse tool, I got the flag:
 
-![](../../.gitbook/assets/image%20%2832%29.png)
+![](../../.gitbook/assets/image%20%2833%29.png)
 
-### Task 15
+### Task 15: Binary walk
 
 For this problem, it looks like we would have to use the binwalk tool to extract the file. I ran the following command:
 
@@ -131,15 +131,15 @@ binwalk -e hell.jpg
 
 I got an output in a folder. In the folder, there was a file called "hello\_there.txt". I found the flag in it:
 
-![](../../.gitbook/assets/image%20%2833%29.png)
+![](../../.gitbook/assets/image%20%2834%29.png)
 
-### Task 16
+### Task 16: Darkness
 
 For this problem, it seems that we would have to play around with the image to see the flag. The image itself is pure black. I realized that I would have to run StegSolve on the image to see the image. After running StegSolve, I then found the flag on a blue plane:
 
-![](../../.gitbook/assets/image%20%2831%29.png)
+![](../../.gitbook/assets/image%20%2832%29.png)
 
-### Task 17
+### Task 17: A sounding QR
 
 For this problem, we get a QR code. I decoded it using an online tool:
 
@@ -147,17 +147,37 @@ For this problem, we get a QR code. I decoded it using an online tool:
 
 I then went on the website, and listened to the flag. I then typed the flag into the prompt, and I got it correct.
 
-### Task 18
+### Task 18: Dig up the past
 
 For this problem, I will have to the "wayback machine" to find the flag.
 
-![](../../.gitbook/assets/image%20%2836%29.png)
+![](../../.gitbook/assets/image%20%2838%29.png)
 
 Once you go to the date mentioned in the task, you will find the flag on the page. You can also download the html file using wget, and then read the flag that way too:
 
+![](../../.gitbook/assets/image%20%2837%29.png)
+
+### Task 19: Uncrackable!
+
+For this, it seems to be using a vigenere cipher. I found [this website](https://www.guballa.de/vigenere-solver) that decodes it for me without a key. I found the flag using the website:
+
+![](../../.gitbook/assets/image%20%2839%29.png)
+
+### Task 20: Small bases
+
+For this problem, I would have to deocde the text to get the flag. On the website, the hint says to convert it to hex and then to ascii. After doing that, I found the flag:
+
+![](../../.gitbook/assets/image%20%2831%29.png)
+
+### Task 21: Read the packet
+
+For this problem, we would have to read the pcap file. I will use wireshark for this. I ran the following command:
+
+```c
+wireshark flag.pcapng
+```
+
+I then went to File-&gt;Export Objects-&gt;HTTP, and then saved all the files. In that, one of the files was the flag.txt. I read it and got the flag:
+
 ![](../../.gitbook/assets/image%20%2835%29.png)
-
-### Task 19
-
-
 
