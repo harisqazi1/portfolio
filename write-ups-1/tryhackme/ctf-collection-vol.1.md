@@ -73,7 +73,7 @@ This got me the flag:
 
 I later found out that you could find this using ghidra as well. There is a function called "skip", and in the function we can see the print function having the flag in it:
 
-![](../../.gitbook/assets/image%20%2829%29.png)
+![](../../.gitbook/assets/image%20%2834%29.png)
 
 ### Task 9: Left or right
 
@@ -112,6 +112,52 @@ This looks like a encoding/decoding question. I looked at the hint and it told m
 ![](../../.gitbook/assets/image%20%2823%29.png)
 
 ### Task 14
+
+For this problem, I believe I have to XOR two strings together. I put the strings on a website and got an answer:
+
+![](../../.gitbook/assets/image%20%2830%29.png)
+
+I did get the result in reverse, so using an online string reverse tool, I got the flag:
+
+![](../../.gitbook/assets/image%20%2832%29.png)
+
+### Task 15
+
+For this problem, it looks like we would have to use the binwalk tool to extract the file. I ran the following command:
+
+```c
+binwalk -e hell.jpg
+```
+
+I got an output in a folder. In the folder, there was a file called "hello\_there.txt". I found the flag in it:
+
+![](../../.gitbook/assets/image%20%2833%29.png)
+
+### Task 16
+
+For this problem, it seems that we would have to play around with the image to see the flag. The image itself is pure black. I realized that I would have to run StegSolve on the image to see the image. After running StegSolve, I then found the flag on a blue plane:
+
+![](../../.gitbook/assets/image%20%2831%29.png)
+
+### Task 17
+
+For this problem, we get a QR code. I decoded it using an online tool:
+
+![](../../.gitbook/assets/image%20%2829%29.png)
+
+I then went on the website, and listened to the flag. I then typed the flag into the prompt, and I got it correct.
+
+### Task 18
+
+For this problem, I will have to the "wayback machine" to find the flag.
+
+![](../../.gitbook/assets/image%20%2836%29.png)
+
+Once you go to the date mentioned in the task, you will find the flag on the page. You can also download the html file using wget, and then read the flag that way too:
+
+![](../../.gitbook/assets/image%20%2835%29.png)
+
+### Task 19
 
 
 
