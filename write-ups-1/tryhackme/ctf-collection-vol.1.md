@@ -87,5 +87,5 @@ I needed a hint to know what a foothold can be into solving this puzzle. It did 
 
 ### Task 11: Can you fix it?
 
-For this problem, it states "
+For this problem, it states "I accidentally messed up with this PNG file. Can you help me fix it?". This tells me that I have to edit the file header. For this I will use hexeditor. Looking online, I found the "magic numbers" to be "89 50 4E 47". I then used hexeditor to modify the file. I then got the flag in the image.
 
