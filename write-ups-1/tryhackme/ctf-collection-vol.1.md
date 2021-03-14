@@ -71,6 +71,10 @@ This got me the flag:
 
 ![](../../.gitbook/assets/image%20%2820%29.png)
 
+I later found out that you could find this using ghidra as well. There is a function called "skip", and in the function we can see the print function having the flag in it:
+
+![](../../.gitbook/assets/image%20%2829%29.png)
+
 ### Task 9: Left or right
 
 Reading about this, I realize that this might be some sort of shift. The text did mention ROT 13, so I played around with ROT and then got a ROT number to work for me:
@@ -108,4 +112,6 @@ This looks like a encoding/decoding question. I looked at the hint and it told m
 ![](../../.gitbook/assets/image%20%2823%29.png)
 
 ### Task 14
+
+
 
