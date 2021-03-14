@@ -89,11 +89,23 @@ I needed a hint to know what a foothold can be into solving this puzzle. It did 
 
 For this problem, it states "I accidentally messed up with this PNG file. Can you help me fix it?". This tells me that I have to edit the file header. For this, I will use hexeditor. Looking online, I found the "magic numbers" to be "89 50 4E 47". I then used hexeditor to modify the file. 
 
-![](../../.gitbook/assets/image%20%2825%29.png)
+![](../../.gitbook/assets/image%20%2826%29.png)
 
 I then got the flag in the image.
 
+![](../../.gitbook/assets/image%20%2824%29.png)
+
+### Task 12: Read it
+
+This question asks us to find a social media account related to Tryhackme in order to find the flag. I got lost while trying to find the flag. I did run across [this writeup on THM](https://shafdo.github.io/pages/blog/ctf/ctf_collection_Vol_1/), which pointed me in the right direction. I then found the post on the r/Tryhackme subreddit with the flag on it.
+
+![](../../.gitbook/assets/image%20%2827%29.png)
+
+### Task 13: Spin my head
+
+This looks like a encoding/decoding question. I looked at the hint and it told me that the format was "binaryfuck". I then searched online for a decoder and found the flag:
+
 ![](../../.gitbook/assets/image%20%2823%29.png)
 
-
+### Task 14
 
