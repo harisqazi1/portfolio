@@ -31,7 +31,6 @@ void loop() {
     DigiKeyboard.delay(200);
     DigiKeyboard.print("rm Y2ub39PW"); //removes the python file
     DigiKeyboard.sendKeyStroke(KEY_ENTER);
-    
     hack = false; //Changes the boolean to false
   }
 }
