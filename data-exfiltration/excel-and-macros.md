@@ -1,8 +1,8 @@
-# Excel and Macros
+# Microsoft Macros
 
 ### Introduction
 
-Macros on Excel allow a user to run Visual Basic Code in the background of a document. This section of my website will be dedicated to playing around with macros, and finding ways to extract information from the client.
+Macros on Microsoft app \(Word, Excel, etc.\) allow a user to run Visual Basic Code in the background of a document. This section of my website will be dedicated to playing around with macros, and finding ways to extract information from the client.
 
 ### Setup
 
