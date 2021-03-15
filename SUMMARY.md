@@ -27,7 +27,7 @@
 
 ## Data Exfiltration
 
-* [Excel and Macros](data-exfiltration/excel-and-macros.md)
+* [Microsoft Macros](data-exfiltration/excel-and-macros.md)
 * [Digispark ATtiny85 Rubber Ducky](data-exfiltration/attiny85/README.md)
   * [MacOS Scripts](data-exfiltration/attiny85/untitled/README.md)
     * [Wi-Fi Name](data-exfiltration/attiny85/untitled/wi-fi-name.md)
