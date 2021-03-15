@@ -36,3 +36,26 @@ void loop() {
 }
 ```
 
+This script run a python script that outputs ascii art warning the user to make sure they lock their devices when they walk away. This is the output of the python script:
+
+```csharp
+         _________        .---\"\"\"      \"\"\"---.
+        :______.-':      :  .--------------.  :             
+        | ______  |      | :                : |             
+        |:______B:|      | |                | |             
+        |:______B:|      | |                | |             
+        |:______B:|      | |     WARNING    | |             
+        |         |      | |                | |             
+        |:_____:  |      | |                | |             
+        |    ==   |      | :                : |             
+        |       O |      :  '--------------'  :             
+        |       o |      :'---...______...---'
+        |       o |-._.-i___/'             \._
+        |'-.____o_|   '-.   '-...______...-'  `-._          
+        :_________:      `.____________________   `-.___.-. 
+                         .'.eeeeeeeeeeeeeeeeee.'.      :___:
+                       .'.eeeeeeeeeeeeeeeeeeeeee.'.         
+                      :____________________________:
+                  Don't leave your computer unsupervised
+```
+
