@@ -10,6 +10,7 @@ Currently a cybersecurity student at a University. Interested in ethical hacking
 * PicoCTF
 * HackThisSite
 * CTFlearn
+* NahamCon2021
 
 ### My Hacking Mentality: Everything is hackable, you just have to find the right vulnerability
 
