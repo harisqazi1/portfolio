@@ -10,5 +10,5 @@ c4n y0u c4p7u23 7h3 f149?
 
 This seems to be in leetspeak format. I manually was able to convert it, but you can use a website such as [this one](https://www.dcode.fr/leet-speak-1337) to decode it.  I then got the flag:
 
-
+![](../../.gitbook/assets/image%20%2840%29.png)
 
