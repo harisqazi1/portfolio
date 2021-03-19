@@ -112,5 +112,21 @@ Entering the password from the "Leave-me-alone.jpg", I then got the output file:
 
 ![](../../.gitbook/assets/pasted-image-20210318230337.png)
 
-I then found the password for the ssh server for the user "slade". 
+I then found the password for the ssh server for the user "slade". I then entered those credentials and then I got into the server:
+
+![](../../.gitbook/assets/pasted-image-20210318230445.png)
+
+Here my first idea was to run "ls" to find out files in my current directory. I then saw the flag in a "user.txt" file. I then had to upgrade my privileges to root. To do this I ran "sudo -l". This command lets you know what commands our user can do as the root user. 
+
+![](../../.gitbook/assets/pasted-image-20210318230518.png)
+
+Here it can be seen that the command I can run as root is "pkexec". I then went to [https://gtfobins.github.io/](https://gtfobins.github.io/) in order to find out how I can use this command to get to root. I then found this webpage:
+
+![](../../.gitbook/assets/pasted-image-20210318230928.png)
+
+Running this command, I got to root
+
+![](../../.gitbook/assets/pasted-image-20210318231035.png)
+
+Reading the root.txt file, I saw the last flag and was able to complete the box!
 
