@@ -60,7 +60,7 @@ gobuster dir -u http://10.10.121.53/is----/ -w ../resources/SecLists/Discovery/W
 
 ![](../../.gitbook/assets/inkedpasted-image-20210318224731_li%20%281%29.jpg)
 
-I then found another director called "2---". Looking at the source of this website, I found this:
+I then found another directory called "2---". Looking at the source of this website, I found this:
 
 ![](../../.gitbook/assets/inkedpasted-image-20210317202453_li.jpg)
 
