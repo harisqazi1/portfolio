@@ -8,6 +8,8 @@
 
 * [Penetration Test Resources](write-ups-1/penetration-test-resources.md)
 * [TryHackMe](write-ups-1/tryhackme/README.md)
+  * [Lian\_Yu](write-ups-1/tryhackme/lian_yu.md)
+  * [c4ptur3-th3-fl4g](write-ups-1/tryhackme/c4ptur3-th3-fl4g.md)
   * [CTF collection Vol.1](write-ups-1/tryhackme/ctf-collection-vol.1.md)
   * [Wgel CTF](write-ups-1/tryhackme/wgel-ctf.md)
   * [Anonymous](write-ups-1/tryhackme/anonymous.md)
@@ -30,6 +32,7 @@
 * [Microsoft Macros](data-exfiltration/excel-and-macros.md)
 * [Digispark ATtiny85 Rubber Ducky](data-exfiltration/attiny85/README.md)
   * [MacOS Scripts](data-exfiltration/attiny85/untitled/README.md)
+    * [Warning](data-exfiltration/attiny85/untitled/warning.md)
     * [Wi-Fi Name](data-exfiltration/attiny85/untitled/wi-fi-name.md)
     * [Website Pop-up](data-exfiltration/attiny85/untitled/website-pop-up.md)
 
