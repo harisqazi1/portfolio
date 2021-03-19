@@ -90,11 +90,11 @@ This word was in white, and I was unable to see it initially since it matched th
 
 ![](../../.gitbook/assets/pasted-image-20210318225926.png)
 
-Here I can see 4 files I need to get: The 2 PNGs, the one JPG and the last file was the ".other user" file. I downloaded all of them using "mget \*". This should download all the files to your local directory. Reading the ".other user", I came across this:
+Here I can see 4 files I need to get: The 2 PNGs, the one JPG, and the last file was the ".other user" file. I downloaded all of them using "mget \*". This should download all the files to your local directory. Reading the ".other user", I came across this:
 
 ![](../../.gitbook/assets/pasted-image-20210318230027.png)
 
-Here I can see various names, which could be potential usernames and/or passwords. One main name was "Slade" was what stuck out to me. I got stuck here once again. I then looked at the [previous write-up](https://infosecwriteups.com/tryhackme-lian-yu-ctf-writeup-detailed-7c229b1904fd), in order to realize that I had to run "steghide" on the aa.jpg file. When you run steghide, we need a password to extract the data from the aa.jpg file. This is where the Leave-me-alone.png file comes into play. The header for this file is messed up, so we have to edit the header. I found the header online on wikipedia:
+Here I can see various names, which could be potential usernames and/or passwords. One main name was "Slade" was what stuck out to me. I got stuck here once again. I then looked at the [previous write-up](https://infosecwriteups.com/tryhackme-lian-yu-ctf-writeup-detailed-7c229b1904fd), in order to realize that I had to run "steghide" on the aa.jpg file. When you run steghide, we need a password to extract the data from the aa.jpg file. This is where the Leave-me-alone.png file comes into play. The header for this file is messed up, so we have to edit the header. I found the header online on Wikipedia:
 
 ![](../../.gitbook/assets/pasted-image-20210318225339.png)
 
