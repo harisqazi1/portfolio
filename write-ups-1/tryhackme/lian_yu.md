@@ -92,5 +92,25 @@ Here I can see 4 files I need to get: The 2 PNGs, the one JPG and the last file 
 
 ![](../../.gitbook/assets/pasted-image-20210318230027.png)
 
-Here I can see various names, which could be potential usernames and/or passwords. 
+Here I can see various names, which could be potential usernames and/or passwords. One main name was "Slade" was what stuck out to me. I got stuck here once again. I then looked at the [previous write-up](https://infosecwriteups.com/tryhackme-lian-yu-ctf-writeup-detailed-7c229b1904fd), in order to realize that I had to run "steghide" on the aa.jpg file. When you run steghide, we need a password to extract the data from the aa.jpg file. This is where the Leave-me-alone.png file comes into play. The header for this file is messed up, so we have to edit the header. I found the header online on wikipedia:
+
+![](../../.gitbook/assets/pasted-image-20210318225339.png)
+
+I then edited the header of the file using the "hexeditor":
+
+![](../../.gitbook/assets/pasted-image-20210318224939.png)
+
+I was then able to view the file:
+
+![](../../.gitbook/assets/pasted-image-20210318225254.png)
+
+This turned out to be the password for the "steghide" command. Running the following command:
+
+![](../../.gitbook/assets/pasted-image-20210318230316.png)
+
+Entering the password from the "Leave-me-alone.jpg", I then got the output file:
+
+![](../../.gitbook/assets/pasted-image-20210318230337.png)
+
+I then found the password for the ssh server for the user "slade". 
 
