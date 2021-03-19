@@ -67,7 +67,7 @@ I then found another directory called "2---". Looking at the source of this webs
 It is then shown that we need to find a file that has an extension with ".ticket". I then ran gobuster once more, but this time, I ran with an extension:
 
 ```text
-gobuster dir -u http://10.10.121.53/island/2100/ -w ../resources/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -t 40 -x .ticket
+gobuster dir -u http://10.10.121.53/is----/2---/ -w ../resources/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -t 40 -x .ticket
 ```
 
 I then found a file with a .ticket extension.
