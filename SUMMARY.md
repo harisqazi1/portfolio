@@ -36,10 +36,6 @@
     * [Wi-Fi Name](data-exfiltration/attiny85/untitled/wi-fi-name.md)
     * [Website Pop-up](data-exfiltration/attiny85/untitled/website-pop-up.md)
 
-## Privacy
-
-* [Privacy](privacy/privacy.md)
-
 ## Other Projects
 
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
