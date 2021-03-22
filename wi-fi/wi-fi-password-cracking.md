@@ -58,3 +58,10 @@ To crack the password, using the aircrack-ng command, we will run the following 
 sudo aircrack-ng <location of .cap file> -w <dictionary or wordlist>
 ```
 
+### Resources
+
+* [https://book.hacktricks.xyz/pentesting/pentesting-network/wifi-attacks\#wifi-basic-commands](https://book.hacktricks.xyz/pentesting/pentesting-network/wifi-attacks#wifi-basic-commands)
+* [https://medium.com/@brannondorsey/crack-wpa-wpa2-wi-fi-routers-with-aircrack-ng-and-hashcat-a5a5d3ffea46](https://medium.com/@brannondorsey/crack-wpa-wpa2-wi-fi-routers-with-aircrack-ng-and-hashcat-a5a5d3ffea46)
+* [https://medium.com/@TheEyeOfCyberBuckeyeSecurity/how-to-crack-wpa-wpa2-wi-fi-passwords-using-aircrack-ng-8cb7161abcf9](https://medium.com/@TheEyeOfCyberBuckeyeSecurity/how-to-crack-wpa-wpa2-wi-fi-passwords-using-aircrack-ng-8cb7161abcf9)
+* \(MacOS aircrack setup\) [https://louisabraham.github.io/articles/WPA-wifi-cracking-MBP.html](https://louisabraham.github.io/articles/WPA-wifi-cracking-MBP.html)
+
