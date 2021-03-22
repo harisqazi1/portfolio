@@ -27,6 +27,11 @@
   * [Forensics 101](write-ups-1/ctflearn/forensics-101.md)
   * [Binwalk](write-ups-1/ctflearn/binwalk.md)
 
+## Wi-Fi
+
+* [Password Cracking](wi-fi/wi-fi-password-cracking.md)
+* [Beacon Spamming](wi-fi/beacon-spamming.md)
+
 ## Data Exfiltration
 
 * [Microsoft Macros](data-exfiltration/excel-and-macros.md)
@@ -40,9 +45,4 @@
 
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
 * [Coding an SDR program](other-projects/coding-an-sdr-program.md)
-
-## Wi-Fi
-
-* [Password Cracking](wi-fi/wi-fi-password-cracking.md)
-* [Beacon Spamming](wi-fi/beacon-spamming.md)
 
