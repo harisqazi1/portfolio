@@ -34,5 +34,11 @@ We can now see the local networks, alongside their BSSIDs. I usually let the com
 sudo airodump-ng -c <channel_number_of_network> --bssid <BSSID of network> -w <output location of captured files> wlan0mon
 ```
 
+On the other terminal, we will run:
 
+```bash
+sudo aireplay --deauth <count of deauthentication packets> -a <BSSID of network> wlan0mon
+```
+
+This part gets a bit complicated. We have to run the "aireplay" command with a count that will allow us to get a handshake capture. For me, 20 works. The capture will be seen in the terminal running "airodump-ng". If nothing has changed in the "airodump-ng" terminal, then the handshake has not been captured yet. When the handshake is captured, you can go to the "Cracking Passwords" section of this tutorial. 
 
