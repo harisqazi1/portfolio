@@ -42,3 +42,19 @@ sudo aireplay --deauth <count of deauthentication packets> -a <BSSID of network>
 
 This part gets a bit complicated. We have to run the "aireplay" command with a count that will allow us to get a handshake capture. For me, 20 works. The capture will be seen in the terminal running "airodump-ng". If nothing has changed in the "airodump-ng" terminal, then the handshake has not been captured yet. When the handshake is captured, you can go to the "Cracking Passwords" section of this tutorial. 
 
+## Cracking Passwords
+
+In order to crack passwords, there are 2 main methods to do it: using aircrack-ng to crack the password file, or using a password cracking software such as John the ripper or hashcat. I will be using the aircrack-ng command to crack the passwords. As I mentioned earlier, the only way you will be able to crack the password are based on two conditions: you have a 4-way handshake captured in a .cap file, and you have the password to the wifi in the dictionary you are using. I would reccomend building your own wordlist. This can help you have a dictionary which has 8+ characters \(which is the minimum password size\). I would look at the following links to make your own list. I use a \(somewhat\) combination of all of the following links:
+
+* [https://github.com/kennyn510/wpa2-wordlists](https://github.com/kennyn510/wpa2-wordlists)
+* [https://github.com/danielmiessler/SecLists/tree/master/Passwords/WiFi-WPA](https://github.com/danielmiessler/SecLists/tree/master/Passwords/WiFi-WPA)
+* [https://github.com/berzerk0/Probable-Wordlists/blob/master/Real-Passwords/WPA-Length/Real-Password-WPA-MegaLinks.md](https://github.com/berzerk0/Probable-Wordlists/blob/master/Real-Passwords/WPA-Length/Real-Password-WPA-MegaLinks.md)
+
+You could also make your own password list using the "crunch" command on Kali or Parrot OS. 
+
+To crack the password, using the aircrack-ng command, we will run the following command:
+
+```bash
+sudo aircrack-ng <location of .cap file> -w <dictionary or wordlist>
+```
+
