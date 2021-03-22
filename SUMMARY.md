@@ -38,7 +38,11 @@
 
 ## Other Projects
 
-* [Wi-Fi Password Cracking](other-projects/wi-fi-password-cracking.md)
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
 * [Coding an SDR program](other-projects/coding-an-sdr-program.md)
+
+## Wi-Fi
+
+* [Password Cracking](wi-fi/wi-fi-password-cracking.md)
+* [Beacon Spamming](wi-fi/beacon-spamming.md)
 

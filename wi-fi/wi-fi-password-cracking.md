@@ -1,4 +1,4 @@
-# Wi-Fi Password Cracking
+# Password Cracking
 
 ## Setup
 
