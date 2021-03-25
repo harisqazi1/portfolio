@@ -30,7 +30,6 @@
 ## Wi-Fi
 
 * [Password Cracking](wi-fi/wi-fi-password-cracking.md)
-* [Beacon Spamming](wi-fi/beacon-spamming.md)
 
 ## Data Exfiltration
 

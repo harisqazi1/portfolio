@@ -1,2 +1,0 @@
-# Beacon Spamming
-
