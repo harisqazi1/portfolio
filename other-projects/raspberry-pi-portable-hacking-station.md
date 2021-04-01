@@ -141,7 +141,7 @@ This will install php and its dependencies. We will use php for the website that
 www-data ALL=(ALL:ALL) ALL #add this under the root
 ```
 
-My code for the website is the following, but you can change it to look/act how you want to:
+My code for the website is the following, but you can change it to look/act how you want to. The following code is **NOT COMPLETED**.
 
 ```php
 <!DOCTYPE html> 
