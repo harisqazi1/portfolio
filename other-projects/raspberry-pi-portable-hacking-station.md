@@ -213,3 +213,13 @@ My code for the website is the following, but you can change it to look/act how 
 
 ### STEP \#4 - RaspAP
 
+In order to download RaspAP, we have to run the following the following command:
+
+```php
+curl -sL https://install.raspap.com | bash
+```
+
+This will download RaspAP on our Pi.
+
+
+
