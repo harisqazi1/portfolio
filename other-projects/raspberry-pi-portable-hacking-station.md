@@ -119,7 +119,7 @@ If your output looks like the following, you should be able to see a webpage on 
 
 ![Raspberry Pi Apache Server Running](../.gitbook/assets/screenshot-2021-03-04-190809.png)
 
-Next, we are going to move the port that Apache is working on. Apache currently works on port 80 \(HTTP\), and we are going to change that, since when we \(later on\) install RaspAP, it will go on port 80 by default. To do this, we can [edit a file to change the port](https://www.tecmint.com/change-apache-port-in-linux/):
+Next, we are going to move the port that Apache is working on. Apache currently works on port 80 \(HTTP\), and we can change that \(it is optional\). To do this, we can [edit a file to change the port](https://www.tecmint.com/change-apache-port-in-linux/):
 
 ```text
 sudo nano /etc/apache2/ports.conf 
@@ -211,20 +211,19 @@ My code for the website is the following, but you can change it to look/act how 
 
 ```
 
-### STEP \#4 - Separation of Web Servers
-
 {% hint style="warning" %}
-If you are not hosting another web-sever, then you can skip this step. 
+If you want to host an Apache webserver AND a RaspAP on different sites, you can do that, but I did not do that. The next command, will overwrite your current Apache site.
 {% endhint %}
 
-In order to download RaspAP, we have to first make our previous apache web server be separated from the one that RaspAP will be on.
+### Step \#4 - RaspAP
 
-### Step \#5 - RaspAP
-
-run the following the following command:
+run the following the following command \(either one\):
 
 ```php
+#you get to choose the options
 curl -sL https://install.raspap.com | bash
+#without any prompts
+curl -sL https://install.raspap.com | bash -s -- --yes 
 ```
 
 This will download RaspAP on our Pi.
