@@ -211,9 +211,17 @@ My code for the website is the following, but you can change it to look/act how 
 
 ```
 
-### STEP \#4 - RaspAP
+### STEP \#4 - Separation of Web Servers
 
-In order to download RaspAP, we have to run the following the following command:
+{% hint style="warning" %}
+If you are not hosting another web-sever, then you can skip this step. 
+{% endhint %}
+
+In order to download RaspAP, we have to first make our previous apache web server be separated from the one that RaspAP will be on.
+
+
+
+run the following the following command:
 
 ```php
 curl -sL https://install.raspap.com | bash
