@@ -22,7 +22,7 @@ At the end of this project, you will have a Raspberry Pi that has :
 * MicroSD card \(anything above 25 GB for all the tools, but 16 GB works too\)
 * MicroSD card adapter
 * A wifi adapter \(I used the [Panda Wifi Adapter](https://www.amazon.com/Panda-300Mbps-Wireless-USB-Adapter/dp/B00EQT0YK2/)\)
-* Connection to a Wifi network \(should be obvious\)
+* Connection to a Wifi network 
 * A PC or laptop \(in order to flash the SD card\)
 
 ### Step \#1 - Raspberry Pi Setup
