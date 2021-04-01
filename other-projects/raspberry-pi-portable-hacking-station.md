@@ -22,7 +22,7 @@ At the end of this project, you will have a Raspberry Pi that has :
 * MicroSD card \(anything above 25 GB for all the tools, but 16 GB works too\)
 * MicroSD card adapter
 * A wifi adapter \(I used the [Panda Wifi Adapter](https://www.amazon.com/Panda-300Mbps-Wireless-USB-Adapter/dp/B00EQT0YK2/)\)
-* Connection to a Wifi network \(should be obvious\)
+* Connection to a Wifi network 
 * A PC or laptop \(in order to flash the SD card\)
 
 ### Step \#1 - Raspberry Pi Setup
@@ -119,7 +119,7 @@ If your output looks like the following, you should be able to see a webpage on 
 
 ![Raspberry Pi Apache Server Running](../.gitbook/assets/screenshot-2021-03-04-190809.png)
 
-Next, we are going to move the port that Apache is working on. Apache currently works on port 80 \(HTTP\), and we are going to change that, since when we \(later on\) install RaspAP, it will go on port 80 by default. To do this, we can [edit a file to change the port](https://www.tecmint.com/change-apache-port-in-linux/):
+Next, we are going to move the port that Apache is working on. Apache currently works on port 80 \(HTTP\), and we can change that \(it is optional\). To do this, we can [edit a file to change the port](https://www.tecmint.com/change-apache-port-in-linux/):
 
 ```text
 sudo nano /etc/apache2/ports.conf 
@@ -141,7 +141,7 @@ This will install php and its dependencies. We will use php for the website that
 www-data ALL=(ALL:ALL) ALL #add this under the root
 ```
 
-My code for the website is the following, but you can change it to look/act how you want to:
+My code for the website is the following, but you can change it to look/act how you want to. The following code is **NOT COMPLETED**.
 
 ```php
 <!DOCTYPE html> 
@@ -211,5 +211,22 @@ My code for the website is the following, but you can change it to look/act how 
 
 ```
 
-### STEP \#4 - RaspAP
+{% hint style="warning" %}
+If you want to host an Apache webserver AND a RaspAP on different sites, you can do that, but I did not do that. The next command, will overwrite your current Apache site.
+{% endhint %}
+
+### Step \#4 - RaspAP
+
+run the following the following command \(either one\):
+
+```php
+#you get to choose the options
+curl -sL https://install.raspap.com | bash
+#without any prompts
+curl -sL https://install.raspap.com | bash -s -- --yes 
+```
+
+This will download RaspAP on our Pi.
+
+
 
