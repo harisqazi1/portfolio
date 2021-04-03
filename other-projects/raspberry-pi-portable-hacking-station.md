@@ -99,7 +99,11 @@ After this is done, we will run "**sudo apt-get update**", and this will update 
 sudo apt-get install mdk4
 ```
 
-This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. 
+This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. Run the following command, if you want every software from Kali:
+
+```php
+sudo apt-get install kali-linux-everything
+```
 
 ### STEP \#3 - Web Server
 
