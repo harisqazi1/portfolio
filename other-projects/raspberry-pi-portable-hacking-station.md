@@ -213,7 +213,7 @@ My code for the website is the following, but you can change it to look/act how 
 
 You should be able to see a webpage, as the following, if everything is done correctly:
 
-![Localhost/index.php site](../.gitbook/assets/image%20%2843%29.png)
+![Localhost/index.php site](../.gitbook/assets/image%20%2844%29.png)
 
 {% hint style="warning" %}
 If you want to host an Apache webserver AND a RaspAP on different sites, you can do that, but I did not do that. The next command, will overwrite your current Apache site.
@@ -232,5 +232,9 @@ curl -sL https://install.raspap.com | bash -s -- --yes
 
 This will download RaspAP on our Pi.
 
+If you now try to go to **localhost**, you will see the following screen:
 
+![](../.gitbook/assets/image%20%2843%29.png)
+
+This is asking for the RaspAP's password. The username is: **admin**. The password is: **secret**. More information about RaspAP can be found [here](https://github.com/RaspAP/raspap-webgui). **Make sure to reboot at this point.** The reboot will make sure your files are all set up for the AP to be ready.
 
