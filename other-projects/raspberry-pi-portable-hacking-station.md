@@ -236,13 +236,11 @@ If you now try to go to **localhost**, you will see the following screen:
 
 ![](../.gitbook/assets/image%20%2843%29.png)
 
-This is asking for the RaspAP's password. The username is: **admin**. The password is: **secret**. More information about RaspAP can be found [here](https://github.com/RaspAP/raspap-webgui). **Make sure to reboot at this point.** The reboot will make sure your files are all set up for the AP to be ready. After the reboot is completed, you should see an access point called "**raspi-webgui**". Connect to it, and after connection, head to **localhost:&lt;port number&gt;**. You should see a page as the following **after** you enter the aforementioned username and password:
+This is asking for the RaspAP's password. The username is: **admin**. The password is: **secret**. More information about RaspAP can be found [here](https://github.com/RaspAP/raspap-webgui). **Make sure to reboot at this point.** The reboot will make sure your files are all set up for the AP to be ready. After the reboot is completed, you should see an access point called "**raspi-webgui**". Connect to it, and after connection, head to **localhost:&lt;port number&gt;**. The most ideal usage for this would be through SSH. In order to do that, you can SSH to &lt;user&gt;@10.3.141.1. If this does not work, you can run "ping raspberry.local", and it will show you the IP address of the RaspAP. 
+
+{% hint style="warning" %}
+I would highly reccomend that you install kali-linux-everything prior to setting up the RaspAP. This way you have all the tools you need on the Pi. I have unsuccessfully tried to connect the Pi to my local network after the download of RaspAP and have had no luck. 
+{% endhint %}
 
 
-
-You will then have to change some setting in the raspAP, in order to have it be connected to your own router:
-
-
-
-**Reboot** your system after this for the full effects to be in place. After this, I logged into the pi using ssh, and connecting to the ip of the RaspAP, **while I was connected to the RaspAP Wi-Fi**. 
 
