@@ -236,5 +236,13 @@ If you now try to go to **localhost**, you will see the following screen:
 
 ![](../.gitbook/assets/image%20%2843%29.png)
 
-This is asking for the RaspAP's password. The username is: **admin**. The password is: **secret**. More information about RaspAP can be found [here](https://github.com/RaspAP/raspap-webgui). **Make sure to reboot at this point.** The reboot will make sure your files are all set up for the AP to be ready.
+This is asking for the RaspAP's password. The username is: **admin**. The password is: **secret**. More information about RaspAP can be found [here](https://github.com/RaspAP/raspap-webgui). **Make sure to reboot at this point.** The reboot will make sure your files are all set up for the AP to be ready. After the reboot is completed, you should see an access point called "**raspi-webgui**". Connect to it, and after connection, head to **localhost:&lt;port number&gt;**. You should see a page as the following **after** you enter the aforementioned username and password:
+
+
+
+You will then have to change some setting in the raspAP, in order to have it be connected to your own router:
+
+
+
+**Reboot** your system after this for the full effects to be in place. After this, I logged into the pi using ssh, and connecting to the ip of the RaspAP, **while I was connected to the RaspAP Wi-Fi**. 
 
