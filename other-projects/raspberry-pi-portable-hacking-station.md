@@ -65,7 +65,7 @@ One of the hostnames should be "raspberrypi.local", and this is what we are look
 
 ### Step \#1.1 - VNC \(OPTIONAL\)
 
-VNC is a software that allows a person to look at the desktop of a machine \(Raspberry Pi, in our case\), without attaching a monitor to the machine. We will use this to connect to the Raspberry Pi. We have to configure the Raspberry Pi in order to be setup for the vnc. To do this we can run "sudo raspi-config", which will allow us to configure the Pi. The first thing we have to change is Display. Under "Display Options", we see "Resolution". In Resolution, we have to change it to something that is NOT the "Default". For me, "DMT Mode 4 640x480 60Hz 4:3" works for me. Next, under "Interfaces", we have to enable VNC. After that, we can select "Finish" at the bottom, and then reboot the system. 
+VNC is a software that allows a person to look at the desktop of a machine \(Raspberry Pi, in our case\), without attaching a monitor to the machine. We will use this to connect to the Raspberry Pi. We have to configure the Raspberry Pi in order to be setup for the vnc. To do this we can run "**sudo raspi-config**", which will allow us to configure the Pi. The first thing we have to change is Display. Under "Display Options", we see "Resolution". In Resolution, we have to change it to something that is NOT the "Default". For me, "DMT Mode 4 640x480 60Hz 4:3" works for me. Next, under "Interfaces", we have to enable VNC. After that, we can select "Finish" at the bottom, and then reboot the system. 
 
 In order to connect to the VNC server on the Pi, we have to use a software to connect to it. We can use [RealVNC Viewer](https://www.realvnc.com/en/connect/download/viewer/), in order to connect to the Pi. We can enter the same IP address as we did earlier in the search bar on the top, and it should bring us to a display:
 
@@ -86,14 +86,14 @@ sudo passwd root #to change the root password
 
 ### STEP \#2 - Hacking Software
 
-In order to get hacking software onto our Pi, there are 2 main methods: you can either download the software/code from online OR you can put kali linux sources in your /etc/apt/sources.list file. In this tutorial, I will be going with the second option. The documentation to the Kali Linux source file can be found at: [https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/). From this website there are only lines we have to copy to our sources.list file on the Pi:
+In order to get hacking software onto our Pi, there are 2 main methods: you can either download the software/code from online OR you can put kali linux sources in your **/etc/apt/sources.list** file. In this tutorial, I will be going with the second option. The documentation to the Kali Linux source file can be found at: [https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/). From this website there are only lines we have to copy to our sources.list file on the Pi:
 
 ```bash
 deb http://http.kali.org/kali kali-rolling main non-free contrib 
 deb-src http://http.kali.org/kali kali-rolling main non-free contrib
 ```
 
-After this is done, we will run "sudo apt-get update", and this will update the sources. From the Kali source, we will need [mdk4](https://github.com/aircrack-ng/mdk4), a WiFi exploiting tool. In order to download this we can run:
+After this is done, we will run "**sudo apt-get update**", and this will update the sources. From the Kali source, we will need [mdk4](https://github.com/aircrack-ng/mdk4), a WiFi exploiting tool. In order to download this we can run:
 
 ```bash
 sudo apt-get install mdk4
@@ -115,7 +115,7 @@ In order to check if the web server is running is running, we can run the follow
 sudo systemctl status apache2	
 ```
 
-If your output looks like the following, you should be able to see a webpage on http://localhost/:
+If your output looks like the following, you should be able to see a webpage on **http://localhost/**:
 
 ![Raspberry Pi Apache Server Running](../.gitbook/assets/screenshot-2021-03-04-190809.png)
 
@@ -129,19 +129,19 @@ We will replace the 80, with any port we want \(anything under 1024 is good\). H
 
 ![Apache port config file](../.gitbook/assets/screenshot-2021-03-04-191554.png)
 
-We will restart the Apache web server using "sudo systemctl restart apache2". In order to double check that it is still working, we can run "sudo systemctl status apache2". There should be a website on "[http://localhost:8080/](http://localhost:8080/)" \(replace 8080 with your own port number\). Here we will be creating our own website, that way the website and the commands work together. In order to do this, we will have to run the following command:
+We will restart the Apache web server using "**sudo systemctl restart apache2**". In order to double check that it is still working, we can run "**sudo systemctl status apache2**". There should be a website on "[http://localhost:8080/](http://localhost:8080/)" \(replace 8080 with your own port number\). Here we will be creating our own website, that way the website and the commands work together. In order to do this, we will have to run the following command:
 
 ```text
 sudo apt-get install php
 ```
 
-This will install php and its dependencies. We will use php for the website that way we can connect the website to Linux commands. The directory where we where will edit the files for the website are located at /var/www/html/ in the Raspberry Pi folder structure. In order to be able to run commands from the website, we will have the website to the sudoers file. We can run "nano /etc/sudoers" and add the following the file:
+This will install php and its dependencies. We will use php for the website that way we can connect the website to Linux commands. The directory where we where will edit the files for the website are located at **/var/www/html/** in the Raspberry Pi folder structure. In order to be able to run commands from the website, we will have the website to the sudoers file. We can run "**sudo nano /etc/sudoers**" and add the following the file:
 
 ```text
 www-data ALL=(ALL:ALL) ALL #add this under the root
 ```
 
-My code for the website is the following, but you can change it to look/act how you want to. The following code is **NOT COMPLETED**.
+My code for the website is the following, but you can change it to look/act how you want to. The following code is **NOT COMPLETED**. If you were to use it, place this code in "**/var/www/html&lt;filename&gt;.php**".
 
 ```php
 <!DOCTYPE html> 
@@ -210,6 +210,10 @@ My code for the website is the following, but you can change it to look/act how 
 <!-- Edited version from https://www.geeksforgeeks.org/how-to-call-php-function-on-the-click-of-a-button/ -->
 
 ```
+
+You should be able to see a webpage, as the following, if everything is done correctly:
+
+![Localhost/index.php site](../.gitbook/assets/image%20%2843%29.png)
 
 {% hint style="warning" %}
 If you want to host an Apache webserver AND a RaspAP on different sites, you can do that, but I did not do that. The next command, will overwrite your current Apache site.
