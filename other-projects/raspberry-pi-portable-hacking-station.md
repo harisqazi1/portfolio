@@ -12,7 +12,6 @@ At the end of this project, you will have a Raspberry Pi that has :
 * VNC \(Virtual Network Computing\)
 * Hacking software \(same ones used in Parrot and Kali OSes\)
 * A wireless access point
-* software to create rubber ducky scripts for the ATtiny85
 * A web server
 
 ### Materials
@@ -89,8 +88,7 @@ sudo passwd root #to change the root password
 In order to get hacking software onto our Pi, there are 2 main methods: you can either download the software/code from online OR you can put kali linux sources in your **/etc/apt/sources.list** file. In this tutorial, I will be going with the second option. The documentation to the Kali Linux source file can be found at: [https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/). From this website there are only lines we have to copy to our sources.list file on the Pi:
 
 ```bash
-deb http://http.kali.org/kali kali-rolling main non-free contrib 
-deb-src http://http.kali.org/kali kali-rolling main non-free contrib
+deb http://http.kali.org/kali kali-rolling main contrib non-free
 ```
 
 After this is done, we will run "**sudo apt-get update**", and this will update the sources. From the Kali source, we will need [mdk4](https://github.com/aircrack-ng/mdk4), a WiFi exploiting tool. In order to download this we can run:
@@ -99,11 +97,19 @@ After this is done, we will run "**sudo apt-get update**", and this will update 
 sudo apt-get install mdk4
 ```
 
-This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. Run the following command, if you want every software from Kali:
+This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. We can download a bunch of tools using [metapackages](https://www.kali.org/docs/general-use/metapackages/). To use that, we can run: **sudo apt-get install kali-linux-large** \(You can replace large with another metapackage name\). If you run the previous command, you will have to run the following commands to make sure it is setup correctly \(your mileage may vary\):
 
 ```php
-sudo apt-get install kali-linux-everything
+sudo apt-get install tightvncserver #you need this for kali-linux-default
+sudo apt-get install kali-linux-default #you need this for kali-linux-large
+sudo apt-get install kali-linux-large #the actual package
 ```
+
+You can also use [Katoolin](https://github.com/LionSec/katoolin), which is script that allows you to install the hacking software/tools.
+
+{% hint style="warning" %}
+If you are going to use Katoolin, remove the kali sources from the **/etc/apt/sources.list** file
+{% endhint %}
 
 ### STEP \#3 - Web Server
 
