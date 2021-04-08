@@ -62,7 +62,7 @@ One of the hostnames should be "raspberrypi.local", and this is what we are look
 
 ![PuTTY display](../.gitbook/assets/screenshot-2021-03-03-215850.png)
 
-### Step \#1.1 - VNC \(OPTIONAL\)
+### Step \#1.1 - VNC
 
 VNC is a software that allows a person to look at the desktop of a machine \(Raspberry Pi, in our case\), without attaching a monitor to the machine. We will use this to connect to the Raspberry Pi. We have to configure the Raspberry Pi in order to be setup for the vnc. To do this we can run "**sudo raspi-config**", which will allow us to configure the Pi. The first thing we have to change is Display. Under "Display Options", we see "Resolution". In Resolution, we have to change it to something that is NOT the "Default". For me, "DMT Mode 4 640x480 60Hz 4:3" works for me. Next, under "Interfaces", we have to enable VNC. After that, we can select "Finish" at the bottom, and then reboot the system. 
 
@@ -81,14 +81,15 @@ In the terminal, we will run the following commands:
 ```bash
 sudo apt-get update && sudo apt-get upgrade #this will update the sources and upgrade the softwares
 sudo passwd root #to change the root password
+export LC_ALL="en_US.UTF-8" #gets rids of warnings later on
 ```
 
 ### STEP \#2 - Hacking Software
 
-In order to get hacking software onto our Pi, there are 2 main methods: you can either download the software/code from online OR you can put kali linux sources in your **/etc/apt/sources.list** file. In this tutorial, I will be going with the second option. The documentation to the Kali Linux source file can be found at: [https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/). From this website there are only lines we have to copy to our sources.list file on the Pi:
+In order to get hacking software onto our Pi, there are 2 main methods: you can either download the software/code from online OR you can put Kali Linux sources in your **/etc/apt/sources.list** file. In this tutorial, I will be going with the second option. The documentation to the Kali Linux source file can be found at: [https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/). From this website there are only lines we have to copy to our sources.list file on the Pi \(fixed an error using [this website](https://dev.iachieved.it/iachievedit/updating-from-such-a-repository-cant-be-done-securely/)\):
 
 ```bash
-deb http://http.kali.org/kali kali-rolling main contrib non-free
+deb [allow-insecure=yes allow-downgrade-to-insecure=yes] http://http.kali.org/kali kali-rolling main non-free contrib
 ```
 
 After this is done, we will run "**sudo apt-get update**", and this will update the sources. From the Kali source, we will need [mdk4](https://github.com/aircrack-ng/mdk4), a WiFi exploiting tool. In order to download this we can run:
@@ -97,7 +98,18 @@ After this is done, we will run "**sudo apt-get update**", and this will update 
 sudo apt-get install mdk4
 ```
 
-This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. We can download a bunch of tools using [metapackages](https://www.kali.org/docs/general-use/metapackages/). To use that, we can run: **sudo apt-get install kali-linux-large** \(You can replace large with another metapackage name\). If you run the previous command, you will have to run the following commands to make sure it is setup correctly \(your mileage may vary\):
+This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. I also downloaded the following software. I would recommend putting them into a bash script and executing the script with sudo privileges.
+
+```php
+sudo apt-get install wireshark -y
+sudo apt-get install nmap -y
+sudo apt-get install openvas -y
+
+```
+
+### Mistakes with Meta-packages \(Try at your own risk\)
+
+We can download a bunch of tools using [meta-packages](https://www.kali.org/docs/general-use/metapackages/). To use that, we can run: **sudo apt-get install kali-linux-large** \(You can replace large with another meta-package name\). If you run the previous command, you will have to run the following commands to make sure it is setup correctly:
 
 ```php
 sudo apt-get install tightvncserver #you need this for kali-linux-default
@@ -108,8 +120,18 @@ sudo apt-get install kali-linux-large #the actual package
 You can also use [Katoolin](https://github.com/LionSec/katoolin), which is script that allows you to install the hacking software/tools.
 
 {% hint style="warning" %}
-If you are going to use Katoolin, remove the kali sources from the **/etc/apt/sources.list** file
+If you are going to use Katoolin, remove the Kali sources from the **/etc/apt/sources.list** file
 {% endhint %}
+
+I have ran into a couple errors **after** running the "kali-linux-large" installation. **These are problems that arose after I ran the "kali-linux-large" install. These problems did not occur when I downloaded the software one at a time.** The reason for the errors were that, Kali was the main OS, instead of Raspbian. 
+
+One of the main errors I got, was that VNC was no longer working on the Pi. I then had to SSH into the pi, and then run **"sudo raspi-config"** in order to set up the VNC again. However, this VNC looks a bit different that the standard Raspberry Pi VNC:
+
+![](../.gitbook/assets/image%20%2845%29.png)
+
+This is not a problem for me, but still wanted to give a heads up about this, if you are trying this at home. 
+
+Another problem of mine was that the Apache web server went down. I did not find a way to get it back up. I tried multiple solutions, but to no avail. I decided to go back and start from scratch and start from [STEP \#1](https://app.gitbook.com/@infosecportfolio/s/portfolio/~/drafts/-MXigr7gh2qBwBEWtJt4/other-projects/raspberry-pi-portable-hacking-station#step-1-raspberry-pi-setup). 
 
 ### STEP \#3 - Web Server
 
