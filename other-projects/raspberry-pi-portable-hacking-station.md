@@ -118,7 +118,7 @@ sudo apt-get install gobuster -y #Directory bruteforce
 sudo apt-get install dirb -y #Directory bruteforce
 sudo apt-get install dirbuster -y #Directory bruteforce
 sudo apt-get install recon-ng -y #Web Reconnaissance framework
-sudo apt-get install zaproxy -y
+sudo apt-get install zaproxy -y #Web app pentest
 sudo apt-get install
 sudo apt-get install
 sudo apt-get install
