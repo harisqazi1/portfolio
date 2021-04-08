@@ -81,7 +81,7 @@ In the terminal, we will run the following commands:
 ```bash
 sudo apt-get update && sudo apt-get upgrade #this will update the sources and upgrade the softwares
 sudo passwd root #to change the root password
-export LC_ALL="en_US.UTF-8" #gets rids of warnings later on
+export LC_ALL=C #gets rids of warnings later on
 ```
 
 ### STEP \#2 - Hacking Software
@@ -101,10 +101,27 @@ sudo apt-get install mdk4
 This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. I also downloaded the following software. I would recommend putting them into a bash script and executing the script with sudo privileges.
 
 ```php
-sudo apt-get install wireshark -y
-sudo apt-get install nmap -y
-sudo apt-get install openvas -y
-
+#The "-y" is so you get minimum prompts while installing
+sudo apt-get install wireshark -y #packet analyzer
+sudo apt-get install nmap -y #network scan
+sudo apt-get install openvas -y #security scanner
+sudo apt-get install aircrack-ng -y #For wireless pentesting COMES PART OF MDK4
+sudo apt-get install besside-ng -y #WEP & WPA cracker
+sudo apt-get install bluelog -y#Bluetooth site survey tool
+sudo apt-get install fern-wifi-cracker -y#Self-explanatory
+sudo apt-get install kismet -y #WIFI Wardriving tool
+sudo apt-get install rtlsdr-scanner -y #RTL-SDR scanning for radio freq.
+sudo apt-get install msfconsole -y #Metasploit 
+sudo apt-get install wifiphisher -y #Wifi phishing
+sudo apt-get install burpsuite -y #Web app pentest
+sudo apt-get install gobuster -y #Directory bruteforce
+sudo apt-get install dirb -y #Directory bruteforce
+sudo apt-get install dirbuster -y #Directory bruteforce
+sudo apt-get install recon-ng -y #Web Reconnaissance framework
+sudo apt-get install zaproxy -y
+sudo apt-get install
+sudo apt-get install
+sudo apt-get install
 ```
 
 ### Mistakes with Meta-packages \(Try at your own risk\)
