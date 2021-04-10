@@ -145,6 +145,8 @@ sudo apt-get install john -y --allow-unauthenticated #John the Ripper password c
 sudo apt-get install ophcrack -y --allow-unauthenticated #Microsoft Windows password cracker using rainbow tables
 ```
 
+Remove source?
+
 ### Errors I encountered
 
 * ["No session for PID xxxx"](https://github.com/meefik/linuxdeploy/issues/978#issuecomment-414258833)
