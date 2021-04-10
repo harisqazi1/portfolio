@@ -79,7 +79,7 @@ Pressing "OK" should show us the desktop of the Raspberry Pi.
 In the terminal, we will run the following commands:
 
 ```bash
-sudo apt-get update && sudo apt-get upgrade #this will update the sources and upgrade the softwares
+sudo apt-get update && sudo apt-get upgrade -y #this will update the sources and upgrade the softwares
 sudo passwd root #to change the root password
 export LC_ALL=C #gets rids of warnings later on
 ```
@@ -95,36 +95,85 @@ deb [allow-insecure=yes allow-downgrade-to-insecure=yes] http://http.kali.org/ka
 After this is done, we will run "**sudo apt-get update**", and this will update the sources. From the Kali source, we will need [mdk4](https://github.com/aircrack-ng/mdk4), a WiFi exploiting tool. In order to download this we can run:
 
 ```bash
-sudo apt-get install mdk4
+sudo apt-get install mdk4 -y
 ```
 
 This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. I also downloaded the following software. I would recommend putting them into a bash script and executing the script with sudo privileges.
 
 ```php
 #The "-y" is so you get minimum prompts while installing
-sudo apt-get install wireshark -y #packet analyzer
-sudo apt-get install nmap -y #network scan
-sudo apt-get install openvas -y #security scanner
-sudo apt-get install aircrack-ng -y #For wireless pentesting COMES PART OF MDK4
-sudo apt-get install besside-ng -y #WEP & WPA cracker
-sudo apt-get install bluelog -y#Bluetooth site survey tool
-sudo apt-get install fern-wifi-cracker -y#Self-explanatory
-sudo apt-get install kismet -y #WIFI Wardriving tool
-sudo apt-get install rtlsdr-scanner -y #RTL-SDR scanning for radio freq.
-sudo apt-get install msfconsole -y #Metasploit 
-sudo apt-get install wifiphisher -y #Wifi phishing
-sudo apt-get install burpsuite -y #Web app pentest
-sudo apt-get install gobuster -y #Directory bruteforce
-sudo apt-get install dirb -y #Directory bruteforce
-sudo apt-get install dirbuster -y #Directory bruteforce
-sudo apt-get install recon-ng -y #Web Reconnaissance framework
-sudo apt-get install zaproxy -y #Web app pentest
-sudo apt-get install
-sudo apt-get install
-sudo apt-get install
+#The "--allow-unauthenticated" is for the sources to download from Kali without issues
+#https://tools.kali.org/tools-listing
+#Wireless and Web Tools
+sudo apt-get install wireshark -y --allow-unauthenticated #packet analyzer
+sudo apt-get install nmap -y --allow-unauthenticated #network scan
+sudo apt-get install aircrack-ng -y --allow-unauthenticated #For wireless pentesting COMES PART OF MDK4
+sudo apt-get install besside-ng -y --allow-unauthenticated #WEP & WPA cracker
+sudo apt-get install bluelog -y --allow-unauthenticated #Bluetooth site survey tool
+sudo apt-get install fern-wifi-cracker -y --allow-unauthenticated #Self-explanatory
+sudo apt-get install kismet -y --allow-unauthenticated #WIFI Wardriving tool
+sudo apt-get install rtlsdr-scanner -y --allow-unauthenticated #RTL-SDR scanning for radio freq.
+sudo apt-get install msfconsole -y --allow-unauthenticated #Metasploit 
+sudo apt-get install wifiphisher -y --allow-unauthenticated #Wifi phishing
+sudo apt-get install burpsuite -y --allow-unauthenticated #Web app pentest
+sudo apt-get install gobuster -y --allow-unauthenticated #Directory bruteforce
+sudo apt-get install dirb -y --allow-unauthenticated #Directory bruteforce
+sudo apt-get install dirbuster -y --allow-unauthenticated #Directory bruteforce
+sudo apt-get install recon-ng -y --allow-unauthenticated #Web Reconnaissance framework
+sudo apt-get install zaproxy -y --allow-unauthenticated #Web app pentest
+sudo apt-get install reaver -y --allow-unauthenticated #WiFi Protected Setup Attack Tool
+#Forensic Tools
+sudo apt-get install binwalk -y --allow-unauthenticated #A firmware analysis tool
+sudo apt-get install bulk_extractor -y --allow-unauthenticated #Extracts information without parsing filesystem
+sudo apt-get install foremost -y --allow-unauthenticated #Forensic program to recover lost files
+sudo apt-get install iphone-backup-analyzer -y --allow-unauthenticated #Utility to browse iPhone backups
+sudo apt-get install regripper -y --allow-unauthenticated #Windows registry forensics tool
+sudo apt-get install volatility -y --allow-unauthenticated #A memory forensics analysis platform
+#Exploitation Tools
+sudo apt-get install searchsploit -y --allow-unauthenticated #Utility to search the Exploit Database archive
+sudo apt-get install msfconsole -y --allow-unauthenticated #The primary interface of the Metasploit Framework
+sudo apt-get install routersploit -y --allow-unauthenticated #The RouterSploit Framework
+#Sniffing & Spoofing
+sudo apt-get install bettercap -y --allow-unauthenticated #Swiss army knife for network attacks and monitoring
+sudo apt-get install hexinject -y --allow-unauthenticated #Hexadecimal packet injector/sniffer
+sudo apt-get install wifi-honey -y --allow-unauthenticated #Wi-Fi honeypot
+#Password Attacks
+sudo apt-get install crunch -y --allow-unauthenticated #Create a wordlist based on criteria you specify
+sudo apt-get install hash-identifier -y --allow-unauthenticated #Identify different types of hashes
+sudo apt-get install hashcat -y --allow-unauthenticated #World’s fastest and most advanced password recovery utility
+sudo apt-get install john -y --allow-unauthenticated #John the Ripper password cracker
+sudo apt-get install ophcrack -y --allow-unauthenticated #Microsoft Windows password cracker using rainbow tables
 ```
 
-### Mistakes with Meta-packages \(Try at your own risk\)
+### Errors I encountered
+
+* ["No session for PID xxxx"](https://github.com/meefik/linuxdeploy/issues/978#issuecomment-414258833)
+
+  ```text
+  rm /etc/xdg/autostart/lxpolkit.desktop
+  ```
+
+* [Menu toolbar is gone in VNC](https://raspberrypi.stackexchange.com/questions/122579/after-fresh-install-of-raspberry-os-the-menu-bar-is-missing-in-tightvnc-session)
+
+```text
+# clean and reinstall pulseaudio
+sudo apt-get remove --purge alsa-base pulseaudio
+sudo apt-get install alsa-base pulseaudio
+sudo apt-get -f install && sudo apt-get -y autoremove && sudo apt-get autoclean && sudo apt-get clean && sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+# fixes user folder permissions
+sudo chown -R $USER:$USER $HOME/
+# then reboot
+sudo reboot 
+```
+
+* ["sudo: /etc/sudoers is world writable"](https://stackoverflow.com/questions/35224391/how-to-fix-this-sudo-etc-sudoers-is-world-writable)
+
+```php
+pkexec chmod 555 /etc/sudoers
+pkexec chmod 555 /etc/sudoers.d/README
+```
+
+### Errors with Meta-packages \(Try at your own risk\)
 
 We can download a bunch of tools using [meta-packages](https://www.kali.org/docs/general-use/metapackages/). To use that, we can run: **sudo apt-get install kali-linux-large** \(You can replace large with another meta-package name\). If you run the previous command, you will have to run the following commands to make sure it is setup correctly:
 
@@ -155,7 +204,7 @@ Another problem of mine was that the Apache web server went down. I did not find
 When we have all the Kali \(and Parrot\) hacking software at our disposal, we can use them from the command line however we want. However, I do believe that having a website that allows you to run commands with a press of a button "[Watch Dogs](https://en.wikipedia.org/wiki/Watch_Dogs)" style has a coolness factor to it. This is what the website is meant to be: a way to efficiently run hacking commands with minimal effort. In this tutorial, we will be using Apache as the web server. To set this up we can run the following command
 
 ```bash
-sudo apt-get install apache2 
+sudo apt-get install apache2 #-y if needed
 ```
 
 In order to check if the web server is running is running, we can run the following command:
@@ -270,7 +319,7 @@ If you want to host an Apache webserver AND a RaspAP on different sites, you can
 
 ### Step \#4 - RaspAP
 
-run the following the following command \(either one\):
+After the software is downloaded, I then commented the Kali source in the **/etc/apt/sources.list** file. This way I can make sure that all the other software I need comes from the direct Raspbian source. You will then have to run "**sudo apt-get update**" to then refresh the local cache for the sources. I then run the following the following command \(either one\):
 
 ```php
 #you get to choose the options
