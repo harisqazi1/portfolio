@@ -79,7 +79,7 @@ Pressing "OK" should show us the desktop of the Raspberry Pi.
 In the terminal, we will run the following commands:
 
 ```bash
-sudo apt-get update && sudo apt-get upgrade #this will update the sources and upgrade the softwares
+sudo apt-get update && sudo apt-get upgrade -y #this will update the sources and upgrade the softwares
 sudo passwd root #to change the root password
 export LC_ALL=C #gets rids of warnings later on
 ```
@@ -95,7 +95,7 @@ deb [allow-insecure=yes allow-downgrade-to-insecure=yes] http://http.kali.org/ka
 After this is done, we will run "**sudo apt-get update**", and this will update the sources. From the Kali source, we will need [mdk4](https://github.com/aircrack-ng/mdk4), a WiFi exploiting tool. In order to download this we can run:
 
 ```bash
-sudo apt-get install mdk4
+sudo apt-get install mdk4 -y
 ```
 
 This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. I also downloaded the following software. I would recommend putting them into a bash script and executing the script with sudo privileges.
@@ -144,8 +144,6 @@ sudo apt-get install hashcat -y --allow-unauthenticated #World’s fastest and m
 sudo apt-get install john -y --allow-unauthenticated #John the Ripper password cracker
 sudo apt-get install ophcrack -y --allow-unauthenticated #Microsoft Windows password cracker using rainbow tables
 ```
-
-Remove source?
 
 ### Errors I encountered
 
@@ -321,7 +319,7 @@ If you want to host an Apache webserver AND a RaspAP on different sites, you can
 
 ### Step \#4 - RaspAP
 
-run the following the following command \(either one\):
+After the software is downloaded, I then commented the Kali source in the **/etc/apt/sources.list** file. This way I can make sure that all the other software I need comes from the direct Raspbian source. You will then have to run "**sudo apt-get update**" to then refresh the local cache for the sources. I then run the following the following command \(either one\):
 
 ```php
 #you get to choose the options
