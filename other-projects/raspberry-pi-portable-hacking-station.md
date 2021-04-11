@@ -84,7 +84,27 @@ sudo passwd root #to change the root password
 export LC_ALL=C #gets rids of warnings later on
 ```
 
-### STEP \#2 - Hacking Software
+### STEP \#2 - Hacking Software \(Recommended\)
+
+I would highly recomend that you manually download the software you need through the Github of the software, or download the software itself. For example, I will download [mdk4](https://github.com/aircrack-ng/mdk4), a wireless penetration testing software. In order to do this, I will have to download the software from the GitHub of mdk4. Fortunately, the Github tells us the commands we need to run:
+
+```php
+apt-get install pkg-config libnl-3-dev libnl-genl-3-dev libpcap-dev 
+git clone https://github.com/aircrack-ng/mdk4
+cd mdk4
+make
+sudo make install
+```
+
+I would recommend doing this for all software you want to download. I also downloaded:
+
+* [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng) - WiFi security auditing tools suite
+* 
+### STEP \#2 - Hacking Software \(Not Recommended\)
+
+{% hint style="warning" %}
+This is not recommended because this method was not able to work with RaspAP
+{% endhint %}
 
 In order to get hacking software onto our Pi, there are 2 main methods: you can either download the software/code from online OR you can put Kali Linux sources in your **/etc/apt/sources.list** file. In this tutorial, I will be going with the second option. The documentation to the Kali Linux source file can be found at: [https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/). From this website there are only lines we have to copy to our sources.list file on the Pi \(fixed an error using [this website](https://dev.iachieved.it/iachievedit/updating-from-such-a-repository-cant-be-done-securely/)\):
 
@@ -95,7 +115,7 @@ deb [allow-insecure=yes allow-downgrade-to-insecure=yes] http://http.kali.org/ka
 After this is done, we will run "**sudo apt-get update**", and this will update the sources. From the Kali source, we will need [mdk4](https://github.com/aircrack-ng/mdk4), a WiFi exploiting tool. In order to download this we can run:
 
 ```bash
-sudo apt-get install mdk4 -y
+sudo apt-get install mdk4 -y --allow-unauthenticated
 ```
 
 This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. I also downloaded the following software. I would recommend putting them into a bash script and executing the script with sudo privileges.
