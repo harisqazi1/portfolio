@@ -84,7 +84,27 @@ sudo passwd root #to change the root password
 export LC_ALL=C #gets rids of warnings later on
 ```
 
-### STEP \#2 - Hacking Software
+### STEP \#2 - Hacking Software \(Recommended\)
+
+I would highly recomend that you manually download the software you need through the GitHub of the software, or download the software itself. This is because adding a Kali/Parrot OS repository to our Raspbian sources list will then lead to file errors in the long run. 
+
+As an example, I will download [mdk4](https://github.com/aircrack-ng/mdk4), a wireless penetration testing software. In order to do this, I will have to download the software from the GitHub of mdk4. Fortunately, the GitHub tells us the commands we need to run:
+
+```php
+apt-get install pkg-config libnl-3-dev libnl-genl-3-dev libpcap-dev 
+git clone https://github.com/aircrack-ng/mdk4
+cd mdk4
+make
+sudo make install
+```
+
+I would recommend doing this for all software you want to download. 
+
+### Hacking Software \(Not Recommended\)
+
+{% hint style="warning" %}
+This is not recommended because this method was not able to work with RaspAP
+{% endhint %}
 
 In order to get hacking software onto our Pi, there are 2 main methods: you can either download the software/code from online OR you can put Kali Linux sources in your **/etc/apt/sources.list** file. In this tutorial, I will be going with the second option. The documentation to the Kali Linux source file can be found at: [https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/). From this website there are only lines we have to copy to our sources.list file on the Pi \(fixed an error using [this website](https://dev.iachieved.it/iachievedit/updating-from-such-a-repository-cant-be-done-securely/)\):
 
@@ -95,7 +115,7 @@ deb [allow-insecure=yes allow-downgrade-to-insecure=yes] http://http.kali.org/ka
 After this is done, we will run "**sudo apt-get update**", and this will update the sources. From the Kali source, we will need [mdk4](https://github.com/aircrack-ng/mdk4), a WiFi exploiting tool. In order to download this we can run:
 
 ```bash
-sudo apt-get install mdk4 -y
+sudo apt-get install mdk4 -y --allow-unauthenticated
 ```
 
 This downloads the mdk4 tool, and then it adds the command to the terminal commands that way we are able to run the command without any other effort. This is where the WiFi adapter comes into play. A Raspberry Pi \(3B+\), although capable to WiFi connection on its own, is not able to inject packets and play around with networks as an adapter is. I also downloaded the following software. I would recommend putting them into a bash script and executing the script with sudo privileges.
@@ -204,7 +224,7 @@ Another problem of mine was that the Apache web server went down. I did not find
 When we have all the Kali \(and Parrot\) hacking software at our disposal, we can use them from the command line however we want. However, I do believe that having a website that allows you to run commands with a press of a button "[Watch Dogs](https://en.wikipedia.org/wiki/Watch_Dogs)" style has a coolness factor to it. This is what the website is meant to be: a way to efficiently run hacking commands with minimal effort. In this tutorial, we will be using Apache as the web server. To set this up we can run the following command
 
 ```bash
-sudo apt-get install apache2 #-y if needed
+sudo apt-get install apache2
 ```
 
 In order to check if the web server is running is running, we can run the following command:
@@ -337,7 +357,7 @@ If you now try to go to **localhost**, you will see the following screen:
 This is asking for the RaspAP's password. The username is: **admin**. The password is: **secret**. More information about RaspAP can be found [here](https://github.com/RaspAP/raspap-webgui). **Make sure to reboot at this point.** The reboot will make sure your files are all set up for the AP to be ready. After the reboot is completed, you should see an access point called "**raspi-webgui**". Connect to it, and after connection, head to **localhost:&lt;port number&gt;**. The most ideal usage for this would be through SSH. In order to do that, you can SSH to &lt;user&gt;@10.3.141.1. If this does not work, you can run "ping raspberry.local", and it will show you the IP address of the RaspAP. 
 
 {% hint style="warning" %}
-I would highly reccomend that you install kali-linux-everything prior to setting up the RaspAP. This way you have all the tools you need on the Pi. I have unsuccessfully tried to connect the Pi to my local network after the download of RaspAP and have had no luck. 
+I would highly recommend that you install all the software prior to setting up the RaspAP. This way you have all the tools you need on the Pi. I have unsuccessfully tried to connect the Pi to my local network after the download of RaspAP and have had no luck. 
 {% endhint %}
 
 
