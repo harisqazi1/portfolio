@@ -98,10 +98,8 @@ make
 sudo make install
 ```
 
-I would recommend doing this for all software you want to download. I also downloaded:
+I would recommend doing this for all software you want to download. 
 
-* [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng) - WiFi security auditing tools suite
-* 
 ### Hacking Software \(Not Recommended\)
 
 {% hint style="warning" %}
