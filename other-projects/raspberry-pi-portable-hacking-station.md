@@ -357,7 +357,7 @@ If you now try to go to **localhost**, you will see the following screen:
 This is asking for the RaspAP's password. The username is: **admin**. The password is: **secret**. More information about RaspAP can be found [here](https://github.com/RaspAP/raspap-webgui). **Make sure to reboot at this point.** The reboot will make sure your files are all set up for the AP to be ready. After the reboot is completed, you should see an access point called "**raspi-webgui**". Connect to it, and after connection, head to **localhost:&lt;port number&gt;**. The most ideal usage for this would be through SSH. In order to do that, you can SSH to &lt;user&gt;@10.3.141.1. If this does not work, you can run "ping raspberry.local", and it will show you the IP address of the RaspAP. 
 
 {% hint style="warning" %}
-I would highly recomend that you install all the softwar prior to setting up the RaspAP. This way you have all the tools you need on the Pi. I have unsuccessfully tried to connect the Pi to my local network after the download of RaspAP and have had no luck. 
+I would highly recommend that you install all the software prior to setting up the RaspAP. This way you have all the tools you need on the Pi. I have unsuccessfully tried to connect the Pi to my local network after the download of RaspAP and have had no luck. 
 {% endhint %}
 
 
