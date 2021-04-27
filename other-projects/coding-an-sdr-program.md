@@ -1,4 +1,24 @@
-# Coding an SDR program
+# RTL-SDR
+
+### Introduction
+
+An RTL-SDR is a software defined radio meant for receiving/intercepting data in a certain frequency. You can use this hardware to decode packets of data in the air.
+
+I have purchased a [RTL-SDR V3](https://www.rtl-sdr.com/wp-content/uploads/2018/02/RTL-SDR-Blog-V3-Datasheet.pdf). This is what I will be running all the programs/software on. 
+
+### Basic setup
+
+These are the commands I used on Linux for the setup of the RTL-SDR.
+
+```python
+sudo apt-get install bladerf
+sudo apt-get install gnuradio
+sudo apt-get install gqrx-sdr
+sudo apt-get update && sudo apt-get upgrade #just to make sure everything is updated
+
+```
+
+### Coding an SDR program​
 
 After playing around with the [RTL-SDR](https://www.amazon.com/RTL-SDR-Blog-RTL2832U-Software-Defined/dp/B011HVUEME/) and the softwares that work alongside ADS-B \(Automatic Dependent Surveillance-Broadcast\), I wanted to build my own code that would do this, just out of curiosity. I have leveraged the [rtl\_adsb](http://manpages.ubuntu.com/manpages/trusty/man1/rtl_adsb.1.html) command on Linux that changes all the data from the 1090 MHz frequency into 30 character string outputs. I have then used those outputs in order to decode them, and then display the flight name from each output to the user.
 

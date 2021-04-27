@@ -43,5 +43,5 @@
 ## Other Projects
 
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
-* [Coding an SDR program](other-projects/coding-an-sdr-program.md)
+* [RTL-SDR](other-projects/coding-an-sdr-program.md)
 
