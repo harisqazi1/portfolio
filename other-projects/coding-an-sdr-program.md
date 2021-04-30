@@ -15,7 +15,6 @@ sudo apt-get install bladerf
 sudo apt-get install gnuradio
 sudo apt-get install gqrx-sdr
 sudo apt-get update && sudo apt-get upgrade #just to make sure everything is updated
-
 ```
 
 ### Coding an SDR program​
