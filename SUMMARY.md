@@ -34,6 +34,7 @@
 ## Data Exfiltration
 
 * [Microsoft Macros](data-exfiltration/excel-and-macros.md)
+* [Keylogger](data-exfiltration/keylogger.md)
 * [Digispark ATtiny85 Rubber Ducky](data-exfiltration/attiny85/README.md)
   * [MacOS Scripts](data-exfiltration/attiny85/untitled/README.md)
     * [Warning](data-exfiltration/attiny85/untitled/warning.md)
