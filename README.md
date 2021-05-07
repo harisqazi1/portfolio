@@ -12,6 +12,7 @@ Currently a cybersecurity student at a University. Interested in ethical hacking
 * CTFlearn
 * NahamCon2021
 * SANS CyberStart
+* CYRIN Cyber Range
 
 ### My Hacking Mentality: Everything is hackable, you just have to find the right vulnerability
 
