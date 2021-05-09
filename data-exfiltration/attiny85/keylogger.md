@@ -10,11 +10,7 @@ Keylogger that sends the text to a web-hook **after** the suer has typed 20 char
 
 The aforementioned file **DOES NOT** bypass AMSI \(Microsoft Security\). I do not endore using this illegally or unethically. If you were to use this ethically, along with a **ATTINY85 Rubber Ducky**, this would be the **.ino** code for it:
 
-{% file src="../../.gitbook/assets/rubber-ducky-script.txt" caption="Rubber Ducky Script \(Not COMPLETE\)" %}
-
-{% hint style="warning" %}
-I have not found a way to bypass AMSI, if you have, you would be able to run this code and place a keylogger on a device. HOWEVER, I was able to run it on my own device, and I have Malwarebytes constantly running. Not sure if there is a connection there.
-{% endhint %}
+{% file src="../../.gitbook/assets/bypass-and-script.txt" caption=".ino file for the ATTINY85 \(BYPASS, EXECUTE, PATCH\)" %}
 
 #### Sources I used for research:
 
