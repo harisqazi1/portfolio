@@ -12,6 +12,10 @@ I do not endorse using this illegally or unethically. If you were to use this et
 
 {% file src="../../../.gitbook/assets/bypass-and-script.txt" caption=".ino file for the ATTINY85 \(BYPASS, EXECUTE, PATCH\)" %}
 
+{% hint style="warning" %}
+This ATTINY85 script **ONLY** works for computers with Windows Defender/Security on it. If you want to use it for a computer with Malwarebytes/Kaspersky/Avast, you will have to modify the code yourself.
+{% endhint %}
+
 #### Sources I used for research:
 
 * https://www.andreafortuna.org/2019/05/22/how-a-keylogger-works-a-simple-powershell-example/​
