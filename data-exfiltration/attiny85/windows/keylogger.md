@@ -6,7 +6,7 @@ The following are code that I have modified from [this website](https://www.andr
 
 Keylogger that sends the text to a web-hook **after** the user has typed 20 characters:
 
-{% file src="../../../.gitbook/assets/text-keylogger.txt.txt" caption="Keylogger file" %}
+{% file src="../../../.gitbook/assets/text-keylogger.txt.txt" caption="Text-only keylogger" %}
 
 I do not endorse using this illegally or unethically. If you were to use this ethically, along with a **ATTINY85 Rubber Ducky**, this would be the **.ino** code for it:
 
