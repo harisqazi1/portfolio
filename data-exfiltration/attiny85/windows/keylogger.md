@@ -8,7 +8,7 @@ Keylogger that sends the text to a web-hook **after** the user has typed 20 char
 
 {% file src="../../../.gitbook/assets/text-keylogger.txt.txt" caption="Keylogger file" %}
 
- I do not endorse using this illegally or unethically. If you were to use this ethically, along with a **ATTINY85 Rubber Ducky**, this would be the **.ino** code for it:
+I do not endorse using this illegally or unethically. If you were to use this ethically, along with a **ATTINY85 Rubber Ducky**, this would be the **.ino** code for it:
 
 {% file src="../../../.gitbook/assets/bypass-and-script.txt" caption=".ino file for the ATTINY85 \(BYPASS, EXECUTE, PATCH\)" %}
 
