@@ -29,7 +29,7 @@
 
 ## Wi-Fi
 
-* [Password Cracking](wi-fi/wi-fi-password-cracking.md)
+* [Password Cracking w/ aircrack](wi-fi/wi-fi-password-cracking.md)
 
 ## Data Exfiltration
 
