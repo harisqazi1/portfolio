@@ -102,5 +102,33 @@ The way to get the message was to click on the arrow next to the .wav file and t
 
 ### Task 3: Steganography
 
+For this problem, I did get stuck and used a hint from [here](https://embeddedworld.home.blog/2019/08/14/hacking-walkthrough-another-ctf-challenge/). I then typed in the command:
 
+```aspnet
+steghide extract -sf <filename>.jpg
+```
+
+It then asked me for a password. I just pressed **ENTER** and then it allowed me to get a file that had a flag in it:
+
+![](../../.gitbook/assets/screenshot-2021-05-10-184154.png)
+
+### Task 4: Security through obscurity
+
+The image by itself shows this:
+
+![](../../.gitbook/assets/screenshot-2021-05-10-184445.png)
+
+I then used the following command to find a couple files:
+
+```aspnet
+foremost -i <filename>
+```
+
+This led me to find these files:
+
+![](../../.gitbook/assets/screenshot-2021-05-10-184830.png)
+
+That eventually did not lead me anywhere. **HOWEVER,** when I ran the **strings** command on the file, I got the answers needed for the CTF:
+
+![](../../.gitbook/assets/screenshot-2021-05-10-190225.png)
 
