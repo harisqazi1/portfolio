@@ -111,7 +111,7 @@ After I ran "**exploit**", I then got a meterpreter shell:
 
 ![](../../.gitbook/assets/image%20%2848%29.png)
 
-## Escalate \(**3**0\)
+## Escalate \(**3**0 min\)
 
 For the following, it is straight forward questions, so I did not go super deep into how to answer the question.
 
