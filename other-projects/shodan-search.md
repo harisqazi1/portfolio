@@ -91,6 +91,7 @@ if __name__ == "__main__":
 ### Resources I used:
 
 * [https://help.shodan.io/guides/how-to-download-data-with-api](https://help.shodan.io/guides/how-to-download-data-with-api)
+* [https://github.com/random-robbie/My-Shodan-Scripts](https://github.com/random-robbie/My-Shodan-Scripts)
 * [https://www.yeahhub.com/find-vulnerable-webcams-shodan-metasploit-framework/](https://www.yeahhub.com/find-vulnerable-webcams-shodan-metasploit-framework/)
 * [https://thedarksource.com/shodan-cheat-sheet/](https://thedarksource.com/shodan-cheat-sheet/)
 
