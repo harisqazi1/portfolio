@@ -2,7 +2,7 @@
 
 ### This is a room by TryHackMe located at: [https://tryhackme.com/room/ice](https://tryhackme.com/room/ice)
 
-### Recon \(30 min\):
+## Recon \(30 min\):
 
 I started this room my running an nmap scan \(this was from the hint from the room\):
 
@@ -55,11 +55,33 @@ The reason for this is that with this, you would get more information about the 
 
 > DARK-PC
 
-### **Gain Access**
+## **Gain Access \(5 min\)**
 
-\*\*\*\*
+I noticed that there was an image of the icecast system on the Gain Access tab.
 
-\*\*\*\*
+![](../../.gitbook/assets/image%20%2846%29.png)
+
+I assumed that this would be the vulnerable service I had to get into. I ran another nmap scan, this time only catered towards the port the icecast service was running on:
+
+```c
+nmap -T4 -A <IP_address> -p 3389
+```
+
+I then got the following result:
+
+```c
+PORT     STATE SERVICE            VERSION
+3389/tcp open  ssl/ms-wbt-server?
+| ssl-cert: Subject: commonName=Dark-PC
+| Not valid before: 2021-05-25T17:57:35
+|_Not valid after:  2021-11-24T17:57:35
+|_ssl-date: 2021-05-26T18:02:17+00:00; -2s from scanner time.
+
+Host script results:
+|_clock-skew: -2s
+```
+
+I thought for some reason that I would get a different result, however I was wrong. I decided then to visit the site itself to see if there was anything on there for me to see. I ran into an error of not being able to connect, even while my vpn was working correctly:
 
 
 
