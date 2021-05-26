@@ -55,7 +55,7 @@ The reason for this is that with this, you would get more information about the 
 
 > DARK-PC
 
-## **Gain Access \(5 min\)**
+## **Gain Access \(**2**0 min\)**
 
 I noticed that there was an image of the icecast system on the Gain Access tab.
 
@@ -81,7 +81,149 @@ Host script results:
 |_clock-skew: -2s
 ```
 
-I thought for some reason that I would get a different result, however I was wrong. I decided then to visit the site itself to see if there was anything on there for me to see. I ran into an error of not being able to connect, even while my VPN connection was working correctly:
+I thought for some reason that I would get a different result, however I was wrong. I decided then to visit the site itself to see if there was anything on there for me to see. I was not able to access the website, maybe they have no webserver for the port. I then searched up CVEs related to Icecast, the service running on port 3389. The hint states that it would have a score of 7.5 or 7.4.
+
+![cvedetails.com for Icecast](../../.gitbook/assets/image%20%2855%29.png)
+
+I then entered in all of the Vulnerability types that I assumed were correct. After I was unsuccessful, I then looked into the hint, and then I was still unable to solve it. I then realized that the "Exec" in "Exec Code Overflow" stood for "Execute" and no "Execution". That is how I solved the first question for this section.
+
+**What type of vulnerability is it?**
+
+> Execute Code Overflow
+
+**What is the CVE number for this vulnerability?**
+
+> CVE-2004-1561
+
+**What is the full path \(starting with exploit\) for the exploitation module?**
+
+> exploit/windows/http/icecast\_header
+
+**What is the only required setting which currently is blank?**
+
+> RHOSTS
+
+I then changed the LHOST to be my own IP given to me by TryHackMe. This was my options for the exploit:
+
+![](../../.gitbook/assets/image%20%2853%29.png)
+
+After I ran "**exploit**", I then got a meterpreter shell:
+
+![](../../.gitbook/assets/image%20%2848%29.png)
+
+## Escalate \(**3**0\)
+
+For the following, it is straight forward questions, so I did not go super deep into how to answer the question.
+
+**Woohoo! We've gained a foothold into our victim machine! What's the name of the shell we have now?**
+
+> meterpreter
+
+**What user was running that Icecast process ?**
+
+> Dark
+
+**What build of Windows is the system?**
+
+> 7601
+
+**First, what is the architecture of the process we're running?**
+
+> **x64**
+
+**What is the full path \(starting with exploit/\) for the first returned exploit?**
+
+> exploit/windows/local/bypassuac\_eventvwr
+
+After this, I then changed my payload to be for bypassing uac:
+
+![](../../.gitbook/assets/image%20%2850%29.png)
+
+**We'll have to set one more as our listener IP isn't correct. What is the name of this option?**
+
+> LHOST
+
+I then ran run and the exploit was successful:
+
+![](../../.gitbook/assets/image%20%2852%29.png)
+
+Running "getprivs" on the second session got me:
+
+![](../../.gitbook/assets/image%20%2849%29.png)
+
+This helped me answer the question.
+
+**We can now verify that we have expanded permissions using the command `getprivs`. What permission listed allows us to take ownership of files?**
+
+> SeTakeOwnershipPrivilege
+
+## Looting \(10 min\)
+
+I then ran 'ps' to see the current processes on the room. This was my result:
+
+![](../../.gitbook/assets/image%20%2854%29.png)
+
+I then had to find a printer program for the next question. I was able to find it using the hint.
+
+**The printer spool service happens to meet our needs perfectly for this and it'll restart if we crash it! What's the name of the printer service?**
+
+> spoolsv.exe
+
+As suggested by the room, I then ran the following command:
+
+```c
+migrate -N spoolsv.exe
+```
+
+This was my result from that:
+
+![](../../.gitbook/assets/image%20%2851%29.png)
+
+**Let's check what user we are now with the command `getuid`. What user is listed?**
+
+> NT AUTHORITY\SYSTEM
+
+I then installed Mimikatz on the machine using the following command:
+
+```c
+load kiwi
+```
+
+**Which command allows up to retrieve all credentials?**
+
+> creds\_all
+
+I then ran this command, and got the following information:
+
+![](../../.gitbook/assets/image%20%2847%29.png)
+
+Here we can see the answer to the next question.
+
+**Run this command now. What is Dark's password?**
+
+> Password01!
+
+## Post-Exploitation
+
+**What command allows us to dump all of the password hashes stored on the system?**
+
+> hashdump
+
+**While more useful when interacting with a machine being used, what command allows us to watch the remote user's desktop in real time?**
+
+> screenshare
+
+**How about if we wanted to record from a microphone attached to the system?**
+
+> record\_mic
+
+**To complicate forensics efforts we can modify timestamps of files on the system. What command allows us to do this?**
+
+> Timestomp
+
+**Mimikatz allows us to create what's called a `golden ticket`, allowing us to authenticate anywhere with ease. What command allows us to do this?**
+
+> golden\_ticket\_create
 
 
 
