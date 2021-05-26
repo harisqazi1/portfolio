@@ -203,7 +203,7 @@ Here we can see the answer to the next question.
 
 > Password01!
 
-## Post-Exploitation
+## Post-Exploitation \(10 min\)
 
 **What command allows us to dump all of the password hashes stored on the system?**
 
@@ -225,5 +225,5 @@ Here we can see the answer to the next question.
 
 > golden\_ticket\_create
 
-
+The room is now complete! Overall, it was a good room to learn beginner Windows attacks.
 
