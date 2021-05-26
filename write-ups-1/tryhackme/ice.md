@@ -81,7 +81,7 @@ Host script results:
 |_clock-skew: -2s
 ```
 
-I thought for some reason that I would get a different result, however I was wrong. I decided then to visit the site itself to see if there was anything on there for me to see. I ran into an error of not being able to connect, even while my vpn was working correctly:
+I thought for some reason that I would get a different result, however I was wrong. I decided then to visit the site itself to see if there was anything on there for me to see. I ran into an error of not being able to connect, even while my VPN connection was working correctly:
 
 
 
