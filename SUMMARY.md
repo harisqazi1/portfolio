@@ -28,6 +28,8 @@
   * [Forensics 101](write-ups-1/ctflearn/forensics-101.md)
   * [Binwalk](write-ups-1/ctflearn/binwalk.md)
 * [picoCTF](write-ups-1/picoctf/README.md)
+  * [Transformation](write-ups-1/picoctf/transformation.md)
+  * [Nice netcat...](write-ups-1/picoctf/nice-netcat....md)
   * [information](write-ups-1/picoctf/information.md)
   * [Wave a flag](write-ups-1/picoctf/wave-a-flag.md)
   * [Python Wrangling](write-ups-1/picoctf/python-wrangling.md)
