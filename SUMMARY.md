@@ -28,6 +28,8 @@
   * [Forensics 101](write-ups-1/ctflearn/forensics-101.md)
   * [Binwalk](write-ups-1/ctflearn/binwalk.md)
 * [picoCTF](write-ups-1/picoctf/README.md)
+  * [Mind your Ps and Qs](write-ups-1/picoctf/mind-your-ps-and-qs.md)
+  * [GET aHEAD](write-ups-1/picoctf/get-ahead.md)
   * [Stonks](write-ups-1/picoctf/stonks.md)
   * [Transformation](write-ups-1/picoctf/transformation.md)
   * [Nice netcat...](write-ups-1/picoctf/nice-netcat....md)
