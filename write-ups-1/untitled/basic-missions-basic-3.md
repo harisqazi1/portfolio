@@ -12,7 +12,7 @@ After reading the prompt, I decided to look at the html source code for this que
 
 ![](../../.gitbook/assets/screenshot-2021-01-24-175646.png)
 
-I notice a file called "password.php", and I decide to check it out. 
+I notice a file called "password.php", and I decide to check it out.
 
 ![](../../.gitbook/assets/screenshot-2021-01-24-175729.png)
 

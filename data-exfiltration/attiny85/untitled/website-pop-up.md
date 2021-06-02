@@ -1,8 +1,8 @@
 # Website Pop-up
 
-#### This script pops up a chosen website onto the computer.
+### This script pops up a chosen website onto the computer.
 
-### Code
+## Code
 
 ```c
 #include "DigiKeyboard.h"
@@ -28,7 +28,7 @@ void loop() {
 }
 ```
 
-### Notes
+## Notes
 
-This code is used to pop open a website of any sort to the computer, as long as there is an internet connection. You can also use it to access your own server, thus getting the IP and maybe even fingerprint the computer. 
+This code is used to pop open a website of any sort to the computer, as long as there is an internet connection. You can also use it to access your own server, thus getting the IP and maybe even fingerprint the computer.
 

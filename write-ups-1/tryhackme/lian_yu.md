@@ -1,6 +1,6 @@
 # Lian\_Yu
 
-### This is a room on the TryHackMe website at: [https://tryhackme.com/room/lianyu](https://tryhackme.com/room/lianyu)
+## This is a room on the TryHackMe website at: [https://tryhackme.com/room/lianyu](https://tryhackme.com/room/lianyu)
 
 I started off by doing an nmap scan:
 
@@ -50,7 +50,7 @@ Here, the word "arrow" was bolded, so I saved it, just in case it could mean som
 gobuster dir -u http://10.10.121.53/ -w ../resources/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -t 40
 ```
 
-In the previous command, the wordlist I am using comes from [this github page](https://github.com/danielmiessler/SecLists). I then found a directory called: "is----". 
+In the previous command, the wordlist I am using comes from [this github page](https://github.com/danielmiessler/SecLists). I then found a directory called: "is----".
 
 I then ran gobuster again with the addition of the new directory I had found:
 
@@ -74,7 +74,7 @@ I then found a file with a .ticket extension.
 
 ![](../../.gitbook/assets/inkedpasted-image-20210317202915_li.jpg)
 
-What I had crossed out in red was a password of some sort. I then had to look at the clue on the TryHackMe Lian\_Yu room. This led me to realize that the part crossed out in red was actually the ftp password in a base encoding. 
+What I had crossed out in red was a password of some sort. I then had to look at the clue on the TryHackMe Lian\_Yu room. This led me to realize that the part crossed out in red was actually the ftp password in a base encoding.
 
 ![](../../.gitbook/assets/pasted-image-20210317203002.png)
 
@@ -118,7 +118,7 @@ I then found the password for the ssh server for the user "slade". I then entere
 
 ![](../../.gitbook/assets/pasted-image-20210318230445.png)
 
-Here my first idea was to run "ls" to find out files in my current directory. I then saw the flag in a "user.txt" file. I then had to upgrade my privileges to root. To do this I ran "sudo -l". This command lets you know what commands our user can do as the root user. 
+Here my first idea was to run "ls" to find out files in my current directory. I then saw the flag in a "user.txt" file. I then had to upgrade my privileges to root. To do this I ran "sudo -l". This command lets you know what commands our user can do as the root user.
 
 ![](../../.gitbook/assets/pasted-image-20210318230518.png)
 

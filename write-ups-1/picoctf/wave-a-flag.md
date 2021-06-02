@@ -10,5 +10,3 @@ This made me realize that it is an executable binary file. I changed the file to
 
 ![](../../.gitbook/assets/image%20%2863%29.png)
 
-
-

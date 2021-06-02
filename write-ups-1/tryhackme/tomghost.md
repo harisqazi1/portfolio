@@ -3,7 +3,7 @@
 I have to find out what is on the server. For this, we can use an nmap scan with the following command:
 
 ```bash
-sudo nmap -T4 -A IP_address > nmap 
+sudo nmap -T4 -A IP_address > nmap
 ```
 
 We then read the nmap file to see what the server has on it:
@@ -86,18 +86,17 @@ Getting resource at ajp13://10.10.151.10:8009/asdf
   <display-name>Welcome to Tomcat</display-name>
   <description>
      Welcome to GhostCat
-	skyfuck:password <!----I took out the password----->
+    skyfuck:password <!----I took out the password----->
   </description>
 
 </web-app>
-
 ```
 
 After this, I saved the username and password. I had to see where the username and password would fit into. Turns out, it works for SSH:
 
 ![The home directory for the user](../../.gitbook/assets/image%20%281%29.png)
 
-There were 2 files in this directory: credential.pgp and tryhackme.asc. Neither of them looked as interesting as I thought they would. Looking around, I found a folder of a different user, and in their directory, I found the user.txt file. 
+There were 2 files in this directory: credential.pgp and tryhackme.asc. Neither of them looked as interesting as I thought they would. Looking around, I found a folder of a different user, and in their directory, I found the user.txt file.
 
 ![The other user&apos;s file](../../.gitbook/assets/screenshot-2021-03-06-230615.png)
 
@@ -105,7 +104,7 @@ I realized that to switch my user access, to merlin \(or even to root\), I had t
 
 ![Scp command](../../.gitbook/assets/screenshot-2021-03-06-231338.png)
 
-I did run into run more trouble here as well. While trying to import the tryhackme.asc by gpg, it was asking me for a password, which I did not have. I had to refer back to the [previous website ](https://cyber-99.co.uk/thm-tomghost)to see how else I can attack this problem. Based on the website, my next step was to use John the ripper to crack the asc file. Prior to doing that, I did have to change into a format that is readable by John. Here is where programs in /opt/john/ come into play. They convert files from one type into a john crackable format. We will use "gpg2john.py". 
+I did run into run more trouble here as well. While trying to import the tryhackme.asc by gpg, it was asking me for a password, which I did not have. I had to refer back to the [previous website ](https://cyber-99.co.uk/thm-tomghost)to see how else I can attack this problem. Based on the website, my next step was to use John the ripper to crack the asc file. Prior to doing that, I did have to change into a format that is readable by John. Here is where programs in /opt/john/ come into play. They convert files from one type into a john crackable format. We will use "gpg2john.py".
 
 ![gpg2john command](../../.gitbook/assets/image%20%287%29.png)
 
@@ -113,7 +112,7 @@ Running john on it let me to a password:
 
 ![john output](../../.gitbook/assets/screenshot-2021-03-06-233030.png)
 
-I then used the commands on [this website](https://superuser.com/questions/46461/decrypt-pgp-file-using-asc-key) in order to decrypt the files using the password from the john command. 
+I then used the commands on [this website](https://superuser.com/questions/46461/decrypt-pgp-file-using-asc-key) in order to decrypt the files using the password from the john command.
 
 ![](../../.gitbook/assets/screenshot-2021-03-06-233420.png)
 

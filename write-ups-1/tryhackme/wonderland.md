@@ -33,7 +33,7 @@ gobuster dir -u http://10.10.213.33 -q -t 10 -w SecLists/Discovery/Web-Content/d
 /r (Status: 301)
 ```
 
-I checked out /img, and it did not have anything that interesting. I then checked out /r. 
+I checked out /img, and it did not have anything that interesting. I then checked out /r.
 
 ![](../../.gitbook/assets/image%20%2815%29.png)
 
@@ -68,11 +68,11 @@ I realized that I might have to find a way to read another file using this. I di
 
 ![](../../.gitbook/assets/screenshot-2021-03-09-165204.png)
 
-I had found the user.txt file. Now I had to find a way to upgrade my user privilege. Using the previous website as a reference, I then would have to use the rabbit user on the machine, as well as make a file called "random" that the python script would call. I then typed the following commands, which I found on [this website](https://0x00jeff.github.io/tryhackme-wonderland-writeup/) \(same as before\): 
+I had found the user.txt file. Now I had to find a way to upgrade my user privilege. Using the previous website as a reference, I then would have to use the rabbit user on the machine, as well as make a file called "random" that the python script would call. I then typed the following commands, which I found on [this website](https://0x00jeff.github.io/tryhackme-wonderland-writeup/) \(same as before\):
 
 ```c
 echo 'import pty;pty.spawn("/bin/bash")' > random.py
-sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py 
+sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
 ```
 
 After this, I was the rabbit user on the machine. I now had to find a way to get higher. In the rabbit user's home directory, there is an executable called "teaParty". At this point, I have read the write up for it, and realized that there was way more work to be done. I will try to continue this later.

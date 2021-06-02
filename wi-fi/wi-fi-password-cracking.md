@@ -36,7 +36,7 @@ In order to crack passwords, we will first have to capture the 4-way handshake. 
 sudo airmon-ng start wlan0 #assuming wlan0 is the wlan of the wireless card
 ```
 
-This command will initialize our wireless card to be in monitor mode. We can then use it to intercept traffic. The next command we will use will allow us to see the nearby networks and see their BSSIDs. 
+This command will initialize our wireless card to be in monitor mode. We can then use it to intercept traffic. The next command we will use will allow us to see the nearby networks and see their BSSIDs.
 
 ```bash
 sudo airodump-ng wlan0mon #same assumption as above
@@ -54,7 +54,7 @@ On the other terminal, we will run:
 sudo aireplay --deauth <count of deauthentication packets> -a <BSSID of network> wlan0mon
 ```
 
-This part gets a bit complicated. We have to run the "aireplay" command with a count that will allow us to get a handshake capture. For me, 20 works. The capture will be seen in the terminal running "airodump-ng". If nothing has changed in the "airodump-ng" terminal, then the handshake has not been captured yet. When the handshake is captured, you can go to the "Cracking Passwords" section of this tutorial. 
+This part gets a bit complicated. We have to run the "aireplay" command with a count that will allow us to get a handshake capture. For me, 20 works. The capture will be seen in the terminal running "airodump-ng". If nothing has changed in the "airodump-ng" terminal, then the handshake has not been captured yet. When the handshake is captured, you can go to the "Cracking Passwords" section of this tutorial.
 
 ## Cracking Passwords
 
@@ -64,7 +64,7 @@ In order to crack passwords, there are 2 main methods to do it: using aircrack-n
 * [https://github.com/danielmiessler/SecLists/tree/master/Passwords/WiFi-WPA](https://github.com/danielmiessler/SecLists/tree/master/Passwords/WiFi-WPA)
 * [https://github.com/berzerk0/Probable-Wordlists/blob/master/Real-Passwords/WPA-Length/Real-Password-WPA-MegaLinks.md](https://github.com/berzerk0/Probable-Wordlists/blob/master/Real-Passwords/WPA-Length/Real-Password-WPA-MegaLinks.md)
 
-You could also make your own password list using the "crunch" command on Kali or Parrot OS. 
+You could also make your own password list using the "crunch" command on Kali or Parrot OS.
 
 To crack the password, using the aircrack-ng command, we will run the following command:
 

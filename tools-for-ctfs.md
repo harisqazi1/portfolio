@@ -4,7 +4,7 @@
 A lot of the tools I use are built into the Kali Linux operating system. Most of these will be Linux commands.
 {% endhint %}
 
-### Forensics / Steganography
+## Forensics / Steganography
 
 * Exiftool - prints out metadata from an image 
 * Exif - prints out metadata as well 
@@ -29,7 +29,7 @@ A lot of the tools I use are built into the Kali Linux operating system. Most of
 * Cyberchef - can be used to extract files from another file
   * Can be found at [https://gchq.github.io/CyberChef/\#recipe=Extract\_Files\(true,true,true,true,true,true,false,true\)](https://gchq.github.io/CyberChef/#recipe=Extract_Files%28true,true,true,true,true,true,false,true%29)
 
-### Cryptography
+## Cryptography
 
 * fcrackzip - program to crack zip files using bruteforce or a dictionary
   * Can be found at [https://github.com/hyc/fcrackzip](https://github.com/hyc/fcrackzip)
@@ -42,7 +42,7 @@ A lot of the tools I use are built into the Kali Linux operating system. Most of
 * CyberChef- Basic hash decoding 
   * [https://gchq.github.io/CyberChef/](https://gchq.github.io/CyberChef/)
 
-### Web Exploitation
+## Web Exploitation
 
 * Nmap - used to find what ports are open on a server
 * Burpsuite - used to intercept/modify web requests
@@ -52,11 +52,9 @@ A lot of the tools I use are built into the Kali Linux operating system. Most of
 * Nikto - a web server scanner
 * Wget - used to download a website and its contents
 
-### Reverse Engineering
+## Reverse Engineering
 
 * ltrace - simple command for viewing what is going on in the background of a binary file
 * IDA Freeware - A debugger which reveals all the behind the scenes for a binary file
 * Ghidra - a debugger, which attempts to reconstruct code from where the binary was composed of
-
-
 

@@ -6,5 +6,3 @@ My assumption off the bat is that I am expected to get a header of a website. I 
 
 ![](../../.gitbook/assets/image%20%2881%29.png)
 
-
-

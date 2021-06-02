@@ -8,7 +8,7 @@ description: >-
 
 ![Question](../../.gitbook/assets/screenshot-2021-01-25-163044.png)
 
-For this level, it tells us that the password is unencrypted and it is stored at a location. I also noticed that I would have to work with a bit of php in order to get to the password. I was lost at the foothold story, so I got help from the following websites in order to get a foothold for this level: [http://www.gensale.net/hts-basic-level-8/](http://www.gensale.net/hts-basic-level-8/) and  [https://mont3cris7o.blogspot.com/2017/10/hack-this-site-basic-8.html](https://mont3cris7o.blogspot.com/2017/10/hack-this-site-basic-8.html). 
+For this level, it tells us that the password is unencrypted and it is stored at a location. I also noticed that I would have to work with a bit of php in order to get to the password. I was lost at the foothold story, so I got help from the following websites in order to get a foothold for this level: [http://www.gensale.net/hts-basic-level-8/](http://www.gensale.net/hts-basic-level-8/) and [https://mont3cris7o.blogspot.com/2017/10/hack-this-site-basic-8.html](https://mont3cris7o.blogspot.com/2017/10/hack-this-site-basic-8.html).
 
 ![](../../.gitbook/assets/screenshot-2021-01-25-163646.png)
 

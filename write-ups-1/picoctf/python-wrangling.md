@@ -6,7 +6,7 @@ For this CTF, you start off with 3 different files, and we have to use that to g
 
 ![](../../.gitbook/assets/image%20%2856%29.png)
 
-I realized that I would have to use the python script and enter the password in the pw.txt file to fix the flag. Running the python script you get shown this message: 
+I realized that I would have to use the python script and enter the password in the pw.txt file to fix the flag. Running the python script you get shown this message:
 
 ![](../../.gitbook/assets/image%20%2873%29.png)
 

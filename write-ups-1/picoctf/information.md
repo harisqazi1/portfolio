@@ -10,5 +10,3 @@ I then got the flag:
 
 ![](../../.gitbook/assets/image%20%2872%29.png)
 
-
-
