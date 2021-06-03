@@ -13,7 +13,7 @@
 * NahamCon2021
 * SANS CyberStart
 * CYRIN Cyber Range
-* U.S. Cyber Games Open CTF - Level One
+* U.S. Cyber Games Open CTF
 
 ## My Hacking Mentality: Everything is hackable, you just have to find the right vulnerability
 

@@ -1,4 +1,4 @@
-# dogcat
+# dogcat \(Incomplete\)
 
 ### This is a room on TryHackMe which can be found at: [https://tryhackme.com/room/dogcat](https://tryhackme.com/room/dogcat)
 
@@ -63,4 +63,8 @@ Converting the long string to Ascii using a base64 decoder shows us this:
 ![](../../.gitbook/assets/image%20%2883%29.png)
 
 I am a beginner to Local File Inclusions, so again, I got stuck. I then viewed [the same write-up](https://noxtal.com/writeups/2020/07/03/tryhackme-dogcat/) in order to see the next move. 
+
+{% hint style="warning" %}
+This write-up is incomplete
+{% endhint %}
 
