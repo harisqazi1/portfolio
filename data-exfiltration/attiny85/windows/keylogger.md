@@ -245,7 +245,7 @@ void loop() {
 ```
 
 {% hint style="warning" %}
-This ATTINY85 script **ONLY** works for computers with Windows Defender/Security on it. If you want to use it for a computer with Malwarebytes/Kaspersky/Avast, you will have to modify the code yourself.
+This ATTINY85 script ONLY works for computers with Windows Defender/Security on it. If you want to use it for a computer with Malwarebytes/Kaspersky/Avast, you will have to modify the code yourself.
 {% endhint %}
 
 ### Sources I used for research:
