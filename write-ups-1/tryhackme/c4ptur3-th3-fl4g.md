@@ -1,14 +1,14 @@
 # c4ptur3-th3-fl4g
 
-#### This is a write-up for the TryHackMe room located at: [https://tryhackme.com/room/c4ptur3th3fl4g](https://tryhackme.com/room/c4ptur3th3fl4g)
+### This is a write-up for the TryHackMe room located at: [https://tryhackme.com/room/c4ptur3th3fl4g](https://tryhackme.com/room/c4ptur3th3fl4g)
 
-### Task 1: Translation & Shifting
+## Task 1: Translation & Shifting
 
 ```aspnet
 c4n y0u c4p7u23 7h3 f149?
 ```
 
-This seems to be in leetspeak format. I manually was able to convert it, but you can use a website such as [this one](https://www.dcode.fr/leet-speak-1337) to decode it.  I then got the flag:
+This seems to be in leetspeak format. I manually was able to convert it, but you can use a website such as [this one](https://www.dcode.fr/leet-speak-1337) to decode it. I then got the flag:
 
 ![](../../.gitbook/assets/image%20%2840%29.png)
 
@@ -92,15 +92,15 @@ This led me to the answer:
 
 ![](../../.gitbook/assets/screenshot-2021-05-10-172705.png)
 
-### Task 2: Spectrograms
+## Task 2: Spectrograms
 
-The hint for this message was Audacity. I then downloaded Audacity, and then got the flag: 
+The hint for this message was Audacity. I then downloaded Audacity, and then got the flag:
 
 ![](../../.gitbook/assets/screenshot-2021-05-10-174559.png)
 
 The way to get the message was to click on the arrow next to the .wav file and then clicking on spectrogram.
 
-### Task 3: Steganography
+## Task 3: Steganography
 
 For this problem, I did get stuck and used a hint from [here](https://embeddedworld.home.blog/2019/08/14/hacking-walkthrough-another-ctf-challenge/). I then typed in the command:
 
@@ -112,7 +112,7 @@ It then asked me for a password. I just pressed **ENTER** and then it allowed me
 
 ![](../../.gitbook/assets/screenshot-2021-05-10-184154.png)
 
-### Task 4: Security through obscurity
+## Task 4: Security through obscurity
 
 The image by itself shows this:
 

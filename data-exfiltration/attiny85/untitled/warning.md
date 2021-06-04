@@ -1,8 +1,8 @@
 # Warning
 
-#### This rubber ducky script allows you to warn a user that they should not leave their laptop/desktop unlocked. 
+### This rubber ducky script allows you to warn a user that they should not leave their laptop/desktop unlocked.
 
-### Warning.ino
+## Warning.ino
 
 ```csharp
 #include "DigiKeyboard.h"

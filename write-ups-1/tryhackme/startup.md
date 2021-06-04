@@ -26,7 +26,7 @@ I then had 3 items in my local directory: an image, a text file, and a directory
 
 > Whoever is leaving these damn Among Us memes in this share, it IS NOT FUNNY. People downloading documents from our website will think we are a joke! Now I dont know who it is, but Maya is looking pretty sus.
 
-I did get lost a bit here. I knew we had to upload a file to the ftp directory. If you look above, the ftp directory is able to be read and posted to. That connected with the idea that we can access the ftp files on http://10.10.201.52/files/, means that we can upload the php file and then access it through the website. For this, we will have to use a php-reverse-shell.php. I had gotten this hint by looking at the write-up at [this website](https://www.badtothepwn.com/2021/01/startup/). I uploaded the php-reverse-shell.php to the ftp directory using the ftp command line. I then went to the website, and then got a shell:
+I did get lost a bit here. I knew we had to upload a file to the ftp directory. If you look above, the ftp directory is able to be read and posted to. That connected with the idea that we can access the ftp files on [http://10.10.201.52/files/](http://10.10.201.52/files/), means that we can upload the php file and then access it through the website. For this, we will have to use a php-reverse-shell.php. I had gotten this hint by looking at the write-up at [this website](https://www.badtothepwn.com/2021/01/startup/). I uploaded the php-reverse-shell.php to the ftp directory using the ftp command line. I then went to the website, and then got a shell:
 
 ![netcat shell](../../.gitbook/assets/image%20%2810%29.png)
 
@@ -38,7 +38,7 @@ I now have to find a way to get more forward in the system. I have found a pcap 
 
 ![](../../.gitbook/assets/image%20%2811%29.png)
 
-I will have to download it to see where to go from there. I realized that using net cat from the server to my own machine, I would be able to send this file to myself. I used [this website](https://superuser.com/questions/98089/sending-file-via-netcat) to know the command for what to run on both sides. I now have the file downloaded onto my own machine. After getting a hint from [this website](https://hackofalltrades.dev/tryhackmes-startup-walkthrough/), I realized that I would have to look through the packets to find the password. I then found it in the data of a packet. 
+I will have to download it to see where to go from there. I realized that using net cat from the server to my own machine, I would be able to send this file to myself. I used [this website](https://superuser.com/questions/98089/sending-file-via-netcat) to know the command for what to run on both sides. I now have the file downloaded onto my own machine. After getting a hint from [this website](https://hackofalltrades.dev/tryhackmes-startup-walkthrough/), I realized that I would have to look through the packets to find the password. I then found it in the data of a packet.
 
 ![](../../.gitbook/assets/screenshot-2021-03-07-165106.png)
 

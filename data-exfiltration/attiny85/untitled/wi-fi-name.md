@@ -1,8 +1,8 @@
 # Wi-Fi Name
 
-#### This script extracts the Wi-Fi SSID the host is connected to and pushes that and the local wifi networks to an online website.
+### This script extracts the Wi-Fi SSID the host is connected to and pushes that and the local wifi networks to an online website.
 
-### Code
+## Code
 
 ```c
 #include "DigiKeyboard.h"
@@ -45,7 +45,7 @@ void loop() {
 }
 ```
 
-### Notes
+## Notes
 
 This code can be modified at line 30 to push the file to another website using the POST feature of curl. This also makes a clean exit on macOS, by deleting the file and exiting the terminal so there is no hard evidence.
 

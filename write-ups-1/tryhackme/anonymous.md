@@ -32,12 +32,12 @@ PORT    STATE SERVICE     VERSION
 There are 4 ports open here, so I will have to find a way to get in using these ports. If you notice next to ftp it states "\[NSE: writeable\]". This means that we can add a file to the ftp folder. I was assuming that we would add a php-reverse-shell to the file and then use that in order to get a way inside. I did come to realize that there was no way for me to execute the php code. I then had to look at a [write-up](https://m0ndzon3.blogspot.com/2020/06/tryhackme-write-up-anonymous.html) in order to get my foothold into the machine. Before I get too a head of myself, I will let you know where I am currently at for the machine. I noticed that there are files in the ftp directory called "scripts":
 
 ```c
-	-rwxr-xrwx    1 1000     1000          314 Jun 04  2020 clean.sh
-	-rw-rw-r--    1 1000     1000         1978 Mar 10 00:17 removed_files.log
-	-rw-r--r--    1 1000     1000           68 May 12  2020 to_do.txt
+    -rwxr-xrwx    1 1000     1000          314 Jun 04  2020 clean.sh
+    -rw-rw-r--    1 1000     1000         1978 Mar 10 00:17 removed_files.log
+    -rw-r--r--    1 1000     1000           68 May 12  2020 to_do.txt
 ```
 
-I downloaded all of these files to my own computer using the "mget \*" command. I then used the [same write-up](https://m0ndzon3.blogspot.com/2020/06/tryhackme-write-up-anonymous.html) as previously to find out my next step. My next step was to overwrite the clean.sh file, and then fill it in with a reverse bash tcp connection. This can be found at [this github](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#bash-tcp). After this is done, we can then then push it to the ftp using the mput command. Something such as "mput clean.sh", and this will overwrite the current file on the machine. On another tab, on my machine, I ran netcat. I ran the command "nc -lvp 1234" where I am listening on my machine on the port 1234. 
+I downloaded all of these files to my own computer using the "mget \*" command. I then used the [same write-up](https://m0ndzon3.blogspot.com/2020/06/tryhackme-write-up-anonymous.html) as previously to find out my next step. My next step was to overwrite the clean.sh file, and then fill it in with a reverse bash tcp connection. This can be found at [this github](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#bash-tcp). After this is done, we can then then push it to the ftp using the mput command. Something such as "mput clean.sh", and this will overwrite the current file on the machine. On another tab, on my machine, I ran netcat. I ran the command "nc -lvp 1234" where I am listening on my machine on the port 1234.
 
 ![](../../.gitbook/assets/pasted-image-20210309184513.png)
 
@@ -57,5 +57,5 @@ This allows us to us to see what commands we are able to run with our current us
 env /bin/sh -p
 ```
 
-This got me to root, and I got the root.txt. 
+This got me to root, and I got the root.txt.
 

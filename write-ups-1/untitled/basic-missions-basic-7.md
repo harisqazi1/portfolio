@@ -12,7 +12,7 @@ For this level, it lets us know that there is a UNIX command setup. For me, that
 
 ![](../../.gitbook/assets/screenshot-2021-01-25-162826.png)
 
-My thought after this, was to see if I can modify the input to change the output. My first thought was to append "ls" or the Linux command for listing files/directories in the current directory. 
+My thought after this, was to see if I can modify the input to change the output. My first thought was to append "ls" or the Linux command for listing files/directories in the current directory.
 
 ![](../../.gitbook/assets/screenshot-2021-01-25-162805.png)
 

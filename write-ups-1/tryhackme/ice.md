@@ -32,7 +32,6 @@ PORT      STATE SERVICE
 49160/tcp open  unknown
 
 Nmap done: 1 IP address (1 host up) scanned in 871.23 seconds
-
 ```
 
 For the nmap, I would recommend using something like:

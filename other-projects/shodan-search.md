@@ -1,6 +1,6 @@
 # Shodan Search
 
-I wanted to make a search for Shodan using code. This led me to create the following the python code that way I can use the API to search for specific strings without having to search up the specific command. There are a lot of security cameras in my Shodan code. I just thought this would be interesting have. 
+I wanted to make a search for Shodan using code. This led me to create the following the python code that way I can use the API to search for specific strings without having to search up the specific command. There are a lot of security cameras in my Shodan code. I just thought this would be interesting have.
 
 {% hint style="danger" %}
 Use this code at your own risk. I am not responsible for what you do with this code.
@@ -85,10 +85,9 @@ if __name__ == "__main__":
     print(script_logo)
     shodan_search()
     print('-----------------Script DONE------------')
-
 ```
 
-### Resources I used:
+## Resources I used:
 
 * [https://help.shodan.io/guides/how-to-download-data-with-api](https://help.shodan.io/guides/how-to-download-data-with-api)
 * [https://github.com/random-robbie/My-Shodan-Scripts](https://github.com/random-robbie/My-Shodan-Scripts)

