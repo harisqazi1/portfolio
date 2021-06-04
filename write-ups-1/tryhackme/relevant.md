@@ -18,7 +18,6 @@ PORT     STATE    SERVICE
 3389/tcp filtered ms-wbt-server
 
 Nmap done: 1 IP address (1 host up) scanned in 120.16 seconds
-
 ```
 
 I later ran **sudo nmap -p- -Pn -sS -A 10.10.161.100 -oN fullscan.txt** which got me way more information**:**
@@ -95,7 +94,6 @@ HOP RTT       ADDRESS
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 722.09 seconds
-
 ```
 
 ### Foothold:
@@ -160,7 +158,9 @@ Now I wanted to move back and see another way inside. Both port 80 and 49663 bot
 
 ![](../../.gitbook/assets/image%20%2889%29.png)
 
-I then ran gobuster on the port 49663:
+I then ran **dirsearch** on the port 49663:
+
+![](../../.gitbook/assets/image%20%28101%29.png)
 
 
 
