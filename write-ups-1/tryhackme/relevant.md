@@ -162,5 +162,53 @@ I then ran **dirsearch** on the port 49663:
 
 ![](../../.gitbook/assets/image%20%28101%29.png)
 
+At this point we have access to a website which has the same contents as the smb server:
 
+![](../../.gitbook/assets/image%20%28104%29.png)
+
+### **Exploitation:**
+
+In order to exploit this system, I will have to create a payload to then submit to the samba share. I will have to use msfvenom in order to create this. I uploaded a .exe and it did not work. I had to find another format to upload the file to. I then looked at the same aforementioned writeup to see what format they used. They used **.aspx**. I also did not know that Windows Server 2016 is a x64 architecture. With those in mind, I then made a payload:
+
+![](../../.gitbook/assets/image%20%28110%29.png)
+
+I then had to upload this to the smb server:
+
+![](../../.gitbook/assets/image%20%28107%29.png)
+
+I then have to go to the web version on the payload so that way it can be initiated. Before I do that, I have to have a netcat listener open on another terminal. The payload worked:
+
+![](../../.gitbook/assets/image%20%28102%29.png)
+
+Browsing around the file system I found the user flag:
+
+![](../../.gitbook/assets/image%20%28109%29.png)
+
+This was my first Windows machine, so I had to refer to the write-up to know where to go next. I then learned that I would have to upload an exe called **PrintSpoofer** which impersonates privileges. I then downloaded it:
+
+![](../../.gitbook/assets/image%20%28106%29.png)
+
+I then had to upload it. I did this using the same method as I did for the payload:
+
+![](../../.gitbook/assets/image%20%28105%29.png)
+
+![](../../.gitbook/assets/image%20%28103%29.png)
+
+I then ran:
+
+```c
+PrintSpoofer.exe -i -c cmd
+```
+
+which led me to this:
+
+![](../../.gitbook/assets/image%20%28108%29.png)
+
+I then went to the Desktop of the Administrator and got the flag:
+
+![](../../.gitbook/assets/image%20%28111%29.png)
+
+### What I Learned:
+
+I learned a lot from this machine. It was my first Windows machine so there was a little learning curve for me while attempting this machine. I learned about **whoami /priv** which was not something I had known about previously. Overall, a great Windows machine, however NOT recommended for Windows machine beginners.
 
