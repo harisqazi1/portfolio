@@ -52,7 +52,7 @@ I setup the firewall first, since all of the data was going to go through the Fi
   * Connect a USB keyboard and monitor to the Vault​
   * Insert USB into another USB port​
   * Power on the device​
-  * Enter in all the defaults​
+  * Press Enter on all of the defaults​
   * After the installation is complete, disconnect USB keyboard and Monitor​
   * Go to 192.168.1.1 -&gt; user:admin / password:pfsense​
   * Click Advanced to allow the page to load​
