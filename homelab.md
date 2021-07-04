@@ -18,6 +18,7 @@ I wanted to build a Homelab for myself in order to get enterprise experience wit
 | Cat 7 Ethernet Cable​ | Amazon Basics RJ45 Cat 7 High-Speed Gigabit Ethernet Patch Internet Cable, 10Gbps, 600MHz - White, 5-Foot​ | 6.99​ |
 | Unmanaged Switch​ | NETGEAR 5-Port Gigabit Ethernet Unmanaged Switch \(GS105NA\)​ | 28.99​ |
 | Power Cord​ | Cable Matters 2-Pack 16 AWG Heavy Duty 3 Prong Computer Monitor Power Cord in 15 Feet, UL Listed \(NEMA 5-15P to IEC C13\)​ | 24.99​ |
+| Total |  | 818.29 |
 
 ### Software/OS
 
