@@ -155,7 +155,7 @@ I then downloaded and then used [Balena Ether](https://www.balena.io/etcher/) in
  If you do not use RAID, you will still need to "virtualize" your disks that way ESXi can use it as storage.​
 {% endhint %}
 
-
+I do not have screenshots for this part, but I can try to type out what steps I took:
 
 * Plugged in my USB 2.0 with the Dell ESXi ISO flashed on it​
 * Connected my second ethernet cable to one of the 4 ethernet ports in the back :
@@ -166,17 +166,24 @@ I then downloaded and then used [Balena Ether](https://www.balena.io/etcher/) in
 * Waited until I was able to press "F11"​
 * Booted off of the USB​
 * When asked for where to setup ESXi, I chose my RAID-5 virtual disk​
-* I then waited for the packages in ESXi download, and I ended up on a page \(half yellow / half black\)​
+* I then waited for the packages in ESXi to download, and I ended up on a page \(half yellow / half black\)​
   * This shows the IP the ESXi is on your network​
 * I then was able to connect to the ESXi host, and start making VMs​
 
 ## My Setup
 
-At this point, I configured the server to my needs. I will go into detail about what I did so it is clear if someone in the future wanted to replicate it.​
+At this point, the server was built. Now I just had to modify it to my liking. I will go into detail about what I did so it is clear if someone in the future wanted to replicate it.​
 
 ### ESXi VMs
 
 ![](.gitbook/assets/screenshot-2021-07-03-233402.png)
+
+| VM | OS | CPU | RAM | Storage |
+| :--- | :--- | :--- | :--- | :--- |
+| NextCloud | Ubuntu Linux | 2 | 6 GB | 200 GB |
+| Dashboard | Ubuntu Linux | 2 | 6 GB | 30 GB |
+| Jellyfin Media Vault | Ubuntu Linux | 3 | 10 GB | 800 GB |
+| Kali Linux | Debian Linux | 4 | 16 GB | 45 GB |
 
 Nextcloud: My locally hosted cloud, so I do not have to rely on third-party software or SaaS providers.​
 
