@@ -198,3 +198,7 @@ I use Grafana for looking at pfSense data. I followed​ [Grafana dashboard for 
 
 [Kali Linux](https://www.kali.org/) is a Linux distribution meant for penetration testing. My plan is to use this for hash cracking and WPA handshake cracking.
 
+![](.gitbook/assets/img_4573.jpg)
+
+
+
