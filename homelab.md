@@ -213,5 +213,7 @@ I use Grafana for looking at pfSense data. I followed​ [Grafana dashboard for 
 
 ![](.gitbook/assets/img_4573.jpg)
 
+### Setup Diagram
 
+![](.gitbook/assets/homelab.png)
 
