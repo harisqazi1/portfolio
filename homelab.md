@@ -129,7 +129,48 @@ My server came cleaned or "Factory Reset" so my steps are going to be after that
 
 This part was straight forward on my end. I connected a Ethernet cable from the server to my switch \(which was connected to my router\) .
 
-​
+![](.gitbook/assets/screenshot-2021-07-03-232000.png)
+
+The ethernet cable on the left \(white cable\) is for the network of the server.​
+
+I connected a monitor and USB Keyboard to my server so I can see what is going on. My server is a bit older so it booted up for 3-4 minutes, and then it showed an IP Address for the server. You should be able to connect to that IP Address through your browser. I have IDRAC \(Integrated Dell Remote Access Controller 6\), so that is what I am accessing on the web. After the login screen \(user: **root** / password: **calvin**\), I then went on the login screen: ​
+
+![](.gitbook/assets/screenshot-2021-07-03-232224.png)
+
+### RAID-5 Setup
+
+I wanted to have a backup system for my server. I used [RAID](https://en.wikipedia.org/wiki/RAID) \(Redundant Array of Inexpensive Disks\)​ in order to have a backup, more importantly RAID-5. RAID-5 is meant to work with 3 disks, and since I had 3 1TB hard drives, this was the best RAID model for me. After my server booted up, I tapped \*\*CNTRL+R\*\* in order to run the Configuration Utility. I then followed [this Youtube video](https://www.youtube.com/watch?v=sp7XV2x-CZc) in order to setup RAID-5 on my server. I set it up on a screen resembling this:
+
+![](.gitbook/assets/screenshot-2021-07-03-232522.png)
+
+### VMware ESXi Setup
+
+I downloaded ESXi from​ [VMware](https://my.vmware.com/web/admin/). For my server, the version that worked was 6.5U3 \(Version 6.5 Update 3\). I used [this link](https://kb.vmware.com/s/article/2107518?lang=en_US&queryTerm=esxi+6+5+download) to find out how to find the download and how to find the license for my product. Since mine was a Dell Server, I first went to the VMware to to find the right file:
+
+![](.gitbook/assets/screenshot-2021-07-03-232743.png)
+
+I then downloaded and then used [Balena Ether](https://www.balena.io/etcher/) in order to flash the ISO onto my USB drive. I then plugged my USB into my server and booted from the USB. I do not have screenshots to walk-through that part, but I can rephrase what I did:
+
+{% hint style="warning" %}
+ If you do not use RAID, you will still need to "virtualize" your disks that way ESXi can use it as storage.​
+{% endhint %}
+
+* Plugged in my USB 2.0 with the Dell ESXi ISO flashed on it​
+* Connected my second ethernet cable to one of the 4 ethernet ports in the back :
+
+![](.gitbook/assets/screenshot-2021-07-03-233020.png)
+
+* Powered on the server​
+* Waited until I was able to press "F11"​
+* Booted off of the USB​
+* When asked for where to setup ESXi, I chose my RAID-5 virtual disk​
+* I then waited for the packages in ESXi download, and I ended up on a page \(half yellow / half black\)​
+  * This shows the IP the ESXi is on your network​
+* I then was able to connect to the ESXi host, and start making VMs​
+
+## My Setup
+
+At this point, I configured the server to my needs. I will go into detail about what I did so it is clear if someone in the future wanted to replicate it.​
 
 
 
