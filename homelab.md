@@ -53,8 +53,8 @@ I setup the firewall first, since all of the data was going to go through the Fi
   * Insert USB into another USB port​
   * Power on the device​
   * Press Enter on all of the defaults​
-  * After the installation is complete, disconnect USB keyboard and Monitor​
-  * Go to 192.168.1.1 -&gt; user:admin / password:pfsense​
+  * After the installation is complete, disconnect the USB keyboard and Monitor​
+  * Go to 192.168.1.1 -&gt; user:**admin** / password:**pfsense**​
   * Click Advanced to allow the page to load​
   * Accept all defaults by clicking "Next", "Close", and "Finish"​
 * Activate Ports
@@ -69,7 +69,7 @@ I setup the firewall first, since all of the data was going to go through the Fi
     * Save change​
     * Do this for all ports​
       * "Interfaces" -&gt; "Assignments"	to continue for the next port​
-  * When finished will all of them, apply changes in the upper right​
+  * When finished with all of them, apply changes in the upper right​
   *  "Interfaces" -&gt; "Assignments" -&gt; "Bridges"​
   * Click on "Add" to create a new bridge​
   * Select the LAN option and the other ports that was added with a CNTRL-CLICK or CMD-CLICK​
@@ -133,13 +133,13 @@ This part was straight forward on my end. I connected a Ethernet cable from the 
 
 The ethernet cable on the left \(white cable\) is for the network of the server.​
 
-I connected a monitor and USB Keyboard to my server so I can see what is going on. My server is a bit older so it booted up for 3-4 minutes, and then it showed an IP Address for the server. You should be able to connect to that IP Address through your browser. I have IDRAC \(Integrated Dell Remote Access Controller 6\), so that is what I am accessing on the web. After the login screen \(user: **root** / password: **calvin**\), I then went on the login screen: ​
+I connected a monitor and USB Keyboard to my server so I can see what is going on. My server is a bit older so it booted up for 3-4 minutes, and then it showed an IP Address for the server. You should be able to connect to that IP Address through your browser \(as long as you are on the same network\). I have IDRAC \(Integrated Dell Remote Access Controller 6\), so that is what I am accessing on the web. After the login screen \(user: **root** / password: **calvin**\), I then went on the login screen: ​
 
 ![](.gitbook/assets/screenshot-2021-07-03-232224.png)
 
 ### RAID-5 Setup
 
-I wanted to have a backup system for my server. I used [RAID](https://en.wikipedia.org/wiki/RAID) \(Redundant Array of Inexpensive Disks\)​ in order to have a backup, more importantly RAID-5. RAID-5 is meant to work with 3 disks, and since I had 3 1TB hard drives, this was the best RAID model for me. After my server booted up, I tapped \*\*CNTRL+R\*\* in order to run the Configuration Utility. I then followed [this Youtube video](https://www.youtube.com/watch?v=sp7XV2x-CZc) in order to setup RAID-5 on my server. I set it up on a screen resembling this:
+I wanted to have a backup system for my server. I used [RAID](https://en.wikipedia.org/wiki/RAID) \(Redundant Array of Inexpensive Disks\)​ in order to have a backup, more importantly RAID-5. RAID-5 is meant to work with 3 disks, and since I had 3 1TB hard drives, this was the best RAID model for me. After my server booted up \(and after the option of configuration showed up\), I tapped \*\*CNTRL+R\*\* in order to run the Configuration Utility. I then followed [this Youtube video](https://www.youtube.com/watch?v=sp7XV2x-CZc) in order to setup RAID-5 on my server. I set it up on a screen resembling this:
 
 ![](.gitbook/assets/screenshot-2021-07-03-232522.png)
 
@@ -149,11 +149,13 @@ I downloaded ESXi from​ [VMware](https://my.vmware.com/web/admin/). For my ser
 
 ![](.gitbook/assets/screenshot-2021-07-03-232743.png)
 
-I then downloaded and then used [Balena Ether](https://www.balena.io/etcher/) in order to flash the ISO onto my USB drive. I then plugged my USB into my server and booted from the USB. I do not have screenshots to walk-through that part, but I can rephrase what I did:
+I then downloaded and then used [Balena Ether](https://www.balena.io/etcher/) in order to flash the ISO onto my USB drive. I then plugged my USB into my server and booted from the USB.
 
 {% hint style="warning" %}
  If you do not use RAID, you will still need to "virtualize" your disks that way ESXi can use it as storage.​
 {% endhint %}
+
+
 
 * Plugged in my USB 2.0 with the Dell ESXi ISO flashed on it​
 * Connected my second ethernet cable to one of the 4 ethernet ports in the back :
