@@ -172,5 +172,29 @@ I then downloaded and then used [Balena Ether](https://www.balena.io/etcher/) in
 
 At this point, I configured the server to my needs. I will go into detail about what I did so it is clear if someone in the future wanted to replicate it.​
 
+### ESXi VMs
 
+![](.gitbook/assets/screenshot-2021-07-03-233402.png)
+
+Nextcloud: My locally hosted cloud, so I do not have to rely on third-party software or SaaS providers.​
+
+Dashboard: This is an Ubuntu VM with 2 docker containers and Grafana:​
+
+![](.gitbook/assets/screenshot-2021-07-03-233513.png)
+
+[Homer](https://github.com/bastienwirtz/homer) is a self-hosted dashboard for all of your server applications:
+
+![](.gitbook/assets/screenshot-2021-07-03-233618.png)
+
+[FreshRSS](https://www.freshrss.org/) is an open-source RSS Feed.
+
+[Grafana](https://grafana.com/) is a dashboard for information usually in some sort of infographic:
+
+![](.gitbook/assets/screenshot-2021-07-03-233736.png)
+
+I use Grafana for looking at pfSense data. I followed​ [Grafana dashboard for pfSense by PSYCHOGUN](https://psychogun.github.io/docs/pfsense/Grafana-dashboard-for-pfSense/#install-influxdb) to set mine up. I just had to change some settings on my end, since they did not work for me, but I got it setup. I did not setup TLS on mine, but it would be a good idea to do so.
+
+[Jellyfin](https://jellyfin.org/docs/index.html) is an open-source alternative to Plex. I use this for video game clips and more. 
+
+[Kali Linux](https://www.kali.org/) is a Linux distribution meant for penetration testing. My plan is to use this for hash cracking and WPA handshake cracking.
 
