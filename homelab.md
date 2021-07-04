@@ -115,3 +115,11 @@ I believe that privacy is an important aspect of our lives. With that being said
 
 ## Server Setup
 
+| Hardware | Software |
+| :--- | :--- |
+| Dell PowerEdge R710 2U Server X5650 2.66GHz 12-Cores / 64gb / 3x 1TB SAS / 2xPSU \| VMware ESXi 6.5U3 | FreshRSS​ |
+|  | NextCloud​ |
+|  | Kali Linux​ |
+|  |  |
+|  | Homer |
+
