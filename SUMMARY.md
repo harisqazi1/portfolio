@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Tools for CTFs](tools-for-ctfs.md)
+* [Homelab](homelab.md)
 * [Security+ Study Guide](security+-study-guide.md)
 
 ## Write-ups <a id="write-ups-1"></a>
