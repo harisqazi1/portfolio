@@ -29,7 +29,7 @@ I wanted to build a Homelab for myself in order to get enterprise experience wit
 | Cloud​ | NextCloud​ |
 | RSS Feed​ | FreshRSS​ |
 | Password/Hash Cracking​ | Kali Linux​ |
-| Media System | Jellyfin |
+| Media System | Jellin |
 | Dashboard | Homer |
 
 ## Firewall Setup
@@ -120,6 +120,16 @@ I believe that privacy is an important aspect of our lives. With that being said
 | Dell PowerEdge R710 2U Server X5650 2.66GHz 12-Cores / 64gb / 3x 1TB SAS / 2xPSU \| VMware ESXi 6.5U3 | FreshRSS​ |
 |  | NextCloud​ |
 |  | Kali Linux​ |
-|  |  |
+|  | Jellyfin |
 |  | Homer |
+
+My server came cleaned or "Factory Reset" so my steps are going to be after that is completed. ​
+
+### Network Setup
+
+This part was straight forward on my end. I connected a Ethernet cable from the server to my switch \(which was connected to my router\) .
+
+​
+
+
 
