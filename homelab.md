@@ -197,6 +197,8 @@ Dashboard: This is an Ubuntu VM with 2 docker containers and Grafana:​
 
 [FreshRSS](https://www.freshrss.org/) is an open-source RSS Feed.
 
+![](.gitbook/assets/screenshot-2021-07-04-001758.png)
+
 [Grafana](https://grafana.com/) is a dashboard for information usually in some sort of infographic:
 
 ![](.gitbook/assets/screenshot-2021-07-03-233736.png)
@@ -206,6 +208,8 @@ I use Grafana for looking at pfSense data. I followed​ [Grafana dashboard for 
 [Jellyfin](https://jellyfin.org/docs/index.html) is an open-source alternative to Plex. I use this for video game clips and more. 
 
 [Kali Linux](https://www.kali.org/) is a Linux distribution meant for penetration testing. My plan is to use this for hash cracking and WPA handshake cracking.
+
+### Physical Setup
 
 ![](.gitbook/assets/img_4573.jpg)
 
