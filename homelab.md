@@ -228,12 +228,24 @@ sudo systemctl unmask influxdb.service​
 sudo systemctl start influxdb​
 ```
 
-* Run the following commands to test that your InfluxDB setup is running:
+* I then ran the following commands to test that my InfluxDB setup is running:
 
 ```bash
 sudo systemctl start influxdb​
 sudo systemctl status influxdb​
 sudo systemctl enable influxdb.service​
+```
+
+* I then typed in **influx** on the terminal, and got a small prompt with the IP address of the influx database. Here I entered the following:
+
+```bash
+# Take out the > when copying the commands
+> CREATE DATABASE "pf_firewall";​
+> CREATE USER "pf_firewall_write" WITH PASSWORD 'WRITE_PASSWORD'; #Password for write
+> CREATE USER "pf_firewall_read" WITH PASSWORD 'READ_PASSWORD';​ #Password for read
+> GRANT READ ON pf_firewall TO pf_firewall_read​ 
+> GRANT WRITE ON pf_firewall TO pf_firewall_write​
+> exit​
 ```
 
 
