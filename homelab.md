@@ -228,6 +228,14 @@ sudo systemctl unmask influxdb.service​
 sudo systemctl start influxdb​
 ```
 
+* Run the following commands to test that your InfluxDB setup is running:
+
+```bash
+sudo systemctl start influxdb​
+sudo systemctl status influxdb​
+sudo systemctl enable influxdb.service​
+```
+
 
 
 [Jellyfin](https://jellyfin.org/docs/index.html) is an open-source alternative to Plex. I use this for video game clips and more. 
