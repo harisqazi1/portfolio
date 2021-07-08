@@ -209,7 +209,7 @@ Here are the steps I took to setup the Grafana Dashboard:
 
 * Added the InfluxDB repository using the commands from the [InfluxData website](https://docs.influxdata.com/influxdb/v1.8/introduction/install/):
 
-```text
+```bash
 wget -qO- https://repos.influxdata.com/influxdb.key | gpg --dearmor > /etc/apt/trusted.gpg.d/influxdb.gpg​
 export DISTRIB_ID=$(lsb_release -si); export DISTRIB_CODENAME=$(lsb_release -sc)​
 echo "deb [signed-by=/etc/apt/trusted.gpg.d/influxdb.gpg] https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" > /etc/apt/sources.list.d/influxdb.list​
@@ -217,7 +217,7 @@ echo "deb [signed-by=/etc/apt/trusted.gpg.d/influxdb.gpg] https://repos.influxda
 
 * I then installed InfluxDB using the commands from the same website:
 
-```text
+```bash
 sudo apt-get update && sudo apt-get install influxdb​
 sudo service influxdb start​
 
