@@ -297,7 +297,9 @@ The password for the **InfluxDB** should be **WRITE\_PASSWORD.**
 
 ![](.gitbook/assets/screenshot-2021-07-08-201432.png)
 
+#### Installing Grafana on Ubuntu
 
+https://grafana.com/docs/grafana/latest/installation/debian/​
 
 
 
