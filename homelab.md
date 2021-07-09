@@ -205,6 +205,8 @@ Dashboard: This is an Ubuntu VM with 2 docker containers and Grafana:​
 
 I use Grafana for looking at pfSense data. I followed​ [Grafana dashboard for pfSense by PSYCHOGUN](https://psychogun.github.io/docs/pfsense/Grafana-dashboard-for-pfSense/#install-influxdb) to set mine up. I just had to change some settings on my end, since they did not work for me, but I got it setup. I did not setup TLS on mine, but it would be a good idea to do so. 
 
+### Grafana Dashboard Setup
+
 Here are the steps I took to setup the Grafana Dashboard:
 
 * Added the InfluxDB repository using the commands from the [InfluxData website](https://docs.influxdata.com/influxdb/v1.8/introduction/install/):
@@ -247,6 +249,55 @@ sudo systemctl enable influxdb.service​
 > GRANT WRITE ON pf_firewall TO pf_firewall_write​
 > exit​
 ```
+
+* I then created a retention policy for the logs
+
+```bash
+#Take out the > when copying the commands
+> CREATE RETENTION POLICY 4weeks ON pf_firewall DURATION 4w REPLICATION 1 ​
+> show retention policies on pf_firewall​
+
+Output should look like the following
+-------------------------------------
+name     duration shardGroupDuration replicaN default
+----     -------- ------------------ -------- -------​
+autogen  0s       168h0m0s           1        true​
+4weeks   672h0m0s 24h0m0s            1        false​
+```
+
+#### Installed Telegraf on Pfsense \(System -&gt; Package Manager -&gt; Available Packages -&gt; Search for **Telegraf\)**
+
+* Enable SSH on your pfSense
+  * System -&gt; Advanced -&gt; go to **Secure Shell** under Advanced and check **Secure Shell Server**
+* Login to pfSense with SSH
+  * You can use **cmd** for this or [**PuTTY**](https://www.chiark.greenend.org.uk/~sgtatham/putty/)\*\*\*\*
+* Change directory to /bin
+
+`cd /usr/local/bin`
+
+* Use the **fetch** command to download files from [this github](https://github.com/VictorRobellini/pfSense-Dashboard/tree/master/plugins) and then modified the permissions
+
+```bash
+fetch https://raw.githubusercontent.com/VictorRobellini/pfSense-Dashboard/master/plugins/telegraf_pfifgw.php
+fetch https://raw.githubusercontent.com/VictorRobellini/pfSense-Dashboard/master/plugins/telegraf_temperature.sh
+fetch https://raw.githubusercontent.com/VictorRobellini/pfSense-Dashboard/master/plugins/telegraf_unbound.sh
+fetch https://raw.githubusercontent.com/VictorRobellini/pfSense-Dashboard/master/plugins/telegraf_unbound_lite.sh
+chmod 500 telegraf_*​
+```
+
+#### Configuring Telegraf in Pfsense \(you will have to change the IP to the IP of your DB\):
+
+![](.gitbook/assets/screenshot-2021-07-08-201019.png)
+
+The password for the **InfluxDB** should be **WRITE\_PASSWORD.**
+
+* I then pasted the following into the compartment for **Additional configuration for Telegraf**:
+
+{% file src=".gitbook/assets/telegraf-config.txt" caption="Telegraf configuration file" %}
+
+![](.gitbook/assets/screenshot-2021-07-08-201432.png)
+
+
 
 
 
