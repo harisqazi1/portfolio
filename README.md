@@ -15,9 +15,9 @@
 * CYRIN Cyber Range
 * U.S. Cyber Games Open CTF
 
-## My Hacking Mentality: Everything is hackable, you just have to find the right vulnerability
+### My Hacking Mentality: Everything is hackable, you just have to find the right vulnerability
 
 {% hint style="danger" %}
-## Disclaimer: All information on this website is for educational purpose only. Any action taken using the information on the website is strictly at your own risk. I will not be liable for any losses and/or damages to products with the use of the information on this website.
+## **Disclaimer: All information on this website is for educational purpose only. Any action taken using the information on the website is strictly at your own risk. I will not be liable for any losses and/or damages to products with the use of the information on this website.**
 {% endhint %}
 
