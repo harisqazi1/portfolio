@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Homelab](homelab.md)
+* [Privacy & Security](privacy-and-security.md)
 * [Tools for CTFs](tools-for-ctfs.md)
 * [Security+ Study Guide](security+-study-guide.md)
 
