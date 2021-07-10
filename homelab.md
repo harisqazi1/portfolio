@@ -299,7 +299,25 @@ The password for the **InfluxDB** should be **WRITE\_PASSWORD.**
 
 #### Installing Grafana on Ubuntu
 
-https://grafana.com/docs/grafana/latest/installation/debian/​
+* Ran the following commands to download Grafana onto my VM:
+
+```bash
+#Get the latest OSS release
+sudo apt-get install -y apt-transport-https
+sudo apt-get install -y software-properties-common wget
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+
+# Add stable releases to the sources
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+
+# Update and Install
+sudo apt-get update
+sudo apt-get install grafana
+```
+
+
+
+
 
 
 
