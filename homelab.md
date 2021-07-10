@@ -29,7 +29,7 @@ I wanted to build a Homelab for myself in order to get enterprise experience wit
 | Cloud​ | NextCloud​ |
 | RSS Feed​ | FreshRSS​ |
 | Password/Hash Cracking​ | Kali Linux​ |
-| Media System | Jellin |
+| Media System | Jellyfin |
 | Dashboard | Homer |
 
 ## Firewall Setup
