@@ -199,6 +199,10 @@ Dashboard: This is an Ubuntu VM with 2 docker containers and Grafana:​
 
 ![](.gitbook/assets/screenshot-2021-07-04-001758.png)
 
+[Jellyfin](https://jellyfin.org/docs/index.html) is an open-source alternative to Plex. I use this for video game clips and more. 
+
+[Kali Linux](https://www.kali.org/) is a Linux distribution meant for penetration testing. My plan is to use this for hash cracking and WPA handshake cracking.
+
 [Grafana](https://grafana.com/) is a dashboard for information usually in some sort of infographic:
 
 ![](.gitbook/assets/screenshot-2021-07-03-233736.png)
@@ -315,15 +319,36 @@ sudo apt-get update
 sudo apt-get install grafana
 ```
 
+* \(Optional\) Install other Panels
 
+```bash
+# Grafana worldmap panel
+sudo grafana-cli plugins install grafana-worldmap-panel
 
+# Grafana piechart panel
+sudo grafana-cli plugins install grafana-piechart-panel
+```
 
+#### Adding Data source in Grafana
 
+1. Configuration &gt; Data Sources
+2. Add data source
+3. Select: _InfluxDB_
+4. Name: pf\_firewall
+5. URL: http://&lt;IP\_address of InfluxDB&gt;:8086
+6. Database: pf\_firewall
+7. User: pf\_firewall\_read
+8. Password: READ\_PASSWORD
+9. HTTP Method: Get
 
+#### Adding JSON to Grafana for display
 
-[Jellyfin](https://jellyfin.org/docs/index.html) is an open-source alternative to Plex. I use this for video game clips and more. 
+* Upload JSON file to Grafana to take in data
+  * I got the file from [https://raw.githubusercontent.com/VictorRobellini/pfSense-Dashboard/master/pfSense-Grafana-Dashboard.json](https://raw.githubusercontent.com/VictorRobellini/pfSense-Dashboard/master/pfSense-Grafana-Dashboard.json)
 
-[Kali Linux](https://www.kali.org/) is a Linux distribution meant for penetration testing. My plan is to use this for hash cracking and WPA handshake cracking.
+{% file src=".gitbook/assets/pfsense-grafana-dashboard.json" caption="pfSense Grafana Dashboard" %}
+
+* Restart the Telegraf service on pfSense
 
 ### Physical Setup
 
