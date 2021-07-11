@@ -80,3 +80,5 @@ For the previous question, I took a look at [this writeup](https://apjone.uk/ant
 
 1hr:20
 
+For finding the admin of the site, I had a bit of trouble. 
+
