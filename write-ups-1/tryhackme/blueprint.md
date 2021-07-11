@@ -141,7 +141,6 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 2021/07/11 18:12:00 Finished
 ===============================================================
-
 ```
 
 I was looking around the directories and did not find anything significant. A lot of the directories showed me the following page:
