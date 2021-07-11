@@ -62,13 +62,17 @@ From this point, I went to browsing the webpage to see if there is anything susp
 
 Although I was getting a lot of information from the DirBuster search, it was the hint for the question which got me further:
 
-![](../../.gitbook/assets/image%20%28115%29.png)
+![](../../.gitbook/assets/image%20%28116%29.png)
 
 My first thought after looking at this was **robots.txt**, and sure enough when I went to that webpage, I found this:
 
 ![](../../.gitbook/assets/image%20%28114%29.png)
 
 > What is a possible password in one of the pages web crawlers check for? **UmbracoIsTheBest!**
+>
+> What CMS is the website using? **Umbraco**
 
+For the previous question, I took a look at [this writeup](https://apjone.uk/anthem-tryhackme-write-up/), which made me realize that **Umbraco** was a CMS all along. As for the next question, a quick glance at the main page can show you what the domain name is:
 
+![](../../.gitbook/assets/image%20%28115%29.png)
 
