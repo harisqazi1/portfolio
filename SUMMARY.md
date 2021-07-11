@@ -10,8 +10,8 @@
 
 * [Penetration Test Resources](write-ups-1/penetration-test-resources.md)
 * [TryHackMe](write-ups-1/tryhackme/README.md)
+  * [Anthem](write-ups-1/tryhackme/anthem.md)
   * [Relevant](write-ups-1/tryhackme/relevant.md)
-  * [dogcat \(Incomplete\)](write-ups-1/tryhackme/dogcat.md)
   * [Ice](write-ups-1/tryhackme/ice.md)
   * [Lian\_Yu](write-ups-1/tryhackme/lian_yu.md)
   * [c4ptur3-th3-fl4g](write-ups-1/tryhackme/c4ptur3-th3-fl4g.md)
