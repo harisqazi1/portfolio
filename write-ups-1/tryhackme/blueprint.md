@@ -98,11 +98,11 @@ Nmap done: 1 IP address (1 host up) scanned in 995.72 seconds
 
 The first thing I did was go to the websites on port 80 and 443 to see what is going on there. I got the following result:
 
-![](../../.gitbook/assets/image%20%28119%29.png)
+![](../../.gitbook/assets/image%20%28123%29.png)
 
 This seemed to be some sort of selling website so I was not sure if this is what I am looking for. Port 443 and 8080 lead me to the same result:
 
-![](../../.gitbook/assets/image%20%28117%29.png)
+![](../../.gitbook/assets/image%20%28119%29.png)
 
 I then ran **gobuster** on the "oscommerce" url and got the following result:
 
@@ -145,7 +145,70 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 
 I was looking around the directories and did not find anything significant. A lot of the directories showed me the following page:
 
+![](../../.gitbook/assets/image%20%28121%29.png)
+
+I then viewed this [write-up](https://www.cybersecpadawan.com/2020/05/tryhackme-blueprint-exploitation-no.html), and realized that my search was missing the "Install" directory. I then ran a search using [feroxbuster,](https://github.com/epi052/feroxbuster) and I got the result so much quicker:
+
+```c
+[>-------------------] - 2m    369051/35278824 4h      found:150     errors:328839 
+[###########>--------] - 2m    139024/239992  824/s   http://10.10.21.26:8080/oscommerce-2.3.4/
+[###########>--------] - 2m    135880/239992  813/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog
+[###########>--------] - 2m    137472/239992  822/s   http://10.10.21.26:8080/oscommerce-2.3.4/docs
+[###########>--------] - 2m    136936/239992  821/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/includes
+[##########>---------] - 2m    127784/239992  780/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/pub
+[##########>---------] - 2m    131576/239992  804/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/install
+[##########>---------] - 2m    131392/239992  802/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/images
+[##########>---------] - 2m    130088/239992  806/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/Admin
+[###########>--------] - 2m    137872/239992  864/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/includes/modules
+[###########>--------] - 2m    136504/239992  857/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/Images
+[###########>--------] - 2m    133424/239992  849/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/includes/classes
+[##########>---------] - 2m    129936/239992  832/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/install/images
+[##########>---------] - 2m    130256/239992  834/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/install/templates
+[##########>---------] - 2m    130208/239992  833/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/install/includes
+[##########>---------] - 2m    126328/239992  812/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/install/Images
+[#########>----------] - 2m    119072/239992  773/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/ext
+[##########>---------] - 2m    121480/239992  791/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/ext/modules
+[##########>---------] - 2m    127736/239992  864/s   http://10.10.21.26:8080/oscommerce-2.3.4/Docs
+[#########>----------] - 2m    118192/239992  804/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/Images/dvd
+[#######>------------] - 1m     90280/239992  869/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/images/Default
+[#####>--------------] - 1m     63352/239992  758/s   http://10.10.21.26:8080/oscommerce-2.3.4/catalog/Images/DVD
+
+```
+
+Here, I then saw the "Install" directory. This page was still the same as before:
+
+![](../../.gitbook/assets/image%20%28120%29.png)
+
+I then saw the same [write-up](https://www.cybersecpadawan.com/2020/05/tryhackme-blueprint-exploitation-no.html), and noticed that they used **searchsploit** in order to search for a vulnerability for the machine. I then got this result:
+
+![](../../.gitbook/assets/image%20%28122%29.png)
+
+I wanted to try out the **Arbitrary File Upload** first. To get this in my current directory, I ran the following commands:
+
+```c
+searchsploit -p php/webapps/43191.py #Shows the full path for the code
+cp /usr/share/exploitdb/exploits/php/webapps/43191.py . #copies it to the local directory
+```
+
+I ran the code just by itself to see what parameters it was looking for:
+
+![](../../.gitbook/assets/image%20%28126%29.png)
+
+I noticed that I needed a target \(at least\), authentication, and file. I tried to enter in just the target argument. I then realized I did not have the username and password for the authentication. I then went back to the install page in the catalog directory:
+
+![](../../.gitbook/assets/image%20%28125%29.png)
+
+I then clicked on the **start** button to see what it did. I entered root for the username and the Database Name and then press continue:
+
 ![](../../.gitbook/assets/image%20%28118%29.png)
 
+I tried **admin** for the Username, and I ran into an error. I then tried **root** and it worked! I then set the Online Store Settings like:
 
+![](../../.gitbook/assets/image%20%28117%29.png)
+
+All the previous setup for the commerce site was based off of [the same write-up](https://www.cybersecpadawan.com/2020/05/tryhackme-blueprint-exploitation-no.html). I then got the following page:
+
+![](../../.gitbook/assets/image%20%28124%29.png)
+
+I was then lost about where to go from here. I then 
 
