@@ -120,7 +120,41 @@ Firefox is the more "privacy-centric" browsers from the bunch \(Edge, Chrome, Fi
   * Under **Security**, uncheck everything
   * Under **HTTPS-Only Mode**, best practice would be to use **Enable HTTPS-Only Mode in all windows**. However, I use **Enable HTTPS-Only in private windows only**
 
-\*\*\*\*
+These are the settings I use when you type in **about:config** in the search bar:
+
+* **geo.enabled** -&gt; false
+  * Disables Firefox from sharing your location
+* **browser.safebrowsing.malware.enabled** -&gt; false
+  * Disables Google's ability to monitor your web traffic for malware
+* **dom.battery.enabled** -&gt; false
+  * Blocks sending battery level information
+* **extensions.pocket.enabled** -&gt; false
+  * Disables the Pocket feature
+* **browser.newtabpage.activity-stream.section.highlights.includePocket** -&gt; false
+* **browser.newtabpage.activity-stream.feeds.telemetry** -&gt; false
+* **toolkit.telemetry.server** -&gt; \*DELETE URL\*
+  * Removes telemetry
+* **toolkit.telemetry.unified** -&gt; false
+  * Removes telemetry
+* **media.autoplay.default** -&gt; 5
+  * Disables audio and video from playing automatically
+* **dom.webnotifications.enabled** -&gt; false
+  * Disables embedded notifications
+* **privacy.resistFingerprinting** -&gt; true
+  * Disables some fingerprinting
+* **webgl.disabled** -&gt; true
+  * Disables some fingerprinting
+* **network.http.sendRefererHeader** -&gt; 0
+  * Disables referring website notifications
+* **identity.fxaccounts.enabled** -&gt; false
+  * Disables any embedded Firefox accounts
+
+WebRTC settings:
+
+* **media.peerconnection.enabled** -&gt; false
+* **media.peerconnection.turn.disable** -&gt; true
+* **media.peerconnection.use\_document\_iceservers** -&gt; false
+* **media.peerconnection.video.enabled** -&gt; false
 
 ## Windows
 
