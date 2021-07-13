@@ -12,7 +12,74 @@ It is hard to have different passwords for every single website and still be abl
 
 ### Firewall
 
-Firewalls are a way to control network traffic, that way certain items/sites can be blocked. A popular term in firewalls are blocklists. You have two main types: black list and a white list. The black list it to block, while the white list is not to block. I currently have [**pfSense**](https://www.pfsense.org/) ****running in my homelab. Since pfSense is a software firewall solution I have put it on a [**Protectli Vault**](https://protectli.com/vault-4-port/#buynow). If you are interested in setting up your own, I have done a write-up on the steps here: [https://www.harisqazi.com/homelab\#firewall-setup](https://www.harisqazi.com/homelab#firewall-setup). 
+Firewalls are a way to control network traffic, that way certain items/sites can be blocked. A popular term in firewalls are blocklists. You have two main types: black list and a white list. The black list it to block, while the white list is not to block. I currently have [**pfSense**](https://www.pfsense.org/) ****running in my homelab. Since pfSense is a software firewall solution I have put it on a [**Protectli Vault**](https://protectli.com/vault-4-port/#buynow). If you are interested in setting up your own, I have done a write-up on the steps here:
+
+* Installation
+  * www.pfsense.org/download
+  * Architecture: AMD64 \| Installer: USB Memstick Installer \| Console: VGA \| Mirror: New York​
+  * Download the .gz file and decompress it​
+    * You can use 7-zip for this​
+    * You should end up with a "pfSense......-amd64.img" file​
+  * Download Rufus or Etcher \(flashing programs\)​
+  * Flash the pfSense file onto a USB device​
+  * Power down Vault, if not powered down already​
+  * Connect a USB keyboard and monitor to the Vault​
+  * Insert USB into another USB port​
+  * Power on the device​
+  * Press Enter on all of the defaults​
+  * After the installation is complete, disconnect the USB keyboard and Monitor​
+  * Go to 192.168.1.1 -&gt; user:**admin** / password:**pfsense**​
+  * Click Advanced to allow the page to load​
+  * Accept all defaults by clicking "Next", "Close", and "Finish"​
+* Activate Ports
+  * Activate Ports \(only applicable for 4-port & 6-port\)​
+  * Access the pfSense Web interface​
+  * "Interfaces" -&gt; "Assignments"​
+  * Click "Add" option next to each empty port​
+  * Repeat until all ports have been added​
+  * Save Changes​
+  * Click through each new port \("Interfaces" &gt; "Opt1"/"Opt2"\)​
+    * Enable each port by checking the first box​
+    * Save change​
+    * Do this for all ports​
+      * "Interfaces" -&gt; "Assignments"	to continue for the next port​
+  * When finished with all of them, apply changes in the upper right​
+  *  "Interfaces" -&gt; "Assignments" -&gt; "Bridges"​
+  * Click on "Add" to create a new bridge​
+  * Select the LAN option and the other ports that was added with a CNTRL-CLICK or CMD-CLICK​
+  * Provide a description, such as "bridge", and then hit "Save"​
+  * "Firewall" -&gt; "Rules"​
+  * Click each port \(Opt, Opt2, etc.\) and click the "Add" button \(up arrow\) for each​
+  * Change "Protocol" to "Any"​
+  * Click "Save" after each port is modified​
+  * Apply changes in the upper right after all the ports have been added​
+  * "Interfaces" -&gt; "Assignments"​
+  * Click on "Add" next to "BRIDGE0" and click "Save"​
+  * Click on a bridge, maybe called "Opt3" or "Opt5"​
+  * Enable the Interface and change the description to "bridge"​
+  * Click "Save", then "Apply Changes"​
+  * "Firewall" -&gt; "Rules"​
+  * Click on "Bridge", then the "Add" button \(up arrow\)​
+  * Change the "Protocol" to "Any" and click "Save"​
+  * Apply changes in the upper-right​
+* Prevent DNS leakage
+  * "System" -&gt; "General Setup"​
+  * Add "1.1.1.1" as a DNS server, and choose the "WAN\_DHCP-wan" interface​
+  * Click "Add DNS Server"​
+  * Add "1.0.0.1" as a DNS server and choose the "WAN\_DHCP-wan" interface​
+  * Disable "DNS server override"​
+  * Click "Save"​
+* Enable AES-NI CPU Crypto & PowerD​
+  * "System" -&gt; "Advanced"​
+  * Click on the "Miscellaneous" tab​
+  * Locate the "Cryptographic & Thermal Hardware"​
+  * Select "AES-NI CPU-based Acceleration" in the drop-down​
+  * "System" -&gt; "Advanced" -&gt; "Miscellaneous" -&gt; "Power Savings" -&gt; Enable "PowerD"​
+* Disable Notifications​
+  * "System" -&gt; "Advanced" -&gt; "Notifications"​
+  * Under the "E-mail" section, disable "SMTP Notifications"​
+  * In the "Sounds" section, check the "Disable startup/shutdown beep"​
+  * Click "Save"​
 
 ### VPN
 
