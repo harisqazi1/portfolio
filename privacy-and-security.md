@@ -148,13 +148,33 @@ These are the settings I use when you type in **about:config** in the search bar
   * Disables referring website notifications
 * **identity.fxaccounts.enabled** -&gt; false
   * Disables any embedded Firefox accounts
-
+* **beacon.enabled** -&gt; false
+  * Disables data being sent to servers when leaving pages
+* **browser.cache.disk.enable** -&gt; false
+  * Disk cache is not used by Firefox
+*  **browser.cache.disk\_cache\_ssl** -&gt; false
+  * Firefox will not cache https website contents.
+* 
 WebRTC settings:
 
 * **media.peerconnection.enabled** -&gt; false
 * **media.peerconnection.turn.disable** -&gt; true
 * **media.peerconnection.use\_document\_iceservers** -&gt; false
 * **media.peerconnection.video.enabled** -&gt; false
+
+#### Firefox Extensions
+
+* uBlock Origin - free and open source ad blocker
+* LocalCDN - emulates CDNs to improve online privacy
+* Popup Blocker \(strict\) - asks you for permission before you get redirected to another site
+* CleanURLs - removes tracking elements from URLs
+* CanvasBlocker - Modifies JavaScript to prevent fingerprinting
+
+#### Resources
+
+* [https://blog.increasinglyadequate.com/posts/hardening\_firefox.html](https://blog.increasinglyadequate.com/posts/hardening_firefox.html)
+* [https://ebin.city/~werwolf/posts/firefox-hardening-guide/](https://ebin.city/~werwolf/posts/firefox-hardening-guide/)
+* [https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/](https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/)
 
 ## Windows
 
