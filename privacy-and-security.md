@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I take privacy and security a bit seriously. With that being said, this page is to show my setup in terms of privacy. It definitely can be better, but this is what I use. Most of these are based of the recommendation of Michael Bazzell \(his book on Extreme Privacy and podcast\)
+I take privacy and security a bit seriously. With that being said, this page is to show my setup in terms of privacy. It definitely can be better, but this is what I use. Most of these are based of the recommendation of Michael Bazzell \(his book on [Extreme Privacy](https://inteltechniques.com/book7.html) and [podcast](https://inteltechniques.com/podcast.html)\).
 
 ## General Privacy/Security
 
@@ -87,7 +87,16 @@ A VPN is a software that allows you to mask your true IP address from the websit
 
 ### Firefox 
 
-Firefox is the more "privacy-centric" browsers from the bunch \(Edge, Chrome, Firefox, Opera, etc.\). With that being said, it still can be improved to prove your privacy. These are
+Firefox is the more "privacy-centric" browsers from the bunch \(Edge, Chrome, Firefox, Opera, etc.\). With that being said, it still can be improved to prove your privacy. These are some of the settings I use in Firefox Settings \(or just type **about:preferences** in the search bar\):
+
+* General
+  * Uncheck **Restore previous session**
+    * If you use a VPN and your connection dies, then when you use Firefox again, it will not spawn the same website, which would give away your data to the website
+* Home
+  * Set **Homepage and new windows** to **Blank Page**
+  * Set **New tabs** to **Blank Page**
+    * These will prevent Firefox from spawning their own sites when you need a new page/tab
+  * 
 
 ## Windows
 
