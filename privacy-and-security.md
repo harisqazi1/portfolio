@@ -81,6 +81,10 @@ Firewalls are a way to control network traffic, that way certain items/sites can
   * In the "Sounds" section, check the "Disable startup/shutdown beep"​
   * Click "Save"​
 
+#### Blocklists
+
+Blocklists are lists of domains or IP addresses that are listed that way you can block them using a Firewall. 
+
 ### VPN
 
 A VPN is a software that allows you to mask your true IP address from the websites you are trying to reach. A lot of poeple have this assumption of VPNs as being used for hacking and malicious content. While that may be true, we can use it as a way to protect our traffic and prevent it from being seen without our permission. I currently use [NordVPN](https://nordvpn.com/). However, I am planning on switching over to better solutions such as [Mullvad](https://mullvad.net/en/) or [ProtonVPN](https://protonvpn.com/). For VPN providers, the main thing I look for is their logging policy, and where the company is hosted from. The logging policy is important because you want to know what is going on with your data while it is in their custody. If they have an anonymous logging policy, then you should be in a good place. The best policy in my opinion, would be to have a no logging policy. That way you know that your data is not being kept by then for any amount of time. As for the company location, this is super important. If a company is part of the [14-eyes](https://restoreprivacy.com/5-eyes-9-eyes-14-eyes/) or even part of the other "eyes", the company can be mandated to share your VPN information with your country, if it is part of the "eyes". That is why it is important to check this prior to purchasing a VPN.
