@@ -81,9 +81,36 @@ Firewalls are a way to control network traffic, that way certain items/sites can
   * In the "Sounds" section, check the "Disable startup/shutdown beep"​
   * Click "Save"​
 
+#### pfBlockerNG
+
+These are the resources I used to setup pfBlockerNG on pfSense:
+
+* [https://protectli.com/kb/how-to-setup-pfblockerng/](https://protectli.com/kb/how-to-setup-pfblockerng/)
+* [https://openschoolsolutions.org/pfsense-web-filter-with-pfblockerng/](https://openschoolsolutions.org/pfsense-web-filter-with-pfblockerng/)
+* [https://docs.netgate.com/pfsense/en/latest/recipes/dns-block-external.html](https://docs.netgate.com/pfsense/en/latest/recipes/dns-block-external.html)
+* [https://docs.netgate.com/pfsense/en/latest/recipes/dns-redirect.html](https://docs.netgate.com/pfsense/en/latest/recipes/dns-redirect.html)
+
 #### Blocklists
 
-Blocklists are lists of domains or IP addresses that are listed that way you can block them using a Firewall. 
+Blocklists are lists of domains or IP addresses that are listed that way you can block them using a Firewall. There are the blocklists that I have used in my pfSense pfBlockerNG setup \(some of them you can download by going to **Firewall -&gt; pfBlockerNG -&gt; Feeds**\):
+
+* IP -&gt; IPv4
+  * PRI1 - Collection of Feeds from the most reputable blocklist providers. \(Primary tier\)
+  * PRI4 - Collection of Feeds from Fourth Tier providers.
+  * BlocklistDE - Collection of specific fail2ban reporting service Feeds.
+  * PRI2 - Collection of Feeds from Secondary Tier providers.
+  * PRI3 - Collection of Feeds from Tertiary Tier providers.
+  * Windows\_Spy_\__Blocker
+    * [https://github.com/crazy-max/WindowsSpyBlocker/tree/master/data/firewall](https://github.com/crazy-max/WindowsSpyBlocker/tree/master/data/firewall)
+* DNSBL -&gt; DNSBL Groups
+  * ADs Basic - Collection of ADvertisement Domain Feeds.
+  * EasyList Feeds - Utilizing only the domains which are listed to be blocked in full.
+  * ADs - Collection of ADvertisement Domain Feeds.
+  * Firebog\_Trackers - Places that track you.
+  * Spotify\_Ad\_block
+    * [https://raw.githubusercontent.com/x0uid/SpotifyAdBlock/master/hosts](https://raw.githubusercontent.com/x0uid/SpotifyAdBlock/master/hosts)
+  * Tracking\_Telemetry
+    * [https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt](https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt)
 
 ### VPN
 
