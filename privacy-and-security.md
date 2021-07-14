@@ -145,7 +145,7 @@ These are the settings I use when you type in **about:config** in the search bar
 * **webgl.disabled** -&gt; true
   * Disables some fingerprinting
 * **network.http.sendRefererHeader** -&gt; 0
-  * Disables referring website notifications
+  * Disables referring website notifications \(**BREAKS SOME SITES\)**
 * **identity.fxaccounts.enabled** -&gt; false
   * Disables any embedded Firefox accounts
 * **beacon.enabled** -&gt; false
@@ -161,8 +161,10 @@ These are the settings I use when you type in **about:config** in the search bar
     * 0 = The cookie's lifetime is supplied by the server. \(Default\)
     * 1 = The user is prompted for the cookie's lifetime.
     * 2 = The cookie expires at the end of the session \(when the browser closes\).
-    * 3 =  The cookie lasts for the number of days specified by [network.cookie.lifetime.days](http://kb.mozillazine.org/Network.cookie.lifetime.days).
-* 
+    * 3 =  The cookie lasts for the number of days specified by network.cookie.lifetime.days.
+* **pdfjs.disabled** -&gt; true
+  * Disable JavaScript for PDF view
+
 WebRTC settings:
 
 * **media.peerconnection.enabled** -&gt; false
