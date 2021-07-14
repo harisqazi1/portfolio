@@ -154,6 +154,14 @@ These are the settings I use when you type in **about:config** in the search bar
   * Disk cache is not used by Firefox
 *  **browser.cache.disk\_cache\_ssl** -&gt; false
   * Firefox will not cache https website contents.
+* **geo.provider.network.url** -&gt; 127.0.0.1
+  * The data provider used to power Firefox's geolocation feature
+* **network.cookie.lifetimePolicy** -&gt; 2
+  * Determines whether Firefox will accept so-called session cookies \(removed when browser exits\) automatically.
+    * 0 = The cookie's lifetime is supplied by the server. \(Default\)
+    * 1 = The user is prompted for the cookie's lifetime.
+    * 2 = The cookie expires at the end of the session \(when the browser closes\).
+    * 3 =  The cookie lasts for the number of days specified by [network.cookie.lifetime.days](http://kb.mozillazine.org/Network.cookie.lifetime.days).
 * 
 WebRTC settings:
 
@@ -175,6 +183,7 @@ WebRTC settings:
 * [https://blog.increasinglyadequate.com/posts/hardening\_firefox.html](https://blog.increasinglyadequate.com/posts/hardening_firefox.html)
 * [https://ebin.city/~werwolf/posts/firefox-hardening-guide/](https://ebin.city/~werwolf/posts/firefox-hardening-guide/)
 * [https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/](https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/)
+* [http://kb.mozillazine.org/Network.cookie.lifetimePolicy](http://kb.mozillazine.org/Network.cookie.lifetimePolicy)
 
 ## Windows
 
