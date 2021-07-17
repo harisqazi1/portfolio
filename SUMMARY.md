@@ -11,7 +11,7 @@
 * [Penetration Test Resources](write-ups-1/penetration-test-resources.md)
 * [TryHackMe](write-ups-1/tryhackme/README.md)
   * [Blueprint](write-ups-1/tryhackme/blueprint.md)
-  * [Anthem \(Incomplete\)](write-ups-1/tryhackme/anthem.md)
+  * [Anthem](write-ups-1/tryhackme/anthem.md)
   * [Relevant](write-ups-1/tryhackme/relevant.md)
   * [Ice](write-ups-1/tryhackme/ice.md)
   * [Lian\_Yu](write-ups-1/tryhackme/lian_yu.md)
