@@ -78,7 +78,41 @@ For the previous question, I took a look at [this writeup](https://apjone.uk/ant
 
 > What is the domain of the website? **Anthem.com**
 
-1hr:20
+I was having a hard time trying to find the admin of the website. I looked around all around the website looking though the JavaScript and HTML, and was not able to find anything. I then [viewed this write-up](https://swafox.com/anthem/) to see where I went wrong. I had to look more closely at the "poem" on one of the pages:
 
-For finding the admin of the site, I had a bit of trouble. 
+![](../../.gitbook/assets/image%20%28140%29.png)
+
+Instead of searching about this online, I realized that I might have heard this before in reference to Solomon Grundy \(maybe in regards to Comics?\). I tried it and it worked as the answer!
+
+> What's the name of the Administrator? Solomon Grundy
+
+Using the hint from TryHackMe, I realized that I had to find the naming scheme for the email. I then found this:
+
+![](../../.gitbook/assets/image%20%28138%29.png)
+
+> Can we find the email address of the administrator? SG@anthem.com
+
+## Spot the flags
+
+I had to use the hint for the first flag. The hint was "**Have we inspected the pages yet?**", and then I tried to go off of that, and got nowhere. I then viewed [the same write-up](https://swafox.com/anthem/) and noticed that the author used burpsuite. I realized that I will try to do the same. I then found the flag:
+
+![](../../.gitbook/assets/image%20%28137%29.png)
+
+For Flag 2, I just found it on source of the main page:
+
+![](../../.gitbook/assets/image%20%28141%29.png)
+
+For Flag 3, I was looking around on different pages, and ended up finding it on the site: **&lt;IP\_adress&gt;/authors/jane-doe**:
+
+![](../../.gitbook/assets/image%20%28136%29.png)
+
+For Flag 4, I then found it following the same steps as Flag 1:
+
+![](../../.gitbook/assets/image%20%28139%29.png)
+
+## Final Stage
+
+We have to figure out the username and password for the box. My first thought was to make a name list based on the names I saw on the website. I looked at the other port, other than 80, and it was 3389. Port 3389 was used for RDP, also knowing as Remote Desktop Protocol. I then had to find a software to get access to the desktop of the machine. 
+
+
 
