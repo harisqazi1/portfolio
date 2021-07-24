@@ -10,6 +10,7 @@
 
 * [Penetration Test Resources](write-ups-1/penetration-test-resources.md)
 * [TryHackMe](write-ups-1/tryhackme/README.md)
+  * [VulnNet: Roasted](write-ups-1/tryhackme/vulnnet-roasted.md)
   * [Blueprint](write-ups-1/tryhackme/blueprint.md)
   * [Anthem](write-ups-1/tryhackme/anthem.md)
   * [Relevant](write-ups-1/tryhackme/relevant.md)
