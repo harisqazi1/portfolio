@@ -14,6 +14,9 @@
 * Exploit Search
   * searchsploit
   * [exploitdb](https://www.exploit-db.com/)
+* Windows machine steps:
+  1. nmap scan
+  2. smbmap OR enum4linux
 
 {% hint style="info" %}
 This page is a work in progress
