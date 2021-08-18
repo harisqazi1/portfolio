@@ -232,17 +232,25 @@ Encryption is the idea of "scrambling data so that only authorized parties can u
 
 This is straight from MBs book. I paid for a one year subscription that I am currently still a part of. I honestly like the software. It has a super-clean interface, and it shows me all out going connections, and it shows other devices on my network. It is kind of a "daily-driver" software for me, since I care about what information is going in and out. Here is my issue with Glasswire. I could be wrong on this, but I can not find a way to block an IP address on its own. For example, one "website" that I see contacted multiple times during the day is wns.trafficmanager.net \(its close to that spelling\). This is basically a Windows service being contacted through the browser. I would love to, in two-clicks, block that from going out, but I am not able to do that. The only way for me to block that would be to block the whole browser, which is not ideal. Also, Glasswire is a good software, but $30 is something I would pay for a one-time payment, not for every year. Example of Glasswire \(fire means it is blocked from contacting the internet\):
 
-![](.gitbook/assets/image%20%28163%29.png)
+![](.gitbook/assets/image%20%28164%29.png)
 
 ### [Portmaster](https://safing.io/portmaster/)
 
 So this is another host based firewall that MB mentioned. This one, however, is not something I would recommend. Not due to privacy reasons, but for usability in general. I just had a bad overall experience with it. First of all, the second right after you download it, it blocks all outgoing internet connections and starts updating itself \(or updating its internal list?\). This took me 30 minutes. Then the whole app itself is super overwhelming. There is a bit too much going on that what I would like. If you want another alternative to this, I would recommend [Netlimiter](https://www.netlimiter.com/). I have not looked into their privacy policy, but it works similar to Glasswire, and it is a one-time payment of $30.
 
-### **Software based privacy**
+### **Software-based** 
 
-I have used [O&OShutup10](https://www.oo-software.com/en/shutup10) and [W10Privacy](https://www.w10privacy.de/english-home/). However, you have to use these software after every update. So that is why I do not go deep into these. Good tools to use though.
+I have used [O&OShutup10](https://www.oo-software.com/en/shutup10) and [W10Privacy](https://www.w10privacy.de/english-home/). You can use either, I chose to test out both. However the issue I ran into with these is that you have to use these software after every update. So that is why I do not go deep into these. These are also pretty straight forward.
 
-If you made it this far, thanks for reading. I wanted to share my experience with Windows and privacy. I think with the setup I have I am at about 95% coverage \(but this is super biased since it is my personal setup\). Would live to hear your guys' opinion on this. I think the fight is definitely doable, with just a couple updates to the blocklists.
+O&OShutup10 screenshot:
+
+![](.gitbook/assets/image%20%28163%29.png)
+
+W10Privacy screenshot:
+
+![](.gitbook/assets/image%20%28165%29.png)
+
+I think with the setup I have \(Firewall with the aforementioned software\) I am at about 95% privacy/tracking coverage \(but this is super biased since it is my personal setup\). Would live to hear your guys' opinion on this. I think the fight is definitely doable, with just a couple updates to the blocklists.
 
 
 
