@@ -250,7 +250,7 @@ W10Privacy screenshot:
 
 ![](.gitbook/assets/image%20%28165%29.png)
 
-I think with the setup I have \(Firewall with the aforementioned software\) I am at about 95% privacy/tracking coverage \(but this is super biased since it is my personal setup\). Would live to hear your guys' opinion on this. I think the fight is definitely doable, with just a couple updates to the blocklists.
+I think with the setup I have \(Firewall with the aforementioned software\) I am at about 95% privacy/tracking coverage \(but this is super biased since it is my personal setup\). 
 
 
 
