@@ -16,6 +16,11 @@ This is just a backup list of the software I have installed on my Linux OS, in c
 | Mullvad VPN / ProtonVPN | VPN Client |
 | LibreOffice | Microsoft Office Alternative |
 | OpenRGB | Logitech G HUB / Razer Chroma RGB Alternative |
+| Piper | DPI software for the Mouse |
+| qBittorrent | Torrent software |
+| Steam | Gaming Client |
+| Variety | Wallpaper software |
+| VeraCrypt | Encryption software |
 |  |  |
 |  |  |
 
