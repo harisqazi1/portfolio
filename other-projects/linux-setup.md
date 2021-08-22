@@ -21,8 +21,8 @@ This is just a backup list of the software I have installed on my Linux OS, in c
 | Steam | Gaming Client |
 | Variety | Wallpaper software |
 | VeraCrypt | Encryption software |
-|  |  |
-|  |  |
+| Visual Studio Code | Coding IDE |
+| VLC | Video Player |
 
 
 
