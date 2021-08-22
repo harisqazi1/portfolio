@@ -61,6 +61,7 @@
 
 ## Other Projects
 
+* [Linux Setup](other-projects/linux-setup.md)
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
 * [RTL-SDR](other-projects/coding-an-sdr-program.md)
 * [Shodan Search](other-projects/shodan-search.md)
