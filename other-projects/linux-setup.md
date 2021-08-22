@@ -13,6 +13,9 @@ This is just a backup list of the software I have installed on my Linux OS, in c
 | Bitwarden | Password Manager \(cloud hosted\) |
 | Lutris | Run games from Epic Games |
 | Thunderbird Mail | Email Client |
+| Mullvad VPN / ProtonVPN | VPN Client |
+| LibreOffice | Microsoft Office Alternative |
+| OpenRGB | Logitech G HUB / Razer Chroma RGB Alternative |
 |  |  |
 |  |  |
 
