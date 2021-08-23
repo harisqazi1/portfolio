@@ -1,6 +1,6 @@
 # Linux Setup
 
-This is just a backup list of the software I have installed on my Linux OS, in case I ever have to start a Linux OS from scratch
+This is just a backup of my setup I have on my Linux OS, in case I ever have to start a Linux OS from scratch.
 
 ### Software
 
