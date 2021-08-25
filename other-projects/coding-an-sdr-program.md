@@ -45,7 +45,26 @@ import os
 import subprocess
 from subprocess import Popen, PIPE
 #filters output
+#Art from https://ascii.co.uk/art/plane
+logo = """
+        ______
+        _\ _~-\___
+=  = ==(____AA____D
+            \_____\___________________,-~~~~~~~`-.._
+            /     o O o o o o O O o o o o o o O o  |\_
+            `~-.__        ___..----..                  )
+                    `---~~\___________/------------`````
+                    =  ===(_________D
+ _____  _                    _______             _             
+|  __ \| |                  |__   __|           | |            
+| |__) | | __ _ _ __   ___     | |_ __ __ _  ___| | _____ _ __ 
+|  ___/| |/ _` | '_ \ / _ \    | | '__/ _` |/ __| |/ / _ \ '__|
+| |    | | (_| | | | |  __/    | | | | (_| | (__|   <  __/ |   
+|_|    |_|\__,_|_| |_|\___|    |_|_|  \__,_|\___|_|\_\___|_|   
 
+                        ~80% success rate
+"""
+print(logo)
 proc = subprocess.Popen(['rtl_adsb'],stdout=subprocess.PIPE) #runs the rtl_adsb command
 try:
     while True:
@@ -85,9 +104,10 @@ try:
         decimal_Transponder_Capability = decCA = int(CA,2)
         decimal_ICAO24_Address = decICAO = int(ICAO,2)
         decimal_Downlink_Format = decDF = int(DF,2)
-
-        if (decimal_Char==8 and decimal_Char2==13 and decTC==4):#decDF == 17):
-            print(Whole_message , Callsign, decCA)
+        
+        flight_aware_link="https://flightaware.com/live/flight/"+Callsign
+        if (decimal_Char==8 and decimal_Char2==13 and decTC==4 and Callsign.rfind("#")==-1):#decDF == 17):
+            print(Whole_message , Callsign, decCA, flight_aware_link)
 
         #print("Decodable:", Whole_message , Callsign, decAlt)
         #print(Whole_message)
