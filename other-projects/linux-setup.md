@@ -124,5 +124,8 @@ If you do not want to have the hassle of modifying all of these options, then ch
 
 ### Gnome Tweaks
 
+Gnome extensions can be found [here](https://extensions.gnome.org/). I got the recommendations from [Pop!\_OS](https://support.system76.com/articles/customize-gnome). From this site, I used the following:
 
+* Dash To Dock - [https://extensions.gnome.org/extension/307/dash-to-dock/](https://extensions.gnome.org/extension/307/dash-to-dock/)
+* Window List - [https://extensions.gnome.org/extension/602/window-list/](https://extensions.gnome.org/extension/602/window-list/)
 
