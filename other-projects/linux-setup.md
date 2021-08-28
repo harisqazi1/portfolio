@@ -129,3 +129,13 @@ Gnome extensions can be found [here](https://extensions.gnome.org/). I got the r
 * Dash To Dock - [https://extensions.gnome.org/extension/307/dash-to-dock/](https://extensions.gnome.org/extension/307/dash-to-dock/)
 * Window List - [https://extensions.gnome.org/extension/602/window-list/](https://extensions.gnome.org/extension/602/window-list/)
 
+I learned that you can also apply themes to Linux. In order to do this, I went to this site, and then did the following:
+
+* Download and extract the .tar.xz file.
+* Install [User Themes](https://extensions.gnome.org/extension/19/user-themes) extension
+* Move the theme folder to ".themes" in your home directory. \(Some themes have more than one folder, so youll have to read the instructions\)
+
+I used the following themes:
+
+* Flat Remix GNOME - [https://www.gnome-look.org/p/1013030](https://www.gnome-look.org/p/1013030)
+
