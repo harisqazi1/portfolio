@@ -135,7 +135,7 @@ I learned that you can also apply themes to Linux. In order to do this, I went t
 * Install [User Themes](https://extensions.gnome.org/extension/19/user-themes) extension
 * Move the theme folder to ".themes" in your home directory. \(Some themes have more than one folder, so youll have to read the instructions\)
 
-I used the following themes:
+I used the following theme\(s\):
 
 * Flat Remix GNOME - [https://www.gnome-look.org/p/1013030](https://www.gnome-look.org/p/1013030)
 
