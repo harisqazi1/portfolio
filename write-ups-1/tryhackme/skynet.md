@@ -52,7 +52,7 @@ PORT      STATE    SERVICE     REASON         VERSION
 
 Going to the website, I see:
 
-![](../../.gitbook/assets/image%20%28174%29.png)
+![](../../.gitbook/assets/image%20%28177%29.png)
 
  I then ran feroxbuster on the IP address:
 
@@ -88,11 +88,11 @@ This resulted in:
 
 One of the links led me to a site:
 
-![](../../.gitbook/assets/image%20%28167%29.png)
+![](../../.gitbook/assets/image%20%28168%29.png)
 
 I then viewed the hint for the first question:
 
-![](../../.gitbook/assets/image%20%28168%29.png)
+![](../../.gitbook/assets/image%20%28169%29.png)
 
 I then realized I will have to go with this route first. Looking back at the nmap scan, we see that port **445** seems to be for Samba. Using **enum4linux**, I saw the following shares:
 
@@ -113,29 +113,67 @@ S-1-5-21-2393614426-3774336851-1116533619-513 SKYNET\None (Domain Group)
 
 The enum4linux information is verified by **smbmap**:
 
-![](../../.gitbook/assets/image%20%28171%29.png)
+![](../../.gitbook/assets/image%20%28174%29.png)
 
 There seems to be read access to they anonymous disk. Using **smbclient** I was able to see a couple files:
 
-![](../../.gitbook/assets/image%20%28173%29.png)
+![](../../.gitbook/assets/image%20%28176%29.png)
 
 There was also a directory called **logs**:
 
-![](../../.gitbook/assets/image%20%28172%29.png)
+![](../../.gitbook/assets/image%20%28175%29.png)
 
 I downloaded all of those files to my local machine using "**mget \*"**. I viewed all of the downloaded files. 
 
-![](../../.gitbook/assets/image%20%28170%29.png)
+![](../../.gitbook/assets/image%20%28172%29.png)
 
 The **log** files seemed to contain passwords. I went back to the mail site and entered the username **milesdyson** and password **cyborg007haloterminator** and I got in:
 
 > What is Miles password for his emails? **cyborg007haloterminator**
 
-![](../../.gitbook/assets/image%20%28175%29.png)
+![](../../.gitbook/assets/image%20%28178%29.png)
 
 There does seem to be another user here **serenakogan**. I kept that in my notes just for future reference. The email from **skynet@skynet** seemed to have some interesting information in it:
 
-![](../../.gitbook/assets/image%20%28169%29.png)
+![](../../.gitbook/assets/image%20%28171%29.png)
 
+Using that password, I was able to log into miles' samba share:
 
+![](../../.gitbook/assets/image%20%28170%29.png)
+
+In the **notes** directory, I found a file called **important.txt**. In it it contained the following information:
+
+```bash
+1. Add features to beta CMS /45kra24zxs28v3yd
+2. Work on T-800 Model 101 blueprints
+3. Spend more time with my wife
+```
+
+This points us to the answer for our next question.
+
+> What is the hidden directory? **/45kra24zxs28v3yd**
+>
+> What is the vulnerability called when you can include a remote file for malicious purposes? **remote file inclusion**
+
+Visiting that directory online leads to a new page:
+
+![](../../.gitbook/assets/image%20%28173%29.png)
+
+I then ran **feroxbuster** again on this directory leading to the following results:
+
+```bash
+[>-------------------] - 1m     20462/1185239 217/s   http://10.10.224.214/45kra24zxs28v3yd/
+[>-------------------] - 1m     11588/1185239 146/s   http://10.10.224.214/45kra24zxs28v3yd/administrator
+[>-------------------] - 1m     10241/1185239 134/s   http://10.10.224.214/45kra24zxs28v3yd/administrator/alerts
+[>-------------------] - 1m     13158/1185239 174/s   http://10.10.224.214/45kra24zxs28v3yd/administrator/media
+[>-------------------] - 1m     12527/1185239 165/s   http://10.10.224.214/45kra24zxs28v3yd/administrator/templates
+[>-------------------] - 1m     12172/1185239 162/s   http://10.10.224.214/45kra24zxs28v3yd/administrator/js
+[>-------------------] - 1m      7290/1185239 97/s    http://10.10.224.214/45kra24zxs28v3yd/administrator/components
+[>-------------------] - 1m     13761/1185239 186/s   http://10.10.224.214/45kra24zxs28v3yd/administrator/classes
+[>-------------------] - 1m      6704/1185239 91/s    http://10.10.224.214/45kra24zxs28v3yd/administrator/templates/default
+```
+
+I then found this site using the link of http://10.10.224.214/45kra24zxs28v3yd/administrator/:
+
+![](../../.gitbook/assets/image%20%28167%29.png)
 
