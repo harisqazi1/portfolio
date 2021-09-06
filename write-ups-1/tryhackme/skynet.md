@@ -52,7 +52,7 @@ PORT      STATE    SERVICE     REASON         VERSION
 
 Going to the website, I see:
 
-![](../../.gitbook/assets/image%20%28173%29.png)
+![](../../.gitbook/assets/image%20%28174%29.png)
 
  I then ran feroxbuster on the IP address:
 
@@ -113,19 +113,29 @@ S-1-5-21-2393614426-3774336851-1116533619-513 SKYNET\None (Domain Group)
 
 The enum4linux information is verified by **smbmap**:
 
-![](../../.gitbook/assets/image%20%28170%29.png)
+![](../../.gitbook/assets/image%20%28171%29.png)
 
 There seems to be read access to they anonymous disk. Using **smbclient** I was able to see a couple files:
 
-![](../../.gitbook/assets/image%20%28172%29.png)
+![](../../.gitbook/assets/image%20%28173%29.png)
 
 There was also a directory called **logs**:
 
-![](../../.gitbook/assets/image%20%28171%29.png)
+![](../../.gitbook/assets/image%20%28172%29.png)
 
 I downloaded all of those files to my local machine using "**mget \*"**. I viewed all of the downloaded files. 
 
+![](../../.gitbook/assets/image%20%28170%29.png)
+
+The **log** files seemed to contain passwords. I went back to the mail site and entered the username **milesdyson** and password **cyborg007haloterminator** and I got in:
+
+> What is Miles password for his emails? **cyborg007haloterminator**
+
+![](../../.gitbook/assets/image%20%28175%29.png)
+
+There does seem to be another user here **serenakogan**. I kept that in my notes just for future reference. The email from **skynet@skynet** seemed to have some interesting information in it:
+
 ![](../../.gitbook/assets/image%20%28169%29.png)
 
-The **log** files seemed to contain passwords. 
+
 
