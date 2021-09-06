@@ -52,9 +52,80 @@ PORT      STATE    SERVICE     REASON         VERSION
 
 Going to the website, I see:
 
-![](../../.gitbook/assets/image%20%28167%29.png)
+![](../../.gitbook/assets/image%20%28173%29.png)
 
  I then ran feroxbuster on the IP address:
 
+```c
+feroxbuster --url http://10.10.224.214 -w directory-list-2.3-big.txt
+```
 
+This resulted in:
+
+```c
+[>-------------------] - 7m    599288/25476360 4h      found:31      errors:58333  
+[>-------------------] - 7m     48073/1273818 111/s   http://10.10.224.214
+[>-------------------] - 7m     44397/1273818 103/s   http://10.10.224.214/admin
+[>-------------------] - 7m     46814/1273818 109/s   http://10.10.224.214/css
+[>-------------------] - 7m     41748/1273818 98/s    http://10.10.224.214/js
+[>-------------------] - 7m     41566/1273818 98/s    http://10.10.224.214/config
+[>-------------------] - 6m     39220/1273818 93/s    http://10.10.224.214/ai
+[>-------------------] - 6m     38660/1273818 96/s    http://10.10.224.214/ai/notes
+[>-------------------] - 5m     25328/1273818 73/s    http://10.10.224.214/squirrelmail
+[>-------------------] - 5m     23502/1273818 69/s    http://10.10.224.214/squirrelmail/themes
+[>-------------------] - 5m     27861/1273818 83/s    http://10.10.224.214/squirrelmail/plugins
+[>-------------------] - 5m     24115/1273818 72/s    http://10.10.224.214/squirrelmail/images
+[>-------------------] - 5m     25772/1273818 77/s    http://10.10.224.214/squirrelmail/src
+[>-------------------] - 5m     21173/1273818 64/s    http://10.10.224.214/squirrelmail/config
+[>-------------------] - 5m     23467/1273818 71/s    http://10.10.224.214/squirrelmail/plugins/calendar
+[>-------------------] - 5m     23831/1273818 76/s    http://10.10.224.214/squirrelmail/plugins/demo
+[>-------------------] - 5m     23040/1273818 74/s    http://10.10.224.214/squirrelmail/plugins/test
+[>-------------------] - 5m     21175/1273818 69/s    http://10.10.224.214/squirrelmail/themes/css
+[>-------------------] - 4m     20956/1273818 73/s    http://10.10.224.214/squirrelmail/plugins/filters
+[>-------------------] - 4m     20306/1273818 78/s    http://10.10.224.214/squirrelmail/plugins/fortune
+[>-------------------] - 4m     18264/1273818 74/s    http://10.10.224.214/squirrelmail/plugins/administrator
+```
+
+One of the links led me to a site:
+
+![](../../.gitbook/assets/image%20%28167%29.png)
+
+I then viewed the hint for the first question:
+
+![](../../.gitbook/assets/image%20%28168%29.png)
+
+I then realized I will have to go with this route first. Looking back at the nmap scan, we see that port **445** seems to be for Samba. Using **enum4linux**, I saw the following shares:
+
+```bash
+//10.10.224.214/print$  Mapping: DENIED, Listing: N/A
+//10.10.224.214/anonymous       Mapping: OK, Listing: OK
+//10.10.224.214/milesdyson      Mapping: DENIED, Listing: N/A
+//10.10.224.214/IPC$    [E] Can't understand response:
+```
+
+I also got the following users using enum4linux:
+
+```bash
+S-1-22-1-1001 Unix User\milesdyson (Local User)
+S-1-5-21-2393614426-3774336851-1116533619-501 SKYNET\nobody (Local User)
+S-1-5-21-2393614426-3774336851-1116533619-513 SKYNET\None (Domain Group)
+```
+
+The enum4linux information is verified by **smbmap**:
+
+![](../../.gitbook/assets/image%20%28170%29.png)
+
+There seems to be read access to they anonymous disk. Using **smbclient** I was able to see a couple files:
+
+![](../../.gitbook/assets/image%20%28172%29.png)
+
+There was also a directory called **logs**:
+
+![](../../.gitbook/assets/image%20%28171%29.png)
+
+I downloaded all of those files to my local machine using "**mget \*"**. I viewed all of the downloaded files. 
+
+![](../../.gitbook/assets/image%20%28169%29.png)
+
+The **log** files seemed to contain passwords. 
 
