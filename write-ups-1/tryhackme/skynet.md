@@ -1,7 +1,3 @@
----
-description: '2:34-2:51 -> 3:03-'
----
-
 # Skynet
 
 This is my write-up for the machine on TryHackMe known as **Skynet**: [https://tryhackme.com/room/vulnnetroasted](https://tryhackme.com/room/skynet)
