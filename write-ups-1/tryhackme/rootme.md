@@ -1,4 +1,4 @@
-# RootMe \(2:20-
+# RootMe
 
 This is my write-up for the machine on TryHackMe called **RootMe**: [https://tryhackme.com/room/rrootme](https://tryhackme.com/room/rrootme)
 
