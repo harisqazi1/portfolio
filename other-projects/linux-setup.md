@@ -25,6 +25,8 @@ This is just a backup of my setup I have on my Linux OS, in case I ever have to 
 | VeraCrypt | Encryption software |
 | Visual Studio Code | Coding IDE |
 | VLC | Video Player |
+| Agenda | To-Do List |
+| Zettlr | Open-Source Markdown Editor |
 
 ### Firefox
 
