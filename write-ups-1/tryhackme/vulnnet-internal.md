@@ -123,7 +123,33 @@ smb: \data\> ls
 
 Looking through the files, I found the flag for the services.txt:
 
+![](../../.gitbook/assets/image%20%28202%29.png)
+
+I then ran a **metasploit** module **auxiliary/scanner/rsync/modules\_list**. This is what I got from the result from it:
+
+![](../../.gitbook/assets/image%20%28206%29.png)
+
+I then read [this write-up](https://cyberrat.medium.com/vulnnet-internal-tryhackeme-cad6ccb9ad54) and realized that I did not use the **showmount** command. I then followed the write-up to run  **showmeant -e &lt;IP&gt;**. I then got the following:
+
+![](../../.gitbook/assets/image%20%28203%29.png)
+
+I then mounted the system to my machine:
+
+![](../../.gitbook/assets/image%20%28205%29.png)
+
+Viewing through the files I came across some sort of password in the redis.conf file:
+
+![](../../.gitbook/assets/image%20%28201%29.png)
+
+I then followed the same write-up to understand my next step. This was to use **redis-cli** in order to connect to the database and see what is there using the pasword we found earlier. I ran **redis-cli -h 10.10.98.192 -a &lt;requirepass\_from\_earlier&gt;** in order to login to the database. I then was able to find the flag for internal:
+
+![](../../.gitbook/assets/image%20%28200%29.png)
+
+When I ran **LRANGE authlist 1 20**, I got the following:
+
 ![](../../.gitbook/assets/image%20%28199%29.png)
 
+The three values were the exact same, and seemed to be base64 encoded. I decoded it online and got the following:
 
+![](../../.gitbook/assets/image%20%28204%29.png)
 
