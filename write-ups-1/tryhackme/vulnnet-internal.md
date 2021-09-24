@@ -1,4 +1,4 @@
-# VulnNet: Internal 4:36-5:51 6:07-6:23 6:41-6:48 7:29-7:51 8:49-9:03
+# VulnNet: Internal
 
 This is a write-up for the machine VulnNet: Internal located at: [https://tryhackme.com/room/vulnnetinternal](https://tryhackme.com/room/vulnnetinternal)
 
