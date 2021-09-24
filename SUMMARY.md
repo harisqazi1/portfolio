@@ -9,7 +9,7 @@
 ## Write-ups <a id="write-ups-1"></a>
 
 * [TryHackMe](write-ups-1/tryhackme/README.md)
-  * [VulnNet: Internal 4:36](write-ups-1/tryhackme/vulnnet-internal.md)
+  * [VulnNet: Internal 4:36-5:51 6:07-6:23 6:41-6:48 7:29-7:51 8:49-9:03](write-ups-1/tryhackme/vulnnet-internal.md)
   * [RootMe](write-ups-1/tryhackme/rootme.md)
   * [Skynet](write-ups-1/tryhackme/skynet.md)
   * [VulnNet: Roasted](write-ups-1/tryhackme/vulnnet-roasted.md)

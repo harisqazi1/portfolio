@@ -1,4 +1,4 @@
-# VulnNet: Internal 4:36
+# VulnNet: Internal 4:36-5:51 6:07-6:23 6:41-6:48 7:29-7:51 8:49-9:03
 
 This is a write-up for the machine VulnNet: Internal located at: [https://tryhackme.com/room/vulnnetinternal](https://tryhackme.com/room/vulnnetinternal)
 
@@ -123,27 +123,27 @@ smb: \data\> ls
 
 Looking through the files, I found the flag for the services.txt:
 
-![](../../.gitbook/assets/image%20%28204%29.png)
+![](../../.gitbook/assets/image%20%28207%29.png)
 
 I then ran a **metasploit** module **auxiliary/scanner/rsync/modules\_list**. This is what I got from the result from it:
 
-![](../../.gitbook/assets/image%20%28208%29.png)
+![](../../.gitbook/assets/image%20%28215%29.png)
 
 I then read [this write-up](https://cyberrat.medium.com/vulnnet-internal-tryhackeme-cad6ccb9ad54) and realized that I did not use the **showmount** command. I then followed the write-up to run  **showmeant -e &lt;IP&gt;**. I then got the following:
 
-![](../../.gitbook/assets/image%20%28205%29.png)
+![](../../.gitbook/assets/image%20%28211%29.png)
 
 I then mounted the system to my machine:
 
-![](../../.gitbook/assets/image%20%28207%29.png)
+![](../../.gitbook/assets/image%20%28214%29.png)
 
 Viewing through the files I came across some sort of password in the redis.conf file:
 
-![](../../.gitbook/assets/image%20%28203%29.png)
+![](../../.gitbook/assets/image%20%28206%29.png)
 
 I then followed the same write-up to understand my next step. This was to use **redis-cli** in order to connect to the database and see what is there using the pasword we found earlier. I ran **redis-cli -h 10.10.98.192 -a &lt;requirepass\_from\_earlier&gt;** in order to login to the database. I then was able to find the flag for internal:
 
-![](../../.gitbook/assets/image%20%28202%29.png)
+![](../../.gitbook/assets/image%20%28205%29.png)
 
 When I ran **LRANGE authlist 1 20**, I got the following:
 
@@ -151,11 +151,11 @@ When I ran **LRANGE authlist 1 20**, I got the following:
 
 The three values were the exact same, and seemed to be base64 encoded. I decoded it online and got the following:
 
-![](../../.gitbook/assets/image%20%28206%29.png)
+![](../../.gitbook/assets/image%20%28212%29.png)
 
 So now we have to connect to rsync with this password:
 
-![](../../.gitbook/assets/image%20%28201%29.png)
+![](../../.gitbook/assets/image%20%28202%29.png)
 
 There is a sys-internal directory that I ave to find a way to get access into. I followed the aforementioned write-up and ran the following commands \(tweaked to work for me\):
 
@@ -166,7 +166,7 @@ rsync -av rsync://rsync-connect@10.10.98.192/files local_storage
 
 This allowed me to download the folder to my local drive. In that directory, I found the user.txt file:
 
-![](../../.gitbook/assets/image%20%28200%29.png)
+![](../../.gitbook/assets/image%20%28201%29.png)
 
 I got stuck here, so I had to view the write-up again. I was meant to create an SSH keypair and upload it using rsync. So I ran the following commands:
 
@@ -176,5 +176,37 @@ cat internals.pub | tee authorized_keys && chmod 600 authorized_keys
 rsync -av authorized_keys rsync://rsync-connect@10.10.98.192/files/sys-internal/.ssh  
 ```
 
-For the previous step, I ended up getting stuck, and found [this write-up](https://muzec0318.github.io/posts/vulnet.html) that actually clarified the situation for me.
+For the previous step, I ended up getting stuck, and found [this write-up](https://muzec0318.github.io/posts/vulnet.html) that actually clarified the situation for me. This same write-up led me to run **ss** **-tulpn** to find out what ports were open. I used the same write-up to figure out we have to do port forwarding. In order to do this, I ran the following command:
+
+```c
+ssh -i internals -L 8111:localhost:8111 sys-internal@10.10.98.192 
+```
+
+Visiting `localhost:8111` led me to the following page:
+
+![](../../.gitbook/assets/image%20%28204%29.png)
+
+I then searched for the word **token** in the whole filesystem to find a token for the following webpage:
+
+![](../../.gitbook/assets/image%20%28210%29.png)
+
+The second to last authentication token worked for me! I then created a new project:
+
+![](../../.gitbook/assets/image%20%28213%29.png)
+
+I then created a build config:
+
+![](../../.gitbook/assets/image%20%28200%29.png)
+
+I then went to Build Steps and followed a bit of [this write-up](https://infosecwriteups.com/tryhackme-writeup-vulnet-internal-9abe74955f32) for this part. I following the following image: 
+
+![](../../.gitbook/assets/image%20%28203%29.png)
+
+I then ran the script from the choice on top, and when I went back to my previous shell, I ran **/bin/bash -p**, and I was able to get root:
+
+![](../../.gitbook/assets/image%20%28209%29.png)
+
+I wan then able to get the root flag:
+
+![](../../.gitbook/assets/image%20%28208%29.png)
 
