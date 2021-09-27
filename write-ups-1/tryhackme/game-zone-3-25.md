@@ -1,4 +1,4 @@
-# Game Zone 3:25-
+# Game Zone
 
 This is my write-up for the TryHackMe machine at: [https://tryhackme.com/room/gamezone](https://tryhackme.com/room/gamezone).
 
