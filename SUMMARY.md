@@ -9,6 +9,7 @@
 ## Write-ups <a id="write-ups-1"></a>
 
 * [Capture-the-Flag Competitions](write-ups-1/capture-the-flag-competitions/README.md)
+  * [TMUCTF](write-ups-1/capture-the-flag-competitions/tmuctf.md)
   * [PBJar CTF](write-ups-1/capture-the-flag-competitions/pbjar-ctf.md)
   * [H@cktivityCon 2021](write-ups-1/capture-the-flag-competitions/h-cktivitycon-2021.md)
   * [ALLES! CTF 2021](write-ups-1/capture-the-flag-competitions/alles-ctf.md)
