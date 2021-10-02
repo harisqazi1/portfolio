@@ -16,6 +16,7 @@
   * [CSAW'21 CTF](write-ups-1/capture-the-flag-competitions/csaw21-ctf.md)
   * [DownUnderCTF 2021](write-ups-1/capture-the-flag-competitions/downunderctf-2021.md)
 * [TryHackMe](write-ups-1/tryhackme/README.md)
+  * [The Marketplace](write-ups-1/tryhackme/the-marketplace.md)
   * [Game Zone](write-ups-1/tryhackme/game-zone-3-25.md)
   * [VulnNet: Internal](write-ups-1/tryhackme/vulnnet-internal.md)
   * [RootMe](write-ups-1/tryhackme/rootme.md)
