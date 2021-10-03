@@ -2,7 +2,7 @@
 
 This is a write-up for the room on TryHackMe: [https://tryhackme.com/room/marketplace](https://tryhackme.com/room/marketplace)
 
-Nmap scan: 4:22-4:43 5:52-6:23 6:42-7:45 8:44-9:11
+Nmap scan: 
 
 ```text
 nmap -T4 -A 10.10.32.69 -oN nmapscan
