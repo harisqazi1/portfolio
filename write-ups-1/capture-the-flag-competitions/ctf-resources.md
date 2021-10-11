@@ -1,8 +1,6 @@
 # CTF Resources
 
-These are resources such as scripts and softwares I find which assist in CTF Competitions.
-
-## Pwn
+These are resources such as scripts and software I find which assist in CTF Competitions. I will organize it when I have a lot of various topics being covered.
 
 ### Pwntools (respond to server):
 
@@ -55,7 +53,7 @@ s.sendline('DUCTF')
 s.interactive()
 ```
 
-## PCAP
+
 
 ### Bluetooth PCAP
 
@@ -75,5 +73,50 @@ for packet in rdpcap('btle.pcap'):
             current[i] = data[i - offset]
 print(current)
 print("".join([chr(x) for x in current]))
+```
+
+### Radio Frequency Decoding
+
+I learned about the website [http://uz7.ho.ua/packetradio.htm](http://uz7.ho.ua/packetradio.htm), through a write-up for a CTF Competition: [https://www.sohio.net/markdown.php?pbctf21\_isthatyourpacket.md](https://www.sohio.net/markdown.php?pbctf21\_isthatyourpacket.md). The software allows you to decode **Winlink** data.
+
+### Keystroke decoding from audio file
+
+I was reading a write-up for how to decode keystroked from an audio file from [https://github.com/apoirrier/CTFs-writeups/blob/master/PBCTF2021/Misc/GhostWriter.md](https://github.com/apoirrier/CTFs-writeups/blob/master/PBCTF2021/Misc/GhostWriter.md). They point out a GitHub page [https://github.com/shoyo/acoustic-keylogger](https://github.com/shoyo/acoustic-keylogger). The code below is from the CTF write-up and not from the keylogger GitHub page itself:
+
+```
+//DOCKER:
+//Create docker with installed libraries
+docker exec -it acoustic-keylogger_env_1 apt update
+docker exec -it acoustic-keylogger_env_1 apt install libsndfile1-dev
+//get token for accessing the notebook
+docker exec -it acoustic-keylogger_env_1 jupyter notebook list
+```
+
+```
+//PYTHON in Docker
+//import libraries
+from acoustic_keylogger.audio_processing import *
+from acoustic_keylogger.unsupervised import *
+from sklearn.preprocessing import MinMaxScaler
+
+data = wav_read("output.wav") //input file here
+
+keystrokes = detect_keystrokes(data, threshold=100) //have to play around with this
+//normalize the features
+X = [extract_features(x) for x in keystrokes]
+X_norm = MinMaxScaler().fit_transform(X)
+//differentiate keystrokes
+len(set([x[0] for x in X_norm])) //gives you a number of different keystrokes
+//group similar keystrokes
+letters = {}
+phrase = []
+current_letter = ord('a')
+for x in X_norm:
+    if x[0] not in letters:
+        letters[x[0]] = current_letter
+        current_letter += 1
+    phrase.append(letters[x[0]])
+print("".join([chr(x) for x in phrase]).replace("d", " "))
+//NOTE: Output could be encrypted with Monoalphabetic Substitution or another cipher
 ```
 
