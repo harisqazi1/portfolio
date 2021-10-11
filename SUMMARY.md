@@ -3,8 +3,8 @@
 * [Introduction](README.md)
 * [Homelab](homelab.md)
 * [Privacy & Security](privacy-and-security.md)
-* [Tools for CTFs](tools-for-ctfs.md)
 * [Security+ Study Guide](security+-study-guide.md)
+* [Linux Setup](linux-setup.md)
 
 ## Write-ups <a href="write-ups-1" id="write-ups-1"></a>
 
@@ -76,7 +76,6 @@
 ## Other Projects
 
 * [Scripts](other-projects/scripts.md)
-* [Linux Setup](other-projects/linux-setup.md)
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
 * [RTL-SDR](other-projects/coding-an-sdr-program.md)
 * [Shodan Search](other-projects/shodan-search.md)
