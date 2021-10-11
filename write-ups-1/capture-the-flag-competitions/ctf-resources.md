@@ -1,6 +1,6 @@
 # CTF Resources
 
-These are resources such as scripts and software I find which assist in CTF Competitions, usually from write-ups from other players. I will organize it when I have a lot of various topics being covered.
+These are resources such as scripts and software I find which assist in CTF Competitions, usually from write-ups from other players. I will organize the **specific** section when I have a lot of various topics being covered there.
 
 ## General:
 
@@ -31,7 +31,7 @@ These are resources such as scripts and software I find which assist in CTF Comp
 
 ### Cryptography
 
-* fcrackzip - program to crack zip files using bruteforce or a dictionary
+* fcrackzip - program to crack zip files using brute-force or a dictionary
   * Can be found at [https://github.com/hyc/fcrackzip](https://github.com/hyc/fcrackzip)
 * Crackstation - website to crack hashes
   * Can be found at [https://crackstation.net/](https://crackstation.net)
@@ -46,9 +46,9 @@ These are resources such as scripts and software I find which assist in CTF Comp
 
 * Nmap - used to find what ports are open on a server
 * Burpsuite - used to intercept/modify web requests
-* Curl - a tool for data transfering and reception
-* Dirbuster - a directory bruteforcing with a wordlist
-* Gobuster - another directory bruteforcing program using a wordlist
+* Curl - a tool for data transferring and reception
+* Dirbuster - a directory brute-forcing with a word-list
+* Gobuster - another directory brute-forcing program using a word-list
 * Nikto - a web server scanner
 * Wget - used to download a website and its contents
 
