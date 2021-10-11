@@ -1,6 +1,6 @@
 # CTF Resources
 
-These are resources such as scripts and software I find which assist in CTF Competitions. I will organize it when I have a lot of various topics being covered.
+These are resources such as scripts and software I find which assist in CTF Competitions, usually from write-ups from other players. I will organize it when I have a lot of various topics being covered.
 
 ### Pwntools (respond to server):
 
@@ -52,8 +52,6 @@ s.recvuntil('?')
 s.sendline('DUCTF')
 s.interactive()
 ```
-
-
 
 ### Bluetooth PCAP
 
