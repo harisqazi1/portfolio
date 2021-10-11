@@ -77,7 +77,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 32.51 seconds
 ```
 
-I then ran **smbmap -H &lt;IP&gt;**, and got the following output:
+I then ran **smbmap -H \<IP>**, and got the following output:
 
 ```c
 [+] Guest session       IP: 10.10.98.192:445    Name: 10.10.98.192                                      
@@ -88,7 +88,7 @@ I then ran **smbmap -H &lt;IP&gt;**, and got the following output:
         IPC$                                                    NO ACCESS       IPC Service (vulnnet-internal server (Samba, Ubuntu))
 ```
 
-I then ran **smbclient \\\\10.10.98.192\\shares**, and got the following output:
+I then ran **smbclient \\\\\\\10.10.98.192\\\shares**, and got the following output:
 
 ```c
 Enter WORKGROUP\kali's password: 
@@ -123,41 +123,41 @@ smb: \data\> ls
 
 Looking through the files, I found the flag for the services.txt:
 
-![](../../.gitbook/assets/image%20%28207%29.png)
+![](<../../.gitbook/assets/image (207).png>)
 
-I then ran a **metasploit** module **auxiliary/scanner/rsync/modules\_list**. This is what I got from the result from it:
+I then ran a **metasploit** module **auxiliary/scanner/rsync/modules_list**. This is what I got from the result from it:
 
-![](../../.gitbook/assets/image%20%28215%29.png)
+![](<../../.gitbook/assets/image (215).png>)
 
-I then read [this write-up](https://cyberrat.medium.com/vulnnet-internal-tryhackeme-cad6ccb9ad54) and realized that I did not use the **showmount** command. I then followed the write-up to run  **showmeant -e &lt;IP&gt;**. I then got the following:
+I then read [this write-up](https://cyberrat.medium.com/vulnnet-internal-tryhackeme-cad6ccb9ad54) and realized that I did not use the **showmount** command. I then followed the write-up to run ** showmeant -e \<IP>**. I then got the following:
 
-![](../../.gitbook/assets/image%20%28211%29.png)
+![](<../../.gitbook/assets/image (211).png>)
 
 I then mounted the system to my machine:
 
-![](../../.gitbook/assets/image%20%28214%29.png)
+![](<../../.gitbook/assets/image (214).png>)
 
 Viewing through the files I came across some sort of password in the redis.conf file:
 
-![](../../.gitbook/assets/image%20%28206%29.png)
+![](<../../.gitbook/assets/image (206).png>)
 
-I then followed the same write-up to understand my next step. This was to use **redis-cli** in order to connect to the database and see what is there using the pasword we found earlier. I ran **redis-cli -h 10.10.98.192 -a &lt;requirepass\_from\_earlier&gt;** in order to login to the database. I then was able to find the flag for internal:
+I then followed the same write-up to understand my next step. This was to use **redis-cli** in order to connect to the database and see what is there using the pasword we found earlier. I ran **redis-cli -h 10.10.98.192 -a \<requirepass_from_earlier>** in order to login to the database. I then was able to find the flag for internal:
 
-![](../../.gitbook/assets/image%20%28205%29.png)
+![](<../../.gitbook/assets/image (205).png>)
 
 When I ran **LRANGE authlist 1 20**, I got the following:
 
-![](../../.gitbook/assets/image%20%28199%29.png)
+![](<../../.gitbook/assets/image (199).png>)
 
 The three values were the exact same, and seemed to be base64 encoded. I decoded it online and got the following:
 
-![](../../.gitbook/assets/image%20%28212%29.png)
+![](<../../.gitbook/assets/image (212).png>)
 
 So now we have to connect to rsync with this password:
 
-![](../../.gitbook/assets/image%20%28202%29.png)
+![](<../../.gitbook/assets/image (202).png>)
 
-There is a sys-internal directory that I ave to find a way to get access into. I followed the aforementioned write-up and ran the following commands \(tweaked to work for me\):
+There is a sys-internal directory that I ave to find a way to get access into. I followed the aforementioned write-up and ran the following commands (tweaked to work for me):
 
 ```c
 mkdir local_storage
@@ -166,7 +166,7 @@ rsync -av rsync://rsync-connect@10.10.98.192/files local_storage
 
 This allowed me to download the folder to my local drive. In that directory, I found the user.txt file:
 
-![](../../.gitbook/assets/image%20%28201%29.png)
+![](<../../.gitbook/assets/image (201).png>)
 
 I got stuck here, so I had to view the write-up again. I was meant to create an SSH keypair and upload it using rsync. So I ran the following commands:
 
@@ -184,29 +184,28 @@ ssh -i internals -L 8111:localhost:8111 sys-internal@10.10.98.192
 
 Visiting `localhost:8111` led me to the following page:
 
-![](../../.gitbook/assets/image%20%28204%29.png)
+![](<../../.gitbook/assets/image (204).png>)
 
 I then searched for the word **token** in the whole filesystem to find a token for the following webpage:
 
-![](../../.gitbook/assets/image%20%28210%29.png)
+![](<../../.gitbook/assets/image (210).png>)
 
 The second to last authentication token worked for me! I then created a new project:
 
-![](../../.gitbook/assets/image%20%28213%29.png)
+![](<../../.gitbook/assets/image (213).png>)
 
 I then created a build config:
 
-![](../../.gitbook/assets/image%20%28200%29.png)
+![](<../../.gitbook/assets/image (200).png>)
 
 I then went to Build Steps and followed a bit of [this write-up](https://infosecwriteups.com/tryhackme-writeup-vulnet-internal-9abe74955f32) for this part. I following the following image: 
 
-![](../../.gitbook/assets/image%20%28203%29.png)
+![](<../../.gitbook/assets/image (203).png>)
 
 I then ran the script from the choice on top, and when I went back to my previous shell, I ran **/bin/bash -p**, and I was able to get root:
 
-![](../../.gitbook/assets/image%20%28209%29.png)
+![](<../../.gitbook/assets/image (209).png>)
 
 I wan then able to get the root flag:
 
-![](../../.gitbook/assets/image%20%28208%29.png)
-
+![](<../../.gitbook/assets/image (208).png>)

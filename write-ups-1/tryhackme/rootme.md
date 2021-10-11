@@ -57,33 +57,33 @@ Nmap done: 1 IP address (1 host up) scanned in 27.63 seconds
 
 My first step was to visit the website on port 80:
 
-![](../../.gitbook/assets/image%20%28192%29.png)
+![](<../../.gitbook/assets/image (192).png>)
 
 There seems to be nothing on the website other that the following text. I then ran **feroxbuster** with the big.txt file from the Seclists Github repository:
 
-![](../../.gitbook/assets/image%20%28189%29.png)
+![](<../../.gitbook/assets/image (189).png>)
 
 Two links stood out to me:
 
-![](../../.gitbook/assets/image%20%28188%29.png)
+![](<../../.gitbook/assets/image (188).png>)
 
-![](../../.gitbook/assets/image%20%28195%29.png)
+![](<../../.gitbook/assets/image (195).png>)
 
-My assumption was to upload the **pentestmonkey php-reverse-shell** and then get a webshell using that. I first updated the script to have my information in it \(IP and port\):
+My assumption was to upload the **pentestmonkey php-reverse-shell** and then get a webshell using that. I first updated the script to have my information in it (IP and port):
 
-![](../../.gitbook/assets/image%20%28185%29.png)
+![](<../../.gitbook/assets/image (185).png>)
 
 Apparently PHP is not permitted:
 
-![](../../.gitbook/assets/image%20%28198%29.png)
+![](<../../.gitbook/assets/image (198).png>)
 
 I then though about using an alternative php version like phtml. That worked... a bit:
 
-![](../../.gitbook/assets/image%20%28196%29.png)
+![](<../../.gitbook/assets/image (196).png>)
 
 However, I was not able to get a shell on the system. I then tried the original pentestmonkey script, but then I changed the extension to be **.phtml**, and it worked:
 
-![](../../.gitbook/assets/image%20%28191%29.png)
+![](<../../.gitbook/assets/image (191).png>)
 
 At this point, I had realized that I had to answer questions on the TryHackMe site. 
 
@@ -103,23 +103,23 @@ find / -name user.txt
 
 I then saw the following in the big output:
 
-![](../../.gitbook/assets/image%20%28193%29.png)
+![](<../../.gitbook/assets/image (193).png>)
 
 I then got the user.txt flag:
 
-![](../../.gitbook/assets/image%20%28187%29.png)
+![](<../../.gitbook/assets/image (187).png>)
 
 I then had to view the hint provided to see what command I should run to check for files with SUID permission. They recommended **find / -user root -perm /4000**. I ran that command and noticed a couple commands I could potentially use:
 
-![](../../.gitbook/assets/image%20%28197%29.png)
+![](<../../.gitbook/assets/image (197).png>)
 
 On TryHackMe, the format of the question seems to be in the following format:
 
-![](../../.gitbook/assets/image%20%28186%29.png)
+![](<../../.gitbook/assets/image (186).png>)
 
-This means that the executable has to be 6 letters in size. I tried **/usr/bin/python** and it worked. I went to **GTFOBins** and searched on it for python. I then came across the following:
+This means that the executable has to be 6 letters in size. I tried **/usr/bin/python** and it worked. I went to **GTFOBins **and searched on it for python. I then came across the following:
 
-![](../../.gitbook/assets/image%20%28190%29.png)
+![](<../../.gitbook/assets/image (190).png>)
 
 I ran this code, but modified it to read the file from the root directory:
 
@@ -129,5 +129,4 @@ python -c 'print(open("/root/root.txt").read())'
 
 I then got the flag:
 
-![](../../.gitbook/assets/image%20%28194%29.png)
-
+![](<../../.gitbook/assets/image (194).png>)
