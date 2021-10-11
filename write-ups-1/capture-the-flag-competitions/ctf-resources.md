@@ -79,7 +79,7 @@ I learned about the website [http://uz7.ho.ua/packetradio.htm](http://uz7.ho.ua/
 
 ### Keystroke decoding from audio file
 
-I was reading a write-up for how to decode keystroked from an audio file from [https://github.com/apoirrier/CTFs-writeups/blob/master/PBCTF2021/Misc/GhostWriter.md](https://github.com/apoirrier/CTFs-writeups/blob/master/PBCTF2021/Misc/GhostWriter.md). They point out a GitHub page [https://github.com/shoyo/acoustic-keylogger](https://github.com/shoyo/acoustic-keylogger). The code below is from the CTF write-up and not from the keylogger GitHub page itself:
+I was reading a write-up for how to decode keystrokes from an audio file from [https://github.com/apoirrier/CTFs-writeups/blob/master/PBCTF2021/Misc/GhostWriter.md](https://github.com/apoirrier/CTFs-writeups/blob/master/PBCTF2021/Misc/GhostWriter.md). They point out a GitHub page [https://github.com/shoyo/acoustic-keylogger](https://github.com/shoyo/acoustic-keylogger). The code below is from the CTF write-up and not from the keylogger GitHub page itself:
 
 ```
 //DOCKER:
