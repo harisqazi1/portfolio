@@ -2,7 +2,7 @@
 
 This is my write-up for the TryHackMe machine at: [https://tryhackme.com/room/overpass3hosting](https://tryhackme.com/room/overpass3hosting)
 
-Nmap Scan command: (9:40-
+Nmap Scan command: 
 
 ```
 nmap -T4 -A 10.10.168.65 -oN nmapscan
@@ -35,7 +35,7 @@ Nmap done: 1 IP address (1 host up) scanned in 50.91 seconds
 
 I noticed that they have 3 ports open. I went to the web (port 80) first to check it out:
 
-![](<../../.gitbook/assets/image (333).png>)
+![](<../../.gitbook/assets/image (338).png>)
 
 There was no `/robots.txt` file. I then ran **gobuster** on the IP address:
 
@@ -45,15 +45,15 @@ gobuster dir --url http://10.10.168.65/  -w directory-list-lowercase-2.3-big.txt
 
 About 4% of the gobuster search, I got the following output:
 
-![](<../../.gitbook/assets/image (329).png>)
+![](<../../.gitbook/assets/image (330).png>)
 
 Going to the backups website, I saw this:
 
-![](<../../.gitbook/assets/image (335).png>)
+![](<../../.gitbook/assets/image (341).png>)
 
 I then downloaded the file. There were two files in the zip file:
 
-![](<../../.gitbook/assets/image (330).png>)
+![](<../../.gitbook/assets/image (332).png>)
 
 Using [this write-up](https://musyokaian.medium.com/overpass-3-hosting-tryhackme-walkthrough-d77703a72495), I realized that I can decrupt the file with the private key I have:
 
@@ -70,19 +70,19 @@ ssconvert CustomerDetails.xlsx newfile.csv
 
 I was then able to see the contents of the file:
 
-![](<../../.gitbook/assets/image (332).png>)
+![](<../../.gitbook/assets/image (335).png>)
 
 It seems to be the customers of the website, based on the context. We also have their username and password. I will try this in FTP, and my plan is that if the password does not work on FTP, then I will try SSH. In FTP, I got access using the credentials for "Par. A. Doxx":
 
-![](<../../.gitbook/assets/image (334).png>)
+![](<../../.gitbook/assets/image (339).png>)
 
 FTP seemed to only work for that user. The other passwords did not work in FTP. When I tried for SSH, the credentials did not work there either. I then went back to the same write-up above and then realized that I had to upload a php-reverse-shell. Going to [this GitHub page](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php), I downloaded the reverse-shell script. In the script, I changed the IP address to my TryHackMe IP address. I then uploaded the file to the server:
 
-![](<../../.gitbook/assets/image (325).png>)
+![](<../../.gitbook/assets/image (326).png>)
 
 I then ran `nc -lvp 1234` on another terminal tab, and was listening for a connection. After visiting **http://10.10.168.65/php-reverse-shell.php**, I got a reverse shell:
 
-![](<../../.gitbook/assets/image (324).png>)
+![](<../../.gitbook/assets/image (325).png>)
 
 After being stuck for a while, I viewed [this write-up](https://www.aldeid.com/wiki/TryHackMe-Overpass-3-Hosting) in order to see where to go next. I used the command the author of the write-up used:
 
@@ -96,17 +96,62 @@ This gave me the following output:
 
 This file had the flag in it:
 
-![](<../../.gitbook/assets/image (327).png>)
+![](<../../.gitbook/assets/image (328).png>)
 
 I then downloaded Linpeas to my local machine using **wget**. I then pushed that to the server using an http server:
 
-![](<../../.gitbook/assets/image (331).png>)
+![](<../../.gitbook/assets/image (334).png>)
 
-![](<../../.gitbook/assets/image (336).png>)
+![](<../../.gitbook/assets/image (342).png>)
 
 I then ran linpeas on the remote machine. I then saw the following, when I also saw in other write-ups as well:
 
-![](<../../.gitbook/assets/image (326).png>)
+![](<../../.gitbook/assets/image (327).png>)
 
 I then went back to the most recently mentioned write-up, in order to understand what I had to do next. Following [this write-up](https://shishirsubedi.com.np/thm/overpass3/), I uploaded my key to the remote server so I can connect in an easier method. Here are the commands I ran:
 
+```
+My machine: ssh-keygen -f paradox
+My machine: cat paradox.pub
+//Take the information inside the paradox.pub and copy it to the remote machine
+Remote machine: echo "ssh-rsa ............" > .ssh/paradox
+```
+
+I was then able to ssh into the machine to the user paradox from my machine directly:
+
+![](<../../.gitbook/assets/image (324).png>)
+
+After a long time of being stuck, I finally found a solution reading [this write-up](https://cryptichacker.github.io/posts/overpass3hosting/). My mistake was running the wrong command. The following is what worked for me:
+
+```
+ssh -i paradox -L 20049:127.0.0.1:2049  paradox@10.10.168.65
+```
+
+I changed 2049 before the IP to 20049, since I kept on getting errors that the port was already in use. I then ran the following command to mount the share to my local machine:
+
+```
+sudo mount -t nfs -o port=20049 localhost: nfs
+```
+
+If we change directory into the **nfs** folder, we can see the file system mounted there:
+
+![](<../../.gitbook/assets/image (337).png>)
+
+I read the user flag. After that, the ssh authorized key I had uploaded to paradox earlier, I had not uploaded it to **.ssh/authorized_keys** in the mounted directory. I then was able to SSH to the machine:
+
+![](<../../.gitbook/assets/image (331).png>)
+
+I read up from [this write-up](https://cryptichacker.github.io/posts/overpass3hosting/) that I can now use the **no_root_squash **exploit, something that linpeas.sh had shown us earlier. I followed the following commands from the write-up to get it to work:
+
+```
+#In the mounted dir, as root user
+cp /bin/bash ./
+chmod +s bash
+
+#In the remote machine as user james
+./bash -p
+```
+
+This got me root user on the machine. I then got the root flag.
+
+![](<../../.gitbook/assets/image (340).png>)
