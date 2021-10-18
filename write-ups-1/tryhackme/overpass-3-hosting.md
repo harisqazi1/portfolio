@@ -2,7 +2,7 @@
 
 This is my write-up for the TryHackMe machine at: [https://tryhackme.com/room/overpass3hosting](https://tryhackme.com/room/overpass3hosting)
 
-Nmap Scan command: 
+Nmap Scan command:&#x20;
 
 ```
 nmap -T4 -A 10.10.168.65 -oN nmapscan
@@ -92,7 +92,7 @@ find / -type f -name "*flag*" -exec ls -l {} + 2>/dev/null
 
 This gave me the following output:
 
-![](<../../.gitbook/assets/image (323).png>)
+![](<../../.gitbook/assets/image (323) (1).png>)
 
 This file had the flag in it:
 
@@ -137,11 +137,11 @@ If we change directory into the **nfs** folder, we can see the file system mount
 
 ![](<../../.gitbook/assets/image (337).png>)
 
-I read the user flag. After that, the ssh authorized key I had uploaded to paradox earlier, I had not uploaded it to **.ssh/authorized_keys** in the mounted directory. I then was able to SSH to the machine:
+I read the user flag. After that, the ssh authorized key I had uploaded to paradox earlier, I had not uploaded it to **.ssh/authorized\_keys** in the mounted directory. I then was able to SSH to the machine:
 
 ![](<../../.gitbook/assets/image (331).png>)
 
-I read up from [this write-up](https://cryptichacker.github.io/posts/overpass3hosting/) that I can now use the **no_root_squash **exploit, something that linpeas.sh had shown us earlier. I followed the following commands from the write-up to get it to work:
+I read up from [this write-up](https://cryptichacker.github.io/posts/overpass3hosting/) that I can now use the **no\_root\_squash **exploit, something that linpeas.sh had shown us earlier. I followed the following commands from the write-up to get it to work:
 
 ```
 #In the mounted dir, as root user

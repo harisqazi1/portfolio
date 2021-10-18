@@ -98,7 +98,7 @@ These are the settings I use when you type in **about:config **in the search bar
   * Disables data being sent to servers when leaving pages
 * **browser.cache.disk.enable** -> false
   * Disk cache is not used by Firefox
-*  **browser.cache.disk_cache_ssl** -> false
+* &#x20;**browser.cache.disk\_cache\_ssl** -> false
   * Firefox will not cache https website contents.
 * **geo.provider.network.url** -> 127.0.0.1
   * The data provider used to power Firefox's geolocation feature
@@ -115,7 +115,7 @@ WebRTC settings:
 
 * **media.peerconnection.enabled** -> false
 * **media.peerconnection.turn.disable** -> true
-* **media.peerconnection.use_document_iceservers** -> false
+* **media.peerconnection.use\_document\_iceservers** -> false
 * **media.peerconnection.video.enabled** -> false
 
 #### Firefox Extensions

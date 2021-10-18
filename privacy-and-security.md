@@ -44,7 +44,7 @@ Firewalls are a way to control network traffic, that way certain items/sites can
     * Do this for all ports​
       * "Interfaces" -> "Assignments"	to continue for the next port​
   * When finished with all of them, apply changes in the upper right​
-  *  "Interfaces" -> "Assignments" -> "Bridges"​
+  * &#x20;"Interfaces" -> "Assignments" -> "Bridges"​
   * Click on "Add" to create a new bridge​
   * Select the LAN option and the other ports that was added with a CNTRL-CLICK or CMD-CLICK​
   * Provide a description, such as "bridge", and then hit "Save"​
@@ -64,9 +64,9 @@ Firewalls are a way to control network traffic, that way certain items/sites can
   * Apply changes in the upper-right​
 * Prevent DNS leakage
   * "System" -> "General Setup"​
-  * Add "1.1.1.1" as a DNS server, and choose the "WAN_DHCP-wan" interface​
+  * Add "1.1.1.1" as a DNS server, and choose the "WAN\_DHCP-wan" interface​
   * Click "Add DNS Server"​
-  * Add "1.0.0.1" as a DNS server and choose the "WAN_DHCP-wan" interface​
+  * Add "1.0.0.1" as a DNS server and choose the "WAN\_DHCP-wan" interface​
   * Disable "DNS server override"​
   * Click "Save"​
 * Enable AES-NI CPU Crypto & PowerD​
@@ -100,23 +100,23 @@ Blocklists are lists of domains or IP addresses that are listed that way you can
   * BlocklistDE - Collection of specific fail2ban reporting service Feeds.
   * PRI2 - Collection of Feeds from Secondary Tier providers.
   * PRI3 - Collection of Feeds from Tertiary Tier providers.
-  * Windows_Spy_\__Blocker
+  * Windows\_Spy_\__Blocker
     * [https://github.com/crazy-max/WindowsSpyBlocker/tree/master/data/firewall](https://github.com/crazy-max/WindowsSpyBlocker/tree/master/data/firewall)
 * DNSBL -> DNSBL Groups
   * ADs Basic - Collection of ADvertisement Domain Feeds.
   * EasyList Feeds - Utilizing only the domains which are listed to be blocked in full.
   * ADs - Collection of ADvertisement Domain Feeds.
-  * Firebog_Trackers - Places that track you.
-  * Spotify_Ad_block
+  * Firebog\_Trackers - Places that track you.
+  * Spotify\_Ad\_block
     * [https://raw.githubusercontent.com/x0uid/SpotifyAdBlock/master/hosts](https://raw.githubusercontent.com/x0uid/SpotifyAdBlock/master/hosts)
-  * Tracking_Telemetry
+  * Tracking\_Telemetry
     * [https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt](https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt)
 
 ### VPN
 
 A VPN is a software that allows you to mask your true IP address from the websites you are trying to reach. A lot of poeple have this assumption of VPNs as being used for hacking and malicious content. While that may be true, we can use it as a way to protect our traffic and prevent it from being seen without our permission. I currently use [Mullvad](https://mullvad.net/en/). For VPN providers, the main thing I look for is their logging policy, and where the company is hosted from. The logging policy is important because you want to know what is going on with your data while it is in their custody. If they have an anonymous logging policy, then you should be in a good place. The best policy in my opinion, would be to have a no logging policy. That way you know that your data is not being kept by then for any amount of time. As for the company location, this is super important. If a company is part of the [14-eyes](https://restoreprivacy.com/5-eyes-9-eyes-14-eyes/) or even part of the other "eyes", the company can be mandated to share your VPN information with your country, if it is part of the "eyes". That is why it is important to check this prior to purchasing a VPN.
 
-### Firefox 
+### Firefox&#x20;
 
 Firefox is the more "privacy-centric" browsers from the bunch (Edge, Chrome, Firefox, Opera, etc.). With that being said, it still can be improved to prove your privacy. These are some of the settings I use in Firefox Settings (or just type **about:preferences** in the search bar):
 
@@ -183,7 +183,7 @@ These are the settings I use when you type in **about:config **in the search bar
   * Disables data being sent to servers when leaving pages
 * **browser.cache.disk.enable** -> false
   * Disk cache is not used by Firefox
-*  **browser.cache.disk_cache_ssl** -> false
+* &#x20;**browser.cache.disk\_cache\_ssl** -> false
   * Firefox will not cache https website contents.
 * **geo.provider.network.url** -> 127.0.0.1
   * The data provider used to power Firefox's geolocation feature
@@ -200,7 +200,7 @@ WebRTC settings:
 
 * **media.peerconnection.enabled** -> false
 * **media.peerconnection.turn.disable** -> true
-* **media.peerconnection.use_document_iceservers** -> false
+* **media.peerconnection.use\_document\_iceservers** -> false
 * **media.peerconnection.video.enabled** -> false
 
 #### Firefox Extensions
@@ -215,7 +215,7 @@ If you do not want to have the hassle of modifying all of these options, then ch
 
 #### Resources
 
-* [https://blog.increasinglyadequate.com/posts/hardening_firefox.html](https://blog.increasinglyadequate.com/posts/hardening_firefox.html)
+* [https://blog.increasinglyadequate.com/posts/hardening\_firefox.html](https://blog.increasinglyadequate.com/posts/hardening\_firefox.html)
 * [https://ebin.city/\~werwolf/posts/firefox-hardening-guide/](https://ebin.city/\~werwolf/posts/firefox-hardening-guide/)
 * [https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/](https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/)
 * [http://kb.mozillazine.org/Network.cookie.lifetimePolicy](http://kb.mozillazine.org/Network.cookie.lifetimePolicy)
@@ -250,7 +250,7 @@ W10Privacy screenshot:
 
 ![](<.gitbook/assets/image (165).png>)
 
-I think with the setup I have (Firewall with the aforementioned software) I am at about 95% privacy/tracking coverage (but this is super biased since it is my personal setup). 
+I think with the setup I have (Firewall with the aforementioned software) I am at about 95% privacy/tracking coverage (but this is super biased since it is my personal setup).&#x20;
 
 
 
