@@ -11,6 +11,7 @@ This is just a backup of my setup I have on my Linux OS, in case I ever have to 
 | Discord                  | Communication                                 |
 | FreeTube                 | YouTube Privacy-centric Alternative           |
 | Htop                     | Process List Viewer                           |
+| NVTOP                    | Task Monitor for NVIDIA GPUs                  |
 | KeePassXC                | Password Manager (locally hosted)             |
 | Bitwarden                | Password Manager (cloud hosted)               |
 | Lutris / Heroic Launcher | Run games from Epic Games                     |

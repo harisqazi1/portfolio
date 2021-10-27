@@ -88,4 +88,4 @@ for c in product(charlist, repeat=4): #iterates from AAAA to ZZZZ
         x = x+1 #goes to next number
 ```
 
-This script was something I wrote for the National Cyber League. It was meant to brute-force the values from **SKY-AAAA-0000** all the way until **SKY-ZZZZ-9999**. The goal was for it to eventually hit the flag and give the output from the binary that the string was correct. The code did work, but it would take too long to brute-force. However, I still do believe that this code will come in handy later on for another CTF, so this is why I have it saved here.
+This script was something I wrote for the National Cyber League. The code did work, bt&#x20;
