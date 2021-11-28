@@ -83,3 +83,7 @@ Modified:
 
 ### Retrieving multiple values within a single column <a href="retrieving-multiple-values-within-a-single-column" id="retrieving-multiple-values-within-a-single-column"></a>
 
+This example is for Oracle DBs:
+
+`' UNION SELECT username || '~' || password FROM users--`
+
