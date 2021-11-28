@@ -27,7 +27,7 @@
   * [Anthem](write-ups-1/tryhackme/anthem.md)
   * [Relevant](write-ups-1/tryhackme/relevant.md)
   * [Ice](write-ups-1/tryhackme/ice.md)
-  * [Lian_Yu](write-ups-1/tryhackme/lian_yu.md)
+  * [Lian\_Yu](write-ups-1/tryhackme/lian\_yu.md)
   * [c4ptur3-th3-fl4g](write-ups-1/tryhackme/c4ptur3-th3-fl4g.md)
   * [CTF collection Vol.1](write-ups-1/tryhackme/ctf-collection-vol.1.md)
   * [Wgel CTF](write-ups-1/tryhackme/wgel-ctf.md)
@@ -76,6 +76,7 @@
 ## Other Projects
 
 * [Scripts](other-projects/scripts.md)
+* [Portswigger Academy](other-projects/portswigger-academy.md)
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
 * [RTL-SDR](other-projects/coding-an-sdr-program.md)
 * [Shodan Search](other-projects/shodan-search.md)
