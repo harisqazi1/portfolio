@@ -76,7 +76,7 @@
 ## Other Projects
 
 * [Scripts](other-projects/scripts.md)
-* [Portswigger Academy](other-projects/portswigger-academy.md)
+* [Web Hacking](other-projects/web-hacking.md)
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
 * [RTL-SDR](other-projects/coding-an-sdr-program.md)
 * [Shodan Search](other-projects/shodan-search.md)
