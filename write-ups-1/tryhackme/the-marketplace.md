@@ -2,7 +2,7 @@
 
 This is a write-up for the room on TryHackMe: [https://tryhackme.com/room/marketplace](https://tryhackme.com/room/marketplace)
 
-Nmap scan: 
+Nmap scan:&#x20;
 
 ```
 nmap -T4 -A 10.10.32.69 -oN nmapscan
@@ -72,7 +72,7 @@ I then tried it again, this time removing the alert box code:
 
 ![](<../../.gitbook/assets/image (316).png>)
 
-I then submitted the listing. Based on the hint from TryHackMe, I then reported this listing to the admins. 
+I then submitted the listing. Based on the hint from TryHackMe, I then reported this listing to the admins.&#x20;
 
 ![](<../../.gitbook/assets/image (306).png>)
 
@@ -88,7 +88,7 @@ I entered this in [jwt.io](https://jwt.io/#debugger-io), and got the following r
 
 ![](<../../.gitbook/assets/image (299).png>)
 
-We can see the username of the admin is michael. I then logged out of the account. I then logged in using credentials I had made previously, **test:test**, and when the following prompt came up in burpsuite (I used the burpsuite browser for this part), I modified it to use the cookie of the admin: 
+We can see the username of the admin is michael. I then logged out of the account. I then logged in using credentials I had made previously, **test:test**, and when the following prompt came up in burpsuite (I used the burpsuite browser for this part), I modified it to use the cookie of the admin:&#x20;
 
 ![](<../../.gitbook/assets/image (320).png>)
 
@@ -140,7 +140,7 @@ The user.txt file was in the directory you enter in:
 
 ![](<../../.gitbook/assets/image (304).png>)
 
-I then ran **sudo -l **to find out what actions we have as a sudoer:
+I then ran **sudo -l** to find out what actions we have as a sudoer:
 
 ![](<../../.gitbook/assets/image (321).png>)
 

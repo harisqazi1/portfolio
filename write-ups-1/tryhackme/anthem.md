@@ -1,6 +1,6 @@
 # Anthem
 
-This is my write-up for the TryHackMe box known as Anthem located at: [https://tryhackme.com/room/anthem](https://www.tryhackme.com/room/anthem). 
+This is my write-up for the TryHackMe box known as Anthem located at: [https://tryhackme.com/room/anthem](https://www.tryhackme.com/room/anthem).&#x20;
 
 ## Website Analysis
 
@@ -102,7 +102,7 @@ For Flag 2, I just found it on source of the main page:
 
 ![](<../../.gitbook/assets/image (147).png>)
 
-For Flag 3, I was looking around on different pages, and ended up finding it on the site: **\<IP_adress>/authors/jane-doe**:
+For Flag 3, I was looking around on different pages, and ended up finding it on the site: **\<IP\_adress>/authors/jane-doe**:
 
 ![](<../../.gitbook/assets/image (136).png>)
 
@@ -112,7 +112,7 @@ For Flag 4, I then found it following the same steps as Flag 1:
 
 ## Final Stage
 
-We have to figure out the username and password for the box. My first thought was to make a name list based on the names I saw on the website. I looked at the other port, other than 80, and it was 3389. Port 3389 was used for RDP, also knowing as Remote Desktop Protocol. I then had to find a software to get access to the desktop of the machine. I find out about [**rdesktop**](http://www.rdesktop.org), and used it. As for the username, I viewed [this write up](https://pencer.io/ctf/ctf-thm-anthem/#task-3---final-stage) and realized that the username would be **SG**. It took me a while to get the password, which was from the first section of the machine: **UmbracoIsTheBest! **I then used that information to log in using the command:
+We have to figure out the username and password for the box. My first thought was to make a name list based on the names I saw on the website. I looked at the other port, other than 80, and it was 3389. Port 3389 was used for RDP, also knowing as Remote Desktop Protocol. I then had to find a software to get access to the desktop of the machine. I find out about [**rdesktop**](http://www.rdesktop.org), and used it. As for the username, I viewed [this write up](https://pencer.io/ctf/ctf-thm-anthem/#task-3---final-stage) and realized that the username would be **SG**. It took me a while to get the password, which was from the first section of the machine: **UmbracoIsTheBest!** I then used that information to log in using the command:
 
 ```c
 rdesktop -u SG 10.10.152.51
@@ -126,7 +126,7 @@ I opened the **user.txt** file, and got the following:
 
 ![](<../../.gitbook/assets/image (146).png>)
 
-> Gain initial access to the machine, what is the contents of user.txt? **THM{N00T_NO0T}**
+> Gain initial access to the machine, what is the contents of user.txt? **THM{N00T\_NO0T}**
 
 After I was lost for a while trying to find an answer to the next question, I viewed [this write-up](https://pencer.io/ctf/ctf-thm-anthem/), and noticed that a folder was hidden in the **C:\\** drive. In order to view it, you had to change the settings to view the hidden folder:
 

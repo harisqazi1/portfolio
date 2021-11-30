@@ -70,7 +70,7 @@ I setup the firewall first, since all of the data was going to go through the Fi
     * Do this for all ports​
       * "Interfaces" -> "Assignments"	to continue for the next port​
   * When finished with all of them, apply changes in the upper right​
-  *  "Interfaces" -> "Assignments" -> "Bridges"​
+  * &#x20;"Interfaces" -> "Assignments" -> "Bridges"​
   * Click on "Add" to create a new bridge​
   * Select the LAN option and the other ports that was added with a CNTRL-CLICK or CMD-CLICK​
   * Provide a description, such as "bridge", and then hit "Save"​
@@ -90,9 +90,9 @@ I setup the firewall first, since all of the data was going to go through the Fi
   * Apply changes in the upper-right​
 * Prevent DNS leakage
   * "System" -> "General Setup"​
-  * Add "1.1.1.1" as a DNS server, and choose the "WAN_DHCP-wan" interface​
+  * Add "1.1.1.1" as a DNS server, and choose the "WAN\_DHCP-wan" interface​
   * Click "Add DNS Server"​
-  * Add "1.0.0.1" as a DNS server and choose the "WAN_DHCP-wan" interface​
+  * Add "1.0.0.1" as a DNS server and choose the "WAN\_DHCP-wan" interface​
   * Disable "DNS server override"​
   * Click "Save"​
 * Enable AES-NI CPU Crypto & PowerD​
@@ -107,7 +107,7 @@ I setup the firewall first, since all of the data was going to go through the Fi
   * In the "Sounds" section, check the "Disable startup/shutdown beep"​
   * Click "Save"​
 
-To test your DNS setup, you can use [DNSleaktest](https://www.dnsleaktest.com). 
+To test your DNS setup, you can use [DNSleaktest](https://www.dnsleaktest.com).&#x20;
 
 ### Privacy
 
@@ -145,14 +145,14 @@ I wanted to have a backup system for my server. I used [RAID](https://en.wikiped
 
 ### VMware ESXi Setup
 
-I downloaded ESXi from​ [VMware](https://my.vmware.com/web/admin/). For my server, the version that worked was 6.5U3 (Version 6.5 Update 3). I used [this link](https://kb.vmware.com/s/article/2107518?lang=en_US\&queryTerm=esxi+6+5+download) to find out how to find the download and how to find the license for my product. Since mine was a Dell Server, I first went to the VMware to to find the right file:
+I downloaded ESXi from​ [VMware](https://my.vmware.com/web/admin/). For my server, the version that worked was 6.5U3 (Version 6.5 Update 3). I used [this link](https://kb.vmware.com/s/article/2107518?lang=en\_US\&queryTerm=esxi+6+5+download) to find out how to find the download and how to find the license for my product. Since mine was a Dell Server, I first went to the VMware to to find the right file:
 
 ![](.gitbook/assets/screenshot-2021-07-03-232743.png)
 
 I then downloaded and then used [Balena Ether](https://www.balena.io/etcher/) in order to flash the ISO onto my USB drive. I then plugged my USB into my server and booted from the USB.
 
 {% hint style="warning" %}
- If you do not use RAID, you will still need to "virtualize" your disks that way ESXi can use it as storage.​
+&#x20;If you do not use RAID, you will still need to "virtualize" your disks that way ESXi can use it as storage.​
 {% endhint %}
 
 I do not have screenshots for this part, but I can try to type out what steps I took:
@@ -199,7 +199,7 @@ Dashboard: This is an Ubuntu VM with 2 docker containers and Grafana:​
 
 ![](.gitbook/assets/screenshot-2021-07-04-001758.png)
 
-[Jellyfin](https://jellyfin.org/docs/index.html) is an open-source alternative to Plex. I use this for video game clips and more. 
+[Jellyfin](https://jellyfin.org/docs/index.html) is an open-source alternative to Plex. I use this for video game clips and more.&#x20;
 
 [Kali Linux](https://www.kali.org) is a Linux distribution meant for penetration testing. My plan is to use this for hash cracking and WPA handshake cracking.
 
@@ -207,7 +207,7 @@ Dashboard: This is an Ubuntu VM with 2 docker containers and Grafana:​
 
 ![](.gitbook/assets/screenshot-2021-07-03-233736.png)
 
-I use Grafana for looking at pfSense data. I followed​ [Grafana dashboard for pfSense by PSYCHOGUN](https://psychogun.github.io/docs/pfsense/Grafana-dashboard-for-pfSense/#install-influxdb) to set mine up. I just had to change some settings on my end, since they did not work for me, but I got it setup. I did not setup TLS on mine, but it would be a good idea to do so. 
+I use Grafana for looking at pfSense data. I followed​ [Grafana dashboard for pfSense by PSYCHOGUN](https://psychogun.github.io/docs/pfsense/Grafana-dashboard-for-pfSense/#install-influxdb) to set mine up. I just had to change some settings on my end, since they did not work for me, but I got it setup. I did not setup TLS on mine, but it would be a good idea to do so.&#x20;
 
 ### Grafana Dashboard Setup
 
@@ -272,7 +272,7 @@ autogen  0s       168h0m0s           1        true​
 #### Installed Telegraf on Pfsense (System -> Package Manager -> Available Packages -> Search for **Telegraf)**
 
 * Enable SSH on your pfSense
-  * System -> Advanced -> go to **Secure Shell **under Advanced and check **Secure Shell Server**
+  * System -> Advanced -> go to **Secure Shell** under Advanced and check **Secure Shell Server**
 * Login to pfSense with SSH
   * You can use **cmd** for this or [**PuTTY**](https://www.chiark.greenend.org.uk/\~sgtatham/putty/)****
 * Change directory to /bin
@@ -293,7 +293,7 @@ chmod 500 telegraf_*​
 
 ![](.gitbook/assets/screenshot-2021-07-08-201019.png)
 
-The password for the **InfluxDB **should be **WRITE_PASSWORD.**
+The password for the **InfluxDB** should be **WRITE\_PASSWORD.**
 
 * I then pasted the following into the compartment for **Additional configuration for Telegraf**:
 
@@ -336,11 +336,11 @@ sudo grafana-cli plugins install grafana-piechart-panel
 1. Configuration > Data Sources
 2. Add data source
 3. Select: _InfluxDB_
-4. Name: pf_firewall
-5. URL: http://\<IP_address of InfluxDB>:8086
-6. Database: pf_firewall
-7. User: pf_firewall_read
-8. Password: READ_PASSWORD
+4. Name: pf\_firewall
+5. URL: http://\<IP\_address of InfluxDB>:8086
+6. Database: pf\_firewall
+7. User: pf\_firewall\_read
+8. Password: READ\_PASSWORD
 9. HTTP Method: Get
 
 #### Adding JSON to Grafana for display

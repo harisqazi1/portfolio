@@ -16,7 +16,7 @@ I then clicked on an image and it led me to a title: **Hitman Absolution**. I th
 
 ### Obtain access via SQLi
 
- I then ran an **nmap** scan:
+&#x20;I then ran an **nmap** scan:
 
 ```c
 nmap -T4 -A 10.10.72.202 -oN nmap_scan.txt
@@ -79,7 +79,7 @@ I then got the following output:
 
 ![](<../../.gitbook/assets/image (291).png>)
 
-> In the users table, what is the hashed password? ** ab**\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+> In the users table, what is the hashed password? **ab**\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 >
 > What was the username associated with the hashed password? **agent47**
 >
@@ -111,7 +111,7 @@ I then got the user.txt flag:
 
 ### **Exposing serviced with reverse SSH tunnels**
 
-> How many TCP sockets are running?** 5**
+> How many TCP sockets are running? **5**
 
 I then ran the following command, based on the recomendation from the machine:
 
@@ -145,7 +145,7 @@ I then started filling in options, and ended up with this:
 
 ![](<../../.gitbook/assets/image (284).png>)
 
-I realized that the RHOST was supposed to be set to 127.0.0.1, based on [this writeup](https://www.aldeid.com/wiki/TryHackMe-Game-Zone#.5BTask\_6.5D_Privilege_Escalation_with_Metasploit). When I changed that option in msfconsole, I was then able to get the exploit to work. I then got the flag:
+I realized that the RHOST was supposed to be set to 127.0.0.1, based on [this writeup](https://www.aldeid.com/wiki/TryHackMe-Game-Zone#.5BTask\_6.5D\_Privilege\_Escalation\_with\_Metasploit). When I changed that option in msfconsole, I was then able to get the exploit to work. I then got the flag:
 
 ![](<../../.gitbook/assets/image (275).png>)
 

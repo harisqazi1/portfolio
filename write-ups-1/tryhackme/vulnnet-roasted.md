@@ -2,7 +2,7 @@
 
 This is my write-up for the machine on TryHackMe known as **VulnNet: Roasted**: [https://tryhackme.com/room/vulnnetroasted](https://tryhackme.com/room/vulnnetroasted)
 
-I am going to start off my running the following nmap scan: 
+I am going to start off my running the following nmap scan:&#x20;
 
 ```c
 nmap -T4 -A -vvv -Pn 10.10.146.147 -oN nmap.output
@@ -30,11 +30,11 @@ Service detection performed. Please report any incorrect results at https://nmap
 # Nmap done at Sat Jul 24 15:19:20 2021 -- 1 IP address (1 host up) scanned in 70.18 seconds
 ```
 
-My next step was to look at what each of the ports have on them using the browser. I was getting this message: 
+My next step was to look at what each of the ports have on them using the browser. I was getting this message:&#x20;
 
 ![](<../../.gitbook/assets/image (162).png>)
 
-I looked at [this write-up](https://github.com/siddicky/vulnnet_roasted/blob/main/README.md) to compare the results for nmap, and changed my search to be the following:
+I looked at [this write-up](https://github.com/siddicky/vulnnet\_roasted/blob/main/README.md) to compare the results for nmap, and changed my search to be the following:
 
 ```c
 nmap -T5 -sV -sC -T4 -Pn 10.10.146.147
@@ -74,7 +74,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 102.05 seconds
 ```
 
-Running **smbmap **(an idea I got from the write-up mentioned previously) on the IP address got me the following result:
+Running **smbmap** (an idea I got from the write-up mentioned previously) on the IP address got me the following result:
 
 ![](<../../.gitbook/assets/image (160).png>)
 
@@ -92,7 +92,7 @@ I then downloaded those files using **mget \***:
 
 ![](<../../.gitbook/assets/image (161).png>)
 
-I did see a couple names in the files, which could potentially be usernames we can exploit later: 
+I did see a couple names in the files, which could potentially be usernames we can exploit later:&#x20;
 
 ![](<../../.gitbook/assets/image (157).png>)
 
@@ -169,7 +169,7 @@ $krb5asrep$23$t-skid@VULNNET-RST.LOCAL:2e6e96f256650a147b730f5166f96dcc$ed8ede7f
 [-] User j-leet doesn't have UF_DONT_REQUIRE_PREAUTH set
 ```
 
-I then realized that I would have to crack the hash in the output. My assumption is that this is a kerberos hash. Looking on [https://hashcat.net/wiki/doku.php?id=example_hashes](https://hashcat.net/wiki/doku.php?id=example_hashes), I found out that this is Kerberos 5, and the mode for this is **18200**. I then tried to crack this using hashcat:
+I then realized that I would have to crack the hash in the output. My assumption is that this is a kerberos hash. Looking on [https://hashcat.net/wiki/doku.php?id=example\_hashes](https://hashcat.net/wiki/doku.php?id=example\_hashes), I found out that this is Kerberos 5, and the mode for this is **18200**. I then tried to crack this using hashcat:
 
 ```c
 hashcat -m 18200 hash ../resources/rockyou.txt --force

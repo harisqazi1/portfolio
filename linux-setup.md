@@ -43,7 +43,7 @@ This is just a backup of my setup I have on my Linux OS, in case I ever have to 
   * Set **Homepage and new windows** to **Blank Page**
   * Set **New tabs** to **Blank Page**
     * These will prevent Firefox from spawning their own sites when you need a new page/tab
-  * Uncheck everything under **Firefox Home Content **(Shortcuts, Recommended by Pocket, Recent activity, Snippets)
+  * Uncheck everything under **Firefox Home Content** (Shortcuts, Recommended by Pocket, Recent activity, Snippets)
     * This will prevent Firefox from loading their own content
 * Search
   * Change **Default Search Engine** to **DuckDuckGo**
@@ -56,18 +56,18 @@ This is just a backup of my setup I have on my Linux OS, in case I ever have to 
     * **Suggest and generate strong passwords**
     * **Autofill logins and passwords**
     * and then, **Ask to save logins and passwords for websites**
-  * Under **History, **in the dropdown choose Firefox will **Use custom settings for history**.
+  * Under **History,** in the dropdown choose Firefox will **Use custom settings for history**.
     * Also uncheck, **Remember search and form history**, and **Remember browsing and download history**
     * Check **Clear history when Firefox closes**
     * **DO NOT** check the box next to **Always use private browsing mode**
       * It will break Firefox containers
-  * Under **Address Bar, **only have **Bookmarks** and **Open tabs** showing up
-  * Under **Permissions**, click **Settings**... next to **Location, Camera, Microphone, **and** Notifications**. In the popup, check the **"Block new requests.." **box on the bottom.
+  * Under **Address Bar,** only have **Bookmarks** and **Open tabs** showing up
+  * Under **Permissions**, click **Settings**... next to **Location, Camera, Microphone,** and **Notifications**. In the popup, check the **"Block new requests.."** box on the bottom.
   * Under **Firefox Data Collection and Use**, uncheck everything
   * Under **Security**, uncheck everything
   * Under **HTTPS-Only Mode**, best practice would be to use **Enable HTTPS-Only Mode in all windows**. However, I use **Enable HTTPS-Only in private windows only**
 
-These are the settings I use when you type in **about:config **in the search bar:
+These are the settings I use when you type in **about:config** in the search bar:
 
 * **geo.enabled** -> false
   * Disables Firefox from sharing your location
@@ -75,7 +75,7 @@ These are the settings I use when you type in **about:config **in the search bar
   * Disables Google's ability to monitor your web traffic for malware
 * **dom.battery.enabled** -> false
   * Blocks sending battery level information
-* **extensions.pocket.enabled **-> false
+* **extensions.pocket.enabled** -> false
   * Disables the Pocket feature
 * **browser.newtabpage.activity-stream.section.highlights.includePocket** -> false
 * **browser.newtabpage.activity-stream.feeds.telemetry** -> false

@@ -85,7 +85,7 @@ However, I was not able to get a shell on the system. I then tried the original 
 
 ![](<../../.gitbook/assets/image (191).png>)
 
-At this point, I had realized that I had to answer questions on the TryHackMe site. 
+At this point, I had realized that I had to answer questions on the TryHackMe site.&#x20;
 
 > Scan the machine, how many ports are open? **2**
 >
@@ -117,7 +117,7 @@ On TryHackMe, the format of the question seems to be in the following format:
 
 ![](<../../.gitbook/assets/image (186).png>)
 
-This means that the executable has to be 6 letters in size. I tried **/usr/bin/python** and it worked. I went to **GTFOBins **and searched on it for python. I then came across the following:
+This means that the executable has to be 6 letters in size. I tried **/usr/bin/python** and it worked. I went to **GTFOBins** and searched on it for python. I then came across the following:
 
 ![](<../../.gitbook/assets/image (190).png>)
 

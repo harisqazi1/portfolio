@@ -12,7 +12,7 @@ It is hard to have different passwords for every single website and still be abl
 
 ### Firewall
 
-Firewalls are a way to control network traffic, that way certain items/sites can be blocked. A popular term in firewalls are blocklists. You have two main types: black list and a white list. The black list it to block, while the white list is not to block. I currently have [**pfSense**](https://www.pfsense.org)** **running in my homelab. Since pfSense is a software firewall solution I have put it on a [**Protectli Vault**](https://protectli.com/vault-4-port/#buynow). If you are interested in setting up your own, I have done a write-up on the steps here:
+Firewalls are a way to control network traffic, that way certain items/sites can be blocked. A popular term in firewalls are blocklists. You have two main types: black list and a white list. The black list it to block, while the white list is not to block. I currently have [**pfSense**](https://www.pfsense.org) **** running in my homelab. Since pfSense is a software firewall solution I have put it on a [**Protectli Vault**](https://protectli.com/vault-4-port/#buynow). If you are interested in setting up your own, I have done a write-up on the steps here:
 
 * Installation
   * www.pfsense.org/download
@@ -127,7 +127,7 @@ Firefox is the more "privacy-centric" browsers from the bunch (Edge, Chrome, Fir
   * Set **Homepage and new windows** to **Blank Page**
   * Set **New tabs** to **Blank Page**
     * These will prevent Firefox from spawning their own sites when you need a new page/tab
-  * Uncheck everything under **Firefox Home Content **(Shortcuts, Recommended by Pocket, Recent activity, Snippets)
+  * Uncheck everything under **Firefox Home Content** (Shortcuts, Recommended by Pocket, Recent activity, Snippets)
     * This will prevent Firefox from loading their own content
 * Search
   * Change **Default Search Engine** to **DuckDuckGo**
@@ -140,18 +140,18 @@ Firefox is the more "privacy-centric" browsers from the bunch (Edge, Chrome, Fir
     * **Suggest and generate strong passwords**
     * **Autofill logins and passwords**
     * and then, **Ask to save logins and passwords for websites**
-  * Under **History, **in the dropdown choose Firefox will **Use custom settings for history**.
+  * Under **History,** in the dropdown choose Firefox will **Use custom settings for history**.
     * Also uncheck, **Remember search and form history**, and **Remember browsing and download history**
     * Check **Clear history when Firefox closes**
     * **DO NOT** check the box next to **Always use private browsing mode**
       * It will break Firefox containers
-  * Under **Address Bar, **only have **Bookmarks** and **Open tabs** showing up
-  * Under **Permissions**, click **Settings**... next to **Location, Camera, Microphone, **and** Notifications**. In the popup, check the **"Block new requests.." **box on the bottom.
+  * Under **Address Bar,** only have **Bookmarks** and **Open tabs** showing up
+  * Under **Permissions**, click **Settings**... next to **Location, Camera, Microphone,** and **Notifications**. In the popup, check the **"Block new requests.."** box on the bottom.
   * Under **Firefox Data Collection and Use**, uncheck everything
   * Under **Security**, uncheck everything
   * Under **HTTPS-Only Mode**, best practice would be to use **Enable HTTPS-Only Mode in all windows**. However, I use **Enable HTTPS-Only in private windows only**
 
-These are the settings I use when you type in **about:config **in the search bar:
+These are the settings I use when you type in **about:config** in the search bar:
 
 * **geo.enabled** -> false
   * Disables Firefox from sharing your location
@@ -159,7 +159,7 @@ These are the settings I use when you type in **about:config **in the search bar
   * Disables Google's ability to monitor your web traffic for malware
 * **dom.battery.enabled** -> false
   * Blocks sending battery level information
-* **extensions.pocket.enabled **-> false
+* **extensions.pocket.enabled** -> false
   * Disables the Pocket feature
 * **browser.newtabpage.activity-stream.section.highlights.includePocket** -> false
 * **browser.newtabpage.activity-stream.feeds.telemetry** -> false
@@ -238,7 +238,7 @@ This is straight from MBs book. I paid for a one year subscription that I am cur
 
 So this is another host based firewall that MB mentioned. This one, however, is not something I would recommend. Not due to privacy reasons, but for usability in general. I just had a bad overall experience with it. First of all, the second right after you download it, it blocks all outgoing internet connections and starts updating itself (or updating its internal list?). This took me 30 minutes. Then the whole app itself is super overwhelming. There is a bit too much going on that what I would like. If you want another alternative to this, I would recommend [Netlimiter](https://www.netlimiter.com). I have not looked into their privacy policy, but it works similar to Glasswire, and it is a one-time payment of $30.
 
-### **Software-based **
+### **Software-based**&#x20;
 
 I have used [O\&OShutup10](https://www.oo-software.com/en/shutup10) and [W10Privacy](https://www.w10privacy.de/english-home/). You can use either, I chose to test out both. However the issue I ran into with these is that you have to use these software after every update. So that is why I do not go deep into these. These are also pretty straight forward.
 

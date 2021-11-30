@@ -50,7 +50,7 @@ Going to the website, I see:
 
 ![](<../../.gitbook/assets/image (181).png>)
 
- I then ran feroxbuster on the IP address:
+&#x20;I then ran feroxbuster on the IP address:
 
 ```c
 feroxbuster --url http://10.10.224.214 -w directory-list-2.3-big.txt
@@ -119,11 +119,11 @@ There was also a directory called **logs**:
 
 ![](<../../.gitbook/assets/image (179).png>)
 
-I downloaded all of those files to my local machine using "**mget \*"**. I viewed all of the downloaded files. 
+I downloaded all of those files to my local machine using "**mget \*"**. I viewed all of the downloaded files.&#x20;
 
 ![](<../../.gitbook/assets/image (175).png>)
 
-The **log** files seemed to contain passwords. I went back to the mail site and entered the username **milesdyson** and password **cyborg007haloterminator **and I got in:
+The **log** files seemed to contain passwords. I went back to the mail site and entered the username **milesdyson** and password **cyborg007haloterminator** and I got in:
 
 > What is Miles password for his emails? **cyborg007haloterminator**
 
@@ -257,7 +257,7 @@ mysql:x:114:123:MySQL Server,,,:/nonexistent:/bin/false
 http://10.10.224.214/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=php://filter/convert.base64-encode/resource=../Configuration.php
 ```
 
-I then got an output! 
+I then got an output!&#x20;
 
 ![](<../../.gitbook/assets/image (183).png>)
 

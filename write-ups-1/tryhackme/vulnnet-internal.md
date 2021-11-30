@@ -125,11 +125,11 @@ Looking through the files, I found the flag for the services.txt:
 
 ![](<../../.gitbook/assets/image (207).png>)
 
-I then ran a **metasploit** module **auxiliary/scanner/rsync/modules_list**. This is what I got from the result from it:
+I then ran a **metasploit** module **auxiliary/scanner/rsync/modules\_list**. This is what I got from the result from it:
 
 ![](<../../.gitbook/assets/image (215).png>)
 
-I then read [this write-up](https://cyberrat.medium.com/vulnnet-internal-tryhackeme-cad6ccb9ad54) and realized that I did not use the **showmount** command. I then followed the write-up to run ** showmeant -e \<IP>**. I then got the following:
+I then read [this write-up](https://cyberrat.medium.com/vulnnet-internal-tryhackeme-cad6ccb9ad54) and realized that I did not use the **showmount** command. I then followed the write-up to run **showmeant -e \<IP>**. I then got the following:
 
 ![](<../../.gitbook/assets/image (211).png>)
 
@@ -141,7 +141,7 @@ Viewing through the files I came across some sort of password in the redis.conf 
 
 ![](<../../.gitbook/assets/image (206).png>)
 
-I then followed the same write-up to understand my next step. This was to use **redis-cli** in order to connect to the database and see what is there using the pasword we found earlier. I ran **redis-cli -h 10.10.98.192 -a \<requirepass_from_earlier>** in order to login to the database. I then was able to find the flag for internal:
+I then followed the same write-up to understand my next step. This was to use **redis-cli** in order to connect to the database and see what is there using the pasword we found earlier. I ran **redis-cli -h 10.10.98.192 -a \<requirepass\_from\_earlier>** in order to login to the database. I then was able to find the flag for internal:
 
 ![](<../../.gitbook/assets/image (205).png>)
 
@@ -198,7 +198,7 @@ I then created a build config:
 
 ![](<../../.gitbook/assets/image (200).png>)
 
-I then went to Build Steps and followed a bit of [this write-up](https://infosecwriteups.com/tryhackme-writeup-vulnet-internal-9abe74955f32) for this part. I following the following image: 
+I then went to Build Steps and followed a bit of [this write-up](https://infosecwriteups.com/tryhackme-writeup-vulnet-internal-9abe74955f32) for this part. I following the following image:&#x20;
 
 ![](<../../.gitbook/assets/image (203).png>)
 
