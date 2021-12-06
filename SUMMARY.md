@@ -58,6 +58,11 @@
   * [Mod 26](write-ups-1/picoctf/mod-26.md)
   * [Obedient Cat](write-ups-1/picoctf/obedient-cat.md)
 
+## Web Hacking (PortSwigger)
+
+* [SQL Injection](web-hacking-portswigger/sql-injection.md)
+* [Authentication](web-hacking-portswigger/authentication.md)
+
 ## Wi-Fi
 
 * [Password Cracking w/ aircrack](wi-fi/wi-fi-password-cracking.md)
@@ -79,7 +84,3 @@
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
 * [RTL-SDR](other-projects/coding-an-sdr-program.md)
 * [Shodan Search](other-projects/shodan-search.md)
-
-## Web Hacking
-
-* [SQL Injection](web-hacking/sql-injection.md)

