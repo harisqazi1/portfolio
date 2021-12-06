@@ -6,7 +6,7 @@
 * [Security+ Study Guide](security+-study-guide.md)
 * [Linux Setup](linux-setup.md)
 
-## Write-ups <a href="write-ups-1" id="write-ups-1"></a>
+## Write-ups <a href="#write-ups-1" id="write-ups-1"></a>
 
 * [Capture-the-Flag Competitions](write-ups-1/capture-the-flag-competitions/README.md)
   * [CTF Resources](write-ups-1/capture-the-flag-competitions/ctf-resources.md)
@@ -76,7 +76,10 @@
 ## Other Projects
 
 * [Scripts](other-projects/scripts.md)
-* [Web Hacking](other-projects/portswigger-academy.md)
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
 * [RTL-SDR](other-projects/coding-an-sdr-program.md)
 * [Shodan Search](other-projects/shodan-search.md)
+
+## Web Hacking
+
+* [SQL Injection](web-hacking/sql-injection.md)
