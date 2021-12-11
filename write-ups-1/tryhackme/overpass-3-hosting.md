@@ -74,7 +74,7 @@ I was then able to see the contents of the file:
 
 It seems to be the customers of the website, based on the context. We also have their username and password. I will try this in FTP, and my plan is that if the password does not work on FTP, then I will try SSH. In FTP, I got access using the credentials for "Par. A. Doxx":
 
-![](<../../.gitbook/assets/image (339) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1).png>)
 
 FTP seemed to only work for that user. The other passwords did not work in FTP. When I tried for SSH, the credentials did not work there either. I then went back to the same write-up above and then realized that I had to upload a php-reverse-shell. Going to [this GitHub page](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php), I downloaded the reverse-shell script. In the script, I changed the IP address to my TryHackMe IP address. I then uploaded the file to the server:
 
@@ -82,7 +82,7 @@ FTP seemed to only work for that user. The other passwords did not work in FTP. 
 
 I then ran `nc -lvp 1234` on another terminal tab, and was listening for a connection. After visiting **http://10.10.168.65/php-reverse-shell.php**, I got a reverse shell:
 
-![](<../../.gitbook/assets/image (325).png>)
+![](<../../.gitbook/assets/image (325) (1).png>)
 
 After being stuck for a while, I viewed [this write-up](https://www.aldeid.com/wiki/TryHackMe-Overpass-3-Hosting) in order to see where to go next. I used the command the author of the write-up used:
 
@@ -135,7 +135,7 @@ sudo mount -t nfs -o port=20049 localhost: nfs
 
 If we change directory into the **nfs** folder, we can see the file system mounted there:
 
-![](<../../.gitbook/assets/image (337).png>)
+![](<../../.gitbook/assets/image (337) (1).png>)
 
 I read the user flag. After that, the ssh authorized key I had uploaded to paradox earlier, I had not uploaded it to **.ssh/authorized\_keys** in the mounted directory. I then was able to SSH to the machine:
 
@@ -154,4 +154,4 @@ chmod +s bash
 
 This got me root user on the machine. I then got the root flag.
 
-![](<../../.gitbook/assets/image (340).png>)
+![](<../../.gitbook/assets/image (340) (1).png>)

@@ -2,8 +2,6 @@
 
 These are notes that I compiled while learning from the Portswigger academy. The code is from them, although I will modify them according to my needs.
 
-## SQL Injection
-
 ### How to detect SQL injection vulnerabilities <a href="#how-to-detect-sql-injection-vulnerabilities" id="how-to-detect-sql-injection-vulnerabilities"></a>
 
 * Submitting the single quote character `'` and looking for errors or other anomalies.
@@ -292,7 +290,7 @@ Check for character at specific location (for BurpSuite Intruder):
 
 Again, for this one the error lets you know when you are on the right path:
 
-![](<../.gitbook/assets/image (339).png>)
+![](<../.gitbook/assets/image (339) (1).png>)
 
 ### Exploiting blind SQL injection by triggering time delays <a href="#exploiting-blind-sql-injection-by-triggering-time-delays" id="exploiting-blind-sql-injection-by-triggering-time-delays"></a>
 
