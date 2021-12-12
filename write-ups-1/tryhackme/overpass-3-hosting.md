@@ -82,7 +82,7 @@ FTP seemed to only work for that user. The other passwords did not work in FTP. 
 
 I then ran `nc -lvp 1234` on another terminal tab, and was listening for a connection. After visiting **http://10.10.168.65/php-reverse-shell.php**, I got a reverse shell:
 
-![](<../../.gitbook/assets/image (325) (1).png>)
+![](<../../.gitbook/assets/image (325) (1) (1).png>)
 
 After being stuck for a while, I viewed [this write-up](https://www.aldeid.com/wiki/TryHackMe-Overpass-3-Hosting) in order to see where to go next. I used the command the author of the write-up used:
 
