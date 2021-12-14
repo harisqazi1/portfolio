@@ -60,8 +60,9 @@
 
 ## Web Hacking
 
-* [SQL Injection](web-hacking/sql-injection.md)
-* [Authentication](web-hacking/authentication.md)
+* [Reconnaissance](web-hacking/reconnaissance.md)
+* [SQL Injection](web-hacking-portswigger/sql-injection.md)
+* [Authentication](web-hacking-portswigger/authentication.md)
 
 ## Wi-Fi
 
