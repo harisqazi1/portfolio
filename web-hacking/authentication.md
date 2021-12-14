@@ -1,5 +1,9 @@
 # Authentication
 
+{% hint style="info" %}
+The "Web Hacking" section are notes that I have compiled while learning using the PortSwigger Web Security Academy and from the book _Bug Bounty Bootcamp: The Guide to Finding and Reporting Web Vulnerabilities_ by Vickie Li. A majority of the notes/codes are from them, however I will modify these according to my needs.
+{% endhint %}
+
 ### Username enumeration considerations <a href="#username-enumeration" id="username-enumeration"></a>
 
 Username enumeration is when an attacker is able to observe changes in the website's behavior in order to identify whether a given username is valid.While attempting to brute-force a login page, you should pay particular attention to any differences in:

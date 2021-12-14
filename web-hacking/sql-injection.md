@@ -1,6 +1,8 @@
 # SQL Injection
 
-These are notes that I compiled while learning from the Portswigger academy. The code is from them, although I will modify them according to my needs.
+{% hint style="info" %}
+The "Web Hacking" section are notes that I have compiled while learning using the PortSwigger Web Security Academy and from the book _Bug Bounty Bootcamp: The Guide to Finding and Reporting Web Vulnerabilities_ by Vickie Li. A majority of the notes/codes are from them, however I will modify these according to my needs.
+{% endhint %}
 
 ### How to detect SQL injection vulnerabilities <a href="#how-to-detect-sql-injection-vulnerabilities" id="how-to-detect-sql-injection-vulnerabilities"></a>
 

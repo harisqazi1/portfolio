@@ -58,10 +58,10 @@
   * [Mod 26](write-ups-1/picoctf/mod-26.md)
   * [Obedient Cat](write-ups-1/picoctf/obedient-cat.md)
 
-## Web Hacking (PortSwigger)
+## Web Hacking
 
-* [SQL Injection](web-hacking-portswigger/sql-injection.md)
-* [Authentication](web-hacking-portswigger/authentication.md)
+* [SQL Injection](web-hacking/sql-injection.md)
+* [Authentication](web-hacking/authentication.md)
 
 ## Wi-Fi
 
