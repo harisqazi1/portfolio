@@ -34,6 +34,7 @@ This is just a backup of my setup I have on my Linux OS, in case I ever have to 
 | Zettlr                   | Open-Source Markdown Editor                   |
 | Obsidian                 | Markdown Editor                               |
 | Wallch                   | Wallpaper Changer                             |
+| Tor                      | Secure and Private web browser                |
 
 ### Firefox
 
