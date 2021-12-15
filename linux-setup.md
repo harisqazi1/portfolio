@@ -184,7 +184,7 @@ Gnome extensions can be found [here](https://extensions.gnome.org). I got a coup
 * Sound Output Device Chooser - [https://extensions.gnome.org/extension/906/sound-output-device-chooser/](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
 * User Themes - [https://extensions.gnome.org/extension/19/user-themes/](https://extensions.gnome.org/extension/19/user-themes/)
 
-I learned that you can also apply themes to Linux. In order to do this, I went to this site, and then did the following:
+I learned that you can also apply themes to Linux. In order to do this, I went to [this site](https://www.gnome-look.org/s/Gnome/browse/), and then did the following:
 
 * Download and extract the .tar.xz file.
 * Install [User Themes](https://extensions.gnome.org/extension/19/user-themes) extension
