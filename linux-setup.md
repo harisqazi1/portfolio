@@ -79,9 +79,6 @@ These are the settings I use when you type in **about:config** in the search bar
   * Disables Google's ability to monitor your web traffic for malware
 * `dom.battery.enabled` -> false
   * Blocks sending battery level information
-* `extensions.pocket.enabled` **** -> false
-  * Disables the Pocket feature
-* `browser.newtabpage.activity-stream.section.highlights.includePocket` -> false
 * `media.autoplay.default`-> 5
   * Disables audio and video from playing automatically
 * `dom.webnotifications.enabled` -> false
@@ -90,15 +87,19 @@ These are the settings I use when you type in **about:config** in the search bar
   * Disables some fingerprinting
 * `webgl.disabled` -> true
   * Disables some fingerprinting
+  * Breaks graphical games and websites
 * `network.http.sendRefererHeader` -> 0
   * Disables referring website notifications (**BREAKS SOME SITES)**
+  * 1 = Send the Referer header when clicking on a link, and set `document.referrer` for the following page.
+  * 2 = Send the Referer header when clicking on a link or loading an image, and set `document.referrer` for the following page. (Default)
+  * I use 1 just to be safe
 * `identity.fxaccounts.enabled` -> false
   * Disables any embedded Firefox accounts
 * `beacon.enabled` -> false
   * Disables data being sent to servers when leaving pages
 * `browser.cache.disk.enable` -> false
   * Disk cache is not used by Firefox
-* &#x20;`browser.cache.disk_cache_ssl` -> false
+* `browser.cache.disk_cache_ssl` -> false
   * Firefox will not cache https website contents.
 * `geo.provider.network.url` -> 127.0.0.1
   * The data provider used to power Firefox's geolocation feature
@@ -123,14 +124,29 @@ Disable Telemetry Settings:
 
 Disable Pocket:
 
+* `browser.newtabpage.activity-stream.feeds.discoverystreamfeed` -> false
+* `browser.newtabpage.activity-stream.feeds.section.topstories` -> false
+* `browser.newtabpage.activity-stream.section.highlights.includePocket` -> false
+* `browser.newtabpage.activity-stream.showSponsored` -> false
+* `extensions.pocket.enabled` -> false
 
+Disable prefetching:
+
+* `network.dns.disablePrefetch`  -> true
+* `network.prefetch-next` -> false
+
+Harden SSL preferences:
+
+* `security.ssl3.rsa_des_ede3_sha` -> false (if available)
+* `security.ssl.require_safe_negotiation` -> true
 
 WebRTC settings:
 
-* **media.peerconnection.enabled** -> false
-* **media.peerconnection.turn.disable** -> true
-* **media.peerconnection.use\_document\_iceservers** -> false
-* **media.peerconnection.video.enabled** -> false
+* `media.peerconnection.enabled` -> false
+* `media.navigator.enabled` -> false
+* `media.peerconnection.turn.disable` -> true
+* `media.peerconnection.use_document_iceservers` -> false
+* `media.peerconnection.video.enabled` -> false
 
 #### Firefox Extensions
 
@@ -154,6 +170,8 @@ If you do not want to have the hassle of modifying all of these options, then ch
 * [https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/](https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/)
 * [http://kb.mozillazine.org/Network.cookie.lifetimePolicy](http://kb.mozillazine.org/Network.cookie.lifetimePolicy)
 * [https://chrisx.xyz/blog/yet-another-firefox-hardening-guide/#why-hardening-firefox](https://chrisx.xyz/blog/yet-another-firefox-hardening-guide/#why-hardening-firefox)
+* [https://www.ghacks.net/best-firefox-addons/](https://www.ghacks.net/best-firefox-addons/)
+* [http://kb.mozillazine.org/Network.http.sendRefererHeader](http://kb.mozillazine.org/Network.http.sendRefererHeader)
 
 ### Gnome Tweaks
 
