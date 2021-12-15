@@ -116,13 +116,13 @@ Blocklists are lists of domains or IP addresses that are listed that way you can
 
 A VPN is a software that allows you to mask your true IP address from the websites you are trying to reach. A lot of poeple have this assumption of VPNs as being used for hacking and malicious content. While that may be true, we can use it as a way to protect our traffic and prevent it from being seen without our permission. I currently use [Mullvad](https://mullvad.net/en/). For VPN providers, the main thing I look for is their logging policy, and where the company is hosted from. The logging policy is important because you want to know what is going on with your data while it is in their custody. If they have an anonymous logging policy, then you should be in a good place. The best policy in my opinion, would be to have a no logging policy. That way you know that your data is not being kept by then for any amount of time. As for the company location, this is super important. If a company is part of the [14-eyes](https://restoreprivacy.com/5-eyes-9-eyes-14-eyes/) or even part of the other "eyes", the company can be mandated to share your VPN information with your country, if it is part of the "eyes". That is why it is important to check this prior to purchasing a VPN.
 
-### Firefox&#x20;
-
-Firefox is the more "privacy-centric" browsers from the bunch (Edge, Chrome, Firefox, Opera, etc.). With that being said, it still can be improved to prove your privacy. These are some of the settings I use in Firefox Settings (or just type **about:preferences** in the search bar):
+### Firefox
 
 * General
   * Uncheck **Restore previous session**
     * If you use a VPN and your connection dies, then when you use Firefox again, it will not spawn the same website, which would give away your data to the website
+  * In **Network Settings**, enable **DNS over HTTPS** and choose **Cloudflare**
+  * In **Browsing**, uncheck **Recommend extensions as you browse** and **Recommend features as you browse**
 * Home
   * Set **Homepage and new windows** to **Blank Page**
   * Set **New tabs** to **Blank Page**
@@ -146,6 +146,7 @@ Firefox is the more "privacy-centric" browsers from the bunch (Edge, Chrome, Fir
     * **DO NOT** check the box next to **Always use private browsing mode**
       * It will break Firefox containers
   * Under **Address Bar,** only have **Bookmarks** and **Open tabs** showing up
+    * Also uncheck **Suggestions from the web** and **Suggestions from sponsors**
   * Under **Permissions**, click **Settings**... next to **Location, Camera, Microphone,** and **Notifications**. In the popup, check the **"Block new requests.."** box on the bottom.
   * Under **Firefox Data Collection and Use**, uncheck everything
   * Under **Security**, uncheck everything
@@ -153,55 +154,80 @@ Firefox is the more "privacy-centric" browsers from the bunch (Edge, Chrome, Fir
 
 These are the settings I use when you type in **about:config** in the search bar:
 
-* **geo.enabled** -> false
+* `geo.enabled` -> false
   * Disables Firefox from sharing your location
-* **browser.safebrowsing.malware.enabled** -> false
+* `browser.safebrowsing.malware.enabled` -> false
   * Disables Google's ability to monitor your web traffic for malware
-* **dom.battery.enabled** -> false
+* `dom.battery.enabled` -> false
   * Blocks sending battery level information
-* **extensions.pocket.enabled** -> false
-  * Disables the Pocket feature
-* **browser.newtabpage.activity-stream.section.highlights.includePocket** -> false
-* **browser.newtabpage.activity-stream.feeds.telemetry** -> false
-* **toolkit.telemetry.server** -> \*DELETE URL\*
-  * Removes telemetry
-* **toolkit.telemetry.unified** -> false
-  * Removes telemetry
-* **media.autoplay.default** -> 5
+* `media.autoplay.default`-> 5
   * Disables audio and video from playing automatically
-* **dom.webnotifications.enabled** -> false
+* `dom.webnotifications.enabled` -> false
   * Disables embedded notifications
-* **privacy.resistFingerprinting** -> true
+* `privacy.resistFingerprinting` -> true
   * Disables some fingerprinting
-* **webgl.disabled** -> true
+* `webgl.disabled` -> true
   * Disables some fingerprinting
-* **network.http.sendRefererHeader** -> 0
+  * Breaks graphical games and websites
+* `network.http.sendRefererHeader` -> 0
   * Disables referring website notifications (**BREAKS SOME SITES)**
-* **identity.fxaccounts.enabled** -> false
+  * 1 = Send the Referer header when clicking on a link, and set `document.referrer` for the following page.
+  * 2 = Send the Referer header when clicking on a link or loading an image, and set `document.referrer` for the following page. (Default)
+  * I use 1 just to be safe
+* `identity.fxaccounts.enabled` -> false
   * Disables any embedded Firefox accounts
-* **beacon.enabled** -> false
+* `beacon.enabled` -> false
   * Disables data being sent to servers when leaving pages
-* **browser.cache.disk.enable** -> false
+* `browser.cache.disk.enable` -> false
   * Disk cache is not used by Firefox
-* &#x20;**browser.cache.disk\_cache\_ssl** -> false
+* `browser.cache.disk_cache_ssl` -> false
   * Firefox will not cache https website contents.
-* **geo.provider.network.url** -> 127.0.0.1
+* `geo.provider.network.url` -> 127.0.0.1
   * The data provider used to power Firefox's geolocation feature
-* **network.cookie.lifetimePolicy** -> 2
+* `network.cookie.lifetimePolicy` -> 2
   * Determines whether Firefox will accept so-called session cookies (removed when browser exits) automatically.
     * 0 = The cookie's lifetime is supplied by the server. (Default)
     * 1 = The user is prompted for the cookie's lifetime.
     * 2 = The cookie expires at the end of the session (when the browser closes).
     * 3 =  The cookie lasts for the number of days specified by network.cookie.lifetime.days.
-* **pdfjs.disabled** -> true
+* `pdfjs.disabled` -> true
   * Disable JavaScript for PDF view
+
+Disable Telemetry Settings:
+
+* `browser.newtabpage.activity-stream.feeds.telemetry` -> false
+* `browser.ping-centre.telemetry` -> false
+* `browser.tabs.crashReporting.sendReport` -> false
+* `devtools.onboarding.telemetry.logged` -> false
+* `toolkit.telemetry.enabled` -> false
+* `toolkit.telemetry.server` -> \*DELETE URL and leave empty\*
+* `toolkit.telemetry.unified` -> false
+
+Disable Pocket:
+
+* `browser.newtabpage.activity-stream.feeds.discoverystreamfeed` -> false
+* `browser.newtabpage.activity-stream.feeds.section.topstories` -> false
+* `browser.newtabpage.activity-stream.section.highlights.includePocket` -> false
+* `browser.newtabpage.activity-stream.showSponsored` -> false
+* `extensions.pocket.enabled` -> false
+
+Disable prefetching:
+
+* `network.dns.disablePrefetch`  -> true
+* `network.prefetch-next` -> false
+
+Harden SSL preferences:
+
+* `security.ssl3.rsa_des_ede3_sha` -> false (if available)
+* `security.ssl.require_safe_negotiation` -> true
 
 WebRTC settings:
 
-* **media.peerconnection.enabled** -> false
-* **media.peerconnection.turn.disable** -> true
-* **media.peerconnection.use\_document\_iceservers** -> false
-* **media.peerconnection.video.enabled** -> false
+* `media.peerconnection.enabled` -> false
+* `media.navigator.enabled` -> false
+* `media.peerconnection.turn.disable` -> true
+* `media.peerconnection.use_document_iceservers` -> false
+* `media.peerconnection.video.enabled` -> false
 
 #### Firefox Extensions
 
@@ -210,6 +236,12 @@ WebRTC settings:
 * Popup Blocker (strict) - asks you for permission before you get redirected to another site
 * CleanURLs - removes tracking elements from URLs
 * CanvasBlocker - Modifies JavaScript to prevent fingerprinting
+* NoScript Security Suite - gives you control of JavaScript on websites
+* Dark Reader - modifies sites to have forced dark mode
+* SingleFile - save a webpage with one button
+* Chameleon - user-agent changer
+* Cookie AutoDelete - deleted cookies when the tab/browser closes
+* Decentraleyes - prevents content delivery requests from reaching Google and etc.
 
 If you do not want to have the hassle of modifying all of these options, then check out [https://github.com/arkenfox/user.js](https://github.com/arkenfox/user.js). The person who made the repository has made the user profile with all the privacy settings, so all you have to do is download it and upload it as your own profile.
 
@@ -219,6 +251,9 @@ If you do not want to have the hassle of modifying all of these options, then ch
 * [https://ebin.city/\~werwolf/posts/firefox-hardening-guide/](https://ebin.city/\~werwolf/posts/firefox-hardening-guide/)
 * [https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/](https://www.ghacks.net/overview-firefox-aboutconfig-security-privacy-preferences/)
 * [http://kb.mozillazine.org/Network.cookie.lifetimePolicy](http://kb.mozillazine.org/Network.cookie.lifetimePolicy)
+* [https://chrisx.xyz/blog/yet-another-firefox-hardening-guide/#why-hardening-firefox](https://chrisx.xyz/blog/yet-another-firefox-hardening-guide/#why-hardening-firefox)
+* [https://www.ghacks.net/best-firefox-addons/](https://www.ghacks.net/best-firefox-addons/)
+* [http://kb.mozillazine.org/Network.http.sendRefererHeader](http://kb.mozillazine.org/Network.http.sendRefererHeader)
 
 ## Windows
 

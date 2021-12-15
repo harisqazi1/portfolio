@@ -159,7 +159,8 @@ WebRTC settings:
 * Dark Reader - modifies sites to have forced dark mode
 * SingleFile - save a webpage with one button
 * Chameleon - user-agent changer
-* Cookie AutoDelete - deleted cookies when the tab/browser closes&#x20;
+* Cookie AutoDelete - deleted cookies when the tab/browser closes
+* Decentraleyes - prevents content delivery requests from reaching Google and etc.
 
 If you do not want to have the hassle of modifying all of these options, then check out [https://github.com/arkenfox/user.js](https://github.com/arkenfox/user.js). The person who made the repository has made the user profile with all the privacy settings, so all you have to do is download it and upload it as your own profile.
 
