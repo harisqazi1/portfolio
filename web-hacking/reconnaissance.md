@@ -57,4 +57,10 @@ The "Web Hacking" section are notes that I have compiled while learning using th
   * github recon
     * search for the users profile
     * go through commits
-    *
+    * [https://github.com/streaak/keyhacks](https://github.com/streaak/keyhacks)
+    * [https://github.com/michenriksen/gitrob](https://github.com/michenriksen/gitrob)
+    * [https://github.com/trufflesecurity/truffleHog](https://github.com/trufflesecurity/truffleHog)
+    * [https://github.com/kevthehermit/PasteHunter](https://github.com/kevthehermit/PasteHunter)
+  * recon platforms
+    * [https://github.com/projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei)
+    * [https://github.com/intrigueio/intrigue-core](https://github.com/intrigueio/intrigue-core)
