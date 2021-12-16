@@ -6,7 +6,7 @@ This is just a backup of my setup I have on my Linux OS, in case I ever have to 
 
 | Name                     | Type                                          |
 | ------------------------ | --------------------------------------------- |
-| DejaDup                  | Backup Creation                               |
+| Déjà Dup Backups         | Backup Creation                               |
 | Firefox                  | Browser                                       |
 | Discord                  | Communication                                 |
 | FreeTube                 | YouTube Privacy-centric Alternative           |
