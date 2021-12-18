@@ -36,6 +36,7 @@
   * [Startup](write-ups-1/tryhackme/startup.md)
   * [tomghost](write-ups-1/tryhackme/tomghost.md)
   * [Overpass 3 - Hosting](write-ups-1/tryhackme/overpass-3-hosting.md)
+  * [Agent Sudo](write-ups-1/tryhackme/agent-sudo.md)
 * [HackThisSite](write-ups-1/untitled/README.md)
   * [Basic Missions - Basic 1](write-ups-1/untitled/basic-missions-basic-1.md)
   * [Basic Missions - Basic 2](write-ups-1/untitled/basic-missions-basic-2.md)
