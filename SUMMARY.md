@@ -58,6 +58,8 @@
   * [Python Wrangling](write-ups-1/picoctf/python-wrangling.md)
   * [Mod 26](write-ups-1/picoctf/mod-26.md)
   * [Obedient Cat](write-ups-1/picoctf/obedient-cat.md)
+* [Hack The Box](write-ups-1/hack-the-box/README.md)
+  * [Nunchucks](write-ups-1/hack-the-box/nunchucks.md)
 
 ## Web Hacking
 
