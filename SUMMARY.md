@@ -60,6 +60,7 @@
   * [Obedient Cat](write-ups-1/picoctf/obedient-cat.md)
 * [Hack The Box](write-ups-1/hack-the-box/README.md)
   * [Nunchucks](write-ups-1/hack-the-box/nunchucks.md)
+  * [Return](write-ups-1/hack-the-box/return.md)
 
 ## Web Hacking
 

@@ -30,7 +30,7 @@ We can also use responses themselves instead of the status codes in order to fin
 
 When the username and password are wrong:
 
-![](<../.gitbook/assets/image (340) (1) (1).png>)
+![](<../.gitbook/assets/image (340) (1) (1) (1).png>)
 
 When the username is correct and the password is wrong (notice the last period missing):
 
