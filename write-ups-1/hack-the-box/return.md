@@ -63,11 +63,11 @@ Nmap done: 1 IP address (1 host up) scanned in 30.10 seconds
 
 I then went on the IP Address and found this page:
 
-![](<../../.gitbook/assets/image (342).png>)
+![](<../../.gitbook/assets/image (342) (1).png>)
 
 I then ran **gobuster** on the IP Address: `gobuster dir -u 10.10.11.108 -w directory-list-2.3-big.txt -t 60`. I ended up with the following, which wasn't very helpful:
 
-![](<../../.gitbook/assets/image (326).png>)
+![](<../../.gitbook/assets/image (326) (1).png>)
 
 I then tried found the nmap command to enumerate ldap: `nmap -p 389 --script ldap-brute --script-args ldap.base='"cn=users,dc=cqure,dc=net"' 10.10.11.108`.The nmap script was taking a while, so I went to the walk-through to see where I had gotten off of track. I found out that I should use **enum4linux** in order to enumerate for SMB: `enum4linux -a 10.10.11.108`. I then found this information:
 
@@ -75,19 +75,19 @@ I then tried found the nmap command to enumerate ldap: `nmap -p 389 --script lda
 
 The walk-through mentioned that we should enter our own IP Address in the **Server Address** section on the website. Using that I got a shell:
 
-![](<../../.gitbook/assets/image (345).png>)
+![](<../../.gitbook/assets/image (345) (1).png>)
 
 The walk-through then mentioned using the **evil-winrm** tool. I learned that, while I was able to overwrite the password for the svc-printer user, it would be overwritten by its own system. The walk-through pointed out that the password would be what is shown by the output of netcat connection previously:
 
-![](<../../.gitbook/assets/image (334).png>)
+![](<../../.gitbook/assets/image (334) (1).png>)
 
 Looking around, I was able to find the **user.txt** flag in the Desktop of the svc-printer user:
 
-![](<../../.gitbook/assets/image (335).png>)
+![](<../../.gitbook/assets/image (335) (1).png>)
 
 I am not too familiar with Windows commands, so the walk-through mentioned running the `net user svc-printer` command:
 
-![](<../../.gitbook/assets/image (344).png>)
+![](<../../.gitbook/assets/image (344) (1).png>)
 
 Again, I had to view the write-up to see where to go from here. From the commands, you are uploading netcat onto the system, and then configuring netcat to be run and connect to your machine:
 
@@ -119,4 +119,4 @@ sc.exe start VSS
 
 I was then able to get the root.txt file:
 
-![](<../../.gitbook/assets/image (332).png>)
+![](<../../.gitbook/assets/image (332) (1).png>)

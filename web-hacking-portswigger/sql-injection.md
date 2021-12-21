@@ -228,7 +228,7 @@ To find second character:
 
 You'll know when you are hitting the mark when you see a Length difference in Burp Suite, or the same response as the True response:
 
-![](<../.gitbook/assets/image (331) (1) (1).png>)
+![](<../.gitbook/assets/image (331) (1) (1) (1).png>)
 
 Eventually, you will have the whole string.
 
@@ -292,7 +292,7 @@ Check for character at specific location (for BurpSuite Intruder):
 
 Again, for this one the error lets you know when you are on the right path:
 
-![](<../.gitbook/assets/image (339) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (339) (1) (1) (1) (1).png>)
 
 ### Exploiting blind SQL injection by triggering time delays <a href="#exploiting-blind-sql-injection-by-triggering-time-delays" id="exploiting-blind-sql-injection-by-triggering-time-delays"></a>
 

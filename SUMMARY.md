@@ -61,6 +61,7 @@
 * [Hack The Box](write-ups-1/hack-the-box/README.md)
   * [Nunchucks](write-ups-1/hack-the-box/nunchucks.md)
   * [Return](write-ups-1/hack-the-box/return.md)
+  * [Antique](write-ups-1/hack-the-box/antique.md)
 
 ## Web Hacking
 

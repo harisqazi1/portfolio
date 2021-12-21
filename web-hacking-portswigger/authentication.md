@@ -30,19 +30,19 @@ We can also use responses themselves instead of the status codes in order to fin
 
 When the username and password are wrong:
 
-![](<../.gitbook/assets/image (340) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (340) (1) (1) (1) (1).png>)
 
 When the username is correct and the password is wrong (notice the last period missing):
 
-![](<../.gitbook/assets/image (337).png>)
+![](<../.gitbook/assets/image (337) (1).png>)
 
 We can use these strings to then use the Burp Intruder to search for those exact strings using the **Grep - Match** feature (under Options):
 
-![](<../.gitbook/assets/image (325) (1) (1).png>)
+![](<../.gitbook/assets/image (325) (1) (1) (1).png>)
 
 When we do not see that string in the response, we can assume we have a password:
 
-![](<../.gitbook/assets/image (339) (1) (1).png>)
+![](<../.gitbook/assets/image (339) (1) (1) (1).png>)
 
 ### Username enumeration via response timing
 
@@ -64,7 +64,7 @@ header which then allows you to bypass an IP-address limit for requests. Using t
 
 You can use this to then bypass the IP-address limit and then look for responses that are different, indicating that you have potentially found a username:
 
-![](<../.gitbook/assets/image (325) (1).png>)
+![](<../.gitbook/assets/image (325) (1) (1).png>)
 
 You can do the same with the password, however for the password the **status** column lets you know if you got the correct password.
 
