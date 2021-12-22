@@ -66,13 +66,13 @@ The walk-through mentioned BurpSuite's Repeater function. I was then testing out
 
 Using the following image from [https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#detect](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#detect), I was able to assume that the backend system was either **Jinja2** or **Twig**:
 
-![](<../../.gitbook/assets/image (327) (1).png>)
+![](<../../.gitbook/assets/image (327) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (341) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1).png>)
 
 After trying to get information from the system, I then went back to the write-up and found out that the server is using NodeJS Express. This is shown by the Response in Burp Suite:
 
-![](<../../.gitbook/assets/image (339) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1).png>)
 
 The walk-through mentions how they found the website [http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine](http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine) by searching on Google. I searched on Google as well, but this website was not there in the results of a search. After this, the walk-through mentions running the following template injection (I modified it for my usage):
 
@@ -92,7 +92,7 @@ I then ran `script /dev/null bash` on recommendation from the walk-through. This
 
 The walk-through recommended using GTFObin's **perl** page.  It seemed that I was root, but was unable to read the root.txt file:
 
-![](<../../.gitbook/assets/image (343).png>)
+![](<../../.gitbook/assets/image (343) (1).png>)
 
 I was unable to get **nano** (text editor) to work as I wanted it to. I then added my own key to the **authorized\_keys** file that way I was able to get back into the machine. In order to do this I did the following (recommended by the write-up):
 

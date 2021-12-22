@@ -42,7 +42,7 @@ We can use these strings to then use the Burp Intruder to search for those exact
 
 When we do not see that string in the response, we can assume we have a password:
 
-![](<../.gitbook/assets/image (339) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (339) (1) (1) (1) (1).png>)
 
 ### Username enumeration via response timing
 

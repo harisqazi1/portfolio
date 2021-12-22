@@ -49,7 +49,7 @@ About 4% of the gobuster search, I got the following output:
 
 Going to the backups website, I saw this:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1).png>)
 
 I then downloaded the file. There were two files in the zip file:
 
@@ -74,7 +74,7 @@ I was then able to see the contents of the file:
 
 It seems to be the customers of the website, based on the context. We also have their username and password. I will try this in FTP, and my plan is that if the password does not work on FTP, then I will try SSH. In FTP, I got access using the credentials for "Par. A. Doxx":
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1).png>)
 
 FTP seemed to only work for that user. The other passwords did not work in FTP. When I tried for SSH, the credentials did not work there either. I then went back to the same write-up above and then realized that I had to upload a php-reverse-shell. Going to [this GitHub page](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php), I downloaded the reverse-shell script. In the script, I changed the IP address to my TryHackMe IP address. I then uploaded the file to the server:
 
@@ -106,7 +106,7 @@ I then downloaded Linpeas to my local machine using **wget**. I then pushed that
 
 I then ran linpeas on the remote machine. I then saw the following, when I also saw in other write-ups as well:
 
-![](<../../.gitbook/assets/image (327) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (327) (1) (1) (1) (1).png>)
 
 I then went back to the most recently mentioned write-up, in order to understand what I had to do next. Following [this write-up](https://shishirsubedi.com.np/thm/overpass3/), I uploaded my key to the remote server so I can connect in an easier method. Here are the commands I ran:
 

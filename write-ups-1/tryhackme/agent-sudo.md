@@ -47,9 +47,9 @@ After logging into the ftp server with the credentials, we see the following:
 
 I then used **mget \*** to download all of the files:
 
-![](<../../.gitbook/assets/image (327) (1) (1).png>)
+![](<../../.gitbook/assets/image (327) (1) (1) (1).png>)
 
-![To\_agentJ.txt](<../../.gitbook/assets/image (341) (1) (1).png>)
+![To\_agentJ.txt](<../../.gitbook/assets/image (341) (1) (1) (1).png>)
 
 ![cutie.png](<../../.gitbook/assets/image (332) (1) (1) (1).png>)
 
@@ -95,8 +95,8 @@ On THM there was a question asking _What is the incident of the photo called?_. 
 
 Seems that he can run /bin/bash with sudo permission. I Googled "exploit db (ALL, !root) /bin/bash" and found the following page: [https://web.archive.org/web/20210120002645/www.exploit-db.com/exploits/47502](https://web.archive.org/web/20210120002645/www.exploit-db.com/exploits/47502). This has an exploit in it for our system. I ran the exploit and got root:
 
-![](<../../.gitbook/assets/image (343) (1).png>)
+![](<../../.gitbook/assets/image (343) (1) (1).png>)
 
 I then also got the root flag:
 
-![](<../../.gitbook/assets/image (339) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1).png>)
