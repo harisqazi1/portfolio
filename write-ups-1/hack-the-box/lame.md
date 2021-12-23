@@ -20,15 +20,15 @@ There was nothing in the folder. My guess is that I will have to upload a revers
 
 Running `smbclient -L <IP_ADDRESS>` shows the same information:
 
-![](<../../.gitbook/assets/image (341).png>)
+![](<../../.gitbook/assets/image (341) (1).png>)
 
 Looking in the **tmp** directory did not give anything useful:
 
-![](<../../.gitbook/assets/image (349).png>)
+![](<../../.gitbook/assets/image (349) (1).png>)
 
 From playing around in the **SMB** system, I noticed that I have access to the **tmp** and **IPC$** user. Neither of those had gotten me information that I can work off of. I looked at the write-up to see what I missed. There was a exploit on Metasploit that got you root:
 
-![](<../../.gitbook/assets/image (351).png>)
+![](<../../.gitbook/assets/image (351) (1).png>)
 
 Now I have to look for the flags:
 

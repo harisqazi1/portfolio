@@ -63,6 +63,7 @@
   * [Return](write-ups-1/hack-the-box/return.md)
   * [Antique](write-ups-1/hack-the-box/antique.md)
   * [Lame](write-ups-1/hack-the-box/lame.md)
+  * [Validation](write-ups-1/hack-the-box/validation.md)
 
 ## Web Hacking
 

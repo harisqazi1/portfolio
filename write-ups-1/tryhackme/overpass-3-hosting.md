@@ -35,7 +35,7 @@ Nmap done: 1 IP address (1 host up) scanned in 50.91 seconds
 
 I noticed that they have 3 ports open. I went to the web (port 80) first to check it out:
 
-![](<../../.gitbook/assets/image (338) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1) (1).png>)
 
 There was no `/robots.txt` file. I then ran **gobuster** on the IP address:
 
@@ -49,7 +49,7 @@ About 4% of the gobuster search, I got the following output:
 
 Going to the backups website, I saw this:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1).png>)
 
 I then downloaded the file. There were two files in the zip file:
 
@@ -70,7 +70,7 @@ ssconvert CustomerDetails.xlsx newfile.csv
 
 I was then able to see the contents of the file:
 
-![](<../../.gitbook/assets/image (335) (1) (1).png>)
+![](<../../.gitbook/assets/image (335) (1) (1) (1).png>)
 
 It seems to be the customers of the website, based on the context. We also have their username and password. I will try this in FTP, and my plan is that if the password does not work on FTP, then I will try SSH. In FTP, I got access using the credentials for "Par. A. Doxx":
 
@@ -96,13 +96,13 @@ This gave me the following output:
 
 This file had the flag in it:
 
-![](<../../.gitbook/assets/image (328) (1) (1).png>)
+![](<../../.gitbook/assets/image (328) (1) (1) (1).png>)
 
 I then downloaded Linpeas to my local machine using **wget**. I then pushed that to the server using an http server:
 
 ![](<../../.gitbook/assets/image (334) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1).png>)
 
 I then ran linpeas on the remote machine. I then saw the following, when I also saw in other write-ups as well:
 
@@ -154,4 +154,4 @@ chmod +s bash
 
 This got me root user on the machine. I then got the root flag.
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1).png>)
