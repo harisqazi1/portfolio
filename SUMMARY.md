@@ -91,3 +91,5 @@
 * [Raspberry Pi Portable Hacking Station](other-projects/raspberry-pi-portable-hacking-station.md)
 * [RTL-SDR](other-projects/coding-an-sdr-program.md)
 * [Shodan Search](other-projects/shodan-search.md)
+* [Recipes](other-projects/recipes/README.md)
+  * [Beef Birria Tacos](other-projects/recipes/beef-birria-tacos.md)
