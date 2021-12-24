@@ -50,7 +50,7 @@ This led me to discover a **store.nunchucks.htb**. In order to visit the site, I
 
 We end up on this page:
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1).png>)
 
 I then ran **feroxbuster** on the website to see if there were directories that I can access:
 
@@ -58,17 +58,17 @@ I then ran **feroxbuster** on the website to see if there were directories that 
 
 I didn't get that much of help from this. The walk-through mentioned that there is a template injection vulnerability on this site. I tested out the example they gave:
 
-![](<../../.gitbook/assets/image (338) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1).png>)
 
 The walk-through mentioned BurpSuite's Repeater function. I was then testing out what I can inject using that in order to find out what system is on the backend:
 
-![](<../../.gitbook/assets/image (329) (1) (1).png>)
+![](<../../.gitbook/assets/image (329) (1) (1) (1).png>)
 
 Using the following image from [https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#detect](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#detect), I was able to assume that the backend system was either **Jinja2** or **Twig**:
 
-![](<../../.gitbook/assets/image (327) (1) (1).png>)
+![](<../../.gitbook/assets/image (327) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1).png>)
 
 After trying to get information from the system, I then went back to the write-up and found out that the server is using NodeJS Express. This is shown by the Response in Burp Suite:
 
@@ -80,7 +80,7 @@ The walk-through mentions how they found the website [http://disse.cting.org/201
 
 I then got a reverse netcat connection:
 
-![](<../../.gitbook/assets/image (332) (1) (1).png>)
+![](<../../.gitbook/assets/image (332) (1) (1) (1).png>)
 
 I then was able to read the user.txt file in david's home directory:
 
@@ -92,7 +92,7 @@ I then ran `script /dev/null bash` on recommendation from the walk-through. This
 
 The walk-through recommended using GTFObin's **perl** page.  It seemed that I was root, but was unable to read the root.txt file:
 
-![](<../../.gitbook/assets/image (343) (1).png>)
+![](<../../.gitbook/assets/image (343) (1) (1).png>)
 
 I was unable to get **nano** (text editor) to work as I wanted it to. I then added my own key to the **authorized\_keys** file that way I was able to get back into the machine. In order to do this I did the following (recommended by the write-up):
 
@@ -110,13 +110,13 @@ You can now SSH as david onto the machine
 
 I was lost at this point, since the GTFObins commands were not getting me solid results. The write-up mentioned breaking down the `perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/sh";'` command to a script. This was the solution from the write-up:
 
-![](<../../.gitbook/assets/image (330) (1).png>)
+![](<../../.gitbook/assets/image (330) (1) (1).png>)
 
 Once you run `chmod +x` on the file, you can then get root access.
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1).png>)
 
 You then also have access to root.txt
 
-![](<../../.gitbook/assets/image (331) (1).png>)
+![](<../../.gitbook/assets/image (331) (1) (1).png>)
 

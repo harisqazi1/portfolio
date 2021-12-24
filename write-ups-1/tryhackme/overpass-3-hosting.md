@@ -35,7 +35,7 @@ Nmap done: 1 IP address (1 host up) scanned in 50.91 seconds
 
 I noticed that they have 3 ports open. I went to the web (port 80) first to check it out:
 
-![](<../../.gitbook/assets/image (338) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1) (1) (1).png>)
 
 There was no `/robots.txt` file. I then ran **gobuster** on the IP address:
 
@@ -45,15 +45,15 @@ gobuster dir --url http://10.10.168.65/  -w directory-list-lowercase-2.3-big.txt
 
 About 4% of the gobuster search, I got the following output:
 
-![](<../../.gitbook/assets/image (330) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (330) (1) (1) (1) (1).png>)
 
 Going to the backups website, I saw this:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1).png>)
 
 I then downloaded the file. There were two files in the zip file:
 
-![](<../../.gitbook/assets/image (332) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (332) (1) (1) (1) (1) (1) (1).png>)
 
 Using [this write-up](https://musyokaian.medium.com/overpass-3-hosting-tryhackme-walkthrough-d77703a72495), I realized that I can decrupt the file with the private key I have:
 
@@ -102,11 +102,11 @@ I then downloaded Linpeas to my local machine using **wget**. I then pushed that
 
 ![](<../../.gitbook/assets/image (334) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1).png>)
 
 I then ran linpeas on the remote machine. I then saw the following, when I also saw in other write-ups as well:
 
-![](<../../.gitbook/assets/image (327) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (327) (1) (1) (1) (1) (1).png>)
 
 I then went back to the most recently mentioned write-up, in order to understand what I had to do next. Following [this write-up](https://shishirsubedi.com.np/thm/overpass3/), I uploaded my key to the remote server so I can connect in an easier method. Here are the commands I ran:
 
@@ -139,7 +139,7 @@ If we change directory into the **nfs** folder, we can see the file system mount
 
 I read the user flag. After that, the ssh authorized key I had uploaded to paradox earlier, I had not uploaded it to **.ssh/authorized\_keys** in the mounted directory. I then was able to SSH to the machine:
 
-![](<../../.gitbook/assets/image (331) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (331) (1) (1) (1) (1) (1).png>)
 
 I read up from [this write-up](https://cryptichacker.github.io/posts/overpass3hosting/) that I can now use the **no\_root\_squash** exploit, something that linpeas.sh had shown us earlier. I followed the following commands from the write-up to get it to work:
 
@@ -154,4 +154,4 @@ chmod +s bash
 
 This got me root user on the machine. I then got the root flag.
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1).png>)

