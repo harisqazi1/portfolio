@@ -38,7 +38,7 @@ Nmap done: 1 IP address (1 host up) scanned in 18.08 seconds
 
 I had a hard time connecting to the website. I then updated my **/etc/hosts** file and it worked!
 
-![](<../../.gitbook/assets/image (328) (1).png>)
+![](<../../.gitbook/assets/image (328) (1) (1).png>)
 
 I then ran a `git clone` for the [Seclists](https://github.com/danielmiessler/SecLists) GitHub repository. This repo has a lot of different files which come in handy from directory/password brute-forcing. I did get stuck at this point, so I then looked at the HackTheBox walk-through from the site. I learned about the **gobuster** option of **vhosts** which checks for subdomains on the system:
 
@@ -54,7 +54,7 @@ We end up on this page:
 
 I then ran **feroxbuster** on the website to see if there were directories that I can access:
 
-![](<../../.gitbook/assets/image (344) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (344) (1) (1) (1) (1).png>)
 
 I didn't get that much of help from this. The walk-through mentioned that there is a template injection vulnerability on this site. I tested out the example they gave:
 
@@ -62,7 +62,7 @@ I didn't get that much of help from this. The walk-through mentioned that there 
 
 The walk-through mentioned BurpSuite's Repeater function. I was then testing out what I can inject using that in order to find out what system is on the backend:
 
-![](<../../.gitbook/assets/image (329) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (329) (1) (1) (1) (1).png>)
 
 Using the following image from [https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#detect](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#detect), I was able to assume that the backend system was either **Jinja2** or **Twig**:
 
@@ -72,7 +72,7 @@ Using the following image from [https://book.hacktricks.xyz/pentesting-web/ssti-
 
 After trying to get information from the system, I then went back to the write-up and found out that the server is using NodeJS Express. This is shown by the Response in Burp Suite:
 
-![](<../../.gitbook/assets/image (339) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1).png>)
 
 The walk-through mentions how they found the website [http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine](http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine) by searching on Google. I searched on Google as well, but this website was not there in the results of a search. After this, the walk-through mentions running the following template injection (I modified it for my usage):
 
@@ -84,15 +84,15 @@ I then got a reverse netcat connection:
 
 I then was able to read the user.txt file in david's home directory:
 
-![](<../../.gitbook/assets/image (333) (1).png>)
+![](<../../.gitbook/assets/image (333) (1) (1).png>)
 
 I then ran `script /dev/null bash` on recommendation from the walk-through. This gave me the shell (with the username and hostname). I then ran `getcap -r /`, again, on recommnedation of the write-up:
 
-![](<../../.gitbook/assets/image (334) (1) (1).png>)
+![](<../../.gitbook/assets/image (334) (1) (1) (1).png>)
 
 The walk-through recommended using GTFObin's **perl** page.  It seemed that I was root, but was unable to read the root.txt file:
 
-![](<../../.gitbook/assets/image (343) (1) (1).png>)
+![](<../../.gitbook/assets/image (343) (1) (1) (1).png>)
 
 I was unable to get **nano** (text editor) to work as I wanted it to. I then added my own key to the **authorized\_keys** file that way I was able to get back into the machine. In order to do this I did the following (recommended by the write-up):
 

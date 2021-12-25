@@ -32,15 +32,15 @@ Downloading that file, and reading its contents provides us with the following:
 
 Going back to the write-up, we are able to see that this is a **shellshock** exploit, and there is a module on Metasploit. I was able to find it on Metasploit:
 
-![](<../../.gitbook/assets/image (346).png>)
+![](<../../.gitbook/assets/image (346) (1).png>)
 
 I was able to get a shell after filling in the information:
 
-![](<../../.gitbook/assets/image (329).png>)
+![](<../../.gitbook/assets/image (329) (1).png>)
 
 Looking in the user directory, I was able to get the user.txt flag:
 
-![](<../../.gitbook/assets/image (347).png>)
+![](<../../.gitbook/assets/image (347) (1).png>)
 
 With the shell in meterpreter, I was unable to run the commands that I wanted to run. I then found [https://www.exploit-db.com/exploits/34900](https://www.exploit-db.com/exploits/34900) with the recommendation from the write-up. I was then able to get a reverse shell on the system:
 
@@ -52,11 +52,11 @@ Now when I run `sudo -l`, I can see what commands my user is able to run as root
 
 Going to **GTFOBins**, we can see the following for perl:
 
-![](<../../.gitbook/assets/image (343).png>)
+![](<../../.gitbook/assets/image (343) (1).png>)
 
 Running that command, I was able to get root:
 
-![](<../../.gitbook/assets/image (350).png>)
+![](<../../.gitbook/assets/image (350) (1).png>)
 
 I was then able to get the flag for root as well (the connection was a bit laggy):
 
