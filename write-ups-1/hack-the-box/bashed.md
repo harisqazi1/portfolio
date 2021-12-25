@@ -8,7 +8,7 @@ I am a beginner at penetration testing, so I will be referencing the Official Ha
 
 basic nmap scan: nmap `10.10.10.68`
 
-![](<../../.gitbook/assets/image (348).png>)
+![](<../../.gitbook/assets/image (349).png>)
 
 We can see that port 80 (http) is open. I did a deeper nmap scan as well:
 
@@ -16,11 +16,11 @@ We can see that port 80 (http) is open. I did a deeper nmap scan as well:
 
 The port open is still the same. Going to the http site, we see the following:
 
-![](<../../.gitbook/assets/image (353).png>)
+![](<../../.gitbook/assets/image (354).png>)
 
 I got a hint from this that **phpbash** is being used on the server and that I will have to exploit it. I ran **gobuster** to see what directories were available:
 
-![](<../../.gitbook/assets/image (355).png>)
+![](<../../.gitbook/assets/image (356).png>)
 
 The **uploads** directory was empty, and I believe we will have to upload a shell there. The **php** directory had the following:
 
@@ -32,7 +32,7 @@ The file was empty when downloaded. Looking in the **dev** folder, I was able to
 
 I was then able to find the user.txt flag:
 
-![](<../../.gitbook/assets/image (356).png>)
+![](<../../.gitbook/assets/image (357).png>)
 
 Running `sudo -l`, I was able to see the following:
 
@@ -42,7 +42,7 @@ I then realized I would have to upload a reverse shell to the system. There were
 
 ![](<../../.gitbook/assets/image (346).png>)
 
-![](<../../.gitbook/assets/image (357).png>)
+![](<../../.gitbook/assets/image (358).png>)
 
 I then accessed the file on the website and was able to get a reverse shell using **netcat**:
 
@@ -60,17 +60,17 @@ Running that command got me out of the limited shell:
 
 The `sudo -l` command from before shows us that the user we currently are has access to run commands as **scriptmanager**. A quick Google search showed me that to run a command as another user is to run `sudo -u scriptmanager`. I wanted to get a reverse shell as the **scriptmanager** user:
 
-![](<../../.gitbook/assets/image (359).png>)
+![](<../../.gitbook/assets/image (360).png>)
 
 ![](<../../.gitbook/assets/image (345).png>)
 
 I edited the payload from [this website](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md):
 
-![](<../../.gitbook/assets/image (349).png>)
+![](<../../.gitbook/assets/image (350).png>)
 
 I get the same error as before:
 
-![](<../../.gitbook/assets/image (354).png>)
+![](<../../.gitbook/assets/image (355).png>)
 
 When I ran linpeas (not shows in write-up, but uploaded the same way as the reverse shell), I noticed that there was a folder called **scripts**:
 
@@ -78,7 +78,7 @@ When I ran linpeas (not shows in write-up, but uploaded the same way as the reve
 
 The code writes text to a file. At this point, I was actually lost. I found [this write-up](https://ethicalhacking.sh/posts/hack-the-box-bashed-writeup/) that clarifies that I should have been focused on the cron jobs and noticed that the file is ran by root in the cron job. I changed the original test.txt file by overwriting it by doing the following:
 
-![](<../../.gitbook/assets/image (350).png>)
+![](<../../.gitbook/assets/image (351).png>)
 
 The content of the file was the following (from the write-up mentioned before):
 
@@ -93,8 +93,10 @@ p=subprocess.call(["/bin/sh","-i"]);
 
 I was then able to get root (after a minute) and the root flag:
 
-![](<../../.gitbook/assets/image (351).png>)
+![](<../../.gitbook/assets/image (352).png>)
 
 Going back to see where my mistake was, I should have noticed this in the output of linpeas.sh:
 
-![](<../../.gitbook/assets/image (358).png>)
+![](<../../.gitbook/assets/image (359).png>)
+
+![](<../../.gitbook/assets/image (348).png>)
