@@ -69,7 +69,7 @@ There is a password for the zip file. I used **fcrackzip** in order to try to br
 
 After entering the password for the zip by running `7z e 8702.zip`, I then was able to get the file hidden in it:
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1).png>)
 
 In order to crack the password for the other image, I used **StegSeek**:
 
@@ -81,7 +81,7 @@ This led me to this text file:
 
 When I entered the password **hackerrules!** as the answer to the question _SSH password_, I got it correct. This means that this is the password for SSH. Logging in with those credentials, I was able to get into the system, and get the user flag:
 
-![](<../../.gitbook/assets/image (348) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1) (1) (1).png>)
 
 There was another jpeg on the system as well. I used **FileZilla** in order to download the file to my local machine:
 
@@ -91,7 +91,7 @@ There was another jpeg on the system as well. I used **FileZilla** in order to d
 
 On THM there was a question asking _What is the incident of the photo called?_. In my research I came to the conclusion it had something to do with Roswell and Aliens. I had to go back to the write-up, in order to realize the answer was **roswell alien autopsy**. I am still at the user (james) level, and I need to escalate my privileges. I ran `sudo -l` to see what sudo commands my user had:
 
-![](<../../.gitbook/assets/image (333) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (333) (1) (1) (1) (1) (1).png>)
 
 Seems that he can run /bin/bash with sudo permission. I Googled "exploit db (ALL, !root) /bin/bash" and found the following page: [https://web.archive.org/web/20210120002645/www.exploit-db.com/exploits/47502](https://web.archive.org/web/20210120002645/www.exploit-db.com/exploits/47502). This has an exploit in it for our system. I ran the exploit and got root:
 

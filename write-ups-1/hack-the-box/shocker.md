@@ -16,7 +16,7 @@ From the basic scan, we can see that http and another service are running. Runni
 
 On the main page of the website, we see the following:
 
-![](<../../.gitbook/assets/image (340) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1).png>)
 
 The source code doesn't seem to give away much:
 

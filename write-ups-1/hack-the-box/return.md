@@ -83,7 +83,7 @@ The walk-through then mentioned using the **evil-winrm** tool. I learned that, w
 
 Looking around, I was able to find the **user.txt** flag in the Desktop of the svc-printer user:
 
-![](<../../.gitbook/assets/image (335) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (335) (1) (1) (1) (1).png>)
 
 I am not too familiar with Windows commands, so the walk-through mentioned running the `net user svc-printer` command:
 

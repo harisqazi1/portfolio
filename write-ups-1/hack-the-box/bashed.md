@@ -12,7 +12,7 @@ basic nmap scan: nmap `10.10.10.68`
 
 We can see that port 80 (http) is open. I did a deeper nmap scan as well:
 
-![](<../../.gitbook/assets/image (333) (1).png>)
+![](<../../.gitbook/assets/image (333) (1) (1).png>)
 
 The port open is still the same. Going to the http site, we see the following:
 
@@ -20,7 +20,7 @@ The port open is still the same. Going to the http site, we see the following:
 
 I got a hint from this that **phpbash** is being used on the server and that I will have to exploit it. I ran **gobuster** to see what directories were available:
 
-![](<../../.gitbook/assets/image (356) (1).png>)
+![](<../../.gitbook/assets/image (356) (1) (1).png>)
 
 The **uploads** directory was empty, and I believe we will have to upload a shell there. The **php** directory had the following:
 
@@ -32,7 +32,7 @@ The file was empty when downloaded. Looking in the **dev** folder, I was able to
 
 I was then able to find the user.txt flag:
 
-![](<../../.gitbook/assets/image (357) (1).png>)
+![](<../../.gitbook/assets/image (357) (1) (1).png>)
 
 Running `sudo -l`, I was able to see the following:
 
@@ -42,7 +42,7 @@ I then realized I would have to upload a reverse shell to the system. There were
 
 ![](<../../.gitbook/assets/image (346) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (358) (1).png>)
+![](<../../.gitbook/assets/image (358) (1) (1).png>)
 
 I then accessed the file on the website and was able to get a reverse shell using **netcat**:
 
@@ -97,6 +97,6 @@ I was then able to get root (after a minute) and the root flag:
 
 Going back to see where my mistake was, I should have noticed this in the output of linpeas.sh:
 
-![](<../../.gitbook/assets/image (359) (1).png>)
+![](<../../.gitbook/assets/image (359) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (348) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1).png>)

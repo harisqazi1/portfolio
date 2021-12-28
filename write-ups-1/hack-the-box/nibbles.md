@@ -28,7 +28,7 @@ I then ran **feroxbuster** on the system (`feroxbuster -u http://10.10.10.75/nib
 
 Looking through the website I found the following:
 
-![](<../../.gitbook/assets/image (340).png>)
+![](<../../.gitbook/assets/image (340) (1).png>)
 
 I then looked up the name of the author, and this seems to be a CMS application:
 
@@ -40,7 +40,7 @@ I then ran `git clone https://github.com/dignajar/nibbleblog.git` to download th
 
 I then found this [video write-up](https://www.youtube.com/watch?v=iXyKLm1nQac) that made me realized my search had overlooked a crucial website: the admin login page. I looked at what software the person in the video was using, and they were using **diresearch**. I did the same and was able to find the page:
 
-![](<../../.gitbook/assets/image (356).png>)
+![](<../../.gitbook/assets/image (356) (1).png>)
 
 ![](<../../.gitbook/assets/image (339) (1).png>)
 
@@ -54,7 +54,7 @@ I tried all of those passwords and came back empty. I looked at the official Hac
 
 I then had to find a way to find the password on my own by guessing. Even viewing Ippsec's attempt, we can see he randomly guesses the password to be **nibbles** and gets in. I then used the **admin**/**nibbles** credentials to log in:
 
-![](<../../.gitbook/assets/image (333).png>)
+![](<../../.gitbook/assets/image (333) (1).png>)
 
 Back to the **Metasploit** exploit previously mentioned, I entered the password to be **nibbles** and was able to get a meterpreter shell on the system:
 
@@ -64,7 +64,7 @@ I uploaded the **php-reverse-shell** from pentestmonkey online by running `uploa
 
 ![](<../../.gitbook/assets/image (352).png>)
 
-![](<../../.gitbook/assets/image (359).png>)
+![](<../../.gitbook/assets/image (359) (1).png>)
 
 I was logged in as **nibbler**. I was able to get a TTY shell by typing in **bash**:
 
@@ -72,7 +72,7 @@ I was logged in as **nibbler**. I was able to get a TTY shell by typing in **bas
 
 There were two files:
 
-![](<../../.gitbook/assets/image (358).png>)
+![](<../../.gitbook/assets/image (358) (1).png>)
 
 I got the user flag:
 
@@ -80,7 +80,7 @@ I got the user flag:
 
 In the nibbler account, I setup a Python http server in the home directory of nibbler. I then downloaded the **personal.zip** file:
 
-![](<../../.gitbook/assets/image (335).png>)
+![](<../../.gitbook/assets/image (335) (1).png>)
 
 ![](<../../.gitbook/assets/image (353).png>)
 
@@ -96,7 +96,7 @@ In order to upload the file from my machine, I used the python3 http module to u
 
 ![](<../../.gitbook/assets/image (334) (1).png>)
 
-![](<../../.gitbook/assets/image (361).png>)
+![](<../../.gitbook/assets/image (361) (1).png>)
 
 I then ran the bash script:
 
@@ -104,7 +104,7 @@ I then ran the bash script:
 
 I ran `sudo -l` to see what I have access to as the sudo user:
 
-![](<../../.gitbook/assets/image (348).png>)
+![](<../../.gitbook/assets/image (348) (1).png>)
 
 My guess is that I will have to edit the bash script to get to be root. After I had the TTY python shell, I was then able to unzip:
 
@@ -112,5 +112,5 @@ My guess is that I will have to edit the bash script to get to be root. After I 
 
 I thought about the privilege escalation to root a bit too much enough to overthink it. The solution was super simple, which the official write-up had made me realize:
 
-![](<../../.gitbook/assets/image (357).png>)
+![](<../../.gitbook/assets/image (357) (1).png>)
 

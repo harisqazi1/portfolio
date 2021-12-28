@@ -34,7 +34,7 @@ This showed me that this is vulnerable to SQL Injection. Viewing the same write-
 
 ![](<../../.gitbook/assets/image (351) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (335) (1).png>)
+![](<../../.gitbook/assets/image (335) (1) (1).png>)
 
 I then got stuck again and then watched [this video](https://youtu.be/dFKsSYVeVbI) that assisted a bit more in the understanding of what I was messing up on. I found out that I had to run the command to get a shell on the system:
 
@@ -50,7 +50,7 @@ Apparently the IP Addresses of the VPN you are using on HTB can change, which wa
 
 In order to get this to work though, you have to change your request from GET to POST, which can be done by clicking on the button below:
 
-![](<../../.gitbook/assets/image (340) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1).png>)
 
 You can then submit the command, as seen in the image above. After I had the shell, the first thing I did was find the user.txt file:
 

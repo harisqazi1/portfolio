@@ -84,7 +84,7 @@ I then got a reverse netcat connection:
 
 I then was able to read the user.txt file in david's home directory:
 
-![](<../../.gitbook/assets/image (333) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (333) (1) (1) (1) (1).png>)
 
 I then ran `script /dev/null bash` on recommendation from the walk-through. This gave me the shell (with the username and hostname). I then ran `getcap -r /`, again, on recommnedation of the write-up:
 
@@ -114,7 +114,7 @@ I was lost at this point, since the GTFObins commands were not getting me solid 
 
 Once you run `chmod +x` on the file, you can then get root access.
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1).png>)
 
 You then also have access to root.txt
 
