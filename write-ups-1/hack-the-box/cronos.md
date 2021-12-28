@@ -10,7 +10,7 @@ We see three ports open. On port 80, we see the following:&#x20;
 
 ![](<../../.gitbook/assets/image (333).png>)
 
-I am not too familiar with DNS enumeration methods. For this reason, after I searched online for a while (and got nowhere), I then read up what I had missed from the official Hack The Box write-up for this machine. In in the author says to add **cronos.htb** to the **/etc/hosts** file. Then run the following command:
+I am not too familiar with DNS enumeration methods. For this reason, after I searched online for a while (and got nowhere), I then read up what I had missed from the official Hack The Box write-up for this machine. In it the author says to add **cronos.htb** to the **/etc/hosts** file. Then run the following command:
 
 `dig axfr @10.10.10.13 cronos.htb`
 
