@@ -66,6 +66,7 @@
   * [Validation](write-ups-1/hack-the-box/validation.md)
   * [Shocker](write-ups-1/hack-the-box/shocker.md)
   * [Bashed](write-ups-1/hack-the-box/bashed.md)
+  * [Nibbles](write-ups-1/hack-the-box/nibbles.md)
 
 ## Web Hacking
 

