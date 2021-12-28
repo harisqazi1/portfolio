@@ -40,7 +40,7 @@ Running `sudo -l`, I was able to see the following:
 
 I then realized I would have to upload a reverse shell to the system. There were two ways in my mind: **netcat** and **pentestmonkey php-reverse-shell**. I tried the **pentestmonkey** option first. I downloaded it from [here](https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php), and then edited the IP address to be mine and then was able to upload it using `python3 -m http.server`.&#x20;
 
-![](<../../.gitbook/assets/image (346) (1).png>)
+![](<../../.gitbook/assets/image (346) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (358) (1).png>)
 

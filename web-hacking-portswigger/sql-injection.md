@@ -49,7 +49,9 @@ Regular:
 
 Modified:
 
-`SELECT * FROM users WHERE username = 'administrator'--' AND password = ''`` `**`//username = administrator'-- | password = <empty string>`**
+`SELECT * FROM users WHERE username = 'administrator'--' AND password = ''`` `**`//username = administrator'-- | password = <empty string>`**&#x20;
+
+**`//username = administrator'-- - #also works`**
 
 ### **SQL injection UNION attacks**
 

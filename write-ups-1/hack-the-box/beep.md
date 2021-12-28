@@ -8,7 +8,7 @@ nmap scan: `nmap 10.10.10.7`
 
 There are a lot of ports open, so I will start with port 80 (HTTP) first. We see a login page there:
 
-![](<../../.gitbook/assets/image (337).png>)
+![](<../../.gitbook/assets/image (338).png>)
 
 I went to port 10000 out of curiosity and found a Webmin login page there:
 

@@ -12,7 +12,7 @@ nmap scan (basic):
 
 From the basic scan, we can see that http and another service are running. Running a deeper nmap scan (`sudo nmap -T4 -A -v -sS 10.10.10.56 -oN shocker.nmap`) shows the same ports being open:
 
-![](<../../.gitbook/assets/image (338) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1).png>)
 
 On the main page of the website, we see the following:
 
@@ -20,19 +20,19 @@ On the main page of the website, we see the following:
 
 The source code doesn't seem to give away much:
 
-![](<../../.gitbook/assets/image (341) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1).png>)
 
 At this point, after multiple **gobuster** and **feroxbuster** runs, I had to see what I missed in the write-up. What I had missed was running **DirBuster** with the wordlist of **directory-list-lowercase-2.3-medium.txt** and with the extensions of **cgi​, sh, pl​, py**. This got me the following file:
 
-![](<../../.gitbook/assets/image (327).png>)
+![](<../../.gitbook/assets/image (327) (1).png>)
 
 Downloading that file, and reading its contents provides us with the following:
 
-![](<../../.gitbook/assets/image (332) (1).png>)
+![](<../../.gitbook/assets/image (332) (1) (1).png>)
 
 Going back to the write-up, we are able to see that this is a **shellshock** exploit, and there is a module on Metasploit. I was able to find it on Metasploit:
 
-![](<../../.gitbook/assets/image (346) (1) (1).png>)
+![](<../../.gitbook/assets/image (346) (1) (1) (1).png>)
 
 I was able to get a shell after filling in the information:
 

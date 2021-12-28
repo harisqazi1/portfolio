@@ -119,4 +119,4 @@ sc.exe start VSS
 
 I was then able to get the root.txt file:
 
-![](<../../.gitbook/assets/image (332) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (332) (1) (1) (1) (1).png>)

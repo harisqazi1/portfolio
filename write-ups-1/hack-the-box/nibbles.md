@@ -8,7 +8,7 @@ nmap: `nmap 10.10.10.75`
 
 We see that 2 ports are open **SSH** and **HTTP**. Going to port 80, we see the following:
 
-![](<../../.gitbook/assets/image (338).png>)
+![](<../../.gitbook/assets/image (338) (1).png>)
 
 In the source code, I saw something interesting:
 
@@ -46,7 +46,7 @@ I then found this [video write-up](https://www.youtube.com/watch?v=iXyKLm1nQac) 
 
 I now have to brute-force the username and password. I followed [this website](https://infinitelogins.com/2020/02/22/how-to-brute-force-websites-using-hydra/) to see what parameters I needed for my **Hydra** command. I then ran the `hydra -l admin -P rockyou.txt 10.10.10.75 http-post-form "/nibbleblog/admin.php:username=admin&password=^PASS^:Incorrect username or password."` command, and got the following:
 
-![](<../../.gitbook/assets/image (332).png>)
+![](<../../.gitbook/assets/image (332) (1).png>)
 
 I tried all of those passwords and came back empty. I looked at the official Hack The Box write-up and saw this:
 
@@ -86,7 +86,7 @@ In the nibbler account, I setup a Python http server in the home directory of ni
 
 When I pressed **CNTRL-C** to stop the http server, I had gotten out of the shell. I then had to get back in using the same php-reverse-shell as before:
 
-![](<../../.gitbook/assets/image (341).png>)
+![](<../../.gitbook/assets/image (341) (1).png>)
 
 In the **personal.zip** folder, there was a bash script. My assumption was that I was going to run the bash script on the machine. I found out I was unable to unzip the file on the machine:
 
@@ -100,7 +100,7 @@ In order to upload the file from my machine, I used the python3 http module to u
 
 I then ran the bash script:
 
-![](<../../.gitbook/assets/image (346).png>)
+![](<../../.gitbook/assets/image (346) (1).png>)
 
 I ran `sudo -l` to see what I have access to as the sudo user:
 

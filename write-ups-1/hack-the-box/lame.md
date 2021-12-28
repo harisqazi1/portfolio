@@ -8,7 +8,7 @@ I am a beginner at penetration testing, so I will be referencing the Official Ha
 
 rustscan:  `rustscan -a 10.10.10.3`
 
-![](<../../.gitbook/assets/image (327) (1).png>)
+![](<../../.gitbook/assets/image (327) (1) (1).png>)
 
 I saw that port 21 was open. I was able to login to the anonymous user:
 
@@ -20,7 +20,7 @@ There was nothing in the folder. My guess is that I will have to upload a revers
 
 Running `smbclient -L <IP_ADDRESS>` shows the same information:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1).png>)
 
 Looking in the **tmp** directory did not give anything useful:
 

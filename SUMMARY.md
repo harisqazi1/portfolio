@@ -68,6 +68,7 @@
   * [Bashed](write-ups-1/hack-the-box/bashed.md)
   * [Nibbles](write-ups-1/hack-the-box/nibbles.md)
   * [Beep](write-ups-1/hack-the-box/beep.md)
+  * [Cronos](write-ups-1/hack-the-box/cronos.md)
 
 ## Web Hacking
 

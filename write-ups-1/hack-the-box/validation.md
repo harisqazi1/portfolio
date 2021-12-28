@@ -12,7 +12,7 @@ rustscan: rustscan -a 10.10.11.116
 
 Going to port 80, we see this page:
 
-![](<../../.gitbook/assets/image (338) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1).png>)
 
 On Hack The Box, I got a hint from one of the tags from the machine:
 
@@ -38,7 +38,7 @@ This showed me that this is vulnerable to SQL Injection. Viewing the same write-
 
 I then got stuck again and then watched [this video](https://youtu.be/dFKsSYVeVbI) that assisted a bit more in the understanding of what I was messing up on. I found out that I had to run the command to get a shell on the system:
 
-![](<../../.gitbook/assets/image (341) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1).png>)
 
 After I ran this command, I was able to run commands on the system:
 

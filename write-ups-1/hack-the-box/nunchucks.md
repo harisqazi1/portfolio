@@ -58,7 +58,7 @@ I then ran **feroxbuster** on the website to see if there were directories that 
 
 I didn't get that much of help from this. The walk-through mentioned that there is a template injection vulnerability on this site. I tested out the example they gave:
 
-![](<../../.gitbook/assets/image (338) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1) (1) (1).png>)
 
 The walk-through mentioned BurpSuite's Repeater function. I was then testing out what I can inject using that in order to find out what system is on the backend:
 
@@ -66,9 +66,9 @@ The walk-through mentioned BurpSuite's Repeater function. I was then testing out
 
 Using the following image from [https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#detect](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#detect), I was able to assume that the backend system was either **Jinja2** or **Twig**:
 
-![](<../../.gitbook/assets/image (327) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (327) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1).png>)
 
 After trying to get information from the system, I then went back to the write-up and found out that the server is using NodeJS Express. This is shown by the Response in Burp Suite:
 
@@ -80,7 +80,7 @@ The walk-through mentions how they found the website [http://disse.cting.org/201
 
 I then got a reverse netcat connection:
 
-![](<../../.gitbook/assets/image (332) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (332) (1) (1) (1) (1) (1).png>)
 
 I then was able to read the user.txt file in david's home directory:
 
