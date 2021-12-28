@@ -12,7 +12,7 @@ From the tags, I am able to notice that this machine is about printer exploitati
 
 A basic nmap scan shows that only telnet is online:
 
-![](<../../.gitbook/assets/image (331) (1).png>)
+![](<../../.gitbook/assets/image (331) (1) (1).png>)
 
 Trying to telnet into the system, it asks for a password:
 
@@ -92,7 +92,7 @@ I noticed the write-up use python for the reverse shell. I then used [https://gi
 
 ![](<../../.gitbook/assets/image (349) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (350) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1).png>)
 
 I viewed the walk-through again to see what I missed. The walk-through author runs the netstat command to see what connections are there:
 
@@ -104,7 +104,7 @@ They then go on to say that we should use **chisel** to connect to the port. I r
 
 &#x20;I then followed [this write-up](https://howtohack44323049.wordpress.com/2021/12/13/htb\_antique\_eng/) to see what I missed and what I could have done instead. They run `wget localhost:631`, which makes a file called **index.html** in the folder you are in. There, you can see that CUPS is mentioned:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1).png>)
 
 When we search for cups on metasploit we get the following:
 
@@ -122,7 +122,7 @@ run
 
 After I ran the **run** command, I then switched to the remote machine and ran the shell executable (run `chmod +x shell` to make it executable). This gave me a connection in Metasploit:
 
-![](<../../.gitbook/assets/image (347) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (347) (1) (1) (1) (1).png>)
 
 I then ran the following commands to look for the cups post exploitation program:
 

@@ -16,7 +16,7 @@ I saw that port 21 was open. I was able to login to the anonymous user:
 
 There was nothing in the folder. My guess is that I will have to upload a reverse shell on the system and then trigger it in order to get a connection to the system. I then ran `enum4linux -a 10.10.10.3`, which showed me this:
 
-![](<../../.gitbook/assets/image (336) (1) (1).png>)
+![](<../../.gitbook/assets/image (336) (1) (1) (1).png>)
 
 Running `smbclient -L <IP_ADDRESS>` shows the same information:
 
@@ -32,4 +32,4 @@ From playing around in the **SMB** system, I noticed that I have access to the *
 
 Now I have to look for the flags:
 
-![](<../../.gitbook/assets/image (339) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1).png>)

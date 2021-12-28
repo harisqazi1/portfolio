@@ -31,7 +31,7 @@ Port 80 was opened, so I checked it out:
 
 I tried to use BurpSuite here to edit the User-Agent to be "Agent S", based off of my assumption that my codename was Agent S. This did not work. I then used **gobuster** alongside the **directory-list-2.3-small.txt** wordlist. I then was reading [this write-up](https://marcorei7.wordpress.com/2020/07/29/008-agent-sudo/) which led me to realize that I was not supposed to brute-force the website, but actually just change my user agent (I used **User-Agent Switcher and Manager** on Firefox):
 
-![](<../../.gitbook/assets/image (331) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (331) (1) (1) (1) (1).png>)
 
 We now know that user C is **chris** and his password is weak. I chose this time to answer the questions on THM:
 
@@ -53,7 +53,7 @@ I then used **mget \*** to download all of the files:
 
 ![cutie.png](<../../.gitbook/assets/image (332) (1) (1) (1) (1) (1).png>)
 
-![cute-alien.jpg](<../../.gitbook/assets/image (347) (1) (1) (1) (1).png>)
+![cute-alien.jpg](<../../.gitbook/assets/image (347) (1) (1) (1) (1) (1).png>)
 
 It seems from the **To\_agentJ.txt** file that we have to find the password in one of the images provided. Running **strings** on the **cutie.png** file, I saw this towards the end:
 
@@ -87,7 +87,7 @@ There was another jpeg on the system as well. I used **FileZilla** in order to d
 
 ![](<../../.gitbook/assets/image (345) (1) (1) (1) (1) (1) (1).png>)
 
-![Alien\_autopsy.jpg](<../../.gitbook/assets/image (330) (1) (1) (1) (1).png>)
+![Alien\_autopsy.jpg](<../../.gitbook/assets/image (330) (1) (1) (1) (1) (1).png>)
 
 On THM there was a question asking _What is the incident of the photo called?_. In my research I came to the conclusion it had something to do with Roswell and Aliens. I had to go back to the write-up, in order to realize the answer was **roswell alien autopsy**. I am still at the user (james) level, and I need to escalate my privileges. I ran `sudo -l` to see what sudo commands my user had:
 
@@ -99,4 +99,4 @@ Seems that he can run /bin/bash with sudo permission. I Googled "exploit db (ALL
 
 I then also got the root flag:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1).png>)

@@ -67,6 +67,7 @@
   * [Shocker](write-ups-1/hack-the-box/shocker.md)
   * [Bashed](write-ups-1/hack-the-box/bashed.md)
   * [Nibbles](write-ups-1/hack-the-box/nibbles.md)
+  * [Beep](write-ups-1/hack-the-box/beep.md)
 
 ## Web Hacking
 

@@ -45,7 +45,7 @@ gobuster dir --url http://10.10.168.65/  -w directory-list-lowercase-2.3-big.txt
 
 About 4% of the gobuster search, I got the following output:
 
-![](<../../.gitbook/assets/image (330) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (330) (1) (1) (1) (1) (1) (1).png>)
 
 Going to the backups website, I saw this:
 
@@ -74,7 +74,7 @@ I was then able to see the contents of the file:
 
 It seems to be the customers of the website, based on the context. We also have their username and password. I will try this in FTP, and my plan is that if the password does not work on FTP, then I will try SSH. In FTP, I got access using the credentials for "Par. A. Doxx":
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 FTP seemed to only work for that user. The other passwords did not work in FTP. When I tried for SSH, the credentials did not work there either. I then went back to the same write-up above and then realized that I had to upload a php-reverse-shell. Going to [this GitHub page](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php), I downloaded the reverse-shell script. In the script, I changed the IP address to my TryHackMe IP address. I then uploaded the file to the server:
 
@@ -100,7 +100,7 @@ This file had the flag in it:
 
 I then downloaded Linpeas to my local machine using **wget**. I then pushed that to the server using an http server:
 
-![](<../../.gitbook/assets/image (334) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (334) (1) (1) (1) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1).png>)
 
@@ -135,11 +135,11 @@ sudo mount -t nfs -o port=20049 localhost: nfs
 
 If we change directory into the **nfs** folder, we can see the file system mounted there:
 
-![](<../../.gitbook/assets/image (337) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (337) (1) (1) (1) (1).png>)
 
 I read the user flag. After that, the ssh authorized key I had uploaded to paradox earlier, I had not uploaded it to **.ssh/authorized\_keys** in the mounted directory. I then was able to SSH to the machine:
 
-![](<../../.gitbook/assets/image (331) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (331) (1) (1) (1) (1) (1) (1).png>)
 
 I read up from [this write-up](https://cryptichacker.github.io/posts/overpass3hosting/) that I can now use the **no\_root\_squash** exploit, something that linpeas.sh had shown us earlier. I followed the following commands from the write-up to get it to work:
 

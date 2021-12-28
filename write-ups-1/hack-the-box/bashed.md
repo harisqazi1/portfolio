@@ -36,7 +36,7 @@ I was then able to find the user.txt flag:
 
 Running `sudo -l`, I was able to see the following:
 
-![](<../../.gitbook/assets/image (337).png>)
+![](<../../.gitbook/assets/image (337) (1).png>)
 
 I then realized I would have to upload a reverse shell to the system. There were two ways in my mind: **netcat** and **pentestmonkey php-reverse-shell**. I tried the **pentestmonkey** option first. I downloaded it from [here](https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php), and then edited the IP address to be mine and then was able to upload it using `python3 -m http.server`.&#x20;
 
@@ -48,7 +48,7 @@ I then accessed the file on the website and was able to get a reverse shell usin
 
 ![](<../../.gitbook/assets/image (344) (1).png>)
 
-![](<../../.gitbook/assets/image (347) (1).png>)
+![](<../../.gitbook/assets/image (347) (1) (1).png>)
 
 After a while of searching for a way to get out of a limited shell, I found [this site](https://guide.offsecnewbie.com/shells), where I saw the following:
 
@@ -56,17 +56,17 @@ After a while of searching for a way to get out of a limited shell, I found [thi
 
 Running that command got me out of the limited shell:
 
-![](<../../.gitbook/assets/image (334) (1).png>)
+![](<../../.gitbook/assets/image (334) (1) (1).png>)
 
 The `sudo -l` command from before shows us that the user we currently are has access to run commands as **scriptmanager**. A quick Google search showed me that to run a command as another user is to run `sudo -u scriptmanager`. I wanted to get a reverse shell as the **scriptmanager** user:
 
-![](<../../.gitbook/assets/image (360) (1).png>)
+![](<../../.gitbook/assets/image (360) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (345) (1).png>)
 
 I edited the payload from [this website](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md):
 
-![](<../../.gitbook/assets/image (350) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1).png>)
 
 I get the same error as before:
 
@@ -74,7 +74,7 @@ I get the same error as before:
 
 When I ran linpeas (not shows in write-up, but uploaded the same way as the reverse shell), I noticed that there was a folder called **scripts**:
 
-![](<../../.gitbook/assets/image (339) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1).png>)
 
 The code writes text to a file. At this point, I was actually lost. I found [this write-up](https://ethicalhacking.sh/posts/hack-the-box-bashed-writeup/) that clarifies that I should have been focused on the cron jobs and noticed that the file is ran by root in the cron job. I changed the original test.txt file by overwriting it by doing the following:
 

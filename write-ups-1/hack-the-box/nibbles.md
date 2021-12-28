@@ -4,7 +4,7 @@ This is my write-up for the machine **Nibbles** on Hack The Box located at: [htt
 
 nmap: `nmap 10.10.10.75`
 
-![](<../../.gitbook/assets/image (347).png>)
+![](<../../.gitbook/assets/image (347) (1).png>)
 
 We see that 2 ports are open **SSH** and **HTTP**. Going to port 80, we see the following:
 
@@ -16,7 +16,7 @@ In the source code, I saw something interesting:
 
 At this time, I had run a deeper nmap scan to see if anything was different on that scan. Fortunately, nothing was different in the deeper scan (`nmap -T4 -A -v 10.10.10.75 -oN nibbles.nmap`):
 
-![](<../../.gitbook/assets/image (360).png>)
+![](<../../.gitbook/assets/image (360) (1).png>)
 
 Going to the directory from above, we see the following:
 
@@ -32,7 +32,7 @@ Looking through the website I found the following:
 
 I then looked up the name of the author, and this seems to be a CMS application:
 
-![](<../../.gitbook/assets/image (350).png>)
+![](<../../.gitbook/assets/image (350) (1).png>)
 
 I then ran `git clone https://github.com/dignajar/nibbleblog.git` to download the file, but I also looked on metasploit to see if there was an exploit. Turns out there was:
 
@@ -42,7 +42,7 @@ I then found this [video write-up](https://www.youtube.com/watch?v=iXyKLm1nQac) 
 
 ![](<../../.gitbook/assets/image (356).png>)
 
-![](<../../.gitbook/assets/image (339).png>)
+![](<../../.gitbook/assets/image (339) (1).png>)
 
 I now have to brute-force the username and password. I followed [this website](https://infinitelogins.com/2020/02/22/how-to-brute-force-websites-using-hydra/) to see what parameters I needed for my **Hydra** command. I then ran the `hydra -l admin -P rockyou.txt 10.10.10.75 http-post-form "/nibbleblog/admin.php:username=admin&password=^PASS^:Incorrect username or password."` command, and got the following:
 
@@ -68,7 +68,7 @@ I uploaded the **php-reverse-shell** from pentestmonkey online by running `uploa
 
 I was logged in as **nibbler**. I was able to get a TTY shell by typing in **bash**:
 
-![](<../../.gitbook/assets/image (330).png>)
+![](<../../.gitbook/assets/image (330) (1).png>)
 
 There were two files:
 
@@ -76,7 +76,7 @@ There were two files:
 
 I got the user flag:
 
-![](<../../.gitbook/assets/image (336).png>)
+![](<../../.gitbook/assets/image (336) (1).png>)
 
 In the nibbler account, I setup a Python http server in the home directory of nibbler. I then downloaded the **personal.zip** file:
 
@@ -94,7 +94,7 @@ In the **personal.zip** folder, there was a bash script. My assumption was that 
 
 In order to upload the file from my machine, I used the python3 http module to upload it:
 
-![](<../../.gitbook/assets/image (334).png>)
+![](<../../.gitbook/assets/image (334) (1).png>)
 
 ![](<../../.gitbook/assets/image (361).png>)
 
