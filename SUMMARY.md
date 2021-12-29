@@ -69,6 +69,7 @@
   * [Nibbles](write-ups-1/hack-the-box/nibbles.md)
   * [Beep](write-ups-1/hack-the-box/beep.md)
   * [Cronos](write-ups-1/hack-the-box/cronos.md)
+  * [Sense](write-ups-1/hack-the-box/sense.md)
 
 ## Web Hacking
 

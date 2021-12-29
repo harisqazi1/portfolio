@@ -16,11 +16,11 @@ From the basic scan, we can see that http and another service are running. Runni
 
 On the main page of the website, we see the following:
 
-![](<../../.gitbook/assets/image (340) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1).png>)
 
 The source code doesn't seem to give away much:
 
-![](<../../.gitbook/assets/image (341) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1).png>)
 
 At this point, after multiple **gobuster** and **feroxbuster** runs, I had to see what I missed in the write-up. What I had missed was running **DirBuster** with the wordlist of **directory-list-lowercase-2.3-medium.txt** and with the extensions of **cgi​, sh, pl​, py**. This got me the following file:
 
@@ -48,7 +48,7 @@ With the shell in meterpreter, I was unable to run the commands that I wanted to
 
 Now when I run `sudo -l`, I can see what commands my user is able to run as root:
 
-![](<../../.gitbook/assets/image (342).png>)
+![](<../../.gitbook/assets/image (342) (1).png>)
 
 Going to **GTFOBins**, we can see the following for perl:
 

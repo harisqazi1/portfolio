@@ -8,7 +8,7 @@ I am a beginner at penetration testing, so I will be referencing the Official Ha
 
 From the tags, I am able to notice that this machine is about printer exploitation on Linux:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1).png>)
 
 A basic nmap scan shows that only telnet is online:
 
@@ -16,7 +16,7 @@ A basic nmap scan shows that only telnet is online:
 
 Trying to telnet into the system, it asks for a password:
 
-![](<../../.gitbook/assets/image (348) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1) (1) (1).png>)
 
 I also had a deeper nmap scan running: `nmap -A -T4 -p- 10.10.11.107 -oN antique.nmap`
 
@@ -134,12 +134,12 @@ I then hit run and got an output:
 
 Opening that file shows the output of /etc/shadow:
 
-![](<../../.gitbook/assets/image (342) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1).png>)
 
 Since we want to get the output of /root/root.txt, I changed my option in metasploit to that:
 
-![](<../../.gitbook/assets/image (335) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (335) (1) (1) (1) (1).png>)
 
 Reading that file got me the root flag:
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1).png>)

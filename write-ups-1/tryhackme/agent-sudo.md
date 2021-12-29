@@ -49,7 +49,7 @@ I then used **mget \*** to download all of the files:
 
 ![](<../../.gitbook/assets/image (327) (1) (1) (1) (1) (1).png>)
 
-![To\_agentJ.txt](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1).png>)
+![To\_agentJ.txt](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 ![cutie.png](<../../.gitbook/assets/image (332) (1) (1) (1) (1) (1) (1).png>)
 
@@ -61,7 +61,7 @@ It seems from the **To\_agentJ.txt** file that we have to find the password in o
 
 This led me to assume that this was the correct file to brute-force. I ran `binwalk -e cutie.png` and this led me to a directory with the following:
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1).png>)
 
 There is a password for the zip file. I used **fcrackzip** in order to try to brute-force the password. I was trying for a bit to understand what was going on, but I was unable to crack the password. This is when I went back to the [website where I read the write-up from previously](https://marcorei7.wordpress.com/2020/07/29/008-agent-sudo/) and found out about **zip2john**. This program gets you a hash from a zip file which you can use with John The Ripper. I then ran the following to output the hash into a location that worked for me: `zip2john ../../8702.zip > ../../../zip_hash`. I then ran john on the hash, and got the password in a couple seconds:
 
@@ -69,7 +69,7 @@ There is a password for the zip file. I used **fcrackzip** in order to try to br
 
 After entering the password for the zip by running `7z e 8702.zip`, I then was able to get the file hidden in it:
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 In order to crack the password for the other image, I used **StegSeek**:
 
@@ -81,7 +81,7 @@ This led me to this text file:
 
 When I entered the password **hackerrules!** as the answer to the question _SSH password_, I got it correct. This means that this is the password for SSH. Logging in with those credentials, I was able to get into the system, and get the user flag:
 
-![](<../../.gitbook/assets/image (348) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1) (1) (1) (1).png>)
 
 There was another jpeg on the system as well. I used **FileZilla** in order to download the file to my local machine:
 

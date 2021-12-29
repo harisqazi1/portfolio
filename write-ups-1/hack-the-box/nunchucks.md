@@ -50,7 +50,7 @@ This led me to discover a **store.nunchucks.htb**. In order to visit the site, I
 
 We end up on this page:
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1).png>)
 
 I then ran **feroxbuster** on the website to see if there were directories that I can access:
 
@@ -68,7 +68,7 @@ Using the following image from [https://book.hacktricks.xyz/pentesting-web/ssti-
 
 ![](<../../.gitbook/assets/image (327) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1).png>)
 
 After trying to get information from the system, I then went back to the write-up and found out that the server is using NodeJS Express. This is shown by the Response in Burp Suite:
 
@@ -114,7 +114,7 @@ I was lost at this point, since the GTFObins commands were not getting me solid 
 
 Once you run `chmod +x` on the file, you can then get root access.
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1).png>)
 
 You then also have access to root.txt
 

@@ -4,7 +4,7 @@ This is my write-up for the machine **Cronos** on Hack The Box located at: [http
 
 nmap scan: `nmap 10.10.10.13`
 
-![](<../../.gitbook/assets/image (341).png>)
+![](<../../.gitbook/assets/image (341) (1).png>)
 
 We see three ports open. On port 80, we see the following:&#x20;
 
@@ -40,7 +40,7 @@ I was then on this page:
 
 I tried to run two commands together, the traceroute and an additional **ls**:
 
-![](<../../.gitbook/assets/image (335).png>)
+![](<../../.gitbook/assets/image (335) (1).png>)
 
 When I run `cat index.php`, I get the following:
 
@@ -60,7 +60,7 @@ I then upgraded by shell to a interactive tty shell (from [this website](https:/
 
 I was able to find the user.txt flag in the user **noulis**'s home directory:
 
-![](<../../.gitbook/assets/image (363).png>)
+![](<../../.gitbook/assets/image (363) (1).png>)
 
 In order to upload **linpeas.sh** to the machine, I had to download it locally and serve it up in a python http server:
 
@@ -76,7 +76,7 @@ In the official write-up, something stood out to me:
 
 Obviously, in the real world a hint like this would not be given, but since I had tried what I had known and got nowhere, I took a hint from this. This led me to finding this:
 
-![](<../../.gitbook/assets/image (360).png>)
+![](<../../.gitbook/assets/image (360) (1).png>)
 
 I knew that root was running the **artisan** file. After some messing around, what worked for me was creating a local file named artisan and copying all the contents from the original file into it. Then I edited one line in the file to get me a reverse shell:
 

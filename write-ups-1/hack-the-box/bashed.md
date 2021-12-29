@@ -60,7 +60,7 @@ Running that command got me out of the limited shell:
 
 The `sudo -l` command from before shows us that the user we currently are has access to run commands as **scriptmanager**. A quick Google search showed me that to run a command as another user is to run `sudo -u scriptmanager`. I wanted to get a reverse shell as the **scriptmanager** user:
 
-![](<../../.gitbook/assets/image (360) (1) (1).png>)
+![](<../../.gitbook/assets/image (360) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (345) (1).png>)
 
@@ -99,4 +99,4 @@ Going back to see where my mistake was, I should have noticed this in the output
 
 ![](<../../.gitbook/assets/image (359) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (348) (1) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1) (1).png>)

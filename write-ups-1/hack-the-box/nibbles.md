@@ -16,7 +16,7 @@ In the source code, I saw something interesting:
 
 At this time, I had run a deeper nmap scan to see if anything was different on that scan. Fortunately, nothing was different in the deeper scan (`nmap -T4 -A -v 10.10.10.75 -oN nibbles.nmap`):
 
-![](<../../.gitbook/assets/image (360) (1).png>)
+![](<../../.gitbook/assets/image (360) (1) (1).png>)
 
 Going to the directory from above, we see the following:
 
@@ -28,7 +28,7 @@ I then ran **feroxbuster** on the system (`feroxbuster -u http://10.10.10.75/nib
 
 Looking through the website I found the following:
 
-![](<../../.gitbook/assets/image (340) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1).png>)
 
 I then looked up the name of the author, and this seems to be a CMS application:
 
@@ -80,13 +80,13 @@ I got the user flag:
 
 In the nibbler account, I setup a Python http server in the home directory of nibbler. I then downloaded the **personal.zip** file:
 
-![](<../../.gitbook/assets/image (335) (1).png>)
+![](<../../.gitbook/assets/image (335) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (353).png>)
 
 When I pressed **CNTRL-C** to stop the http server, I had gotten out of the shell. I then had to get back in using the same php-reverse-shell as before:
 
-![](<../../.gitbook/assets/image (341) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1).png>)
 
 In the **personal.zip** folder, there was a bash script. My assumption was that I was going to run the bash script on the machine. I found out I was unable to unzip the file on the machine:
 
@@ -104,7 +104,7 @@ I then ran the bash script:
 
 I ran `sudo -l` to see what I have access to as the sudo user:
 
-![](<../../.gitbook/assets/image (348) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1).png>)
 
 My guess is that I will have to edit the bash script to get to be root. After I had the TTY python shell, I was then able to unzip:
 

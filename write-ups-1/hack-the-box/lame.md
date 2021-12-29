@@ -20,7 +20,7 @@ There was nothing in the folder. My guess is that I will have to upload a revers
 
 Running `smbclient -L <IP_ADDRESS>` shows the same information:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1).png>)
 
 Looking in the **tmp** directory did not give anything useful:
 

@@ -16,7 +16,7 @@ I went to port 10000 out of curiosity and found a Webmin login page there:
 
 I found this exploit on **exploitdb**:
 
-![](<../../.gitbook/assets/image (348).png>)
+![](<../../.gitbook/assets/image (348) (1).png>)
 
 I had to go read the official Hack The Box write-up for this machine to find out what I overlooked. Turns out the page I was looking at had the exploit all along:
 
@@ -28,7 +28,7 @@ Changing the URL to be **/etc/passwd** shows you the following:
 
 Now we know there is a user called **fanis** on the system. Looking in their directory, we are able to find the flag:
 
-![](<../../.gitbook/assets/image (362).png>)
+![](<../../.gitbook/assets/image (362) (1).png>)
 
 Going back to the LFI page provided in the LFI exploit, we can see a password:
 
@@ -36,5 +36,5 @@ Going back to the LFI page provided in the LFI exploit, we can see a password:
 
 From this [write-up](https://dalemazza.github.io/htb/2020/07/04/HTB-Beep-OSCP-Walkthrough.html), I understood if we use this password for the root user, we will be able to log in as root:
 
-![](<../../.gitbook/assets/image (340).png>)
+![](<../../.gitbook/assets/image (340) (1).png>)
 
