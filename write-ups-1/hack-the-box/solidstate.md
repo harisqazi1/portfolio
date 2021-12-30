@@ -34,7 +34,7 @@ When we run **listusers** we see the following:
 
 ![](<../../.gitbook/assets/image (362).png>)
 
-After I stuck for a while, I found out that I was looking at the wrong exploit, and the correct one was: [https://www.exploit-db.com/exploits/35513](https://www.exploit-db.com/exploits/35513). I then also learned that we have to modify this exploit to make it to work. If we got to [this GitHub page (swisskyrepo)](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#bash-tcp) we can see commands we can use for reverse shells. I then added one of the Bash TCP payloads and edited the python file:
+After I was stuck for a while, I found out from the official write-up that I was looking at the wrong exploit, and the correct one was: [https://www.exploit-db.com/exploits/35513](https://www.exploit-db.com/exploits/35513). I then also learned that we have to modify this exploit to make it to work. If we got to [this GitHub page (swisskyrepo)](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#bash-tcp) we can see commands we can use for reverse shells. I then added one of the Bash TCP payloads and edited the python file:
 
 ![](<../../.gitbook/assets/image (346).png>)
 
