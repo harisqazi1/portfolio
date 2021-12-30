@@ -46,7 +46,7 @@ After you run the python script (on another terminal), you get the following mes
 
 ![](<../../.gitbook/assets/image (338).png>)
 
-The payload was submitted, but I was not able to get a shell. The official write-up stated that I should change the password for the user **mindy** and then login to her account:
+The payload was submitted, but I was not able to get a shell. I realized the netcat listener was not going to come in handy for this, so I closed it. The official write-up stated that I should change the password for the user **mindy** and then login to her account:
 
 ![](<../../.gitbook/assets/image (340).png>)
 
