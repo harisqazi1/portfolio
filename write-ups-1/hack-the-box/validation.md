@@ -12,7 +12,7 @@ rustscan: rustscan -a 10.10.11.116
 
 Going to port 80, we see this page:
 
-![](<../../.gitbook/assets/image (338) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1) (1).png>)
 
 On Hack The Box, I got a hint from one of the tags from the machine:
 
@@ -20,15 +20,15 @@ On Hack The Box, I got a hint from one of the tags from the machine:
 
 It seems that I need to run some type of SQL Injection on the page. After trying a bunch of SQL queries, I ended up running an nmap scan on the machine, since according to the walk-through, I had missed a bunch of open ports using rust scan:
 
-![](<../../.gitbook/assets/image (350) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1).png>)
 
 After I got stuck, I found [this write-up](https://solomon-sec.com/hack-the-box-validation-walkthrough/) that basically made it understand where the vulnerability was:
 
-![](<../../.gitbook/assets/image (345) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (345) (1) (1) (1) (1).png>)
 
 I then got the following output:
 
-![](<../../.gitbook/assets/image (342) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1).png>)
 
 This showed me that this is vulnerable to SQL Injection. Viewing the same write-up, I then changed the parameters to then submit to the website:
 
@@ -38,7 +38,7 @@ This showed me that this is vulnerable to SQL Injection. Viewing the same write-
 
 I then got stuck again and then watched [this video](https://youtu.be/dFKsSYVeVbI) that assisted a bit more in the understanding of what I was messing up on. I found out that I had to run the command to get a shell on the system:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1).png>)
 
 After I ran this command, I was able to run commands on the system:
 
@@ -50,11 +50,11 @@ Apparently the IP Addresses of the VPN you are using on HTB can change, which wa
 
 In order to get this to work though, you have to change your request from GET to POST, which can be done by clicking on the button below:
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1).png>)
 
 You can then submit the command, as seen in the image above. After I had the shell, the first thing I did was find the user.txt file:
 
-![](<../../.gitbook/assets/image (344) (1) (1).png>)
+![](<../../.gitbook/assets/image (344) (1) (1) (1).png>)
 
 I was trying to find a way to upload **linpeas.sh** or get a way to see what access I had, but I ended up getting nowhere. On the official write-up, the credentials I had seen earlier in config.php, were the credentials for the root user:
 

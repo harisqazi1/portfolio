@@ -70,6 +70,7 @@
   * [Beep](write-ups-1/hack-the-box/beep.md)
   * [Cronos](write-ups-1/hack-the-box/cronos.md)
   * [Sense](write-ups-1/hack-the-box/sense.md)
+  * [SolidState](write-ups-1/hack-the-box/solidstate.md)
 
 ## Web Hacking
 

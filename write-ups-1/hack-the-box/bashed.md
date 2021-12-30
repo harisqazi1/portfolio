@@ -16,7 +16,7 @@ We can see that port 80 (http) is open. I did a deeper nmap scan as well:
 
 The port open is still the same. Going to the http site, we see the following:
 
-![](<../../.gitbook/assets/image (354) (1).png>)
+![](<../../.gitbook/assets/image (354) (1) (1).png>)
 
 I got a hint from this that **phpbash** is being used on the server and that I will have to exploit it. I ran **gobuster** to see what directories were available:
 
@@ -32,41 +32,41 @@ The file was empty when downloaded. Looking in the **dev** folder, I was able to
 
 I was then able to find the user.txt flag:
 
-![](<../../.gitbook/assets/image (357) (1) (1).png>)
+![](<../../.gitbook/assets/image (357) (1) (1) (1).png>)
 
 Running `sudo -l`, I was able to see the following:
 
-![](<../../.gitbook/assets/image (337) (1).png>)
+![](<../../.gitbook/assets/image (337) (1) (1).png>)
 
 I then realized I would have to upload a reverse shell to the system. There were two ways in my mind: **netcat** and **pentestmonkey php-reverse-shell**. I tried the **pentestmonkey** option first. I downloaded it from [here](https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php), and then edited the IP address to be mine and then was able to upload it using `python3 -m http.server`.&#x20;
 
-![](<../../.gitbook/assets/image (346) (1) (1).png>)
+![](<../../.gitbook/assets/image (346) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (358) (1) (1).png>)
+![](<../../.gitbook/assets/image (358) (1) (1) (1).png>)
 
 I then accessed the file on the website and was able to get a reverse shell using **netcat**:
 
-![](<../../.gitbook/assets/image (344) (1).png>)
+![](<../../.gitbook/assets/image (344) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (347) (1) (1).png>)
+![](<../../.gitbook/assets/image (347) (1) (1) (1).png>)
 
 After a while of searching for a way to get out of a limited shell, I found [this site](https://guide.offsecnewbie.com/shells), where I saw the following:
 
-![](<../../.gitbook/assets/image (343).png>)
+![](<../../.gitbook/assets/image (343) (1).png>)
 
 Running that command got me out of the limited shell:
 
-![](<../../.gitbook/assets/image (334) (1) (1).png>)
+![](<../../.gitbook/assets/image (334) (1) (1) (1).png>)
 
 The `sudo -l` command from before shows us that the user we currently are has access to run commands as **scriptmanager**. A quick Google search showed me that to run a command as another user is to run `sudo -u scriptmanager`. I wanted to get a reverse shell as the **scriptmanager** user:
 
-![](<../../.gitbook/assets/image (360) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (360) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (345) (1).png>)
+![](<../../.gitbook/assets/image (345) (1) (1).png>)
 
 I edited the payload from [this website](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md):
 
-![](<../../.gitbook/assets/image (350) (1) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1) (1).png>)
 
 I get the same error as before:
 
@@ -97,6 +97,6 @@ I was then able to get root (after a minute) and the root flag:
 
 Going back to see where my mistake was, I should have noticed this in the output of linpeas.sh:
 
-![](<../../.gitbook/assets/image (359) (1) (1).png>)
+![](<../../.gitbook/assets/image (359) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (348) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1) (1) (1).png>)

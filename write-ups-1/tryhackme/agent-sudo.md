@@ -35,7 +35,7 @@ I tried to use BurpSuite here to edit the User-Agent to be "Agent S", based off 
 
 We now know that user C is **chris** and his password is weak. I chose this time to answer the questions on THM:
 
-![](<../../.gitbook/assets/image (346) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (346) (1) (1) (1) (1) (1) (1).png>)
 
 For the next task, it seemed that I needed to brute-force the password for FTP. Knowing that the username was **chris**, I then used hydra to try to brute-force the password: `hydra -l chris -P rockyou.txt ftp://10.10.126.175 -t 16`. I was able to get the password:
 
@@ -43,17 +43,17 @@ For the next task, it seemed that I needed to brute-force the password for FTP. 
 
 After logging into the ftp server with the credentials, we see the following:
 
-![](<../../.gitbook/assets/image (344) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (344) (1) (1) (1) (1) (1) (1) (1).png>)
 
 I then used **mget \*** to download all of the files:
 
 ![](<../../.gitbook/assets/image (327) (1) (1) (1) (1) (1).png>)
 
-![To\_agentJ.txt](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![To\_agentJ.txt](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
-![cutie.png](<../../.gitbook/assets/image (332) (1) (1) (1) (1) (1) (1).png>)
+![cutie.png](<../../.gitbook/assets/image (332) (1) (1) (1) (1) (1) (1) (1).png>)
 
-![cute-alien.jpg](<../../.gitbook/assets/image (347) (1) (1) (1) (1) (1).png>)
+![cute-alien.jpg](<../../.gitbook/assets/image (347) (1) (1) (1) (1) (1) (1).png>)
 
 It seems from the **To\_agentJ.txt** file that we have to find the password in one of the images provided. Running **strings** on the **cutie.png** file, I saw this towards the end:
 
@@ -61,15 +61,15 @@ It seems from the **To\_agentJ.txt** file that we have to find the password in o
 
 This led me to assume that this was the correct file to brute-force. I ran `binwalk -e cutie.png` and this led me to a directory with the following:
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1) (1).png>)
 
 There is a password for the zip file. I used **fcrackzip** in order to try to brute-force the password. I was trying for a bit to understand what was going on, but I was unable to crack the password. This is when I went back to the [website where I read the write-up from previously](https://marcorei7.wordpress.com/2020/07/29/008-agent-sudo/) and found out about **zip2john**. This program gets you a hash from a zip file which you can use with John The Ripper. I then ran the following to output the hash into a location that worked for me: `zip2john ../../8702.zip > ../../../zip_hash`. I then ran john on the hash, and got the password in a couple seconds:
 
-![](<../../.gitbook/assets/image (338) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1) (1) (1) (1) (1).png>)
 
 After entering the password for the zip by running `7z e 8702.zip`, I then was able to get the file hidden in it:
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 In order to crack the password for the other image, I used **StegSeek**:
 
@@ -81,11 +81,11 @@ This led me to this text file:
 
 When I entered the password **hackerrules!** as the answer to the question _SSH password_, I got it correct. This means that this is the password for SSH. Logging in with those credentials, I was able to get into the system, and get the user flag:
 
-![](<../../.gitbook/assets/image (348) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1) (1) (1) (1) (1).png>)
 
 There was another jpeg on the system as well. I used **FileZilla** in order to download the file to my local machine:
 
-![](<../../.gitbook/assets/image (345) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (345) (1) (1) (1) (1) (1) (1) (1).png>)
 
 ![Alien\_autopsy.jpg](<../../.gitbook/assets/image (330) (1) (1) (1) (1) (1).png>)
 
@@ -95,7 +95,7 @@ On THM there was a question asking _What is the incident of the photo called?_. 
 
 Seems that he can run /bin/bash with sudo permission. I Googled "exploit db (ALL, !root) /bin/bash" and found the following page: [https://web.archive.org/web/20210120002645/www.exploit-db.com/exploits/47502](https://web.archive.org/web/20210120002645/www.exploit-db.com/exploits/47502). This has an exploit in it for our system. I ran the exploit and got root:
 
-![](<../../.gitbook/assets/image (343) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (343) (1) (1) (1) (1) (1).png>)
 
 I then also got the root flag:
 
