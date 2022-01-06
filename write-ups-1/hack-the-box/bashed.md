@@ -72,7 +72,7 @@ I get the same error as before:
 
 ![](<../../.gitbook/assets/image (355) (1).png>)
 
-When I ran linpeas (not shown in write-up, but uploaded the same way as the reverse shell), I noticed that there was a folder called **scripts**:
+When I ran linpeas (not shows in write-up, but uploaded the same way as the reverse shell), I noticed that there was a folder called **scripts**:
 
 ![](<../../.gitbook/assets/image (339) (1) (1).png>)
 
