@@ -294,7 +294,7 @@ Check for character at specific location (for BurpSuite Intruder):
 
 Again, for this one the error lets you know when you are on the right path:
 
-![](<../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 ### Exploiting blind SQL injection by triggering time delays <a href="#exploiting-blind-sql-injection-by-triggering-time-delays" id="exploiting-blind-sql-injection-by-triggering-time-delays"></a>
 

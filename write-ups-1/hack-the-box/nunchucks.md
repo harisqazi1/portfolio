@@ -50,11 +50,11 @@ This led me to discover a **store.nunchucks.htb**. In order to visit the site, I
 
 We end up on this page:
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1) (1).png>)
 
 I then ran **feroxbuster** on the website to see if there were directories that I can access:
 
-![](<../../.gitbook/assets/image (344) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (344) (1) (1) (1) (1) (1) (1) (1).png>)
 
 I didn't get that much of help from this. The walk-through mentioned that there is a template injection vulnerability on this site. I tested out the example they gave:
 
@@ -68,11 +68,11 @@ Using the following image from [https://book.hacktricks.xyz/pentesting-web/ssti-
 
 ![](<../../.gitbook/assets/image (327) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 After trying to get information from the system, I then went back to the write-up and found out that the server is using NodeJS Express. This is shown by the Response in Burp Suite:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1).png>)
 
 The walk-through mentions how they found the website [http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine](http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine) by searching on Google. I searched on Google as well, but this website was not there in the results of a search. After this, the walk-through mentions running the following template injection (I modified it for my usage):
 
@@ -88,11 +88,11 @@ I then was able to read the user.txt file in david's home directory:
 
 I then ran `script /dev/null bash` on recommendation from the walk-through. This gave me the shell (with the username and hostname). I then ran `getcap -r /`, again, on recommnedation of the write-up:
 
-![](<../../.gitbook/assets/image (334) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (334) (1) (1) (1) (1) (1) (1) (1).png>)
 
 The walk-through recommended using GTFObin's **perl** page.  It seemed that I was root, but was unable to read the root.txt file:
 
-![](<../../.gitbook/assets/image (343) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (343) (1) (1) (1) (1) (1).png>)
 
 I was unable to get **nano** (text editor) to work as I wanted it to. I then added my own key to the **authorized\_keys** file that way I was able to get back into the machine. In order to do this I did the following (recommended by the write-up):
 

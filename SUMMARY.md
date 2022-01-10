@@ -71,6 +71,7 @@
   * [Cronos](write-ups-1/hack-the-box/cronos.md)
   * [Sense](write-ups-1/hack-the-box/sense.md)
   * [SolidState](write-ups-1/hack-the-box/solidstate.md)
+  * [Node](write-ups-1/hack-the-box/node.md)
 
 ## Web Hacking
 

@@ -4,19 +4,19 @@ This is my write-up for the machine **Beep** on Hack The Box located at: [https:
 
 nmap scan: `nmap 10.10.10.7`
 
-![](<../../.gitbook/assets/image (366).png>)
+![](<../../.gitbook/assets/image (366) (1).png>)
 
 There are a lot of ports open, so I will start with port 80 (HTTP) first. We see a login page there:
 
-![](<../../.gitbook/assets/image (339).png>)
+![](<../../.gitbook/assets/image (339) (1).png>)
 
 I went to port 10000 out of curiosity and found a Webmin login page there:
 
-![](<../../.gitbook/assets/image (350) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1).png>)
 
 I found this exploit on **exploitdb**:
 
-![](<../../.gitbook/assets/image (348) (1) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1) (1).png>)
 
 I had to go read the official Hack The Box write-up for this machine to find out what I overlooked. Turns out the page I was looking at had the exploit all along:
 
@@ -24,7 +24,7 @@ I had to go read the official Hack The Box write-up for this machine to find out
 
 Changing the URL to be **/etc/passwd** shows you the following:
 
-![](<../../.gitbook/assets/image (336) (1).png>)
+![](<../../.gitbook/assets/image (336) (1) (1).png>)
 
 Now we know there is a user called **fanis** on the system. Looking in their directory, we are able to find the flag:
 
