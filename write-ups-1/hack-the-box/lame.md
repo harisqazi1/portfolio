@@ -8,7 +8,7 @@ I am a beginner at penetration testing, so I will be referencing the Official Ha
 
 rustscan:  `rustscan -a 10.10.10.3`
 
-![](<../../.gitbook/assets/image (327) (1) (1).png>)
+![](<../../.gitbook/assets/image (327) (1) (1) (1).png>)
 
 I saw that port 21 was open. I was able to login to the anonymous user:
 
@@ -28,8 +28,8 @@ Looking in the **tmp** directory did not give anything useful:
 
 From playing around in the **SMB** system, I noticed that I have access to the **tmp** and **IPC$** user. Neither of those had gotten me information that I can work off of. I looked at the write-up to see what I missed. There was a exploit on Metasploit that got you root:
 
-![](<../../.gitbook/assets/image (351) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1).png>)
 
 Now I have to look for the flags:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1).png>)

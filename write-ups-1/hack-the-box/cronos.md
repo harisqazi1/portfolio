@@ -16,7 +16,7 @@ I am not too familiar with DNS enumeration methods. For this reason, after I sea
 
 This will show us the following:
 
-![](<../../.gitbook/assets/image (327).png>)
+![](<../../.gitbook/assets/image (327) (1).png>)
 
 We see an **admin.cronos.htb**, so we will add that to the **/etc/hosts** file as well (step was mentioned in the official write-up):
 
@@ -24,11 +24,11 @@ We see an **admin.cronos.htb**, so we will add that to the **/etc/hosts** file a
 
 Now if we go to **admin.cronos.htb**, we see the following:
 
-![](<../../.gitbook/assets/image (347) (1) (1).png>)
+![](<../../.gitbook/assets/image (347) (1) (1) (1).png>)
 
 Looking at the tags for this machine, I believe that we have to do a SQL Injection for this authentication portal:
 
-![](<../../.gitbook/assets/image (367) (1).png>)
+![](<../../.gitbook/assets/image (367) (1) (1).png>)
 
 I then opened this web page in Burp Suite to see if I can manipulate the outgoing HTTP requests. I was not able to get any where using the **Intruder** or **Repeater** modules. Reading the write-up again, it seems the SQL Injection I did try **admin'--** was incorrect by a small bit. I miseed the extra **" -"** at the end:
 
@@ -36,7 +36,7 @@ I then opened this web page in Burp Suite to see if I can manipulate the outgoin
 
 I was then on this page:
 
-![](<../../.gitbook/assets/image (346) (1) (1).png>)
+![](<../../.gitbook/assets/image (346) (1) (1) (1).png>)
 
 I tried to run two commands together, the traceroute and an additional **ls**:
 
@@ -52,15 +52,15 @@ To me this means that there is room for me to run a reverse netcat connection to
 
 &#x20;
 
-![](<../../.gitbook/assets/image (361) (1).png>)
+![](<../../.gitbook/assets/image (361) (1) (1).png>)
 
 I then upgraded by shell to a interactive tty shell (from [this website](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/)):
 
-![](<../../.gitbook/assets/image (334) (1) (1).png>)
+![](<../../.gitbook/assets/image (334) (1) (1) (1).png>)
 
 I was able to find the user.txt flag in the user **noulis**'s home directory:
 
-![](<../../.gitbook/assets/image (363) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (363) (1) (1) (1) (1).png>)
 
 In order to upload **linpeas.sh** to the machine, I had to download it locally and serve it up in a python http server:
 
@@ -72,7 +72,7 @@ I was then able to grab it from the other machine using **wget**:
 
 In the official write-up, something stood out to me:
 
-![](<../../.gitbook/assets/image (364) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1).png>)
 
 Obviously, in the real world a hint like this would not be given, but since I had tried what I had known and got nowhere, I took a hint from this. This led me to finding this:
 

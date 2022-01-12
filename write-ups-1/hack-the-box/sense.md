@@ -39,11 +39,11 @@ It seems that pfSense is running on the system. I tried the default credentials 
 
 There still seems to be one vulnerability in place. I ran different searches in the directory to try to find something else, but came up short. When I viewed the official write-up to see what I missed, apparently running the lowercase medium word-list in **dirbusters** word-list directory would have shown me an \<IP>/system-users.txt file:
 
-![](<../../.gitbook/assets/image (362) (1).png>)
+![](<../../.gitbook/assets/image (362) (1) (1).png>)
 
 The company defaults for pfSense was **pfsense**. The credentials **rohit**:**pfsense** got me into the system:
 
-![](<../../.gitbook/assets/image (363) (1) (1).png>)
+![](<../../.gitbook/assets/image (363) (1) (1) (1).png>)
 
 Searching for "pfsense" on **metasploit** showed me a couple of results for exploits. I chose one and then fixed the options to work for this box:
 
@@ -51,7 +51,7 @@ Searching for "pfsense" on **metasploit** showed me a couple of results for expl
 
 I then had a reverse shell:
 
-![](<../../.gitbook/assets/image (348) (1) (1).png>)
+![](<../../.gitbook/assets/image (348) (1) (1) (1).png>)
 
 I was then able to find the user.txt flag in **rohit**'s home directory:
 
