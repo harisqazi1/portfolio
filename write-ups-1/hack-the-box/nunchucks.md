@@ -68,11 +68,11 @@ Using the following image from [https://book.hacktricks.xyz/pentesting-web/ssti-
 
 ![](<../../.gitbook/assets/image (327) (1) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 After trying to get information from the system, I then went back to the write-up and found out that the server is using NodeJS Express. This is shown by the Response in Burp Suite:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 The walk-through mentions how they found the website [http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine](http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine) by searching on Google. I searched on Google as well, but this website was not there in the results of a search. After this, the walk-through mentions running the following template injection (I modified it for my usage):
 
@@ -110,7 +110,7 @@ You can now SSH as david onto the machine
 
 I was lost at this point, since the GTFObins commands were not getting me solid results. The write-up mentioned breaking down the `perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/sh";'` command to a script. This was the solution from the write-up:
 
-![](<../../.gitbook/assets/image (330) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (330) (1) (1) (1) (1) (1).png>)
 
 Once you run `chmod +x` on the file, you can then get root access.
 
@@ -118,5 +118,5 @@ Once you run `chmod +x` on the file, you can then get root access.
 
 You then also have access to root.txt
 
-![](<../../.gitbook/assets/image (331) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (331) (1) (1) (1) (1).png>)
 

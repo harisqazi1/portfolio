@@ -4,11 +4,11 @@ This is my write-up for the Hack The Box machine called **SolidState** located a
 
 nmap scan:
 
-![](<../../.gitbook/assets/image (357).png>)
+![](<../../.gitbook/assets/image (357) (1).png>)
 
 The basic nmap scan shows 4 ports open. However, in the machine tags, we see the following:
 
-![](<../../.gitbook/assets/image (336) (1).png>)
+![](<../../.gitbook/assets/image (336) (1) (1).png>)
 
 It seems that our basic nmap scan did not catch any web ports (80 or 443). I then ran a deeper nmap scan (`nmap -T4 -A -v -Pn 10.10.10.51 -oN solidstate.nmap`)which led me to find out port 80 is open as well:
 
@@ -16,7 +16,7 @@ It seems that our basic nmap scan did not catch any web ports (80 or 443). I the
 
 Going to the the website, we see a message submission box:
 
-![](<../../.gitbook/assets/image (350) (1) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1) (1).png>)
 
 Maybe this might be used for command execution or a reverse shell process? I then ran **dirsearch** (`dirsearch -e php,html,js,cgi,bak,txt -u http://10.10.10.51 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt`) on the IP Address to see if there are items we have access to:
 
@@ -28,7 +28,7 @@ Looking at the files in those directories led me to a dead end. I then wanted to
 
 I tried various settings to get it to work, however I was not able to do so. While browsing this exploit on Metasploit, I realized the default credentials loaded into the exploit were **root**:**root**. I had a hunch that I should try this out, but I did not follow it. Looking at the official Hack The Box write-up for this machine, I realized that I was right. Also, I had found out that my nmap scan had missed port 4555. I was able to login into the port using those credentials:
 
-![](<../../.gitbook/assets/image (354).png>)
+![](<../../.gitbook/assets/image (354) (1).png>)
 
 When we run **listusers** we see the following:
 
@@ -58,15 +58,15 @@ Reading the second email shows us the following:
 
 We can then use these credentials to login to SSH and get the user flag:
 
-![](<../../.gitbook/assets/image (341) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1).png>)
 
 Running commands like **wget**, was showing me an error:
 
-![](<../../.gitbook/assets/image (337).png>)
+![](<../../.gitbook/assets/image (337) (1).png>)
 
 I then found [this website](https://www.hacknos.com/rbash-escape-rbash-restricted-shell-escape/) that showed me the way to get out of rbash restricted shells:
 
-![](<../../.gitbook/assets/image (364) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1).png>)
 
 I then uploaded **linpeas.sh** to the machine using **python3**:
 

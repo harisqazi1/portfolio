@@ -73,6 +73,7 @@
   * [SolidState](write-ups-1/hack-the-box/solidstate.md)
   * [Node](write-ups-1/hack-the-box/node.md)
   * [Valentine](write-ups-1/hack-the-box/valentine.md)
+  * [Sunday](write-ups-1/hack-the-box/sunday.md)
 
 ## Web Hacking
 

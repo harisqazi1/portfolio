@@ -16,11 +16,11 @@ Going to port 80, we see this page:
 
 On Hack The Box, I got a hint from one of the tags from the machine:
 
-![](<../../.gitbook/assets/image (352) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (352) (1) (1) (1) (1) (1).png>)
 
 It seems that I need to run some type of SQL Injection on the page. After trying a bunch of SQL queries, I ended up running an nmap scan on the machine, since according to the walk-through, I had missed a bunch of open ports using rust scan:
 
-![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 After I got stuck, I found [this write-up](https://solomon-sec.com/hack-the-box-validation-walkthrough/) that basically made it understand where the vulnerability was:
 
@@ -32,13 +32,13 @@ I then got the following output:
 
 This showed me that this is vulnerable to SQL Injection. Viewing the same write-up, I then changed the parameters to then submit to the website:
 
-![](<../../.gitbook/assets/image (351) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (335) (1) (1) (1) (1).png>)
 
 I then got stuck again and then watched [this video](https://youtu.be/dFKsSYVeVbI) that assisted a bit more in the understanding of what I was messing up on. I found out that I had to run the command to get a shell on the system:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1).png>)
 
 After I ran this command, I was able to run commands on the system:
 

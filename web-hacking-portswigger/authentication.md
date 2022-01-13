@@ -34,7 +34,7 @@ When the username and password are wrong:
 
 When the username is correct and the password is wrong (notice the last period missing):
 
-![](<../.gitbook/assets/image (337) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (337) (1) (1) (1) (1) (1).png>)
 
 We can use these strings to then use the Burp Intruder to search for those exact strings using the **Grep - Match** feature (under Options):
 
@@ -42,7 +42,7 @@ We can use these strings to then use the Burp Intruder to search for those exact
 
 When we do not see that string in the response, we can assume we have a password:
 
-![](<../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 ### Username enumeration via response timing
 

