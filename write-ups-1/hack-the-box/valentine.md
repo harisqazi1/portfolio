@@ -4,7 +4,7 @@ This is my write-up for the machine on Hack The Box called **Valentine** located
 
 I started off with an nmap scan:
 
-![](<../../.gitbook/assets/image (363).png>)
+![](<../../.gitbook/assets/image (363) (1).png>)
 
 This was a preliminary scan. I then ran a deeper scan (`nmap -T4 -A -v -Pn -p- 10.10.10.79 -oN valentine.nmap_full`) to see if the basic scan missed anything:
 
@@ -20,7 +20,7 @@ I then ran the following **dirsearch** command to see what directories are avail
 
 I then saw from the results that **/dev** was available for me to access:
 
-![](<../../.gitbook/assets/image (364) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1).png>)
 
 notes.txt:
 
@@ -36,21 +36,21 @@ The **hype\_key** file looked like hexadecimal to me, so I used an online conver
 
 It seemed to be a private RSA key. At this time, my **dirsearch** command had completed from running:
 
-![](<../../.gitbook/assets/image (348).png>)
+![](<../../.gitbook/assets/image (348) (1).png>)
 
 The **/encode** and **/decode** both look similar and both use base64 in order to decode and encode:
 
-![](<../../.gitbook/assets/image (361).png>)
+![](<../../.gitbook/assets/image (361) (1).png>)
 
-![](<../../.gitbook/assets/image (329).png>)
+![](<../../.gitbook/assets/image (329) (1).png>)
 
 **/omg** turned out to be the picture on the home screen we saw earlier:
 
-![](<../../.gitbook/assets/image (351) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1).png>)
 
 In the notes, this stuck out to me:
 
-![](<../../.gitbook/assets/image (362).png>)
+![](<../../.gitbook/assets/image (362) (1).png>)
 
 It seems the encoding and decoding is done server-side as well. I tried to run the following, in order to get a reverse shell, but it did not work:
 
@@ -78,7 +78,7 @@ The dots that I was not able to connect was that this was the password for the p
 
 I then had gotten the **user.txt** flag:
 
-![](<../../.gitbook/assets/image (339) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1).png>)
 
 I then imported **linpeas.sh** to the server using a **python3** module:
 
@@ -88,7 +88,7 @@ I then imported **linpeas.sh** to the server using a **python3** module:
 
 Running **linpeas.sh**, I noticed something interesting:
 
-![](<../../.gitbook/assets/image (350) (1).png>)
+![](<../../.gitbook/assets/image (350) (1) (1).png>)
 
 I had access to the **tmux** program, but I did not know where to go from there. I then read the official write-up and found out that I overlooked the **ps aux** command that shows what processes are being run currently. This would have showed me a root command of **tmux** being ran. If I ran that myself, I then get root:
 
