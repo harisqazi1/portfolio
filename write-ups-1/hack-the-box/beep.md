@@ -28,7 +28,7 @@ Changing the URL to be **/etc/passwd** shows you the following:
 
 Now we know there is a user called **fanis** on the system. Looking in their directory, we are able to find the flag:
 
-![](<../../.gitbook/assets/image (362) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (362) (1) (1) (1) (1) (1).png>)
 
 Going back to the LFI page provided in the LFI exploit, we can see a password:
 

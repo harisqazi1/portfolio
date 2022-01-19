@@ -24,7 +24,7 @@ Since SSH is available on port 22022, I will use **hydra** to brute force the lo
 
 I looked at the official write-up as well as others, and people just happen to guess **sunday** to be the password (since it is the name of the machine) and it works for them. The official write-up does not give a hint into what software to use to brute-force the password, it just says to do so. This could just be my lack of pen-testing knowledge, so I'll just take the password to be **sunday** from the write-ups and move on:
 
-![](<../../.gitbook/assets/image (354) (1).png>)
+![](<../../.gitbook/assets/image (354) (1) (1).png>)
 
 I was then able to find the **user.txt** flag:
 
@@ -40,7 +40,7 @@ Looking on GTFOBins, I was not able to find a binary with this name:
 
 To me, this means that this program is custom made. It seems that **/root/troll** was an actual troll, as I was not able to run it:
 
-![](<../../.gitbook/assets/image (353).png>)
+![](<../../.gitbook/assets/image (353) (1).png>)
 
 I then went to the root of the machine and tried to find what I can. I did find the following in the **backups** folder:
 

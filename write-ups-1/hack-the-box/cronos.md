@@ -52,7 +52,7 @@ To me this means that there is room for me to run a reverse netcat connection to
 
 &#x20;
 
-![](<../../.gitbook/assets/image (361) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (361) (1) (1) (1) (1).png>)
 
 I then upgraded by shell to a interactive tty shell (from [this website](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/)):
 

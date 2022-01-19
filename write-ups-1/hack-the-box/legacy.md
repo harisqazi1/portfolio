@@ -1,0 +1,24 @@
+# Legacy
+
+This is my write-up for the Hack The Box machine called **Legacy** located at: [https://app.hackthebox.com/machines/Legacy](https://app.hackthebox.com/machines/Legacy).
+
+I ran a basic nmap scan to start off:
+
+![](<../../.gitbook/assets/image (353).png>)
+
+The basic nmap scan was backed up by a more deeper scan:
+
+![](<../../.gitbook/assets/image (354).png>)
+
+From my understanding, it seems that **SMB** is open. Running `enum4linux -a 10.10.10.4` gets me the following information:
+
+![](<../../.gitbook/assets/image (361).png>)
+
+Running a **Metasploit** module on the IP Address we can see the SMB version:
+
+![](<../../.gitbook/assets/image (374).png>)
+
+Doing a Google search for "smb Windows XP SP3" got me to [this site](https://www.rapid7.com/db/modules/exploit/windows/smb/ms08\_067\_netapi/). I then ran this exploit and filled in the information for this machine. I was then able to get a meterpreter shell:
+
+![](<../../.gitbook/assets/image (362).png>)
+

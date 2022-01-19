@@ -12,7 +12,7 @@ The basic nmap scan shows 4 ports open. However, in the machine tags, we see the
 
 It seems that our basic nmap scan did not catch any web ports (80 or 443). I then ran a deeper nmap scan (`nmap -T4 -A -v -Pn 10.10.10.51 -oN solidstate.nmap`)which led me to find out port 80 is open as well:
 
-![](<../../.gitbook/assets/image (361) (1) (1).png>)
+![](<../../.gitbook/assets/image (361) (1) (1) (1).png>)
 
 Going to the the website, we see a message submission box:
 
@@ -28,11 +28,11 @@ Looking at the files in those directories led me to a dead end. I then wanted to
 
 I tried various settings to get it to work, however I was not able to do so. While browsing this exploit on Metasploit, I realized the default credentials loaded into the exploit were **root**:**root**. I had a hunch that I should try this out, but I did not follow it. Looking at the official Hack The Box write-up for this machine, I realized that I was right. Also, I had found out that my nmap scan had missed port 4555. I was able to login into the port using those credentials:
 
-![](<../../.gitbook/assets/image (354) (1) (1).png>)
+![](<../../.gitbook/assets/image (354) (1) (1) (1).png>)
 
 When we run **listusers** we see the following:
 
-![](<../../.gitbook/assets/image (362) (1) (1).png>)
+![](<../../.gitbook/assets/image (362) (1) (1) (1).png>)
 
 After I was stuck for a while, I found out from the official write-up that I was looking at the wrong exploit, and the correct one was: [https://www.exploit-db.com/exploits/35513](https://www.exploit-db.com/exploits/35513). I then also learned that we have to modify this exploit to make it to work. If we got to [this GitHub page (swisskyrepo)](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#bash-tcp) we can see commands we can use for reverse shells. I then added one of the Bash TCP payloads and edited the python file:
 

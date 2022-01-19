@@ -28,7 +28,7 @@ notes.txt:
 
 hype\_key:
 
-![](<../../.gitbook/assets/image (353) (1).png>)
+![](<../../.gitbook/assets/image (353) (1) (1).png>)
 
 The **hype\_key** file looked like hexadecimal to me, so I used an online converter to see if I can get the ASCII of it:
 
@@ -40,7 +40,7 @@ It seemed to be a private RSA key. At this time, my **dirsearch** command had co
 
 The **/encode** and **/decode** both look similar and both use base64 in order to decode and encode:
 
-![](<../../.gitbook/assets/image (361) (1).png>)
+![](<../../.gitbook/assets/image (361) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (329) (1).png>)
 
@@ -50,7 +50,7 @@ The **/encode** and **/decode** both look similar and both use base64 in order t
 
 In the notes, this stuck out to me:
 
-![](<../../.gitbook/assets/image (362) (1).png>)
+![](<../../.gitbook/assets/image (362) (1) (1).png>)
 
 It seems the encoding and decoding is done server-side as well. I tried to run the following, in order to get a reverse shell, but it did not work:
 

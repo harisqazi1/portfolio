@@ -12,7 +12,7 @@ We see that 2 ports are open **SSH** and **HTTP**. Going to port 80, we see the 
 
 In the source code, I saw something interesting:
 
-![](<../../.gitbook/assets/image (354) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (354) (1) (1) (1) (1).png>)
 
 At this time, I had run a deeper nmap scan to see if anything was different on that scan. Fortunately, nothing was different in the deeper scan (`nmap -T4 -A -v 10.10.10.75 -oN nibbles.nmap`):
 
@@ -82,7 +82,7 @@ In the nibbler account, I setup a Python http server in the home directory of ni
 
 ![](<../../.gitbook/assets/image (335) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (353) (1) (1).png>)
+![](<../../.gitbook/assets/image (353) (1) (1) (1).png>)
 
 When I pressed **CNTRL-C** to stop the http server, I had gotten out of the shell. I then had to get back in using the same php-reverse-shell as before:
 
@@ -96,7 +96,7 @@ In order to upload the file from my machine, I used the python3 http module to u
 
 ![](<../../.gitbook/assets/image (334) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (361) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (361) (1) (1) (1) (1) (1).png>)
 
 I then ran the bash script:
 

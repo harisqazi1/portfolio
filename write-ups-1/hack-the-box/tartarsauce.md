@@ -32,7 +32,7 @@ Based on the write-up previously, I also ended up running **wpscan** as well. Th
 
 This then resulted in this:
 
-![](<../../.gitbook/assets/image (362).png>)
+![](<../../.gitbook/assets/image (362) (1).png>)
 
 At this point, I had no idea what to do, so I looked at the official Hack The Box write-up for this machine, and learned that in the **\<IP>/webservices/wp/wp-content/plugins/gwolle-gb/readme.txt** file, there is the following:
 
@@ -60,7 +60,7 @@ I then upgraded the shell using a command from [this website](https://blog.ropno
 
 In the **/home** directory, there is a user named **onuma**, but as the www-data, I do not have access to the user. I then downloaded the **linpeas.sh** file from GitHub, and then used a **python3 HTTP Server** to upload it to the remote target:
 
-![](<../../.gitbook/assets/image (361).png>)
+![](<../../.gitbook/assets/image (361) (1).png>)
 
 ![](<../../.gitbook/assets/image (337).png>)
 
@@ -80,7 +80,7 @@ Combining this with the GTFOBins command for the **/bin/tar** command, I was abl
 
 ![](<../../.gitbook/assets/image (359).png>)
 
-![](<../../.gitbook/assets/image (374).png>)
+![](<../../.gitbook/assets/image (374) (1).png>)
 
 I then got the **user.txt flag**:
 
@@ -94,7 +94,7 @@ I then ran linpeas again, this time as the onuma user. Here's what I had found i
 
 ![](<../../.gitbook/assets/image (363).png>)
 
-![](<../../.gitbook/assets/image (354).png>)
+![](<../../.gitbook/assets/image (354) (1).png>)
 
 Reading [this write-up](https://github.com/nikip72/HTB/tree/main/TartarSauce), I learned about **pspy** and that I should upload it to the remote machine in order to see what is being run in the cronjobs:
 

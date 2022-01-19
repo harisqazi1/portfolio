@@ -16,7 +16,7 @@ We can see that port 80 (http) is open. I did a deeper nmap scan as well:
 
 The port open is still the same. Going to the http site, we see the following:
 
-![](<../../.gitbook/assets/image (354) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (354) (1) (1) (1) (1) (1).png>)
 
 I got a hint from this that **phpbash** is being used on the server and that I will have to exploit it. I ran **gobuster** to see what directories were available:
 
