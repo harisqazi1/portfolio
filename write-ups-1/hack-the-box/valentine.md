@@ -32,7 +32,7 @@ hype\_key:
 
 The **hype\_key** file looked like hexadecimal to me, so I used an online converter to see if I can get the ASCII of it:
 
-![](<../../.gitbook/assets/image (366).png>)
+![](<../../.gitbook/assets/image (366) (1).png>)
 
 It seemed to be a private RSA key. At this time, my **dirsearch** command had completed from running:
 
@@ -78,7 +78,7 @@ The dots that I was not able to connect was that this was the password for the p
 
 I then had gotten the **user.txt** flag:
 
-![](<../../.gitbook/assets/image (339) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1).png>)
 
 I then imported **linpeas.sh** to the server using a **python3** module:
 

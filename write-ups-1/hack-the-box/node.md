@@ -48,7 +48,7 @@ This led me to find a new user: **myP14ceAdm1nAcc0uNT**. I then ran **hashcat** 
 
 Now we see a different output on the main screen:
 
-![](<../../.gitbook/assets/image (366) (1).png>)
+![](<../../.gitbook/assets/image (366) (1) (1).png>)
 
 Downloading the backup led me to a large ASCII file:
 
@@ -68,7 +68,7 @@ I will go back to the [example hashes site from hashcat](https://hashcat.net/wik
 
 I then ran the hashcat command `hashcat -a 0 -m 17230 pkziphash xato-net-10-million-passwords-1000000.txt` to see if I can crack the password:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1).png>)
 
 I was then able to decode the zip by running `unzip backup.zip`. This created a new directory called **var** in my local directory. In a file called **app.js**, I found the following:
 

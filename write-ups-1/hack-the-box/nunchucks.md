@@ -72,7 +72,7 @@ Using the following image from [https://book.hacktricks.xyz/pentesting-web/ssti-
 
 After trying to get information from the system, I then went back to the write-up and found out that the server is using NodeJS Express. This is shown by the Response in Burp Suite:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 The walk-through mentions how they found the website [http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine](http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine) by searching on Google. I searched on Google as well, but this website was not there in the results of a search. After this, the walk-through mentions running the following template injection (I modified it for my usage):
 

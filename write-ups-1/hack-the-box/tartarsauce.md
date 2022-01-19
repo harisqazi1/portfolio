@@ -52,7 +52,7 @@ What I had done prior to this was downloaded [pentestmonkey's php-reverse-shell]
 
 After I ran the aforementioned link, I got a shell:
 
-![](<../../.gitbook/assets/image (339).png>)
+![](<../../.gitbook/assets/image (339) (1).png>)
 
 I then upgraded the shell using a command from [this website](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/#method-1-python-pty-module):
 

@@ -22,3 +22,14 @@ Doing a Google search for "smb Windows XP SP3" got me to [this site](https://www
 
 ![](<../../.gitbook/assets/image (362).png>)
 
+After searching for a while, I was able to find the **user.txt** flag:
+
+![](<../../.gitbook/assets/image (366).png>)
+
+{% hint style="info" %}
+To change directory into "Documents and Settings", you have to run: **`cd Documents\ and\ Settings`**. Note the "\ ".
+{% endhint %}
+
+I was then able to read the root flag as well:
+
+![](<../../.gitbook/assets/image (339).png>)

@@ -32,4 +32,4 @@ From playing around in the **SMB** system, I noticed that I have access to the *
 
 Now I have to look for the flags:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1).png>)

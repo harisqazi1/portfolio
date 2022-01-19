@@ -32,7 +32,7 @@ I was then able to find the **user.txt** flag:
 
 I found out I have access to one command as the root user:
 
-![](<../../.gitbook/assets/image (339) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1).png>)
 
 Looking on GTFOBins, I was not able to find a binary with this name:
 

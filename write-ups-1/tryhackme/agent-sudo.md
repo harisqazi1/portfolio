@@ -99,4 +99,4 @@ Seems that he can run /bin/bash with sudo permission. I Googled "exploit db (ALL
 
 I then also got the root flag:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)

@@ -42,7 +42,7 @@ I then found this [video write-up](https://www.youtube.com/watch?v=iXyKLm1nQac) 
 
 ![](<../../.gitbook/assets/image (356) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1).png>)
 
 I now have to brute-force the username and password. I followed [this website](https://infinitelogins.com/2020/02/22/how-to-brute-force-websites-using-hydra/) to see what parameters I needed for my **Hydra** command. I then ran the `hydra -l admin -P rockyou.txt 10.10.10.75 http-post-form "/nibbleblog/admin.php:username=admin&password=^PASS^:Incorrect username or password."` command, and got the following:
 

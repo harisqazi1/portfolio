@@ -74,7 +74,7 @@ I get the same error as before:
 
 When I ran linpeas (not shown in write-up, but uploaded the same way as the reverse shell), I noticed that there was a folder called **scripts**:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1).png>)
 
 The code writes text to a file. At this point, I was actually lost. I found [this write-up](https://ethicalhacking.sh/posts/hack-the-box-bashed-writeup/) that clarifies that I should have been focused on the cron jobs and noticed that the file is ran by root in the cron job. I changed the original test.txt file by overwriting it by doing the following:
 
