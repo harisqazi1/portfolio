@@ -4,7 +4,7 @@ This is my write-up for the machine **Beep** on Hack The Box located at: [https:
 
 nmap scan: `nmap 10.10.10.7`
 
-![](<../../.gitbook/assets/image (366) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (366) (1) (1) (1) (1).png>)
 
 There are a lot of ports open, so I will start with port 80 (HTTP) first. We see a login page there:
 

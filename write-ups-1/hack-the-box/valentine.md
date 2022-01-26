@@ -20,7 +20,7 @@ I then ran the following **dirsearch** command to see what directories are avail
 
 I then saw from the results that **/dev** was available for me to access:
 
-![](<../../.gitbook/assets/image (364) (1) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1) (1).png>)
 
 notes.txt:
 
@@ -32,7 +32,7 @@ hype\_key:
 
 The **hype\_key** file looked like hexadecimal to me, so I used an online converter to see if I can get the ASCII of it:
 
-![](<../../.gitbook/assets/image (366) (1).png>)
+![](<../../.gitbook/assets/image (366) (1) (1).png>)
 
 It seemed to be a private RSA key. At this time, my **dirsearch** command had completed from running:
 
@@ -54,7 +54,7 @@ In the notes, this stuck out to me:
 
 It seems the encoding and decoding is done server-side as well. I tried to run the following, in order to get a reverse shell, but it did not work:
 
-![](<../../.gitbook/assets/image (352) (1).png>)
+![](<../../.gitbook/assets/image (352) (1) (1).png>)
 
 I was not sure how to bypass this, so I had to view the official Hack The Box write-up for this machine. Before I got any answers, I noticed this:
 

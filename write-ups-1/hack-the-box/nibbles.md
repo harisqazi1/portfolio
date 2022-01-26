@@ -62,9 +62,9 @@ Back to the **Metasploit** exploit previously mentioned, I entered the password 
 
 I uploaded the **php-reverse-shell** from pentestmonkey online by running `upload php-reverse-shell.php`. I then ran netcat on another terminal and then accessed the page on a new tab:
 
-![](<../../.gitbook/assets/image (352) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (352) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (359) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (359) (1) (1) (1) (1).png>)
 
 I was logged in as **nibbler**. I was able to get a TTY shell by typing in **bash**:
 

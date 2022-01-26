@@ -76,6 +76,7 @@
   * [Sunday](write-ups-1/hack-the-box/sunday.md)
   * [TartarSauce](write-ups-1/hack-the-box/tartarsauce.md)
   * [Legacy](write-ups-1/hack-the-box/legacy.md)
+  * [Blue](write-ups-1/hack-the-box/blue.md)
 
 ## Web Hacking
 

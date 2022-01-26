@@ -48,7 +48,7 @@ This led me to find a new user: **myP14ceAdm1nAcc0uNT**. I then ran **hashcat** 
 
 Now we see a different output on the main screen:
 
-![](<../../.gitbook/assets/image (366) (1) (1).png>)
+![](<../../.gitbook/assets/image (366) (1) (1) (1).png>)
 
 Downloading the backup led me to a large ASCII file:
 
@@ -76,7 +76,7 @@ I was then able to decode the zip by running `unzip backup.zip`. This created a 
 
 I was a bit lost about what to do with these credentials, I then read the same write-up again to find out that those credentials would work for **SSH**:
 
-![](<../../.gitbook/assets/image (352) (1) (1).png>)
+![](<../../.gitbook/assets/image (352) (1) (1) (1).png>)
 
 I also learned from the write-up to search for processes being run by tom:
 

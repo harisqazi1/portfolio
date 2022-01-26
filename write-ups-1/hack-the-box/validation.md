@@ -16,7 +16,7 @@ Going to port 80, we see this page:
 
 On Hack The Box, I got a hint from one of the tags from the machine:
 
-![](<../../.gitbook/assets/image (352) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (352) (1) (1) (1) (1) (1) (1).png>)
 
 It seems that I need to run some type of SQL Injection on the page. After trying a bunch of SQL queries, I ended up running an nmap scan on the machine, since according to the walk-through, I had missed a bunch of open ports using rust scan:
 

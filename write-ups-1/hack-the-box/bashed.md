@@ -93,10 +93,10 @@ p=subprocess.call(["/bin/sh","-i"]);
 
 I was then able to get root (after a minute) and the root flag:
 
-![](<../../.gitbook/assets/image (352) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (352) (1) (1) (1) (1) (1).png>)
 
 Going back to see where my mistake was, I should have noticed this in the output of linpeas.sh:
 
-![](<../../.gitbook/assets/image (359) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (359) (1) (1) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (348) (1) (1) (1) (1) (1) (1) (1).png>)

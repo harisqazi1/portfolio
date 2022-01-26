@@ -44,7 +44,7 @@ I tried to run two commands together, the traceroute and an additional **ls**:
 
 When I run `cat index.php`, I get the following:
 
-![](<../../.gitbook/assets/image (359) (1) (1).png>)
+![](<../../.gitbook/assets/image (359) (1) (1) (1).png>)
 
 To me this means that there is room for me to run a reverse netcat connection to my own machine. Netcat did not work for me but the following python command from [this github page](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#python) worked for me instead:
 
@@ -72,7 +72,7 @@ I was then able to grab it from the other machine using **wget**:
 
 In the official write-up, something stood out to me:
 
-![](<../../.gitbook/assets/image (364) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1) (1) (1) (1).png>)
 
 Obviously, in the real world a hint like this would not be given, but since I had tried what I had known and got nowhere, I took a hint from this. This led me to finding this:
 
@@ -88,4 +88,4 @@ This was a line I got from the [same GitHub page mentioned previously](https://g
 
 As shown in the screenshot above, in order to go around this I just updated the file to be the one I gave it. I would recommend you run the netcat listener **prior** to updating the artisan file for best results. After a minute of waiting, I had the shell:
 
-![](<../../.gitbook/assets/image (365) (1) (1).png>)
+![](<../../.gitbook/assets/image (365) (1) (1) (1).png>)

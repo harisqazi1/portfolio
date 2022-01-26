@@ -4,11 +4,11 @@ This is my write-up for the machine on Hack The Box called **Sunday** located at
 
 I started off with a basic nmap scan:
 
-![](<../../.gitbook/assets/image (364) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1).png>)
 
 This seems to be a printer exploit maybe? I saw the **finger** process being shown. I then searched on **Metasploit** to see any modules already there to see if any can help me. I was able to find one:
 
-![](<../../.gitbook/assets/image (352).png>)
+![](<../../.gitbook/assets/image (352) (1).png>)
 
 At this point, I was lost, so I read [this write-up](https://0xdf.gitlab.io/2018/09/29/htb-sunday.html) to find out what I had missed. The first thing I had missed was that I had used the default word-list from Metasploit, which I should not have. When I changed it to the word-list from [SecLists](https://github.com/danielmiessler/SecLists/blob/master/Usernames/Names/names.txt), I was then able to find out a couple more users:
 

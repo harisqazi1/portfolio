@@ -66,7 +66,7 @@ In the **/home** directory, there is a user named **onuma**, but as the www-data
 
 I then ran linpeas.sh on the remote machine. I saw the following interesting things:
 
-![](<../../.gitbook/assets/image (364).png>)
+![](<../../.gitbook/assets/image (364) (1).png>)
 
 ![](<../../.gitbook/assets/image (340).png>)
 
@@ -78,7 +78,7 @@ Searching on Google for "run sudo as another user" gave the following answer:
 
 Combining this with the GTFOBins command for the **/bin/tar** command, I was able to make the following command and switch user to onuma:
 
-![](<../../.gitbook/assets/image (359).png>)
+![](<../../.gitbook/assets/image (359) (1).png>)
 
 ![](<../../.gitbook/assets/image (374) (1).png>)
 
