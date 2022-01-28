@@ -77,6 +77,7 @@
   * [TartarSauce](write-ups-1/hack-the-box/tartarsauce.md)
   * [Legacy](write-ups-1/hack-the-box/legacy.md)
   * [Blue](write-ups-1/hack-the-box/blue.md)
+  * [Devel](write-ups-1/hack-the-box/devel.md)
 
 ## Web Hacking
 

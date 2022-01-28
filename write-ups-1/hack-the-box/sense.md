@@ -43,7 +43,7 @@ There still seems to be one vulnerability in place. I ran different searches in 
 
 The company defaults for pfSense was **pfsense**. The credentials **rohit**:**pfsense** got me into the system:
 
-![](<../../.gitbook/assets/image (363) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (363) (1) (1) (1) (1) (1).png>)
 
 Searching for "pfsense" on **metasploit** showed me a couple of results for exploits. I chose one and then fixed the options to work for this box:
 

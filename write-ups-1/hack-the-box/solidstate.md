@@ -66,11 +66,11 @@ Running commands like **wget**, was showing me an error:
 
 I then found [this website](https://www.hacknos.com/rbash-escape-rbash-restricted-shell-escape/) that showed me the way to get out of rbash restricted shells:
 
-![](<../../.gitbook/assets/image (364) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1) (1) (1) (1).png>)
 
 I then uploaded **linpeas.sh** to the machine using **python3**:
 
-![](<../../.gitbook/assets/image (365) (1) (1).png>)
+![](<../../.gitbook/assets/image (365) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (332) (1).png>)
 
@@ -80,7 +80,7 @@ For some reason, unknown to me, the **linpeas.sh** script would not run all the 
 
 I tried to overwrite the file with my own, but I did not have permissions to do so:
 
-![](<../../.gitbook/assets/image (363) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (363) (1) (1) (1) (1).png>)
 
 I found out I can **echo** strings into the file:
 

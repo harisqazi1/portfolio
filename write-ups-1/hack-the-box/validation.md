@@ -8,7 +8,7 @@ I am a beginner at penetration testing, so I will be referencing the Official Ha
 
 rustscan: rustscan -a 10.10.11.116
 
-![](<../../.gitbook/assets/image (349) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (349) (1) (1) (1) (1) (1).png>)
 
 Going to port 80, we see this page:
 
@@ -32,7 +32,7 @@ I then got the following output:
 
 This showed me that this is vulnerable to SQL Injection. Viewing the same write-up, I then changed the parameters to then submit to the website:
 
-![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (335) (1) (1) (1) (1) (1).png>)
 
@@ -42,7 +42,7 @@ I then got stuck again and then watched [this video](https://youtu.be/dFKsSYVeVb
 
 After I ran this command, I was able to run commands on the system:
 
-![](<../../.gitbook/assets/image (328) (1) (1).png>)
+![](<../../.gitbook/assets/image (328) (1) (1) (1).png>)
 
 Apparently the IP Addresses of the VPN you are using on HTB can change, which was something I did not know. When I ran **ifconfig**, I understood why my reverse shell command was not working when I tried it. In any case, I got the reverse shell by running the following command (recommended by the official write-up and modified to work for me):
 

@@ -8,7 +8,7 @@ nmap scan: `nmap 10.10.10.13`
 
 We see three ports open. On port 80, we see the following:&#x20;
 
-![](<../../.gitbook/assets/image (333) (1).png>)
+![](<../../.gitbook/assets/image (333) (1) (1).png>)
 
 I am not too familiar with DNS enumeration methods. For this reason, after I searched online for a while (and got nowhere), I then read up what I had missed from the official Hack The Box write-up for this machine. In it the author says to add **cronos.htb** to the **/etc/hosts** file. Then run the following command:
 
@@ -60,7 +60,7 @@ I then upgraded by shell to a interactive tty shell (from [this website](https:/
 
 I was able to find the user.txt flag in the user **noulis**'s home directory:
 
-![](<../../.gitbook/assets/image (363) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (363) (1) (1) (1) (1) (1) (1).png>)
 
 In order to upload **linpeas.sh** to the machine, I had to download it locally and serve it up in a python http server:
 
@@ -72,7 +72,7 @@ I was then able to grab it from the other machine using **wget**:
 
 In the official write-up, something stood out to me:
 
-![](<../../.gitbook/assets/image (364) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1) (1) (1) (1) (1).png>)
 
 Obviously, in the real world a hint like this would not be given, but since I had tried what I had known and got nowhere, I took a hint from this. This led me to finding this:
 
@@ -88,4 +88,4 @@ This was a line I got from the [same GitHub page mentioned previously](https://g
 
 As shown in the screenshot above, in order to go around this I just updated the file to be the one I gave it. I would recommend you run the netcat listener **prior** to updating the artisan file for best results. After a minute of waiting, I had the shell:
 
-![](<../../.gitbook/assets/image (365) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (365) (1) (1) (1) (1).png>)

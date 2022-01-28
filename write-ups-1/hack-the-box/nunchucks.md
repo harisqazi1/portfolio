@@ -38,7 +38,7 @@ Nmap done: 1 IP address (1 host up) scanned in 18.08 seconds
 
 I had a hard time connecting to the website. I then updated my **/etc/hosts** file and it worked!
 
-![](<../../.gitbook/assets/image (328) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (328) (1) (1) (1) (1).png>)
 
 I then ran a `git clone` for the [Seclists](https://github.com/danielmiessler/SecLists) GitHub repository. This repo has a lot of different files which come in handy from directory/password brute-forcing. I did get stuck at this point, so I then looked at the HackTheBox walk-through from the site. I learned about the **gobuster** option of **vhosts** which checks for subdomains on the system:
 
@@ -84,7 +84,7 @@ I then got a reverse netcat connection:
 
 I then was able to read the user.txt file in david's home directory:
 
-![](<../../.gitbook/assets/image (333) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (333) (1) (1) (1) (1) (1) (1).png>)
 
 I then ran `script /dev/null bash` on recommendation from the walk-through. This gave me the shell (with the username and hostname). I then ran `getcap -r /`, again, on recommnedation of the write-up:
 

@@ -16,7 +16,7 @@ From my understanding, it seems that **SMB** is open. Running `enum4linux -a 10.
 
 Running a **Metasploit** module on the IP Address we can see the SMB version:
 
-![](<../../.gitbook/assets/image (374).png>)
+![](<../../.gitbook/assets/image (374) (1).png>)
 
 Doing a Google search for "smb Windows XP SP3" got me to [this site](https://www.rapid7.com/db/modules/exploit/windows/smb/ms08\_067\_netapi/). I then ran this exploit and filled in the information for this machine. I was then able to get a meterpreter shell:
 
@@ -24,7 +24,7 @@ Doing a Google search for "smb Windows XP SP3" got me to [this site](https://www
 
 After searching for a while, I was able to find the **user.txt** flag:
 
-![](<../../.gitbook/assets/image (366) (1).png>)
+![](<../../.gitbook/assets/image (366) (1) (1).png>)
 
 {% hint style="info" %}
 To change directory into "Documents and Settings", you have to run: **`cd Documents\ and\ Settings`**. Note the "\ ".

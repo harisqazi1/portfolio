@@ -96,7 +96,7 @@ This gave me the following output:
 
 This file had the flag in it:
 
-![](<../../.gitbook/assets/image (328) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (328) (1) (1) (1) (1) (1) (1).png>)
 
 I then downloaded Linpeas to my local machine using **wget**. I then pushed that to the server using an http server:
 

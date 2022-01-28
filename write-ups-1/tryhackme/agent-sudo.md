@@ -39,7 +39,7 @@ We now know that user C is **chris** and his password is weak. I chose this time
 
 For the next task, it seemed that I needed to brute-force the password for FTP. Knowing that the username was **chris**, I then used hydra to try to brute-force the password: `hydra -l chris -P rockyou.txt ftp://10.10.126.175 -t 16`. I was able to get the password:
 
-![](<../../.gitbook/assets/image (328) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (328) (1) (1) (1) (1) (1).png>)
 
 After logging into the ftp server with the credentials, we see the following:
 
@@ -91,7 +91,7 @@ There was another jpeg on the system as well. I used **FileZilla** in order to d
 
 On THM there was a question asking _What is the incident of the photo called?_. In my research I came to the conclusion it had something to do with Roswell and Aliens. I had to go back to the write-up, in order to realize the answer was **roswell alien autopsy**. I am still at the user (james) level, and I need to escalate my privileges. I ran `sudo -l` to see what sudo commands my user had:
 
-![](<../../.gitbook/assets/image (333) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (333) (1) (1) (1) (1) (1) (1) (1).png>)
 
 Seems that he can run /bin/bash with sudo permission. I Googled "exploit db (ALL, !root) /bin/bash" and found the following page: [https://web.archive.org/web/20210120002645/www.exploit-db.com/exploits/47502](https://web.archive.org/web/20210120002645/www.exploit-db.com/exploits/47502). This has an exploit in it for our system. I ran the exploit and got root:
 

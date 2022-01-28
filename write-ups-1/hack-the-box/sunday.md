@@ -4,7 +4,7 @@ This is my write-up for the machine on Hack The Box called **Sunday** located at
 
 I started off with a basic nmap scan:
 
-![](<../../.gitbook/assets/image (364) (1) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1) (1).png>)
 
 This seems to be a printer exploit maybe? I saw the **finger** process being shown. I then searched on **Metasploit** to see any modules already there to see if any can help me. I was able to find one:
 
@@ -20,7 +20,7 @@ Going back to the nmap scan I had done earlier, I had realized that my nmap scan
 
 Since SSH is available on port 22022, I will use **hydra** to brute force the login. I tried hydra with multiple variations, but I keep getting the same error:
 
-![](<../../.gitbook/assets/image (351) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1).png>)
 
 I looked at the official write-up as well as others, and people just happen to guess **sunday** to be the password (since it is the name of the machine) and it works for them. The official write-up does not give a hint into what software to use to brute-force the password, it just says to do so. This could just be my lack of pen-testing knowledge, so I'll just take the password to be **sunday** from the write-ups and move on:
 

@@ -8,11 +8,11 @@ I am a beginner at penetration testing, so I will be referencing the Official Ha
 
 basic nmap scan: nmap `10.10.10.68`
 
-![](<../../.gitbook/assets/image (349) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (349) (1) (1) (1) (1).png>)
 
 We can see that port 80 (http) is open. I did a deeper nmap scan as well:
 
-![](<../../.gitbook/assets/image (333) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (333) (1) (1) (1) (1).png>)
 
 The port open is still the same. Going to the http site, we see the following:
 
@@ -28,7 +28,7 @@ The **uploads** directory was empty, and I believe we will have to upload a shel
 
 The file was empty when downloaded. Looking in the **dev** folder, I was able to find the shell:
 
-![](<../../.gitbook/assets/image (328) (1).png>)
+![](<../../.gitbook/assets/image (328) (1) (1).png>)
 
 I was then able to find the user.txt flag:
 
@@ -70,7 +70,7 @@ I edited the payload from [this website](https://github.com/swisskyrepo/Payloads
 
 I get the same error as before:
 
-![](<../../.gitbook/assets/image (355) (1) (1).png>)
+![](<../../.gitbook/assets/image (355) (1) (1) (1).png>)
 
 When I ran linpeas (not shown in write-up, but uploaded the same way as the reverse shell), I noticed that there was a folder called **scripts**:
 
@@ -78,7 +78,7 @@ When I ran linpeas (not shown in write-up, but uploaded the same way as the reve
 
 The code writes text to a file. At this point, I was actually lost. I found [this write-up](https://ethicalhacking.sh/posts/hack-the-box-bashed-writeup/) that clarifies that I should have been focused on the cron jobs and noticed that the file is ran by root in the cron job. I changed the original test.txt file by overwriting it by doing the following:
 
-![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1) (1) (1) (1) (1).png>)
 
 The content of the file was the following (from the write-up mentioned before):
 

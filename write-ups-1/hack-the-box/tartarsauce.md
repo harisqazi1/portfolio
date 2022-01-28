@@ -20,7 +20,7 @@ To me this is a sign that this web server is using **monstra** as its CMS. I the
 
 So I was about to make a **hydra** command to run on the page [http://10.10.10.88/webservices/monstra-3.0.4/admin/index.php?id=dashboard](http://10.10.10.88/webservices/monstra-3.0.4/admin/index.php?id=dashboard), but what ended up happening was that when I typed in **admin**/**admin** to see what the error code would be, I actually got in:
 
-![](<../../.gitbook/assets/image (333).png>)
+![](<../../.gitbook/assets/image (333) (1).png>)
 
 After trying to upload a reverse PHP shell to the system unsuccessfully for a while, I decided to read up on [this write-up](https://0xdf.gitlab.io/2018/10/20/htb-tartarsauce.html#nmap), which made me realize I had over looked the sub-directories for the **/webservices** directory:
 
@@ -66,7 +66,7 @@ In the **/home** directory, there is a user named **onuma**, but as the www-data
 
 I then ran linpeas.sh on the remote machine. I saw the following interesting things:
 
-![](<../../.gitbook/assets/image (364) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (340).png>)
 
@@ -80,19 +80,19 @@ Combining this with the GTFOBins command for the **/bin/tar** command, I was abl
 
 ![](<../../.gitbook/assets/image (359) (1).png>)
 
-![](<../../.gitbook/assets/image (374) (1).png>)
+![](<../../.gitbook/assets/image (374) (1) (1).png>)
 
 I then got the **user.txt flag**:
 
-![](<../../.gitbook/assets/image (355).png>)
+![](<../../.gitbook/assets/image (355) (1).png>)
 
 I then ran linpeas again, this time as the onuma user. Here's what I had found interesting this time:
 
-![](<../../.gitbook/assets/image (351).png>)
+![](<../../.gitbook/assets/image (351) (1).png>)
 
-![](<../../.gitbook/assets/image (349).png>)
+![](<../../.gitbook/assets/image (349) (1).png>)
 
-![](<../../.gitbook/assets/image (363).png>)
+![](<../../.gitbook/assets/image (363) (1).png>)
 
 ![](<../../.gitbook/assets/image (354) (1).png>)
 

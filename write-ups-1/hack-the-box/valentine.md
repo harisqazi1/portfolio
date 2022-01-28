@@ -4,7 +4,7 @@ This is my write-up for the machine on Hack The Box called **Valentine** located
 
 I started off with an nmap scan:
 
-![](<../../.gitbook/assets/image (363) (1).png>)
+![](<../../.gitbook/assets/image (363) (1) (1).png>)
 
 This was a preliminary scan. I then ran a deeper scan (`nmap -T4 -A -v -Pn -p- 10.10.10.79 -oN valentine.nmap_full`) to see if the basic scan missed anything:
 
@@ -20,11 +20,11 @@ I then ran the following **dirsearch** command to see what directories are avail
 
 I then saw from the results that **/dev** was available for me to access:
 
-![](<../../.gitbook/assets/image (364) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1) (1) (1).png>)
 
 notes.txt:
 
-![](<../../.gitbook/assets/image (370).png>)
+![](<../../.gitbook/assets/image (370) (1).png>)
 
 hype\_key:
 
@@ -32,7 +32,7 @@ hype\_key:
 
 The **hype\_key** file looked like hexadecimal to me, so I used an online converter to see if I can get the ASCII of it:
 
-![](<../../.gitbook/assets/image (366) (1) (1).png>)
+![](<../../.gitbook/assets/image (366) (1) (1) (1).png>)
 
 It seemed to be a private RSA key. At this time, my **dirsearch** command had completed from running:
 
@@ -46,7 +46,7 @@ The **/encode** and **/decode** both look similar and both use base64 in order t
 
 **/omg** turned out to be the picture on the home screen we saw earlier:
 
-![](<../../.gitbook/assets/image (351) (1) (1).png>)
+![](<../../.gitbook/assets/image (351) (1) (1) (1).png>)
 
 In the notes, this stuck out to me:
 
