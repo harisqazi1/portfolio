@@ -12,7 +12,7 @@ The basic nmap scan was backed up by a more deeper scan:
 
 From my understanding, it seems that **SMB** is open. Running `enum4linux -a 10.10.10.4` gets me the following information:
 
-![](<../../.gitbook/assets/image (361).png>)
+![](<../../.gitbook/assets/image (361) (1).png>)
 
 Running a **Metasploit** module on the IP Address we can see the SMB version:
 
@@ -32,4 +32,4 @@ To change directory into "Documents and Settings", you have to run: **`cd Docume
 
 I was then able to read the root flag as well:
 
-![](<../../.gitbook/assets/image (339).png>)
+![](<../../.gitbook/assets/image (339) (1).png>)

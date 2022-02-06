@@ -8,7 +8,7 @@ nmap scan: `nmap 10.10.10.7`
 
 There are a lot of ports open, so I will start with port 80 (HTTP) first. We see a login page there:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1).png>)
 
 I went to port 10000 out of curiosity and found a Webmin login page there:
 
@@ -20,7 +20,7 @@ I found this exploit on **exploitdb**:
 
 I had to go read the official Hack The Box write-up for this machine to find out what I overlooked. Turns out the page I was looking at had the exploit all along:
 
-![](<../../.gitbook/assets/image (337) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (337) (1) (1) (1) (1).png>)
 
 Changing the URL to be **/etc/passwd** shows you the following:
 
@@ -36,5 +36,5 @@ Going back to the LFI page provided in the LFI exploit, we can see a password:
 
 From this [write-up](https://dalemazza.github.io/htb/2020/07/04/HTB-Beep-OSCP-Walkthrough.html), I understood if we use this password for the root user, we will be able to log in as root:
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1).png>)
 

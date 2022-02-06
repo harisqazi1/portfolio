@@ -4,7 +4,7 @@ This is my write-up for the Hack The Box machine called **SolidState** located a
 
 nmap scan:
 
-![](<../../.gitbook/assets/image (357) (1) (1).png>)
+![](<../../.gitbook/assets/image (357) (1) (1) (1).png>)
 
 The basic nmap scan shows 4 ports open. However, in the machine tags, we see the following:
 
@@ -12,7 +12,7 @@ The basic nmap scan shows 4 ports open. However, in the machine tags, we see the
 
 It seems that our basic nmap scan did not catch any web ports (80 or 443). I then ran a deeper nmap scan (`nmap -T4 -A -v -Pn 10.10.10.51 -oN solidstate.nmap`)which led me to find out port 80 is open as well:
 
-![](<../../.gitbook/assets/image (361) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (361) (1) (1) (1) (1).png>)
 
 Going to the the website, we see a message submission box:
 
@@ -20,7 +20,7 @@ Going to the the website, we see a message submission box:
 
 Maybe this might be used for command execution or a reverse shell process? I then ran **dirsearch** (`dirsearch -e php,html,js,cgi,bak,txt -u http://10.10.10.51 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt`) on the IP Address to see if there are items we have access to:
 
-![](<../../.gitbook/assets/image (358) (1).png>)
+![](<../../.gitbook/assets/image (358) (1) (1).png>)
 
 Looking at the files in those directories led me to a dead end. I then wanted to enumerate the smtp users to see that maybe there is a user whose mailbox I can get access to. I ran the command `smtp-user-enum -M VRFY -U rockyou.txt -t 10.10.10.51` for this. After the program ran for a while, I turned it off, since I had not gotten any result from this. I then found an exploit on Metasploit that had an exploit exactly for this version:
 
@@ -40,33 +40,33 @@ After I was stuck for a while, I found out from the official write-up that I was
 
 On another terminal, I ran a netcat listener to wait for the reverse shell:
 
-![](<../../.gitbook/assets/image (342) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1).png>)
 
 After you run the python script (on another terminal), you get the following message:
 
-![](<../../.gitbook/assets/image (338) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1).png>)
 
 The payload was submitted, but I was not able to get a shell. I realized the netcat listener was not going to come in handy for this, so I closed it. The official write-up stated that I should change the password for the user **mindy** and then login to her account:
 
-![](<../../.gitbook/assets/image (340) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (343) (1).png>)
 
 Reading the second email shows us the following:
 
-![](<../../.gitbook/assets/image (347) (1) (1).png>)
+![](<../../.gitbook/assets/image (347) (1) (1) (1).png>)
 
 We can then use these credentials to login to SSH and get the user flag:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1).png>)
 
 Running commands like **wget**, was showing me an error:
 
-![](<../../.gitbook/assets/image (337) (1) (1).png>)
+![](<../../.gitbook/assets/image (337) (1) (1) (1).png>)
 
 I then found [this website](https://www.hacknos.com/rbash-escape-rbash-restricted-shell-escape/) that showed me the way to get out of rbash restricted shells:
 
-![](<../../.gitbook/assets/image (364) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (364) (1) (1) (1) (1) (1) (1).png>)
 
 I then uploaded **linpeas.sh** to the machine using **python3**:
 
@@ -84,11 +84,11 @@ I tried to overwrite the file with my own, but I did not have permissions to do 
 
 I found out I can **echo** strings into the file:
 
-![](<../../.gitbook/assets/image (359) (1) (1).png>)
+![](<../../.gitbook/assets/image (359) (1) (1) (1).png>)
 
 I had a netcat listener setup on another terminal. Then, one line at a time, I **echo**-ed commands into the file until I had this:
 
-![](<../../.gitbook/assets/image (360) (1).png>)
+![](<../../.gitbook/assets/image (360) (1) (1).png>)
 
 After a minute, I had the root shell:
 

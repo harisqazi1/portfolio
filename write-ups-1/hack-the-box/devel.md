@@ -22,7 +22,7 @@ From this, I can see that FTP has anonymous login allowed:
 
 Using `wget -r ftp://anonymous:@10.10.10.5/` I downloaded all of the files in the folder. I then found the following **Metaploit** module:
 
-![](<../../.gitbook/assets/image (364).png>)
+![](<../../.gitbook/assets/image (364) (1).png>)
 
 I then was able to get into that directory through FTP, and was able to upload files into it:
 

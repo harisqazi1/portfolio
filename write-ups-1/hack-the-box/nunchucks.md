@@ -50,7 +50,7 @@ This led me to discover a **store.nunchucks.htb**. In order to visit the site, I
 
 We end up on this page:
 
-![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (342) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 I then ran **feroxbuster** on the website to see if there were directories that I can access:
 
@@ -58,7 +58,7 @@ I then ran **feroxbuster** on the website to see if there were directories that 
 
 I didn't get that much of help from this. The walk-through mentioned that there is a template injection vulnerability on this site. I tested out the example they gave:
 
-![](<../../.gitbook/assets/image (338) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (338) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 The walk-through mentioned BurpSuite's Repeater function. I was then testing out what I can inject using that in order to find out what system is on the backend:
 
@@ -68,11 +68,11 @@ Using the following image from [https://book.hacktricks.xyz/pentesting-web/ssti-
 
 ![](<../../.gitbook/assets/image (327) (1) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (341) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 After trying to get information from the system, I then went back to the write-up and found out that the server is using NodeJS Express. This is shown by the Response in Burp Suite:
 
-![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (339) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 The walk-through mentions how they found the website [http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine](http://disse.cting.org/2016/08/02/2016-08-02-sandbox-break-out-nunjucks-template-engine) by searching on Google. I searched on Google as well, but this website was not there in the results of a search. After this, the walk-through mentions running the following template injection (I modified it for my usage):
 
@@ -114,7 +114,7 @@ I was lost at this point, since the GTFObins commands were not getting me solid 
 
 Once you run `chmod +x` on the file, you can then get root access.
 
-![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (340) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 You then also have access to root.txt
 

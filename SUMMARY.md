@@ -78,6 +78,7 @@
   * [Legacy](write-ups-1/hack-the-box/legacy.md)
   * [Blue](write-ups-1/hack-the-box/blue.md)
   * [Devel](write-ups-1/hack-the-box/devel.md)
+  * [Nineveh](write-ups-1/hack-the-box/nineveh.md)
 
 ## Web Hacking
 
