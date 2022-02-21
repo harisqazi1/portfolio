@@ -35,6 +35,11 @@ This is just a backup of my setup I have on my Linux OS, in case I ever have to 
 | Obsidian                 | Markdown Editor                               |
 | Wallch                   | Wallpaper Changer                             |
 | Tor                      | Secure and Private web browser                |
+| mat2                     | Metadata Removal Tool                         |
+| Akregator                | RSS Feed Reader                               |
+| CPod                     | Podcast Player/Downloader                     |
+| Kdenlive                 | Video Editor                                  |
+| mpv                      | open source media player                      |
 | Rhythmbox                | Audio Player                                  |
 
 ### Firefox
