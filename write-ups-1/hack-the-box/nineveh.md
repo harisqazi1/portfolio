@@ -86,3 +86,6 @@ I viewed [this write-up](https://0xdf.gitlab.io/2020/04/22/htb-nineveh.html) and
 
 ![](<../../.gitbook/assets/image (358).png>)
 
+{% hint style="warning" %}
+NOT COMPLETED
+{% endhint %}
