@@ -106,4 +106,4 @@ do
 done
 ```
 
-&#x20;
+&#x20;This was a script I wrote to download movie titles from a list on IMDB. It leverages the HTML tags in the document to get the information. I did have to do a couple CONTROL-F's to replace some extra characters, but that was about it.&#x20;
