@@ -2,15 +2,14 @@
 
 * [Introduction](README.md)
 * [License](license.md)
-* [Homelab](homelab.md)
-* [Privacy & Security](privacy-and-security.md)
-* [Backups](backups.md)
 
 ## Configurations
 
+* [Privacy & Security](configurations/privacy-and-security.md)
+* [Backups](configurations/backups.md)
+* [Homelab](configurations/homelab.md)
 * [GitBook to Docusaurus Migration](configurations/gitbook-to-docusaurus-migration.md)
 * [Mobile](configurations/mobile-setup.md)
-* [Ansible](configurations/ansible.md)
 * [Digital Books](configurations/digital-books.md)
 * [Virtual Machines](configurations/virtual-machines.md)
 
@@ -89,13 +88,13 @@
   * [Pickle Rick](write-ups/tryhackme/pickle-rick.md)
   * [Wonderland](write-ups/tryhackme/wonderland.md)
   * [Reversing ELF](write-ups/tryhackme/reversing-elf.md)
-* [HackThisSite](write-ups/untitled/README.md)
-  * [Basic Missions - Basic 1](write-ups/untitled/basic-missions-basic-1.md)
-  * [Basic Missions - Basic 2](write-ups/untitled/basic-missions-basic-2.md)
-  * [Basic Missions - Basic 3](write-ups/untitled/basic-missions-basic-3.md)
-  * [Basic Missions - Basic 4](write-ups/untitled/basic-missions-basic-4.md)
-  * [Basic Missions - Basic 7](write-ups/untitled/basic-missions-basic-7.md)
-  * [Basic Missions - Basic 8](write-ups/untitled/basic-missions-basic-8.md)
+* [HackThisSite](write-ups/hackthissite/README.md)
+  * [Basic Missions - Basic 1](write-ups/hackthissite/basic-missions-basic-1.md)
+  * [Basic Missions - Basic 2](write-ups/hackthissite/basic-missions-basic-2.md)
+  * [Basic Missions - Basic 3](write-ups/hackthissite/basic-missions-basic-3.md)
+  * [Basic Missions - Basic 4](write-ups/hackthissite/basic-missions-basic-4.md)
+  * [Basic Missions - Basic 7](write-ups/hackthissite/basic-missions-basic-7.md)
+  * [Basic Missions - Basic 8](write-ups/hackthissite/basic-missions-basic-8.md)
 * [CTFlearn](write-ups/ctflearn/README.md)
   * [Forensics 101](write-ups/ctflearn/forensics-101.md)
   * [Binwalk](write-ups/ctflearn/binwalk.md)
@@ -178,7 +177,3 @@
   * [Peri Peri Seasoning](other-projects/recipes/peri-peri-seasoning.md)
   * [Chicken Wings](other-projects/recipes/chicken-wings.md)
   * [Pizza Bagels](other-projects/recipes/pizza-bagels.md)
-
-***
-
-* [waybackverify.txt](waybackverify.txt.md)

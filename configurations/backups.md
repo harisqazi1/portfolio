@@ -8,14 +8,7 @@ Backups are a necessity in case of failure. Whether it is disk/drive failure or 
 >
 > 1 Copy Offsite – Keep one copy offsite to prevent the possibility of data loss due to a site-specific failure.
 
-Using this format will help you get back up and running much faster than starting off from scratch. One thing to note with backups is that they work off of a proactive approach. This means you have to not only do this once, but maintain a healthy backup lifestyle in order to prevent data loss as much as you can. You can also have your own "3-2-1-#-#-#rule", where you add your own customization to the basic strategy. You do have to take the cost of the storage devices into mind, whether it is cloud storage providers or even for a hard drive purchase. Here is my current setup:
-
-| Storage Location      | Backup Strategy Principle Covered                    |
-| --------------------- | ---------------------------------------------------- |
-| Local Storage (on PC) | 1 copy of data, 1 unique media                       |
-| External Hard Drive   | 1 copy of data                                       |
-| Cloud Storage         | 1 copy of data, 1 unique media, 1 copy offsite       |
-| **=**                 | **3 copies of data, 2 unique media, 1 copy offsite** |
+Using this format will help you get back up and running much faster than starting off from scratch. One thing to note with backups is that they work off of a proactive approach. This means you have to not only do this once, but maintain a healthy backup lifestyle in order to prevent data loss as much as you can. You can also have your own "3-2-1-#-#-#rule", where you add your own customization to the basic strategy. You do have to take the cost of the storage devices into mind, whether it is cloud storage providers or even for a hard drive purchase.&#x20;
 
 There are multiple ways of following the rule. Here are some of the other location suggestions:
 
@@ -53,7 +46,7 @@ From the CIA triad (Confidentiality, Integrity, and Availability), encryption fa
 
 There are more softwares located at: https://www.privacyguides.org/encryption/ if you are interested. For encryption passwords, make sure you use a password manager and create long passwords or create long passphrases. Here is an xkcd comic that might help clarify whether to choose password vs passphrase (if you have a password manager, then this might not matter too much):
 
-<figure><img src=".gitbook/assets/2b1be6fa029c4b8fba8a15df5b3b5fc3.cleaned.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/2b1be6fa029c4b8fba8a15df5b3b5fc3.cleaned.png" alt=""><figcaption></figcaption></figure>
 
 ## Backup Lifestyle
 
@@ -62,9 +55,20 @@ After your data is encrypted, and your file system of choice is chosen, the last
 Tools:
 
 * Déjà Dup Backups (for backing up Linux home directory files)
-* rsync (for syncing files from one folder to another)
+* FreeFileSync (for syncing files from one folder to another)
 
 Both of these work off of a incremental backup format, at least in my usage. After the backups are complete, you have to setup a cadence at which you will keep backing up on. For some it's daily, for others, its monthly. It is different for everybody.
+
+## Current Setup
+
+| Storage Location      | Backup Strategy Principle Covered                    |
+| --------------------- | ---------------------------------------------------- |
+| Local Storage (on PC) | 1 copy of data, 1 unique media                       |
+| External Hard Drive   | 1 copy of data                                       |
+| Cloud Storage         | 1 copy of data, 1 unique media, 1 copy offsite       |
+| **=**                 | **3 copies of data, 2 unique media, 1 copy offsite** |
+
+For the local storage, I have it stored on the main OS I use. I also have a 2TB internal hard drive, which I frequently backup my data to using FreeFileSync. I also use Deja Dup to duplicate my OS and upload it to the 2TB internal drive as well, to maintain an encrypted copy of my host machine files. I backup this 2TB internal hard drive to a 2TB external hard drive as well. This makes it 3 copies of the same data. For important files, I do upload them to the cloud as well. I currently use Proton Drive for this. As part of their Proton Unlimited plan, they allow for 500GB of storage in the cloud. The cloud storage allows me to have 3 versions of pretty much similar data in different formats.&#x20;
 
 ## Sources:
 

@@ -129,25 +129,25 @@ My server came cleaned or "Factory Reset" so my steps are going to be after that
 
 This part was straight forward on my end. I connected a Ethernet cable from the server to my switch (which was connected to my router) .
 
-![](<.gitbook/assets/Screenshot 2021-07-03 232000.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-03 232000.png>)
 
 The ethernet cable on the left (white cable) is for the network of the server.​
 
 I connected a monitor and USB Keyboard to my server so I can see what is going on. My server is a bit older so it booted up for 3-4 minutes, and then it showed an IP Address for the server. You should be able to connect to that IP Address through your browser (as long as you are on the same network). I have IDRAC (Integrated Dell Remote Access Controller 6), so that is what I am accessing on the web. After the login screen (user: **root** / password: **calvin**), I then went on the login screen: ​
 
-![](<.gitbook/assets/Screenshot 2021-07-03 232224.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-03 232224.png>)
 
 ### RAID-5 Setup
 
 I wanted to have a backup system for my server. I used [RAID](https://en.wikipedia.org/wiki/RAID) (Redundant Array of Inexpensive Disks)​ in order to have a backup, more importantly RAID-5. RAID-5 is meant to work with 3 disks, and since I had 3 1TB hard drives, this was the best RAID model for me. After my server booted up (and after the option of configuration showed up), I tapped \*\*CNTRL+R\*\* in order to run the Configuration Utility. I then followed [this Youtube video](https://www.youtube.com/watch?v=sp7XV2x-CZc) in order to setup RAID-5 on my server. I set it up on a screen resembling this:
 
-![](<.gitbook/assets/Screenshot 2021-07-03 232522.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-03 232522.png>)
 
 ### VMware ESXi Setup
 
 I downloaded ESXi from​ [VMware](https://my.vmware.com/web/admin/). For my server, the version that worked was 6.5U3 (Version 6.5 Update 3). I used [this link](https://kb.vmware.com/s/article/2107518?lang=en\_US\&queryTerm=esxi+6+5+download) to find out how to find the download and how to find the license for my product. Since mine was a Dell Server, I first went to the VMware to to find the right file:
 
-![](<.gitbook/assets/Screenshot 2021-07-03 232743.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-03 232743.png>)
 
 I then downloaded and then used [Balena Ether](https://www.balena.io/etcher/) in order to flash the ISO onto my USB drive. I then plugged my USB into my server and booted from the USB.
 
@@ -160,7 +160,7 @@ I do not have screenshots for this part, but I can try to type out what steps I 
 * Plugged in my USB 2.0 with the Dell ESXi ISO flashed on it​
 * Connected my second ethernet cable to one of the 4 ethernet ports in the back :
 
-![](<.gitbook/assets/Screenshot 2021-07-03 233020.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-03 233020.png>)
 
 * Powered on the server​
 * Waited until I was able to press "F11"​
@@ -176,7 +176,7 @@ At this point, the server was built. Now I just had to modify it to my liking. I
 
 ### ESXi VMs
 
-![](<.gitbook/assets/Screenshot 2021-07-03 233402.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-03 233402.png>)
 
 | VM                   | OS           | CPU | RAM   | Storage |
 | -------------------- | ------------ | --- | ----- | ------- |
@@ -189,15 +189,15 @@ Nextcloud: My locally hosted cloud, so I do not have to rely on third-party soft
 
 Dashboard: This is an Ubuntu VM with 2 docker containers and Grafana:​
 
-![](<.gitbook/assets/Screenshot 2021-07-03 233513.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-03 233513.png>)
 
 [Homer](https://github.com/bastienwirtz/homer) is a self-hosted dashboard for all of your server applications:
 
-![](<.gitbook/assets/Screenshot 2021-07-03 233618.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-03 233618.png>)
 
 [FreshRSS](https://www.freshrss.org/) is an open-source RSS Feed.
 
-![](<.gitbook/assets/Screenshot 2021-07-04 001758.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-04 001758.png>)
 
 [Jellyfin](https://jellyfin.org/docs/index.html) is an open-source alternative to Plex. I use this for video game clips and more.
 
@@ -205,7 +205,7 @@ Dashboard: This is an Ubuntu VM with 2 docker containers and Grafana:​
 
 [Grafana](https://grafana.com/) is a dashboard for information usually in some sort of infographic:
 
-![](<.gitbook/assets/Screenshot 2021-07-03 233736.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-03 233736.png>)
 
 I use Grafana for looking at pfSense data. I followed​ [Grafana dashboard for pfSense by PSYCHOGUN](https://psychogun.github.io/docs/pfsense/Grafana-dashboard-for-pfSense/#install-influxdb) to set mine up. I just had to change some settings on my end, since they did not work for me, but I got it setup. I did not setup TLS on mine, but it would be a good idea to do so.
 
@@ -291,17 +291,17 @@ chmod 500 telegraf_*​
 
 #### Configuring Telegraf in Pfsense (you will have to change the IP to the IP of your DB):
 
-![](<.gitbook/assets/Screenshot 2021-07-08 201019.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-08 201019.png>)
 
 The password for the **InfluxDB** should be **WRITE\_PASSWORD.**
 
 * I then pasted the following into the compartment for **Additional configuration for Telegraf**:
 
-{% file src=".gitbook/assets/Telegraf-config.txt" %}
+{% file src="../.gitbook/assets/Telegraf-config.txt" %}
 Telegraf configuration file
 {% endfile %}
 
-![](<.gitbook/assets/Screenshot 2021-07-08 201432.png>)
+![](<../.gitbook/assets/Screenshot 2021-07-08 201432.png>)
 
 #### Installing Grafana on Ubuntu
 
@@ -348,7 +348,7 @@ sudo grafana-cli plugins install grafana-piechart-panel
 * Upload JSON file to Grafana to take in data
   * I got the file from [https://raw.githubusercontent.com/VictorRobellini/pfSense-Dashboard/master/pfSense-Grafana-Dashboard.json](https://raw.githubusercontent.com/VictorRobellini/pfSense-Dashboard/master/pfSense-Grafana-Dashboard.json)
 
-{% file src=".gitbook/assets/pfSense-Grafana-Dashboard.json" %}
+{% file src="../.gitbook/assets/pfSense-Grafana-Dashboard.json" %}
 pfSense Grafana Dashboard
 {% endfile %}
 
@@ -356,8 +356,8 @@ pfSense Grafana Dashboard
 
 ### Physical Setup
 
-<figure><img src=".gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
 
 ### Setup Diagram
 
-![](.gitbook/assets/Homelab.png)
+![](../.gitbook/assets/Homelab.png)

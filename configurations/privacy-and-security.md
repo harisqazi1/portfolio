@@ -270,7 +270,7 @@ Encryption is the idea of "scrambling data so that only authorized parties can u
 
 This is straight from MBs book. I paid for a one year subscription that I am currently still a part of. I honestly like the software. It has a super-clean interface, and it shows me all out going connections, and it shows other devices on my network. It is kind of a "daily-driver" software for me, since I care about what information is going in and out. Here is my issue with Glasswire. I could be wrong on this, but I can not find a way to block an IP address on its own. For example, one "website" that I see contacted multiple times during the day is wns.trafficmanager.net (its close to that spelling). This is basically a Windows service being contacted through the browser. I would love to, in two-clicks, block that from going out, but I am not able to do that. The only way for me to block that would be to block the whole browser, which is not ideal. Also, Glasswire is a good software, but $30 is something I would pay for a one-time payment, not for every year. Example of Glasswire (fire means it is blocked from contacting the internet):
 
-![](<.gitbook/assets/image (163).png>)
+![](<../.gitbook/assets/image (163).png>)
 
 ### [Portmaster](https://safing.io/portmaster/)
 
@@ -282,11 +282,11 @@ I have used [O\&OShutup10](https://www.oo-software.com/en/shutup10) and [W10Priv
 
 O\&OShutup10 screenshot:
 
-![](<.gitbook/assets/image (164).png>)
+![](<../.gitbook/assets/image (164).png>)
 
 W10Privacy screenshot:
 
-![](<.gitbook/assets/image (165).png>)
+![](<../.gitbook/assets/image (165).png>)
 
 I have also heard about [https://github.com/securitywithoutborders/hardentools](https://github.com/securitywithoutborders/hardentools), but have never used it personally.
 
