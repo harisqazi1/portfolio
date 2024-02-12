@@ -43,13 +43,8 @@
         * [Warning](penetration-testing/physical/rubber-ducky/attiny85/untitled/warning.md)
         * [Wi-Fi Name](penetration-testing/physical/rubber-ducky/attiny85/untitled/wi-fi-name.md)
         * [Website Pop-up](penetration-testing/physical/rubber-ducky/attiny85/untitled/website-pop-up.md)
-* [Penetration Testing Cheat Sheet](penetration-testing/penetration-testing-cheat-sheet.md)
 * [Hash Cracking for Dummies](penetration-testing/hash-cracking-for-dummies.md)
 * [Advanced Hash Cracking](penetration-testing/advanced-hash-cracking.md)
-
-## Blue Team
-
-* [Blue Team Cheat Sheet](blue-team/blue-team-cheat-sheet.md)
 
 ## Write-ups
 
