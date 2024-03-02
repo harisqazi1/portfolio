@@ -2,7 +2,16 @@
 
 ## Tools
 
-<table><thead><tr><th width="575">Name</th><th>Price (USD $)</th></tr></thead><tbody><tr><td>14-Piece Lock Pick Set With Metal Handles - MPXS-14</td><td>38 (42.95 of writing this)</td></tr><tr><td>Covert Companion</td><td>90 (on sale for 70 for Black Friday as of writing this)</td></tr></tbody></table>
+| Item             | Name                                                                                    | Price        |
+| ---------------- | --------------------------------------------------------------------------------------- | ------------ |
+| Mortise Cylinder | 6 Pin "Pin Your Own" Lock Cylinder. Kwikset Keyway Includes Pins Springs and Kit        | $32.52       |
+| Vise             | BESSEY BV-VB Vacuum Base Vise                                                           | $33.79       |
+| Tweezers         | Pinning Tweezers (Sparrows)                                                             | $11.00**\*** |
+| Mats             | Mini Pinning Mats (Sparrows)                                                            | $7.99**\***  |
+| Picks            | MOKI-SET Reverend + MOKI Zipper Bag + MOKI Quad Peak Rake 0,5mm + MOKI Handle Black (7) | $144.30      |
+| **Total**        |                                                                                         | **$238.20**  |
+
+\*Bought together, and total price = $27.61
 
 ## Locks Picked
 

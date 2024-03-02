@@ -22,47 +22,42 @@ The first thing I had downloaded was [F-Droid](https://f-droid.org/). I then add
 
 ## Apps
 
-| App                        | Description                        | Source       |
-| -------------------------- | ---------------------------------- | ------------ |
-| Aegis                      | 2FA app                            | F-Droid      |
-| Aurora Store               | Google Playstore Client            | F-Droid      |
-| AntennaPod                 | Podcast App                        | F-Droid      |
-| Bitwarden                  | Password Manager                   | F-Droid      |
-| Clima                      | Weather                            | F-Droid      |
-| Collabora Office           | Office Suite                       | F-Droid      |
-| Compass                    | Compass                            | F-Droid      |
-| Cryptomator                | Encryption for files ($10 license) | F-Droid      |
-| Feeder                     | FOSS Feed Reader                   | F-Droid      |
-| FlorisBoard                | Keyboard w/ glide                  | F-Droid      |
-| K-9 Mail                   | Email Client                       | F-Droid      |
-| KeePassDX                  | Password manager for KeePass files | F-Droid      |
-| OsmAnd+                    | Map and Navigation                 | F-Droid      |
-| Metro                      | Music Player                       | F-Droid      |
-| MuPDF viewer               | PDF viewer                         | F-Droid      |
-| Molly                      | Signal Fork                        | F-Droid      |
-| mpv-android                | Video Player                       | F-Droid      |
-| NewPipe                    | YouTube Client                     | F-Droid      |
-| Open Note Scanner          | Document Scanner                   | F-Droid      |
-| Orbot                      | Tor Proxy                          | F-Droid      |
-| Proton Mail                | Encrypted Mail                     | F-Droid      |
-| Seeneva                    | Comic Book Reader                  | F-Droid      |
-| Simple Calendar Pro        | Calendar                           | F-Droid      |
-| Simple Draw                | Sketching App                      | F-Droid      |
-| Simple File Manager        | File Manager                       | F-Droid      |
-| Simple Gallery Pro         | Photo Manager                      | F-Droid      |
-| Simple Music Player        | Music Player                       | F-Droid      |
-| Simple Notes               | Notes App                          | F-Droid      |
-| Simple Voice Recorder      | Audio Recorder                     | F-Droid      |
-| SimpleLogin                | Email Alias Manager                | F-Droid      |
-| Tasks.org                  | To-Do List                         | F-Droid      |
-| Cheogram                   | XMPP Client                        | F-Droid      |
-| Authy                      | 2FA                                | Aurora Store |
-| Gboard (No Network access) | Google Keyboard                    | Aurora Store |
-| Pay by Privacy.com         | Virtual Credit Cards               | Aurora Store |
-| Signal                     | Encrypted Chat                     | Aurora Store |
-| Magic Earth                | Navigation & Map                   | Aurora Store |
-| NFC Tools                  | NFC Management                     | Aurora Store |
-| Twilio Authy Authenticator | 2FA app                            | Aurora Store |
+| App                                | Description                        | Source       |
+| ---------------------------------- | ---------------------------------- | ------------ |
+| Aegis                              | 2FA app                            | F-Droid      |
+| Aurora Store                       | Google Playstore Client            | F-Droid      |
+| AntennaPod                         | Podcast App                        | F-Droid      |
+| Bitwarden                          | Password Manager                   | F-Droid      |
+| Bluesky                            | Social Media                       | Aurora Store |
+| Clima                              | Weather                            | F-Droid      |
+| Clipeus                            | Clipboard Cleaner                  | F-Droid      |
+| Compass                            | Compass                            | F-Droid      |
+| Cryptomator                        | Encryption for files ($10 license) | F-Droid      |
+| Feeder                             | FOSS Feed Reader                   | F-Droid      |
+| FlorisBoard                        | Keyboard w/ glide                  | F-Droid      |
+| K-9 Mail                           | Email Client                       | F-Droid      |
+| KeePassDX                          | Password manager for KeePass files | F-Droid      |
+| Kiwix                              | Offline Educational Content        | F-Droid      |
+| OsmAnd+                            | Map and Navigation                 | F-Droid      |
+| Metro                              | Music Player                       | F-Droid      |
+| MuPDF viewer                       | PDF viewer                         | F-Droid      |
+| Molly                              | Signal Fork                        | F-Droid      |
+| Tubular                            | YouTube Client                     | F-Droid      |
+| Orbot                              | Tor Proxy                          | F-Droid      |
+| Proton Mail                        | Encrypted Mail                     | F-Droid      |
+| Record You                         | Voice Recording                    | F-Droid      |
+| Seeneva                            | Comic Book Reader                  | F-Droid      |
+| SimpleLogin                        | Email Alias Manager                | F-Droid      |
+| Tasks.org                          | To-Do List                         | F-Droid      |
+| Cheogram                           | XMPP Client                        | F-Droid      |
+| Authy                              | 2FA                                | Aurora Store |
+| Gboard (No Network access)         | Google Keyboard                    | Aurora Store |
+| Microsoft Lens (No Network access) | PDF Scanner                        | Aurora Store |
+| Pay by Privacy.com                 | Virtual Credit Cards               | Aurora Store |
+| Signal                             | Encrypted Chat                     | Aurora Store |
+| Magic Earth                        | Navigation & Map                   | Aurora Store |
+| NFC Tools                          | NFC Management                     | Aurora Store |
+| Twilio Authy Authenticator         | 2FA app                            | Aurora Store |
 
 ## Settings
 

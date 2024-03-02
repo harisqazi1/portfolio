@@ -5,7 +5,6 @@
 
 ## Configurations
 
-* [Privacy & Security](configurations/privacy-and-security.md)
 * [Backups](configurations/backups.md)
 * [Homelab](configurations/homelab.md)
 * [GitBook to Docusaurus Migration](configurations/gitbook-to-docusaurus-migration.md)
