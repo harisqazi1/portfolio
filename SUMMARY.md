@@ -12,6 +12,10 @@
 * [Digital Books](configurations/digital-books.md)
 * [Virtual Machines](configurations/virtual-machines.md)
 
+## Privacy
+
+* [Basic Software Investigation](privacy/basic-software-investigation.md)
+
 ## OSINT
 
 * [Breach Data](osint/breach-data/README.md)
