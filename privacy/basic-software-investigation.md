@@ -124,6 +124,10 @@ While doing research into this, it piqued my interest to see how to find the pin
 
 I could extract those and try to get this to work, but I felt like the scope of this blog would get way out bounds. As such, I will stop this portion of the blog here. mitmproxy currently has local redirect modes for [Windows](https://mitmproxy.org/posts/local-redirect/windows/) and [macOS](https://mitmproxy.org/posts/local-redirect/macos/), but nothing for Linux yet. I will wait for the Linux version to drop to try to get it to work. I will then try to update this blog.
 
+#### Credit
+
+A huge thanks to Joshua Richards for allowing me to bounce this idea off of him and for reviewing this blog.
+
 ### Sources:
 
 1. https://askubuntu.com/questions/11709/how-can-i-capture-network-traffic-of-a-single-process
