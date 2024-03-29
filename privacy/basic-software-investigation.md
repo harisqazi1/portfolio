@@ -118,7 +118,7 @@ To me it seems that Obsidian is tracking end users by assigning a desktop ID to 
 
 <figure><img src="../.gitbook/assets/Screenshot_2024-03-28_20-36.cleaned.png" alt=""><figcaption></figcaption></figure>
 
-It does seem like it is a generated ID for each application. Companies usually use IDs for telemetry and crash error analytics. However, I am not why there is an ID per application, since the version ("v") and product ("p") should be enough for them to provide an update or release. In addition, I did not see for a way to disable crash analytics in the app. I did not sign-in to the app, so perhaps my options were limited.
+It does seem like it is a generated ID for each application. Companies usually use IDs for telemetry and crash error analytics. However, I am not why there is an ID per application, since the version ("v") and product ("p") should be enough for them to provide an update or release. In addition, I did not see for a way to disable crash analytics in the app. I did not sign-in to the app, so perhaps my options were limited. My best guess for this is that maybe it is used to track in a masked way which applications are on what version and what OS to gain insight from a corporate perspective.&#x20;
 
 {% hint style="info" %}
 If my assumption is incorrect, please feel free to reach out and let me know why an ID is being used **per application** basis or if the ID is for something else completely.&#x20;
