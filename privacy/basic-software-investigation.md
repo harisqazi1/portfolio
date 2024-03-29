@@ -86,7 +86,47 @@ After outputting the file, I used `glogg` to read the contents of the file:
 
 While browsing the logs, nothing seemed out of place to me there either.
 
-### Static Analysis
+### Man-in-the-middle
+
+While looking for MITM solutions for Linux, I learned of two: PolarProxy and mitmproxy. They both work similarly by decrypting TLS traffic by becoming the middle-man (hence, man-in-the-middle).  mitmproxy currently has local redirect modes for [Windows](https://mitmproxy.org/posts/local-redirect/windows/) and [macOS](https://mitmproxy.org/posts/local-redirect/macos/), but nothing for Linux yet. As such, here is the short list of steps I conducted to get this to work for Windows:
+
+1. Downloaded Windows 10 Enterprise LTSC 64-bit ISO file (regular Windows 10/11 Home should work as well)
+2. In VirtualBox, I uploaded this ISO and gave it 3 CPU and 50 GB of space
+3. After setup, in the VM, I downloaded the mitmproxy Installer from [https://mitmproxy.org/](https://mitmproxy.org/)
+   1. When I ran mitmproxy for the first time, I got an error similar to "MSVCP140.dll was not found". To mitigate this, I downloaded Microsoft Visual C++ 2015 - 2022 Redistributable x64 and it was resolved
+4. I downloaded the Obsidian software
+5. In order to decrypt some SSL/TLS traffic, you need to [install or import the CA certificate](https://docs.mitmproxy.org/stable/concepts-certificates/). On Windows, this can be done by navigating to the files with an admin PowerShell terminal (for me was `C:\Users\vboxuser\.mitmproxy`) and then running the following: `certutil -addstore root mitmproxy-ca-cert.cer`.
+   1. NOTE: the `C:\Users\vboxuser\.mitmproxy` directory will be created after initial run of mitmproxy
+6. After installation, I located where the EXE for Obsidian was located
+   1. This can be done by right-clicking the shortcut, viewing its properties, and then seeing where it points to under "Target:"
+7. In the Obsidian EXE folder, I ran the following to attach mitmweb to the Obsidian.exe executable: `mitmweb --mode local:Obsidian.exe`
+   1. **I would recommend using `mitmweb --mode local` as an alternative as well, to make sure you don't miss any subprocesses spawned or any network traffic**
+8. If done properly, you should be able to see traffic on the web portal (127.0.0.1:8080).
+9. (Optional) Save the flows to reuse later for an investigation
+
+<figure><img src="../.gitbook/assets/Screenshot_2024-03-28_13-14_1.cleaned.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Screenshot_2024-03-28_13-37.cleaned.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Screenshot_2024-03-28_21-41.cleaned.png" alt=""><figcaption></figcaption></figure>
+
+While looking around, I did notice something interesting:
+
+<figure><img src="../.gitbook/assets/Screenshot_2024-03-28_20-10.cleaned.png" alt=""><figcaption></figcaption></figure>
+
+To me it seems that Obsidian is tracking end users by assigning a desktop ID to each app. At first, I thought it was maybe assigned to the specific version of the app. When I followed the same steps as above again on a clean install, I got the following:
+
+<figure><img src="../.gitbook/assets/Screenshot_2024-03-28_20-36.cleaned.png" alt=""><figcaption></figcaption></figure>
+
+It does seem like it is a generated ID for each application. Companies usually use IDs for telemetry and crash error analytics. However, I am not why there is an ID per application, since the version ("v") and product ("p") should be enough for them to provide an update or release. In addition, I did not see for a way to disable crash analytics in the app. I did not sign-in to the app, so perhaps my options were limited.
+
+{% hint style="info" %}
+If my assumption is incorrect, please feel free to reach out and let me know why an ID is being used **per application** basis or if the ID is for something else completely.&#x20;
+{% endhint %}
+
+Other than this, nothing notable stood out here either.
+
+## Static Analysis
 
 Static Analysis allows us to see hard-coded strings in an application to gain insight into some of the items it calls on such as variables and IP Addresses.
 
@@ -104,25 +144,7 @@ Running the `grep -ao -E " https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-
 
 Obsidian is already a well-known app for taking note-taking to the next level. I used Obsidian as a test to see what information I can gain from a closed-source app in order to be more informed about the application's interactions. Based on the limited monitoring I did, I did not find anything of concern, thus being "safe" for me to use for now.
 
-I set out to find ways to validate and investigate the applications I use on a daily basis. This does fall partially into the Malware Analysis topic, however, we are using the same tools for what we deem could be a threat to our privacy. I did learn a lot about namespaces and some other networking concepts. I do plan to do this for other apps going forward. It is a bummer about the MITM apps not working out. I really hoped they would. If you think/know where I have made an error in the MITM set up, please feel free to reach out to me and let me know!
-
-### Future Plan: Man-in-the-middle
-
-While looking for MITM solutions for Linux, I learned of two: PolarProxy and mitmproxy. The both work similarly by decrypting TLS traffic by becoming the middle-man (hence, man-in-the-middle). I was looking to get this to work for the apps I wanted to use, but it just didn't work. I had tried the following to get it to work:
-
-* Run the MITM solution and wait to see if the traffic shows up
-* Use `proxychain4` to force traffic from the app into the MITM address
-  * This gave me an error preventing the app from using the graphics on the system
-* Force the MITM solution to listen on ports where the app would request queries from (DNS, HTTP, etc.)
-* Try the socks proxy to obtain data from the app
-
-None of these ended up working for me. I was, however, able to get regular HTTPS/HTTP proxying through both, PolarProxy and mitmproxy. The main issue I ran into was Certificate Pinning, where an application developer hard-codes the CA certificate into the application to prevent MITM attacks...which we are trying to do here. As such, I realized that the previous setup would work for me to clarify what connections are trying to go out from the app. I am still looking for a way to bypass Certificate Pinning to see exactly what those TLS connections are and what payloads are being transferred over the network.
-
-While doing research into this, it piqued my interest to see how to find the pinned certificates in the application. Continuing from the unpacking of the AppImage file, I ran `grep -ia "BEGIN CERT" obsidian -A 25` where I began to just see certificate after certificate:
-
-<figure><img src="../.gitbook/assets/Obsidian_certs.cleaned (1).png" alt=""><figcaption></figcaption></figure>
-
-I could extract those and try to get this to work, but I felt like the scope of this blog would get way out bounds. As such, I will stop this portion of the blog here. mitmproxy currently has local redirect modes for [Windows](https://mitmproxy.org/posts/local-redirect/windows/) and [macOS](https://mitmproxy.org/posts/local-redirect/macos/), but nothing for Linux yet. I will wait for the Linux version to drop to try to get it to work. I will then try to update this blog.
+I set out to find ways to validate and investigate the applications I use on a daily basis. This does fall partially into the Malware Analysis topic, however, we are using the same tools for what we deem could be a threat to our privacy. I did learn a lot about namespaces and some other networking concepts. I do plan to do this for other apps going forward.&#x20;
 
 #### Credit
 
