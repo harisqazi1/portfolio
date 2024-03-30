@@ -1,2 +1,0 @@
-# Capture-the-Flag Competitions
-

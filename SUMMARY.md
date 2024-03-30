@@ -51,14 +51,6 @@
 
 ## Write-ups
 
-* [Capture-the-Flag Competitions](write-ups/capture-the-flag-competitions/README.md)
-  * [CTF Resources](write-ups/capture-the-flag-competitions/ctf-resources.md)
-  * [TMUCTF](write-ups/capture-the-flag-competitions/tmuctf.md)
-  * [PBJar CTF](write-ups/capture-the-flag-competitions/pbjar-ctf.md)
-  * [H@cktivityCon 2021](write-ups/capture-the-flag-competitions/h-cktivitycon-2021.md)
-  * [ALLES! CTF 2021](write-ups/capture-the-flag-competitions/alles-ctf.md)
-  * [CSAW'21 CTF](write-ups/capture-the-flag-competitions/csaw21-ctf.md)
-  * [DownUnderCTF 2021](write-ups/capture-the-flag-competitions/downunderctf-2021.md)
 * [TryHackMe](write-ups/tryhackme/README.md)
   * [The Marketplace](write-ups/tryhackme/the-marketplace.md)
   * [Game Zone](write-ups/tryhackme/game-zone-3-25.md)
@@ -86,16 +78,6 @@
   * [Pickle Rick](write-ups/tryhackme/pickle-rick.md)
   * [Wonderland](write-ups/tryhackme/wonderland.md)
   * [Reversing ELF](write-ups/tryhackme/reversing-elf.md)
-* [HackThisSite](write-ups/hackthissite/README.md)
-  * [Basic Missions - Basic 1](write-ups/hackthissite/basic-missions-basic-1.md)
-  * [Basic Missions - Basic 2](write-ups/hackthissite/basic-missions-basic-2.md)
-  * [Basic Missions - Basic 3](write-ups/hackthissite/basic-missions-basic-3.md)
-  * [Basic Missions - Basic 4](write-ups/hackthissite/basic-missions-basic-4.md)
-  * [Basic Missions - Basic 7](write-ups/hackthissite/basic-missions-basic-7.md)
-  * [Basic Missions - Basic 8](write-ups/hackthissite/basic-missions-basic-8.md)
-* [CTFlearn](write-ups/ctflearn/README.md)
-  * [Forensics 101](write-ups/ctflearn/forensics-101.md)
-  * [Binwalk](write-ups/ctflearn/binwalk.md)
 * [picoCTF](write-ups/picoctf/README.md)
   * [PicoCTF 2021](write-ups/picoctf/picoctf-2021/README.md)
     * [Obedient Cat](write-ups/picoctf/picoctf-2021/obedient-cat.md)
@@ -151,8 +133,6 @@
   * [Sydney](write-ups/microcorruption/sydney.md)
   * [Hanoi](write-ups/microcorruption/hanoi.md)
   * [Cusco](write-ups/microcorruption/cusco.md)
-* [pwn.college](write-ups/pwn.college/README.md)
-  * [Module 0: Introduction](write-ups/pwn.college/module-0-introduction.md)
 * [Kase Scenarios](write-ups/kase-scenarios/README.md)
   * [Dark Waters](write-ups/kase-scenarios/dark-waters.md)
   * [Betrayal](write-ups/kase-scenarios/betrayal.md)
@@ -163,8 +143,6 @@
 * [SEINT\_pl OSINT Quiz](write-ups/seint\_pl-osint-quiz/README.md)
   * [2022](write-ups/seint\_pl-osint-quiz/2022.md)
   * [2023](write-ups/seint\_pl-osint-quiz/2023.md)
-* [QuizTime](write-ups/quiztime/README.md)
-  * [8/21/2023](write-ups/quiztime/8-21-2023.md)
 
 ## Other Projects
 
