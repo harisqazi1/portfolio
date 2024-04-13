@@ -5,7 +5,6 @@
 
 ## Configurations
 
-* [Backups](configurations/backups.md)
 * [Homelab](configurations/homelab.md)
 * [GitBook to Docusaurus Migration](configurations/gitbook-to-docusaurus-migration.md)
 * [Mobile](configurations/mobile-setup.md)
@@ -15,6 +14,10 @@
 ## Privacy
 
 * [Basic Software Investigation](privacy/basic-software-investigation.md)
+
+## Information Technology
+
+* [Backups](information-technology/backups.md)
 
 ## OSINT
 
