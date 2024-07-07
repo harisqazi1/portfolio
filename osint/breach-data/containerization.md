@@ -99,15 +99,13 @@ Ansible is an IT automation software that allows you to create playbooks dictati
 
 > TLDR: Think of a bash script natively as UDP, while an Ansible playbook as TCP. Ansible checks to make sure commands are executed properly and the output is as expected, while bash natively does not.
 
-#### VM Escape
+### VM Escape
 
 Breach data comes in various formats, such as SQL dumps, text files, or in an archival formats (.7z, .zip, etc.). It could definitely be possible that any of these contain not only malware, but malware that exploits vulnerabilities in the VM in order to escape the environment (see: https://en.wikipedia.org/wiki/Virtual\_machine\_escape). As such, defense in depth is a model that is important to keep in mind when dealing with anything security related. In order to be safe when dealing with breach data, I do the following:
 
-\- Check the file extensions to make sure it isn't anything suspicious. No breach file should have a ".exe" extension. It is breach data, not a cracked video game
-
-\- Run \`head \*filename\*\`. This allows you to see the first 10 lines of the file. You can then verify if this is an executable file or breach data
-
-\- If you are still uncertain, you can grab the SHA256 or MD5 hashes of the file and upload them to [VirusTotal](https://www.virustotal.com/gui/home/upload). Of course, you can also use [ClamAV](https://www.clamav.net/) to check this first. **NOTE: MD5 and SHA-1 are known to have hash-collisions, so be wary of this.**
+* Check the file extensions to make sure it isn't anything suspicious. No breach file should have a ".exe" extension. It is breach data, not a cracked video game
+* Run \`head \*filename\*\`. This allows you to see the first 10 lines of the file. You can then verify if this is an executable file or breach data
+* If you are still uncertain, you can grab the SHA256 or MD5 hashes of the file and upload them to [VirusTotal](https://www.virustotal.com/gui/home/upload). Of course, you can also use [ClamAV](https://www.clamav.net/) to check this first. **NOTE: MD5 and SHA-1 are known to have hash-collisions, so be wary of this.**
 
 ## Podman
 
@@ -216,7 +214,7 @@ spec:
 
 I have chosen the access mode to be `ReadWriteMany`. This means "the volume can be mounted as read-write by many nodes" \[16]. &#x20;
 
-Deployment
+#### Deployment
 
 This is the main file where we mention the image we plan to use: Apache Solr. In this file, you also connect the persistent volume claim to the image. This way you can connect your host to the pods without having to run additional commands.
 
