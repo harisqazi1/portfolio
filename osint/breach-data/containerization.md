@@ -22,7 +22,7 @@ When it comes to virtual machines, there are two main types of hypervisors: Type
 * Scripting with Bash and Ansible
 * VM Escape
 
-Virtual machines are great for having a separate, virtual, system that allows for segmenting your project from the host OS. As you download different types of breaches, there is always a possibility for it to be infected with malware. Having a separate system allows us to mitigate this situation with a high percentage of success rate. The steps for setting up a VM has been discussed a lot online, so I chose not to decide it here. However, the steps should be similar to what is listed here: [https://linuxsimply.com/linux-basics/os-installation/virtual-machine/debian-on-virtualbox/](https://linuxsimply.com/linux-basics/os-installation/virtual-machine/debian-on-virtualbox/). The steps to download Solr are in the docs: [https://solr.apache.org/guide/solr/latest/deployment-guide/installing-solr.html](https://solr.apache.org/guide/solr/latest/deployment-guide/installing-solr.html).
+Virtual machines are great for having a separate and virtual system that allows for segmenting your project from the host OS. As you download different types of breaches, there is always a possibility for it to be infected with malware. Having a separate system allows us to mitigate this situation with a high percentage of success rate. The steps for setting up a VM has been discussed a lot online, so I chose not to decide it here. However, the steps should be similar to what is listed here: [https://linuxsimply.com/linux-basics/os-installation/virtual-machine/debian-on-virtualbox/](https://linuxsimply.com/linux-basics/os-installation/virtual-machine/debian-on-virtualbox/). The steps to download Solr are in the docs: [https://solr.apache.org/guide/solr/latest/deployment-guide/installing-solr.html](https://solr.apache.org/guide/solr/latest/deployment-guide/installing-solr.html).
 
 ### Operating System (OS) Recommendations
 
@@ -33,11 +33,11 @@ When it comes to OSes to put on the Virtual Machines, I always recommend Linux (
 
 #### Debian (Novice)
 
-[Debian](https://www.debian.org/) is an entry-level operating system in the Linux ecosystem, although some consider Linux Mint to be that. Linux Mint (and Ubuntu) is based on Debian. I recommend this OS as the installation method for this OS and using the OS out of the box is really easy. You simply follow the prompts and the OS is good to go. For installing packages, the \`apt\` package manager gives you most tools, and Flatpak and Snap managers are one command away to be installed. There is a lot of tutorials and documentation for Debian in case one gets stuck, which is why I have this listed at the Novice level.
+[Debian](https://www.debian.org/) is an entry-level operating system in the Linux ecosystem, although some consider Linux Mint to be that. Linux Mint (and Ubuntu) is based on Debian. I recommend this OS as the installation method for this OS and using the OS out of the box is really easy. You simply follow the prompts and the OS is good to go. For installing packages, the \`apt\` package manager gives you most tools, and Flatpak and Snap managers are one command away to be installed. There is a lot of tutorials and documentation for Debian in case one gets stuck, which is why I have this listed at the Novice level. If you get comfortable with Debian by itself, I highly recommend moving on to [Kicksecure](https://www.kicksecure.com/), which is hardened Debian.
 
 #### Fedora Silverblue (Advanced Beginner)
 
-[Fedora Silverblue](https://fedoraproject.org/atomic-desktops/silverblue/) is a semi-rolling release Fedora-based atomic/immutable distribution. I mention this in my blog due to my strong belief in having backups, which is what the atomic/immutable aspect of it allows you to have. When updating your system, if it fails, and your OS gets mis-configured, you can roll the OS back to a previous snapshot. This way you will always have a working OS. Working with breach data and setting up the infrastructure takes time, and in my opinion, having a backup, even at the OS-level is needed. Silverblue also uses [Toolbx](https://containertoolbx.org/), which allows you to segment projects on your system. This would allow you to try other configurations on another project, without it affecting your main working project. Silverblue uses GNOME as the desktop, however if you prefer KDE, Sway, or Budgie, check out the other variants: [https://fedoraproject.org/atomic-desktops/](https://fedoraproject.org/atomic-desktops/).
+[Fedora Silverblue](https://fedoraproject.org/atomic-desktops/silverblue/) is a semi-rolling release Fedora-based atomic/immutable distribution. I mention this in my blog due to my strong belief in having backups, which is what the atomic/immutable aspect of it allows you to have. When updating your system, if it fails, and your OS gets mis-configured, you can roll the OS back to a previous snapshot. This way you will always have a working OS. Working with breach data and setting up the infrastructure takes time, and in my opinion, having a backup, even at the OS-level, is needed. Silverblue also uses [Toolbx](https://containertoolbx.org/), which allows you to segment projects on your system. This would allow you to try other configurations on another project, without it affecting your main working project. Silverblue uses GNOME as the desktop, however if you prefer KDE, Sway, or Budgie, check out the other variants: [https://fedoraproject.org/atomic-desktops/](https://fedoraproject.org/atomic-desktops/).
 
 ### Scripting with Bash and Ansible
 
@@ -91,29 +91,29 @@ install_apt_packages() {
 }
 ```
 
-Scripting like this allows for repeated customization of your system. Simply have the script on the machine, and run it. This will go line by line and execute the commands on your system. This is great for having a running document that you can rely on to set up your system. Although Bash is good for basic tasks, I would recommend Ansible more, as it has validation built into it, notifying you when errors are found.
+Scripting like this allows for repeated customization of your system. Simply have the script on the machine, and run it. This will go line by line and execute the commands on your system. This is great for having a running document (script) that you can rely on to set up your system. Although Bash is good for basic tasks, I would recommend Ansible more, as it has validation built into it, notifying you when errors are found.
 
 #### Ansible
 
-Ansible is an IT automation software that allows you to create playbooks dictating what you want the end result to look like. Think of playbooks as a script (playbook) that calls multiple functions (tasks) in order to get a job done. Compared to Bash, Ansible does have a learning curve to it. I have written a [cheatsheet](https://github.com/harisqazi1/ansible/blob/main/ansible\_cheatsheet.md), that is meant to speed-run the learning process a bit. I won't be mentioning all of the features of Ansible here, as it might go off of the scope of this blog a bit. The only feature worth mentioning is that it allows you to have a playbook, which repeats the same setup on all the systems, allowing systems to be the same in configuration. This is great for enterprise environments, but I would recommend it for personal use as well. I would recommend reading the [Ansible Docs](https://docs.ansible.com/ansible/latest/getting\_started/index.html) as a starting point to catch up to speed on the technology and its benefits.
+Ansible is an IT automation software that allows you to create playbooks dictating what you want the end result to look like. Think of playbooks as a script (playbook) that calls multiple functions (tasks) in order to get a job done. Compared to Bash, Ansible does have a learning curve to it. I have written a [cheatsheet](https://github.com/harisqazi1/ansible/blob/main/ansible\_cheatsheet.md), that is meant to speed-run the learning process a bit. I won't be mentioning all of the features of Ansible here, as it might go off of the scope of this blog a bit. The only feature worth mentioning is that it allows you to have a playbook, which repeats the same setup on all the systems, allowing systems to be the same in configuration. In addition, it works off of the end result, so it makes sure the specific change is made before it moves on to the next item. This is great for enterprise environments, but I would recommend it for personal use as well. I would recommend reading the [Ansible Docs](https://docs.ansible.com/ansible/latest/getting\_started/index.html) as a starting point to catch up to speed on the technology and its benefits.
 
 > TLDR: Think of a bash script natively as UDP, while an Ansible playbook as TCP. Ansible checks to make sure commands are executed properly and the output is as expected, while bash natively does not.
 
 ### VM Escape
 
-Breach data comes in various formats, such as SQL dumps, text files, or in an archival formats (.7z, .zip, etc.). It could definitely be possible that any of these contain not only malware, but malware that exploits vulnerabilities in the VM in order to escape the environment (see: https://en.wikipedia.org/wiki/Virtual\_machine\_escape). As such, defense in depth is a model that is important to keep in mind when dealing with anything security related. In order to be safe when dealing with breach data, I do the following:
+Breach data comes in various formats, such as SQL dumps, text files, or in an archival formats (.7z, .zip, etc.). It is definitely possible that any of these could contain not only malware, but malware that exploits vulnerabilities in the VM in order to escape the environment (see: https://en.wikipedia.org/wiki/Virtual\_machine\_escape). As such, defense in depth is a model that is important to keep in mind when dealing with anything security related. In order to be safe when dealing with breach data, I do the following:
 
 * Check the file extensions to make sure it isn't anything suspicious. No breach file should have a ".exe" extension. It is breach data, not a cracked video game
-* Run \`head \*filename\*\`. This allows you to see the first 10 lines of the file. You can then verify if this is an executable file or breach data
-* If you are still uncertain, you can grab the SHA256 or MD5 hashes of the file and upload them to [VirusTotal](https://www.virustotal.com/gui/home/upload). Of course, you can also use [ClamAV](https://www.clamav.net/) to check this first. **NOTE: MD5 and SHA-1 are known to have hash-collisions, so be wary of this.**
+* Run \`head filename\`. This allows you to see the first 10 lines of the file. You can then verify if this is an executable file or breach data
+* If you are still uncertain, you can grab the SHA256 or MD5 hashes of the file and upload them to [VirusTotal](https://www.virustotal.com/gui/home/upload). Of course, you can also use [ClamAV](https://www.clamav.net/) to check this first. **NOTE: MD5 and SHA-1 are known to have hash-collisions, so be cautious of this.**
 
 ## Podman
 
-I was thinking of mentioning Docker here. However, I personally use [Podman](https://podman.io/). The reasoning is simple: "Podman stands out from other container engines because it’s daemonless, meaning it doesn't rely on a process with root privileges to run containers"\[3]. It would be unfair for me to discuss Docker, when I myself do not use it or plan to use it. Most of the commands that work for Podman, should work for Docker as well (You will have to change `podman` to `docker` in your commands. If the aforementioned root-less architecture is a risk accepted for you in relation to a little higher learning curve, feel free to use docker as there is more support and documentation for it. The goal isn't to push an individual to use a specific solution, but to use a specific technology for their needs.
+I was thinking of mentioning Docker here. However, I personally use [Podman](https://podman.io/). The reasoning is simple: "Podman stands out from other container engines because it’s daemonless, meaning it doesn't rely on a process with root privileges to run containers"\[3]. It would be unfair for me to discuss Docker, when I myself do not use it or plan to use it. Most of the commands that work for Podman, should work for Docker as well (You will have to change `podman` to `docker` in your commands. If the aforementioned root-less architecture is a risk accepted for you in relation to a little higher learning curve, feel free to use Docker as there is more support and documentation for it. The goal isn't to push an individual to use a specific solution, but to use a specific technology for their needs.
 
 ### Apache Solr
 
-The following will be a list of commands you can use to get Apache Solr, up and running. (**This is not a script**, but could easily be modified into one - if your file paths match with what the script has):
+The following will be a list of commands you can use to get Apache Solr up and running. (**This is not a script**, but could easily be modified into one - if your file paths match with what the script has):
 
 ```bash
 # Update and upgrade your system to the newest packages
@@ -134,7 +134,7 @@ mkdir solr_local
 podman run --rm -v "$PWD:/mydata" --network=host solr bin/solr post -c breach /mydata/soletrade-users.txt.json
 ```
 
-Just like that, you have Apache Solr setup and ready to go in a containerized environment. The following commands are just for maintenance:&#x20;
+Just like that, you have Apache Solr setup and ready to go in a containerized environment. It should be available at `http://localhost:8983` The following commands are just for maintenance:&#x20;
 
 ```bash
 # Remove container
@@ -149,11 +149,10 @@ podman start solr_breach
 <delete> 
    <query>*:*</query> 
 </delete>
-## 
-Hit Submit Button
+## Hit Submit Button
 ```
 
-If you wanted to go with another container, you would just pull it. You could, of course, create your own Dockerfile (which Podman can read), if you want to setup a custom breach system. Maybe you have a custom app you built for breach data. In that case, using a Dockerfile would be great for you to set your environment up as a container. If you wanted to connect multiple containers, you can look into [Docker Compose](https://docs.docker.com/compose/) as well. The popular service `search.0t.rocks` was using exactly this: [https://github.com/MiyakoYakota/search.0t.rocks/blob/main/docker-compose.yml](https://github.com/MiyakoYakota/search.0t.rocks/blob/main/docker-compose.yml). If you did want to learn docker, the following link has some great places to start: [https://github.com/veggiemonk/awesome-docker?tab=readme-ov-file#where-to-start](https://github.com/veggiemonk/awesome-docker?tab=readme-ov-file#where-to-start).
+If you wanted to go with another container, you would just pull it. You could, of course, create your own Dockerfile (which Podman can read), if you want to set up a custom breach system. Maybe you have a custom app you built for breach data. In that case, using a Dockerfile would be great for you to set your environment up as a container. If you wanted to connect multiple containers, you can look into [Docker Compose](https://docs.docker.com/compose/) as well. The popular service `search.0t.rocks` was using exactly this: [https://github.com/MiyakoYakota/search.0t.rocks/blob/main/docker-compose.yml](https://github.com/MiyakoYakota/search.0t.rocks/blob/main/docker-compose.yml). If you did want to learn docker, the following link has some great places to start: [https://github.com/veggiemonk/awesome-docker?tab=readme-ov-file#where-to-start](https://github.com/veggiemonk/awesome-docker?tab=readme-ov-file#where-to-start).
 
 ## Microk8s (Kubernetes)
 
@@ -166,6 +165,10 @@ I will mention Microk8s and Kubernetes interchangeably going forward. Just know 
 {% endhint %}
 
 ### Apache Solr
+
+{% hint style="info" %}
+Apache Solr has a dedicated page for setting Solr up with Kubernetes (Apache Solr Operator) leveraging Helm and it uses Zookeeper for load balancing. I wanted to leverage a container image and work off of that for this blog. However, if you want to try their method, feel free to check out the dedicated page: [https://solr.apache.org/operator/](https://solr.apache.org/operator/)
+{% endhint %}
 
 Create the following files first, so that way you can run the commands back to back. On Linux, you can install gedit (`sudo apt install gedit -y`) or use the command line editor like nano or vim to edit files. I would recommend creating a folder (`mkdir breach-YAML`) where you can store the following files. This makes deployment much easier, since we can point Kubernetes to read a folder instead of 4 different files.
 
@@ -402,7 +405,7 @@ snap run microk8s enable storage #storage is deprecated, `hostpath-storage` shou
 # Run this in another terminal; Access the URL and token for Kubernetes dashboard; 
 snap run microk8s dashboard-proxy
 # Apply all yaml files from breach folder
-snap run microk8s kubectl apply -f ./breach
+snap run microk8s kubectl apply -f ./breach-YAML
 # Create a core (index) called breach - this will create a core on all pods
 bash script.sh "./bin/solr create_core -c breach"
 # You then push the breach data to all of the pods as well: 
@@ -425,20 +428,20 @@ I have recorded a video where I run these commands and show the output of this t
 
 ## General Recommendations
 
-My recommendation for when to use what "container" depends on the situation. If you are a beginner hobbyist, I would recommend using a virtual machine. It is straight-forward to setup, and you don't have to worry about learning a new technology or mitigating container issues. Virtual Machines (if you do not connect the from VM to host) allow you to segment the files in the virtual machine, preventing potential malware from getting on to your host machine. If you want something a bit lightweight, then I can recommend Podman or Docker. These are lighter than virtual machines and take less work to setup than virtual machines when it comes to applications. However, with containers you have to understand how ports, volumes, etc. work in order to get your application in a state you want it. Finally, Kubernetes (by itself, and at a Microk8s-level - including Minikube, Kind, etc.) is what I would recommend for a team of users and for corporate environments. This is great for load balancing and high availability for your applications, and hobbyist will most likely not deal with those issues. If your team is leveraging Docker already, then Docker Swarm might be a better fit for you.
+My recommendation for when to use what "container" depends on the situation. If you are a beginner hobbyist, I would recommend using a virtual machine. It is straight-forward to setup, and you don't have to worry about learning a new technology or mitigating container issues. Virtual Machines (if you do not connect the from VM to host) allow you to segment the files in the virtual machine, preventing potential malware (to a high extent) from getting on to your host machine. If you want something a bit lightweight, then I can recommend Podman or Docker. These are lighter than virtual machines and take less work to setup than virtual machines when it comes to applications. However, with containers you have to understand how ports, volumes, etc. work in order to get your application in a state you want it. Finally, Kubernetes (by itself, and at a Microk8s-level - including Minikube, Kind, etc.) is what I would recommend for a team of users and for corporate environments. This is great for load balancing and high availability for your applications, and a hobbyist will most likely not deal with load or availability issues . If your team is leveraging Docker already, then Docker Swarm might be a better fit for you.
 
 ## Errors
 
 I ran into a lot of errors trying to setup Minikube and Kind. Microk8s ended up working for me, but I still wanted to share the errors I had encountered:
 
-* Ran into an issue where minikube was having trouble running with podman in the runtime container mentioned on https://minikube.sigs.k8s.io/docs/drivers/podman/. To mitigate this error, I have then switched from Podman to Docker to continue working on this blog. This still did not resolve anything
-* Docker rootless and docker root-full led to me having the same error: When I SSH into the pod, it asks me if the Docker daemon is running...which Minikube should have taken care of when initializing
-* With Kind I couldn't add docker images from docker hub. I was limited to local only
+* Ran into an issue where Minikube was having trouble running with Podman in the runtime container mentioned on https://minikube.sigs.k8s.io/docs/drivers/podman/. To mitigate this error, I  then switched from Podman to Docker to continue working on this blog. This still did not resolve anything
+* Docker rootless and Docker root-full led to me having the same error: When I SSH into the pod, it asks me if the Docker daemon is running...which Minikube should have taken care of when initializing
+* With Kind I couldn't add Docker images from Docker Hub. I was limited to local only
 * Minikube with Docker was running into issues of misconfiguration, without me tweaking any settings. It worked once, but then it just stopped after
 
 ## Conclusion
 
-I used this blog as an excuse to play around with Kubernetes, as I wanted to see how container orchestration can be used for bigger breach data environments. I spent a lot of time trying out Kubernetes at a small scale with Minikube and then Kind (for a little bit). Microk8s just seem to have an easy setup, and had a more friendly tutorial to go with it. No driver configuration or anything needed. All that to say, I did learn a lot of Kubernetes while writing this blog. I do hope my setup is beneficial to others in a similar situation.&#x20;
+I used this blog as an excuse to play around with Kubernetes, as I wanted to see how container orchestration can be used for bigger breach data environments. I spent a lot of time trying out Kubernetes at a small scale with Minikube and then Kind (for a little bit). Microk8s just seem to have an easy setup, and had a more friendly tutorial to go with it. No driver configuration or anything needed. All that to say, I did learn a lot of Kubernetes while writing this blog. I would definitely recommend Microk8s and Kubernetes to those who have higher loads and need high availability for their breach environments. I do hope my setup is beneficial to others in a similar situation.&#x20;
 
 ## Sources
 
