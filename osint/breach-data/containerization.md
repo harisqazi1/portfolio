@@ -12,7 +12,7 @@ This blog will discuss 3 different solutions:
 
 1. Virtual Machines
 2. Podman (similar to Docker)
-3. Microk8s (Kubernetes, which is similar to Docker Swarm)
+3. MicroK8s (Kubernetes, which is similar to Docker Swarm)
 
 ## Virtual Machines
 
@@ -154,14 +154,14 @@ podman start solr_breach
 
 If you wanted to go with another container, you would just pull it. You could, of course, create your own Dockerfile (which Podman can read), if you want to set up a custom breach system. Maybe you have a custom app you built for breach data. In that case, using a Dockerfile would be great for you to set your environment up as a container. If you wanted to connect multiple containers, you can look into [Docker Compose](https://docs.docker.com/compose/) as well. The popular service `search.0t.rocks` was using exactly this: [https://github.com/MiyakoYakota/search.0t.rocks/blob/main/docker-compose.yml](https://github.com/MiyakoYakota/search.0t.rocks/blob/main/docker-compose.yml). If you did want to learn docker, the following link has some great places to start: [https://github.com/veggiemonk/awesome-docker?tab=readme-ov-file#where-to-start](https://github.com/veggiemonk/awesome-docker?tab=readme-ov-file#where-to-start).
 
-## Microk8s (Kubernetes)
+## MicroK8s (Kubernetes)
 
 Kubernetes is similar to Docker Swarm, in that both solutions allow you to scale your container up to scale for demand. This works well for high-demand systems, where resource intensive tasks are conducted. Think of Kubernetes as a way to replicate an image to multiple Podman containers, and scale it up to balance your workload.
 
-So why Microk8s? I can only test on the hardware / software that I do have. Kubernetes (and Docker Swarm) relies on having multiple machines where you can create multiple nodes to work simultaneously. Can I setup a network of VMs running simultaneously to create this network of machines? I can. Do I have the resources for that on my machine? Not at this moment. The good thing is that the similar to how Kubernetes is meant for multiple machines, Microk8s allows you to do all that work on a small scale on one machine \[5]\[6]. Since the commands are similar for both, this should not be a problem when setting up a bigger system.
+So why MicroK8s? I can only test on the hardware / software that I do have. Kubernetes (and Docker Swarm) relies on having multiple machines where you can create multiple nodes to work simultaneously. Can I setup a network of VMs running simultaneously to create this network of machines? I can. Do I have the resources for that on my machine? Not at this moment. The good thing is that the similar to how Kubernetes is meant for multiple machines, MicroK8s allows you to do all that work on a small scale on one machine \[5]\[6]. Since the commands are similar for both, this should not be a problem when setting up a bigger system.
 
 {% hint style="info" %}
-I will mention Microk8s and Kubernetes interchangeably going forward. Just know that Microk8s is running Kubernetes at a small scale, so it essentially is Kubernetes.
+I will mention MicroK8s and Kubernetes interchangeably going forward. Just know that MicroK8s is running Kubernetes at a small scale, so it essentially is Kubernetes.
 {% endhint %}
 
 ### Apache Solr
@@ -174,7 +174,7 @@ Create the following files first, so that way you can run the commands back to b
 
 #### PersistentVolume
 
-We will start off by creating a persistent volume. This will allow us to create a volume location on our local machine that Kubernetes via Microk8s will recognize.
+We will start off by creating a persistent volume. This will allow us to create a volume location on our local machine that Kubernetes via MicroK8s will recognize.
 
 `breach-pv.yaml`:
 
@@ -387,7 +387,7 @@ Just to note after installing `microk8s`, if you reboot, you will not have to ru
 </strong><strong># MicroK8s
 </strong>#Install snapd
 sudo apt install snapd ufw -y
-# Install microK8s
+# Install MicroK8s
 sudo snap install microk8s --classic
 # Allow firewall rules
 sudo ufw allow in on cni0 &#x26;&#x26; sudo ufw allow out on cni0
@@ -396,7 +396,7 @@ sudo ufw default allow routed
 sudo usermod -a -G microk8s user
 sudo chown -R user ~/.kube
 newgrp microk8s
-# Start microk8s
+# Start MicroK8s
 snap run microk8s start
 # Enable Add-ons
 snap run microk8s enable dns 
@@ -416,9 +416,9 @@ bash script.sh "./bin/solr post -c breach /opt/solr/server/solr/mydata/MOCK_DATA
 # Cleanup
 ## Delete the deployment
 snap run microk8s kubectl delete deployment solr-deployment
-## Reset Microk8s in case you need to use it for another project
+## Reset MicroK8s in case you need to use it for another project
 sudo snap run microk8s reset
-## Stop Microk9s
+## Stop MicroK8s
 sudo snap run microk8s stop
 </code></pre>
 
@@ -428,11 +428,11 @@ I have recorded a video where I run these commands and show the output of this t
 
 ## General Recommendations
 
-My recommendation for when to use what "container" depends on the situation. If you are a beginner hobbyist, I would recommend using a virtual machine. It is straight-forward to setup, and you don't have to worry about learning a new technology or mitigating container issues. Virtual Machines (if you do not connect the from VM to host) allow you to segment the files in the virtual machine, preventing potential malware (to a high extent) from getting on to your host machine. If you want something a bit lightweight, then I can recommend Podman or Docker. These are lighter than virtual machines and take less work to setup than virtual machines when it comes to applications. However, with containers you have to understand how ports, volumes, etc. work in order to get your application in a state you want it. Finally, Kubernetes (by itself, and at a Microk8s-level - including Minikube, Kind, etc.) is what I would recommend for a team of users and for corporate environments. This is great for load balancing and high availability for your applications, and a hobbyist will most likely not deal with load or availability issues . If your team is leveraging Docker already, then Docker Swarm might be a better fit for you.
+My recommendation for when to use what "container" depends on the situation. If you are a beginner hobbyist, I would recommend using a virtual machine. It is straight-forward to setup, and you don't have to worry about learning a new technology or mitigating container issues. Virtual Machines (if you do not connect the from VM to host) allow you to segment the files in the virtual machine, preventing potential malware (to a high extent) from getting on to your host machine. If you want something a bit lightweight, then I can recommend Podman or Docker. These are lighter than virtual machines and take less work to setup than virtual machines when it comes to applications. However, with containers you have to understand how ports, volumes, etc. work in order to get your application in a state you want it. Finally, Kubernetes (by itself, and at a MicroK8s-level - including Minikube, Kind, etc.) is what I would recommend for a team of users and for corporate environments. This is great for load balancing and high availability for your applications, and a hobbyist will most likely not deal with load or availability issues . If your team is leveraging Docker already, then Docker Swarm might be a better fit for you.
 
 ## Errors
 
-I ran into a lot of errors trying to setup Minikube and Kind. Microk8s ended up working for me, but I still wanted to share the errors I had encountered:
+I ran into a lot of errors trying to setup Minikube and Kind. MicroK8s ended up working for me, but I still wanted to share the errors I had encountered:
 
 * Ran into an issue where Minikube was having trouble running with Podman in the runtime container mentioned on https://minikube.sigs.k8s.io/docs/drivers/podman/. To mitigate this error, I  then switched from Podman to Docker to continue working on this blog. This still did not resolve anything
 * Docker rootless and Docker root-full led to me having the same error: When I SSH into the pod, it asks me if the Docker daemon is running...which Minikube should have taken care of when initializing
@@ -441,7 +441,7 @@ I ran into a lot of errors trying to setup Minikube and Kind. Microk8s ended up 
 
 ## Conclusion
 
-I used this blog as an excuse to play around with Kubernetes, as I wanted to see how container orchestration can be used for bigger breach data environments. I spent a lot of time trying out Kubernetes at a small scale with Minikube and then Kind (for a little bit). Microk8s just seem to have an easy setup, and had a more friendly tutorial to go with it. No driver configuration or anything needed. All that to say, I did learn a lot of Kubernetes while writing this blog. I would definitely recommend Microk8s and Kubernetes to those who have higher loads and need high availability for their breach environments. I do hope my setup is beneficial to others in a similar situation.&#x20;
+I used this blog as an excuse to play around with Kubernetes, as I wanted to see how container orchestration can be used for bigger breach data environments. I spent a lot of time trying out Kubernetes at a small scale with Minikube and then Kind (for a little bit). MicroK8s just seem to have an easy setup, and had a more friendly tutorial to go with it. No driver configuration or anything needed. All that to say, I did learn a lot of Kubernetes while writing this blog. I would definitely recommend MicroK8s and Kubernetes to those who have higher loads and need high availability for their breach environments. I do hope my setup is beneficial to others in a similar situation.&#x20;
 
 ## Sources
 
