@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I have seen application containerization solutions mentioned for a while now, and I wanted to look into a a couple of these solutions to be used for breach infrastructure, especially for breach data indexing (Apache Solr). From an outside perspective, it seems like a good way to have lightweight systems that allow for scaling up if required. The title, however, alludes to containerizing solutions in general, which I will use as an umbrella term to include virtual machines as well. **I will be basing this blog on a Linux OS, but the tools will work on Windows and macOS as well.**&#x20;
+I have seen application containerization solutions mentioned for a while now, and I wanted to look into a couple of these solutions to be used for breach infrastructure, especially for breach data indexing (Apache Solr). From an outside perspective, it seems like a good way to have lightweight systems that allow for scaling up if required. The title, however, alludes to containerizing solutions in general, which I will use as an umbrella term to include virtual machines as well. **I will be basing this blog on a Linux OS, but the tools will work on Windows and macOS as well.**&#x20;
 
 {% hint style="info" %}
 My testing environment for this blog was a Debian 12 virtual machine hosted on Virtual Box. It has 50GB of storage, 6000MB RAM, and 3 cores.
