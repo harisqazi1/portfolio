@@ -1,6 +1,6 @@
 # Virtual Machines
 
-## Hacking (CTFs)
+## Capture The Flag
 
 I use Kali Linux. Sometimes I install meta-packages (see [https://www.kali.org/docs/general-use/metapackages/](https://www.kali.org/docs/general-use/metapackages/)), however, usually I just install the applications I need to it. Here is the following script that works for me.
 
@@ -37,6 +37,8 @@ sudo apt install qbittorrent transmission #Torrent software
 #--------------
 sudo apt install git wget sqlitebrowser #General Tools
 # Get a new temp email address for creating accounts only meant for the VM
+# Install JDownloader2 to make downloading large files easy
+## Make sure to toggle the clipboard feature off: https://board.jdownloader.org/showthread.php?t=52809
 ```
 
 ## Testing Environment
