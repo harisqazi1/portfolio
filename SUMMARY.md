@@ -11,9 +11,10 @@
 * [Digital Books](configurations/digital-books.md)
 * [Virtual Machines](configurations/virtual-machines.md)
 
-## Privacy
+## Privacy and Security
 
-* [Basic Software Investigation](privacy/basic-software-investigation.md)
+* [Basic Software Investigation](privacy-and-security/basic-software-investigation.md)
+* [Application Sandboxing](privacy-and-security/application-sandboxing.md)
 
 ## Information Technology
 
