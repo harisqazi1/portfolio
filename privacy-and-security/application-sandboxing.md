@@ -187,7 +187,7 @@ These were the main topics I wanted to mention regarding Flatpak applications. N
 
 Snap applications use "a combination of AppArmor, seccomp, mount namespaces, cgroups and traditional UNIX permissions. To then allow a package access to common resources, the snap system provides ‘interfaces’ to which packages can be granted access as required or determined by the user" \[23]. SECCOMP, or seccomp, "allows a process to make a one-way transition into a "secure" state where it cannot make any system calls except exit(), sigreturn(), read() and write() to already-open file descriptors. Should it attempt any other system calls, the kernel will either just log the event or terminate the process with SIGKILL or SIGSYS. In this sense, it does not virtualize the system's resources but isolates the process from them entirely" \[27].
 
-Ubuntu does have documentation that goes a bit deeper into these security technologies here: https://ubuntu.com/core/docs/security-and-sandboxing. There are two modes of snap confinement for applications: strict and classic \[7,24]:
+Ubuntu does have documentation that goes a bit deeper into these security technologies here: [https://ubuntu.com/core/docs/security-and-sandboxing](https://ubuntu.com/core/docs/security-and-sandboxing). There are two modes of snap confinement for applications: strict and classic \[7,24]:
 
 **Strict** Used by the majority of snaps. Strictly confined snaps run in complete isolation, up to a minimal access level that’s deemed always safe. Consequently, strictly confined snaps can not access files, network, processes or any other system resource without requesting specific access via an interface (see below).
 
@@ -207,7 +207,7 @@ done
 
 If you have classic confinement, you will have to modify a kernel permission to get your snap to strict confinement, that being: `systemd.unified_cgroup_hierarchy=0` \[7]. If you are not using an Ubuntu or one of its derivatives, I would just recommend not using Snappy at all, and instead try to find an alternate way to download the application. You will have better options to sandbox than classic confinement: such as Bubblejail or a MAC like AppArmor or SELinux.
 
-If you do want to control the permissions your app has, you can do this via two methods: Snap Store (https://snapcraft.io/snap-store) or the command line \[23]. The Snap Store has toggles for application permissions which make it easy to work with:
+If you do want to control the permissions your app has, you can do this via two methods: Snap Store ([https://snapcraft.io/snap-store](https://snapcraft.io/snap-store)) or the command line \[23]. The Snap Store has toggles for application permissions which make it easy to work with:
 
 <figure><img src="../.gitbook/assets/Screenshot_2024-09-14_15-34.png" alt=""><figcaption></figcaption></figure>
 
@@ -396,10 +396,10 @@ After trying to play around and create profiles for both Firejail and Bubblewrap
 
 ## Key Takeaways
 
-1. I need to switch to Wayland to mitigate the X11 vulnerability, as the sandboxing solutions did not pan out as expected.
+1. I need to switch to Wayland to mitigate the X11 vulnerability, as the sandboxing solutions did not pan out as expected
 2. I need to run `flatpak update` instead of `flatpak update -y` to make sure I do not override any past permissions
 3. While downloading a new Flatpak or Snappy app, I need to be cognizant of what permissions I allow it to have
-4. Firejail and Bubblewrap (and even Bubblejail) need **a lot** of maintenance to create profiles. Doing this for every single application using these tools is not ideal.
+4. Firejail and Bubblewrap (and even Bubblejail) need **a lot** of maintenance to create profiles. Doing this for every single application using these tools is not ideal
 
 ## Sources
 
