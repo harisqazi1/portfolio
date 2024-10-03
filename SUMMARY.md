@@ -15,6 +15,7 @@
 
 * [Basic Software Investigation](privacy-and-security/basic-software-investigation.md)
 * [Application Sandboxing](privacy-and-security/application-sandboxing.md)
+* [AppArmor](privacy-and-security/apparmor.md)
 
 ## Information Technology
 
