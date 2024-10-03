@@ -74,7 +74,7 @@ I read the following well written comparison between SELinux and AppArmor in the
 
 ## Sandboxing vs. Mandatory Access Control
 
-In the previous blog "Application Hardening", I discussed sandboxing solutions such as Firejail and Bubblewrap. I wanted to have a small section describing the difference between what a sandbox provides and what a MAC (like AppArmor and SELinux) provide. First, both work on different levels on the operating system. Sandboxing works in user space (a.k.a userland) while MACs work in kernel space \[5]. Red Hat does a good job at phrasing the difference \[6]:
+In the previous blog "Application Sandboxing", I discussed sandboxing solutions such as Firejail and Bubblewrap. I wanted to have a small section describing the difference between what a sandbox provides and what a MAC (like AppArmor and SELinux) provide. First, both work on different levels on the operating system. Sandboxing works in user space (a.k.a userland) while MACs work in kernel space \[5]. Red Hat does a good job at phrasing the difference \[6]:
 
 User space:
 
@@ -145,9 +145,6 @@ abi <abi/3.0>,
 include <tunables/global>
 
 /usr/lib/firefox/firefox flags=(complain) {
-  capability sys_admin,
-  capability sys_chroot,
-  capability sys_ptrace,
 
   network inet dgram,
   network inet stream,
@@ -282,7 +279,7 @@ include <tunables/global>
 }
 ```
 
-This is about 141 lines. This took me 10-15 minutes to make, and then another 20 to test and finalize. One thing to note is that, this will **not** work for your machine, unless it is a 1:1 copy of mine. If you want to use it feel free, and then run `aa-complain` and `aa-logprof` to tweak changes until it works for you. It was my first time making a profile, but I could go back and start cleaning and combing some rules as well, to make the profile much more user friendly. I did try using inheritance for this ("include xyz"), but that ended up having two rules go against each other and the profile did not end up working. However, it is **highly** recommended to use inheritance to prevent "recreating the wheel" for the rules. I have worked on some AppArmor profiles (one so far). If you wanted to check it out, the link to that is: [GitHub - harisqazi1/AppArmor-Profiles](https://github.com/harisqazi1/AppArmor-Profiles). That's pretty much it. If you wanted some out-of-the-box profiles, check out [GitHub - roddhjav/apparmor.d: Full set of AppArmor profiles (\~ 1500 profiles)](https://github.com/roddhjav/apparmor.d).
+This is about 141 lines. This took me 10-15 minutes to make, and then another 20 to test and finalize. One thing to note is that, this will **not** work for your machine, unless you are using Pop!\_OS as well. If you want to use it feel free, and then run `aa-complain` and `aa-logprof` to tweak changes until it works for you. It was my first time making a profile, but I could go back and start cleaning and combing some rules as well, to make the profile much more user friendly. I did try using inheritance for this ("include xyz"), but that ended up having two rules go against each other and the profile did not end up working. However, it is **highly** recommended to use inheritance to prevent "recreating the wheel" for the rules. I have worked on some AppArmor profiles (one so far). If you wanted to check it out, the link to that is: [GitHub - harisqazi1/AppArmor-Profiles](https://github.com/harisqazi1/AppArmor-Profiles). That's pretty much it. If you wanted some out-of-the-box profiles, check out [GitHub - roddhjav/apparmor.d: Full set of AppArmor profiles (\~ 1500 profiles)](https://github.com/roddhjav/apparmor.d).
 
 ## Workflow
 
@@ -314,6 +311,3 @@ After reading about both AppArmor and SELinux, I have a different respect for ho
 16. [SELinux System Administration, Third Edition - Third Edition | Cloud & Networking | eBook](https://www.packtpub.com/en-us/product/selinux-system-administration-third-edition-9781800201477)
 17. [SELinux Cookbook | Cloud & Networking | eBook](https://www.packtpub.com/en-us/product/selinux-cookbook-9781783989669)
 18. https://opensource.com/sites/default/files/gated-content/cheat\_sheet\_selinux\_v2.pdf
-
-
-
